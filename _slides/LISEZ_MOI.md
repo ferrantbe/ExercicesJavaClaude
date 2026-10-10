@@ -71,6 +71,17 @@ probablement vu que le premier.
 Attention : ses slides 13 à 34 sont celles de `d12`, recopiées — seules les
 douze premières portent réellement sur les threads.
 
+## Les trois dossiers
+
+| | |
+|---|---|
+| `sources/` | les douze decks d'origine et le gabarit — ils ne changent plus |
+| `scenario/` | le plan de chaque deck, écrit avant lui |
+| `generes/` | les decks produits, pour que chaque conversation voie ce qui existe |
+
+`generes/` porte une réserve sur le poids que prend l'historique Git à force
+de versions successives : voir son `LISEZ_MOI.md`.
+
 ## Ajouter un module
 
 Deux fichiers, et rien d'autre.
