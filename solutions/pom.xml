@@ -18,4 +18,10 @@
 
     <artifactId>solutions</artifactId>
     <name>Exercices Java IN2 — solutions</name>
+
+    <!-- Classe lancee par "mvn javafx:run" depuis ce module : le premier
+         exercice FX. Le pom parent designe une demo, qui n'existe pas ici. -->
+    <properties>
+        <javafx.mainClass>be.ephec.java.fx.e01.CompteurParticipants</javafx.mainClass>
+    </properties>
 </project>

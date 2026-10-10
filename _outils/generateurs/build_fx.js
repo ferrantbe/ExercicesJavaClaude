@@ -94,7 +94,7 @@ fx.push(runs([
 fx.push(runs([
   { t: "Si l'application ne démarre pas, ", b: true },
   "voir ",
-  { t: "ERR.4", code: true },
+  { t: "ERR.7", code: true },
   " du guide IntelliJ — « JavaFX runtime components are missing ». C'est le message le plus fréquent des premières minutes, et il n'a rien à voir avec votre code."
 ]));
 fx.push(saut());

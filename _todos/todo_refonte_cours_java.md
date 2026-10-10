@@ -277,7 +277,7 @@ préfixe par section, insensible aux insertions.
   * les deux « manières de régler le problème » sont identiques (copier-coller), et la seconde
     déclare `void` avec un `return true;` — elle ne compile pas
   * la variante `dernierRetraitOK()` est écartée dans le mémento : elle introduit un état caché
-* [ ] **Corriger le pom : `javafx.mainClass` désigne `be.ephec.java.demo.FenetreDemo`,
+* [x] **Corriger le pom : `javafx.mainClass` désigne `be.ephec.java.demo.FenetreDemo`,
   classe qui n'existe pas encore** — `mvn javafx:run` échouerait aujourd'hui.
   À traiter en même temps que le thème `FX`.
 * [ ] **Renvoyer vers les règles depuis les fascicules ET depuis les slides**

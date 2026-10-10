@@ -39,11 +39,14 @@
         <junit.version>5.10.2</junit.version>
         <javafx.version>21.0.2</javafx.version>
 
-        <!-- Classe lancee par "mvn javafx:run". Se surcharge en ligne de
-             commande : mvn javafx:run -Djavafx.mainClass=be.ephec.java.fx.e02.CompteurApp
+        <!-- Classe lancee par "mvn javafx:run". Valeur par defaut : la
+             premiere demo FX, qui vit dans le module demos. Les modules
+             exercices et solutions la redefinissent dans leur propre pom.
+             Se surcharge en ligne de commande, depuis le module voulu :
+               mvn javafx:run -Djavafx.mainClass=be.ephec.java.fx.e02.CompteurParticipants
              En pratique les etudiants lancent plutot le Lanceur depuis
              IntelliJ ; cette propriete n'est la que pour le confort. -->
-        <javafx.mainClass>be.ephec.java.demo.FenetreDemo</javafx.mainClass>
+        <javafx.mainClass>be.ephec.java.demo.fx.ClicApp</javafx.mainClass>
     </properties>
 
     <!-- Ces dependances sont HERITEES par les modules enfants.
