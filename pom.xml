@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- ================================================================== -->
+    <!--  POM PARENT — ExercicesJava                                        -->
+    <!--                                                                    -->
+    <!--  Ce fichier ne contient AUCUN code. Son role est double :          -->
+    <!--   1. declarer les modules : exercices, solutions, demos, _travail   -->
+    <!--   2. centraliser les versions et les dependances, pour que les     -->
+    <!--      modules enfants restent des fichiers de dix lignes.           -->
+    <!--                                                                    -->
+    <!--  Ce que "packaging = pom" signifie : ce module ne produit pas de    -->
+    <!--  .jar, il ne fait qu'agreger les autres.                           -->
+    <!-- ================================================================== -->
+
+    <groupId>be.ephec.java</groupId>
+    <artifactId>exercices-java-parent</artifactId>
+    <version>2026.2027</version>
+    <packaging>pom</packaging>
+    <name>Exercices Java IN2 (parent)</name>
+
+    <modules>
+        <module>exercices</module>
+        <module>solutions</module>
+        <module>demos</module>
+        <module>_travail</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <!-- Version de Java. 21 = LTS, identique a celle des machines d'examen. -->
+        <maven.compiler.release>21</maven.compiler.release>
+
+        <junit.version>5.10.2</junit.version>
+        <javafx.version>21.0.2</javafx.version>
+
+        <!-- Classe lancee par "mvn javafx:run". Se surcharge en ligne de
+             commande : mvn javafx:run -Djavafx.mainClass=be.ephec.java.fx.e02.CompteurApp
+             En pratique les etudiants lancent plutot le Lanceur depuis
+             IntelliJ ; cette propriete n'est la que pour le confort. -->
+        <javafx.mainClass>be.ephec.java.demo.FenetreDemo</javafx.mainClass>
+    </properties>
+
+    <!-- Ces dependances sont HERITEES par les modules enfants.
+         Il n'y a donc rien a redeclarer en dessous. -->
+    <dependencies>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>${javafx.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>${javafx.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <!-- pluginManagement = "voici comment configurer ces plugins SI un
+             module les utilise". Les versions sont figees ici une fois pour
+             toutes ; les enfants n'ont plus qu'a citer le plugin sans version. -->
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.13.0</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>3.2.5</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.openjfx</groupId>
+                    <artifactId>javafx-maven-plugin</artifactId>
+                    <version>0.0.8</version>
+                    <configuration>
+                        <mainClass>${javafx.mainClass}</mainClass>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>

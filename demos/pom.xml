@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Module "demos" : les exemples construits en direct pendant le cours.
+         Chaque package porte le scenario de la demonstration dans la Javadoc
+         de sa classe Demo, et l'etat final du code en dessous.
+
+         Aucune dependance vers "exercices" ni vers "solutions" : une demo doit
+         pouvoir se lancer seule, y compris dans un projet vide. -->
+
+    <parent>
+        <groupId>be.ephec.java</groupId>
+        <artifactId>exercices-java-parent</artifactId>
+        <version>2026.2027</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>demos</artifactId>
+    <name>Exercices Java IN2 — demos du cours</name>
+</project>

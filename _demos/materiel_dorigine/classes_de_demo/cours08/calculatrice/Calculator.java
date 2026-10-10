@@ -1,0 +1,19 @@
+package be.ephec.java.cours08.calculatrice;
+
+public class Calculator {
+    public int add(int a, int b) {
+        return a + b;
+    }
+
+    public int substract(int a, int b) {
+        return 0;
+    }
+
+    public int multiply(int a, int b) {
+        return 0;
+    }
+
+    public int divide(int a, int b) {
+        return 0;
+    }
+}
