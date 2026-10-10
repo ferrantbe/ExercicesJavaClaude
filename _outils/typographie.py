@@ -59,6 +59,11 @@ AVANT = ":;?!»"
 PARTIES = re.compile(r"word/(document|header\d*|footer\d*|footnotes|endnotes)\.xml")
 
 PARAGRAPHE = re.compile(rb"<w:p[ >].*?</w:p>", re.S)
+RUN = re.compile(rb"<w:r>(?:(?!</w:r>).)*?</w:r>", re.S)
+
+# La police du code dans tous les documents du cours. Un run qui la
+# porte contient du Java, pas du francais.
+MONOSPACE = b"Consolas"
 TEXTE = re.compile(rb"(<w:t(?:\s[^>]*)?>)(.*?)(</w:t>)", re.S)
 TABLEAU = re.compile(rb"<w:tbl>.*?</w:tbl>", re.S)
 LIGNE = re.compile(rb"<w:tr[ >].*?</w:tr>", re.S)
@@ -82,9 +87,29 @@ def echappe(texte):
 #  1. Les espaces insecables
 # ---------------------------------------------------------------------
 
+def est_du_code(paragraphe, position):
+    """Ce texte appartient-il a un run en police monospace ?
+
+    L'outil a longtemps typographie le code comme de la prose, et pose
+    des espaces insecables a l'interieur de Java :
+
+        for (Contact contact : carnet)
+                             ^ ici
+
+    Soixante-huit cas dans douze documents, trouves le 10/10 en comparant
+    deux generations. Le deux-points d'un for-each, celui d'un ternaire ou
+    d'un label n'ont rien a voir avec la typographie francaise.
+    """
+    for m in RUN.finditer(paragraphe):
+        if m.start() <= position < m.end():
+            return MONOSPACE in m.group(0)
+    return False
+
+
 def espacer(paragraphe):
     """Rend (paragraphe modifie, nombre d'elements changes)."""
-    morceaux = list(TEXTE.finditer(paragraphe))
+    morceaux = [m for m in TEXTE.finditer(paragraphe)
+                if not est_du_code(paragraphe, m.start())]
     if not morceaux:
         return paragraphe, 0
 

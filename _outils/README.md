@@ -518,6 +518,43 @@ slides, `d02b` n'existe pas, `d04` manquait a la liste, et un deck nourrit
 souvent plusieurs themes — `d04` en sert trois, et les increments GameHub
 `G.14`-`G.20` figurent dans deux decks differents.
 
+## Un generateur par module
+
+Les quinze demonstrations etaient produites par quatre fichiers groupes
+arbitrairement — `build_demos.js` a `build_demos4.js`, de trois a six modules
+chacun. C'est devenu `build_demo_abs.js`, `build_demo_col.js`, et ainsi de
+suite : **un fichier par module**, comme pour les slides.
+
+Le decoupage a ete verifie en comparant les quinze documents AVANT et APRES,
+caractere par caractere. Treize identiques, deux differents d'un seul
+caractere — et ce caractere a revele un defaut, raconte ci-dessous.
+
+**Les fascicules restent groupes** par paires : `build_abs_itf.js`,
+`build_col_exc.js`, `build_jun_gen.js`, `build_lam_fic.js`, `build_pkg_tmp.js`,
+`build_tab_enu.js`. Le meme decoupage leur ferait du bien, mais ils sont bien
+plus intriques que les demonstrations.
+
+**Le registre `renvois_valides.txt` est indexe par nom de fichier.** Renommer
+un generateur y perime ses entrees — c'est arrive ici, et il a fallu les
+reinscrire. A savoir avant de renommer quoi que ce soit.
+
+## typographie.py epargne le code depuis le 10/10
+
+L'outil posait des espaces insecables **a l'interieur du code Java** :
+
+```
+for (Contact contact : carnet)
+                     ^ ici
+```
+
+Soixante-huit cas dans douze documents. Le deux-points d'un for-each, d'un
+ternaire ou d'un label n'a rien a voir avec la typographie francaise.
+
+Il ignore desormais tout run en police `Consolas`. Le defaut n'a ete trouve
+qu'en comparant deux generations du meme document : aucun controle ne le
+voyait, et il etait invisible a la lecture — un espace insecable ressemble a
+un espace.
+
 ## verifier_comptes.py — le tableau des themes dit-il la verite ?
 
 ```

@@ -2,15 +2,6 @@
 # Un renvoi glose la regle pour son contexte : il ne la recopie pas.
 # Format :  CODE  fichier-generateur
 
-CC-CLS.3 build_demos2.js
-CC-CLS.4 build_demos2.js
-CC-CLS.4 build_demos3.js
-CC-NOM.1 build_demos.js
-CC-NOM.1 build_demos2.js
-CC-NOM.1 build_demos3.js
-TEC-EXE.1 build_demos.js
-TEC-EXE.2 build_demos2.js
-TEC-EXE.2 build_demos4.js
 
 # --- Regles volontairement non citees -------------------------------
 # Huit regles du memento technique n'ont aucun renvoi, et c'est un choix.
@@ -24,3 +15,14 @@ TEC-EXE.2 build_demos4.js
 #   TEC-EXE.4                le ramasse-miettes
 #
 # Elles restent dans le memento : on les lit, on ne les cite pas.
+CC-CLS.3 build_demo_abs.js
+CC-CLS.4 build_demo_abs.js
+CC-CLS.4 build_demo_col.js
+CC-CLS.4 build_demo_enu.js
+CC-CLS.4 build_demo_itf.js
+CC-NOM.1 build_demo_gen.js
+CC-NOM.1 build_demo_lam.js
+CC-NOM.1 build_demo_poo.js
+TEC-EXE.1 build_demo_exc.js
+TEC-EXE.2 build_demo_sta.js
+TEC-EXE.2 build_demo_tab.js
