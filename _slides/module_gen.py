@@ -2,9 +2,10 @@
 """Configuration du module GEN pour construire_deck.py et finaliser_deck.py.
 
 Arborescence attendue, relative au dossier de ce fichier :
-    gabarit_deck.pptx         gabarit commun : theme, dispositions, 4 slides modeles
-    d08a.pptx                 ancien deck 08a (08a__Java_IN2_2026_-_Types_ge_ne_riques.pptx
-                              renomme), qui fournit l'intercalaire
+    sources/gabarit_deck.pptx  gabarit commun : theme, dispositions, 4 slides modeles
+    sources/d08.pptx           ancien deck 08 (generiques et lambdas reunis), qui
+                               fournit l'intercalaire ; appele d08a dans SOURCES,
+                               nom historique conserve
     scenario/Scenario_GEN.md  le scenario
 
 Usage :
@@ -18,8 +19,8 @@ ICI = Path(__file__).resolve().parent
 CODE = "GEN"
 ORDRE = 12   # rang du deck dans le cours : apres COL, EXC et JUN
 SCENARIO = ICI / "scenario" / "Scenario_GEN.md"
-GABARIT = ICI / "gabarit_deck.pptx"
-SOURCES = {"d08a": ICI / "d08a.pptx"}
+GABARIT = ICI / "sources" / "gabarit_deck.pptx"
+SOURCES = {"d08a": ICI / "sources" / "d08.pptx"}
 
 # Slides prelevees dans les decks sources : (deck, numero[, nom de forme])
 GABARIT_TITRE = ("gabarit", 1)

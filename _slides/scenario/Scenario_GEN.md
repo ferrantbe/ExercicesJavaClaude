@@ -588,7 +588,8 @@ méthode, et jamais pour faire taire un avertissement qu'on ne comprend pas.
 
 **Réserve** Le tableau des renvois de `Demo_FIC` cite « GEN.1 : l'effacement
 de type, qui explique le transtypage à la relecture ». GEN.1 n'en parle pas :
-renvoyer plutôt au deck GEN, slides 3.3 et 3.5.
+renvoyer plutôt au deck GEN, slides 3.3 et 3.5. *Corrigé le 10/10/2026 :
+`Demo_FIC` renvoie désormais au deck GEN, slides 3.3 et 3.5.*
 
 ---
 

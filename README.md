@@ -106,7 +106,7 @@ codes comme `CC-NOM.1`, `TEC-EXE.2` ou `IDE.17`.
 | Fichier | Ce qu'on y trouve |
 |---|---|
 | `Codes_du_cours.docx` | à quoi correspond chaque abréviation |
-| `Memento_Clean_Code.docx` | 33 règles d'écriture, `CC-*` |
+| `Memento_Clean_Code.docx` | 34 règles d'écriture, `CC-*` |
 | `Memento_Technique.docx` | plateforme, compilation, exécution, Maven, `TEC-*` |
 | `Guide_IntelliJ.docx` | l'outil, `IDE.*`, et une annexe d'erreurs `ERR.*` |
 

@@ -278,7 +278,7 @@ for texte in [
     "MoSCoW du module : ce qu'on garde si l'année dérape, ce qu'on ajoute s'il reste du temps.",
     "« Démo de code » : un exemple construit en direct dans IntelliJ pendant le cours. Elles vivent "
     "dans le module demos/, et leur scénario dans _demos/. Douze sur seize existent.",
-    "« Renvois mémento » : nombre de règles du mémento Clean Code citées dans le fascicule. Dix-sept des trente-trois règles sont citées au moins une fois.",
+    "« Renvois mémento » : nombre de règles du mémento Clean Code citées dans le fascicule. Dix-sept des trente-quatre règles sont citées au moins une fois.",
     "La colonne Trous compte les supports absents : fascicule, démo de code, et un zéro de renvois.",
 ]:
     ligne += 1

@@ -69,7 +69,7 @@ fic.push(runs([
   { t: "Le point à faire passer. ", b: true },
   "Le choix entre texte et binaire n'est pas une question de goût. Il engage la ",
   { t: "durabilité", b: true },
-  " : un fichier texte survit à la mort du programme qui l'a écrit, un fichier binaire non."
+  " : un fichier texte survit aux évolutions du programme qui l'a écrit, un fichier binaire non."
 ]));
 
 etape(fic, 1, "Rien ne survit", "2 min");
@@ -156,8 +156,8 @@ fin(fic, "FIC", [
   [{ t: "Le champ ajouté. ", b: true }, "L'étape 5 ne fonctionne que si le .dat n'est PAS réécrit entre-temps. Commenter l'appel d'écriture avant de relancer, sinon l'expérience rate."]
 ], [
   ["CC-MET.3", "une méthode ne fait qu'une chose : écrire, ou mettre en forme"],
-  ["CC-ERR.1", "ne pas avaler une exception"],
-  ["GEN.1", "l'effacement de type, qui explique le transtypage à la relecture"],
+  ["CC-ERR.6", "n'avalez pas une exception en silence"],
+  ["GEN 3.3 et 3.5", "deck GEN : l'effacement de type, qui explique le transtypage à la relecture"],
   ["STA.2", "depuisLigne() est une fabrique, comme deMinutes()"]
 ], runs([
   "Les fichiers produits vont dans ",

@@ -328,13 +328,6 @@ fic.push(verif([
   { t: "be.ephec.java.fic.e01.EtudiantTest", code: true },
   { t: "Vérifie les trois classes, les formats de toString, l'inscription et la désinscription — y compris les cas sans effet — et la protection de la liste rendue." }
 ]));
-fic.push(bulletRuns([
-  "Que se passe-t-il si le fichier n'existe pas ? Votre méthode doit-elle rendre null, une liste vide, ou lever une exception ? Voir ",
-  { t: "CC-ERR.1", code: true },
-  " et ",
-  { t: "CC-ERR.2", code: true },
-  "."
-]));
 fic.push(saut());
 
 // --- FIC.2
@@ -395,6 +388,13 @@ fic.push(verif([
   { t: "Le test écrit dans un dossier temporaire fourni par JUnit — l'annotation @TempDir — créé avant le test et supprimé après. Vos tests ne laisseront jamais de fichiers dans le projet." }
 ]));
 fic.push(h2("Questions à se poser"));
+fic.push(bulletRuns([
+  "Que se passe-t-il si relire reçoit un fichier qui n'existe pas ? Votre méthode doit-elle retourner null, une liste vide, ou lever une exception ? Voir ",
+  { t: "CC-ERR.1", code: true },
+  " et ",
+  { t: "CC-ERR.2", code: true },
+  "."
+]));
 fic.push(bullet("Renommez un champ d'Etudiant, puis relisez un fichier écrit avant le changement. Que se passe-t-il ? Cherchez ce qu'est un serialVersionUID."));
 fic.push(bullet("Un mot de passe stocké dans un champ part-il dans le fichier ? Cherchez le mot-clé transient."));
 fic.push(bulletRuns([

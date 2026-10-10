@@ -230,7 +230,7 @@ c.push(new Paragraph({
 }));
 c.push(new Paragraph({
   spacing: { after: 800 }, alignment: AlignmentType.CENTER,
-  children: [new TextRun({ text: typo("33 règles pour écrire du code qu'on peut relire"), size: 26, color: GREY })]
+  children: [new TextRun({ text: typo("34 règles pour écrire du code qu'on peut relire"), size: 26, color: GREY })]
 }));
 c.push(p("EPHEC — Bachelier en informatique, niveau 2", { align: AlignmentType.CENTER, color: GREY }));
 c.push(p("Année académique 2026-2027", { align: AlignmentType.CENTER, color: GREY }));
@@ -310,7 +310,8 @@ c.push(indexTable("Traiter les erreurs", [
   ["CC-ERR.2", "Ne rendez pas null"],
   ["CC-ERR.3", "Ne passez pas null en paramètre"],
   ["CC-ERR.4", "Le message d'exception dit ce qui a échoué et avec quelle valeur"],
-  ["CC-ERR.5", "Définissez vos exceptions selon ce que l'appelant doit distinguer"]
+  ["CC-ERR.5", "Définissez vos exceptions selon ce que l'appelant doit distinguer"],
+  ["CC-ERR.6", "N'avalez pas une exception en silence"]
 ]));
 c.push(p("", { after: 200 }));
 
@@ -996,7 +997,7 @@ c.push(new Paragraph({ children: [new PageBreak()] }));
 
 // ================= SECTION ERR =================
 c.push(h1("Traiter les erreurs"));
-c.push(p("Ces quatre règles s'appliquent au thème EXC, mais elles décident aussi de la lisibilité du code qui les appelle. Mal traitée, une erreur oblige chaque appelant à vérifier, à commenter, et finalement à oublier de vérifier.", { italic: true, color: GREY }));
+c.push(p("Ces six règles s'appliquent au thème EXC, mais elles décident aussi de la lisibilité du code qui les appelle. Mal traitée, une erreur oblige chaque appelant à vérifier, à commenter, et finalement à oublier de vérifier.", { italic: true, color: GREY }));
 
 // --- CC-ERR.1
 c.push(h2("CC-ERR.1 — Une erreur se signale par une exception, pas par une valeur de retour"));
@@ -1146,6 +1147,28 @@ c.push(encadre([
   { t: "Ce que le message ne doit pas faire", b: true },
   { t: "Ne construisez pas le message avec des informations sensibles — mot de passe, numéro de compte complet. La trace d'exception finit souvent dans un fichier de log que beaucoup de gens peuvent lire." },
   { t: "N'écrivez pas non plus le message en pensant à l'utilisateur final : ce n'est pas lui qui le lira. Le message d'exception est destiné au développeur ; le message affiché à l'écran est une autre affaire, décidée par l'appelant." }
+]));
+
+// --- CC-ERR.6
+c.push(h2("CC-ERR.6 — N'avalez pas une exception en silence"));
+c.push(p("Un catch vide fait taire l'erreur sans la résoudre. Le programme continue comme si tout allait bien, dans un état faux, et l'incident ressurgit plus loin, à un endroit qui n'a plus rien à voir avec sa cause. Le plantage était bruyant mais honnête ; ce silence ment."));
+c.push(...mauvais([
+  'try {',
+  '    journal.enregistrer(partie);',
+  '} catch (IOException e) {',
+  '    // ne devrait pas arriver',
+  '}'
+]));
+c.push(p("Trois réactions sont honnêtes. Traiter : redemander, proposer autre chose, prendre une valeur de repli que l'on assume. Informer : dire ce qui a échoué. Ou ne pas attraper du tout, et laisser l'exception remonter jusqu'à quelqu'un qui saura quoi en faire."));
+c.push(...bon([
+  'public void terminer(Partie partie) throws IOException {',
+  '    journal.enregistrer(partie);    // c\'est l\'appelant qui decidera',
+  '}'
+]));
+c.push(p("Si vous ne savez pas quoi faire d'une exception à cet endroit, ce n'est pas l'endroit pour l'attraper : déclarez-la."));
+c.push(encadre([
+  { t: "Quand l'objet exception ne sert plus", b: true },
+  { t: "Attraper une exception pour redemander une saisie est un vrai traitement, même quand l'objet exception n'est plus utilisé. Nommez alors la variable ignoree : le nom dit que c'est voulu, et non oublié." }
 ]));
 
 c.push(new Paragraph({ children: [new PageBreak()] }));
@@ -1425,7 +1448,7 @@ c.push(runs([
 c.push(new Paragraph({ children: [new PageBreak()] }));
 
 c.push(h1("La règle du boy-scout"));
-c.push(p("Trente-trois règles, cela peut décourager. Elles ne se prennent pas d'un bloc, et personne n'écrit du code parfait du premier coup — pas même l'auteur du livre dont elles viennent."));
+c.push(p("Trente-quatre règles, cela peut décourager. Elles ne se prennent pas d'un bloc, et personne n'écrit du code parfait du premier coup — pas même l'auteur du livre dont elles viennent."));
 c.push(p("Les scouts américains ont une consigne de camp : laissez l'emplacement plus propre que vous ne l'avez trouvé. Appliquée au code, elle donne une règle praticable : chaque fois que vous ouvrez un fichier, améliorez une chose. Un nom plus clair, un commentaire remplacé par une méthode nommée, une constante à la place d'un nombre magique."));
 c.push(p("Une seule chose, pas dix. C'est suffisant pour qu'un programme s'améliore avec le temps au lieu de se dégrader — ce qui est, en pratique, le seul objectif atteignable."));
 
