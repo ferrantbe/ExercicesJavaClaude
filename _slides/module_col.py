@@ -18,8 +18,8 @@ ICI = Path(__file__).resolve().parent
 CODE = "COL"
 ORDRE = 9    # rang du deck dans le cours : apres INI, POO, TMP, TAB, ENU, ABS, ITF, PKG
 SCENARIO = ICI / "scenario" / "Scenario_COL.md"
-GABARIT = ICI / "gabarit_deck.pptx"
-SOURCES = {"d05": ICI / "d05.pptx"}
+GABARIT = ICI / "sources" / "gabarit_deck.pptx"
+SOURCES = {"d05": ICI / "sources" / "d05.pptx"}
 
 # Slides prelevees dans les decks sources : (deck, numero[, nom de forme])
 GABARIT_TITRE = ("gabarit", 1)

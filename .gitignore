@@ -31,11 +31,14 @@ Thumbs.db
 #     Les decks sources, eux, sont lourds et ne changent jamais :
 #     voir la remarque ci-dessous.
 
-# --- les decks sources et le gabarit
-#     Douze fichiers, environ 70 Mo, qui ne changeront plus.
-#     Les suivre alourdirait chaque clone sans rien apporter.
-#     Retirez ces trois lignes si vous preferez tout avoir
-#     d'un seul coup — c'est defendable aussi.
-_slides/d*.pptx
-_slides/gabarit_deck.pptx
+# --- les decks SOURCES sont suivis, depuis le 10/10
+#
+#     d01 a d12 et gabarit_deck.pptx vivent dans _slides/sources/.
+#     Environ 70 Mo, qui ne changeront plus : on les porte une fois,
+#     et plus aucune conversation n'a besoin de piece jointe.
+#
+#     Les decks PRODUITS, eux, restent dehors : ils se refabriquent
+#     a partir des sources, du scenario et du module_xxx.py.
 _slides/*_slides.pptx
+_slides/*_deck.pptx
+!_slides/sources/gabarit_deck.pptx

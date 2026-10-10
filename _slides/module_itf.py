@@ -16,8 +16,8 @@ ICI = Path(__file__).resolve().parent
 CODE = "ITF"
 ORDRE = 7    # rang du deck dans le cours
 SCENARIO = ICI / "scenario" / "Scenario_ITF.md"
-GABARIT = ICI / "gabarit_deck.pptx"
-SOURCES = {"d03": ICI / "d03.pptx"}
+GABARIT = ICI / "sources" / "gabarit_deck.pptx"
+SOURCES = {"d03": ICI / "sources" / "d03.pptx"}
 
 # Slides prelevees dans les decks sources : (deck, numero[, nom de forme])
 # Le deck ITF a d'abord ete construit avec le deck ABS livre comme gabarit,

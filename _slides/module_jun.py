@@ -18,8 +18,8 @@ ICI = Path(__file__).resolve().parent
 CODE = "JUN"
 ORDRE = 11   # rang du deck dans le cours : juste apres EXC
 SCENARIO = ICI / "scenario" / "Scenario_JUN.md"
-GABARIT = ICI / "gabarit_deck.pptx"
-SOURCES = {"d07": ICI / "d07.pptx"}
+GABARIT = ICI / "sources" / "gabarit_deck.pptx"
+SOURCES = {"d07": ICI / "sources" / "d07.pptx"}
 
 # Slides prelevees dans les decks sources : (deck, numero[, nom de forme])
 GABARIT_TITRE = ("gabarit", 1)
