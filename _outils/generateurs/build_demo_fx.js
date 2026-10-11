@@ -59,8 +59,18 @@ function fin(c, module, rate, renvois, rejouer) {
 
 const fx = [];
 couverture(fx, "FX", "Le lien entre un composant et le code",
-           "15 minutes", "avant FX.1");
+           "18 minutes, en trois temps", "avant FX.1, FX.4 et FX.5");
 fx.push(p("C'est le seul geste de l'année qu'un étudiant ne peut pas deviner, et c'est la question 5 de l'examen. Deux applications : le lien lui-même, puis le voyage de l'événement."));
+fx.push(runs([
+  { t: "Jouée en trois temps. ", b: true },
+  "Le deck FX1 l'appelle trois fois : étapes 1 et 2 avant ",
+  { t: "FX.1", code: true },
+  " (slide 3.3), étape 3 avant ",
+  { t: "FX.4", code: true },
+  " (slide 4.2), étapes 4 et 5 avant ",
+  { t: "FX.5", code: true },
+  " (slide 5.2). Chaque reprise coûte une minute de plus que le déroulé ci-dessous : rouvrir le code, relancer l'application."
+]));
 
 etape(fx, 1, "Le bouton qui ne fait rien", "2 min");
 fx.push(runs([
@@ -114,7 +124,7 @@ fin(fx, "FX",
    [{ t: "À dire — ", b: true },
     "on ne donne pas au bouton ce que la méthode rend, on lui donne de quoi l'appeler plus tard. C'est toute la différence entre une valeur et un comportement."]],
   [["CC-MET.8", "une méthode agit ou répond, jamais les deux"],
-   ["IDE.16", "les transformations proposées par Alt+Entrée"],
+   ["IDE.15", "les transformations proposées par Alt+Entrée"],
    ["TEC-FX.4", "pourquoi une application JavaFX refuse de démarrer, et la classe de lancement"]],
   "L'état d'arrivée contient les deux applications, les trois écritures du gestionnaire en commentaire, et le filtre avec sa case à cocher.");
 

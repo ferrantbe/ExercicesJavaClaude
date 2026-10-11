@@ -112,7 +112,7 @@ fin(lam, "LAM",
     "l'annotation ne sert qu'à ça, et ça vaut la peine : sans elle, l'erreur serait apparue chez tous ceux qui utilisent l'interface, et pas à l'endroit où quelqu'un a fait la bêtise."]],
   [["CC-NOM.1", "un nom répond à la question qu'on se pose en le lisant"],
    ["CC-MET.2", "des méthodes courtes"],
-   ["IDE.16", "les transformations proposées par Alt+Entrée"]],
+   ["IDE.15", "les transformations proposées par Alt+Entrée"]],
   "L'état d'arrivée contient la lambda, la classe anonyme conservée pour la comparaison, et la méthode qui accepte les deux.");
 
 // =====================================================================

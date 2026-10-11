@@ -24,7 +24,7 @@ numérotation.
 
 | Projet | Ce qu'il contient |
 |---|---|
-| `ExercicesJavaClaude` | le recueil : 70 exercices sur 15 thèmes, 5 documents de référence, 15 fascicules, 15 démonstrations, les outils |
+| `ExercicesJavaClaude` | le recueil : 71 exercices sur 15 thèmes, 5 documents de référence, 15 fascicules, 15 démonstrations, les outils |
 | `GameHubClaude` | le fil rouge : 30 incréments, 3 documents, un dépôt Git généré |
 | `DemineurClaude` | un exercice facultatif, projet JavaFX autonome |
 
@@ -160,7 +160,8 @@ n'est pas appliqué.
 doivent ; les corrigés compilent et s'exécutent ; les 30 états de GameHub
 compilent ; les 8 exercices `FX` et les 2 démos JavaFX tournent.
 
-**Pas vérifié** : les 10 tests du démineur et le jeu lui-même.
+**Pas vérifié** : les 10 tests du démineur et le jeu lui-même ; `FX.8`
+(bindings), écrit le 11/10 sans JavaFX disponible, ni compilé ni lancé.
 
 **Une limite permanente côté Claude** : ni JUnit ni JavaFX ne sont
 disponibles dans l'environnement. Tout ce qui touche à ces deux-là doit être

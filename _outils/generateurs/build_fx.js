@@ -17,7 +17,8 @@ modeEmploi(fx, "FX", [
   ["FX.5", "be.ephec.java.fx.e05", "Un événement voyage"],
   ["FX.6", "be.ephec.java.fx.e06", "Écouter une propriété"],
   ["FX.7", "be.ephec.java.fx.e07", "Un Slider et un Label"],
-  ["FX.8", "be.ephec.java.fx.e08", "Une calculatrice, en MVC"]
+  ["FX.8", "be.ephec.java.fx.e08", "Lier plutôt qu'écouter"],
+  ["FX.9", "be.ephec.java.fx.e09", "Une calculatrice, en MVC"]
 ]);
 
 fx.push(h2("La classe à lancer"));
@@ -47,7 +48,7 @@ fx.push(runs([
   "Une exception : le ",
   { t: "Modele", code: true },
   " de ",
-  { t: "FX.8", code: true },
+  { t: "FX.9", code: true },
   " ne connaît rien à JavaFX, et se teste comme n'importe quelle classe. C'est précisément ce que l'architecture MVC permet de gagner."
 ]));
 
@@ -338,8 +339,48 @@ fx.push(bullet("Pourquoi le Listener reçoit-il un Number alors que la propriét
 fx.push(saut());
 
 // --- FX.8
-fx.push(h1("FX.8 — Une calculatrice, en MVC"));
+fx.push(h1("FX.8 — Lier plutôt qu'écouter"));
 fx.push(p("Package : be.ephec.java.fx.e08", { italic: true, color: GREY }));
+fx.push(h2("Objectif"));
+fx.push(p("Déclarer qu'une valeur dépend d'une autre, au lieu d'écrire le code qui la recopie."));
+fx.push(h2("Énoncé"));
+fx.push(runs([
+  "Écrivez une fenêtre composée d'un champ de saisie pour un pseudo et de trois composants qui en dépendent. ",
+  { t: "Aucun Listener, aucun gestionnaire de clavier", b: true },
+  " : chaque dépendance s'écrit en une instruction, par ",
+  { t: "bind", code: true },
+  "."
+]));
+fx.push(tableau(["Composant", "Ce qu'il affiche ou fait"], [
+  ["Label compteur", "« 5 / 12 caracteres », la longueur du pseudo sur la longueur maximale"],
+  ["Label salut", "« Bonjour, Alice ! », avec le pseudo tel qu'il est tapé"],
+  ["Button « Valider »", "désactivé tant que le pseudo est vide ou dépasse douze caractères ; affiche le pseudo retenu sur la console"]
+], [2600, 6760], [0]));
+fx.push(encadre([
+  [{ t: "Les outils, tous sur la propriété du texte", b: true }],
+  [{ t: "length()", code: true }, " et ", { t: "isEmpty()", code: true }, " rendent une longueur et une condition observables, qui se recalculent seules."],
+  [{ t: "asString(\"%d ...\")", code: true }, " transforme un nombre observable en texte observable ; ", { t: "greaterThan(n)", code: true }, " et ", { t: "or(...)", code: true }, " fabriquent des conditions."],
+  [{ t: "Bindings.concat(...)", code: true }, " assemble des morceaux de texte, observables ou non."]
+]));
+fx.push(runs([
+  "La longueur maximale est une constante nommée, déclarée dans le squelette, et le message l'affiche. Voir ",
+  { t: "CC-NOM.7", code: true },
+  "."
+]));
+fx.push(h2("Ce que vous devez observer"));
+fx.push(bullet("dès l'ouverture, le compteur affiche « 0 / 12 caracteres » et le bouton est grisé, sans qu'aucune ligne de votre code ne l'ait demandé ;"));
+fx.push(bullet("chaque caractère tapé, effacé ou collé met à jour le compteur et le salut ;"));
+fx.push(bullet("le bouton devient actif au premier caractère, et redevient grisé au treizième ;"));
+fx.push(bullet("un clic sur « Valider » affiche le pseudo sur la console."));
+fx.push(h2("Questions à se poser"));
+fx.push(bullet("FX.7 demandait d'afficher la valeur initiale avant l'ouverture. Pourquoi n'est-ce plus nécessaire ici ?"));
+fx.push(bullet("Après le bind, appelez compteur.setText(\"test\"). Que se passe-t-il, et pourquoi est-ce une protection plutôt qu'une gêne ?"));
+fx.push(bullet("Récrivez FX.7 avec un binding. Combien de lignes disparaissent ? Et que perdez-vous ?"));
+fx.push(saut());
+
+// --- FX.9
+fx.push(h1("FX.9 — Une calculatrice, en MVC"));
+fx.push(p("Package : be.ephec.java.fx.e09", { italic: true, color: GREY }));
 fx.push(h2("Objectif"));
 fx.push(p("Construire une application complète, et séparer ce qui s'affiche de ce qui calcule."));
 fx.push(h2("Contexte : l'architecture MVC"));
@@ -356,7 +397,7 @@ fx.push(runs([
   ", alors qu'aucun test ne peut vérifier une fenêtre."
 ]));
 fx.push(h2("Le FXML, et les deux mécanismes à comprendre"));
-fx.push(p("La vue vous est fournie. Lisez-la : tout ce qu'elle contient remplace du code que vous auriez écrit à la main dans les sept exercices précédents."));
+fx.push(p("La vue vous est fournie. Lisez-la : tout ce qu'elle contient remplace du code que vous auriez écrit à la main dans les huit exercices précédents."));
 fx.push(tableau(["Dans le FXML", "Dans le contrôleur"], [
   ["fx:controller=\"...Controleur\"", "désigne la classe qui reçoit les événements"],
   ["fx:id=\"affichage\"", "@FXML private Text affichage — injecté au chargement"],

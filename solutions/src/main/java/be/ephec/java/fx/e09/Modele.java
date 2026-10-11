@@ -1,7 +1,7 @@
-package be.ephec.java.fx.e08;
+package be.ephec.java.fx.e09;
 
 /**
- * FX.8 — CORRIGE.
+ * FX.9 — CORRIGE.
  *
  * Le modele est la seule des trois classes qui ne connaisse rien a
  * JavaFX. Aucun import, aucune reference a un composant.

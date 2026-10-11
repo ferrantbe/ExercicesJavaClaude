@@ -41,7 +41,7 @@ Si vous les retrouvez, déposez-les dans `_slides/images/`.
 `11b_Clean_Code.pptx` ne nourrit aucun module : il a servi à écrire
 `Memento_Clean_Code.docx`.
 
-`99_Threads.pptx` concerne `FX.9`, hors examen, et ses slides 13 à 34
+`99_Threads.pptx` concerne `FX.10`, hors examen, et ses slides 13 à 34
 sont celles de `d12` recopiées.
 
 Rangez-les ailleurs si vous voulez les garder.

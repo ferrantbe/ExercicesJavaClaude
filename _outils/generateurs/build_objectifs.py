@@ -206,7 +206,7 @@ MODULES = [
     ("JUN", "Tests unitaires JUnit", "Must", "07", 3, 3, "oui", "écrite", 2, "livré"),
     ("GEN", "Types génériques", "Should", "08a", 6, 6, "oui", "écrite", 2, "livré"),
     ("LAM", "Lambdas et références de méthodes", "Must", "08b", 3, 3, "oui", "écrite", 1, "livré"),
-    ("FX", "JavaFX et gestion d'événements", "Must", "10, 11", 8, 0, "oui", "écrite", 3,
+    ("FX", "JavaFX et gestion d'événements", "Must", "09, 10, 11", 9, 0, "oui", "écrite", 3,
      "livré — sans classes de test, par nature"),
     ("FIC", "Fichiers", "Should", "12", 3, 3, "oui", "écrite", 1, "livré"),
     ("REC", "Exercices récapitulatifs", "Could", "13", 0, 0, "non", "—", 0,
@@ -354,9 +354,10 @@ EXERCICES = [
     ("FX", "FX.5", "Filtre, gestionnaires et consume (ex. 46)", "Should", "A.5", "livré"),
     ("FX", "FX.6", "Écouter la propriété d'un TextField (ex. 51)", "Should", "A.5", "livré"),
     ("FX", "FX.7", "Un Slider et un Label qui suit (ex. 52)", "Could", "A.5", "livré"),
-    ("FX", "FX.8", "Une calculatrice, en MVC et FXML", "Should", "A.5", "livré"),
+    ("FX", "FX.8", "Lier plutôt qu'écouter : bindings", "Could", "A.5", "livré"),
+    ("FX", "FX.9", "Une calculatrice, en MVC et FXML", "Should", "A.5", "livré"),
 
-    ("FX", "FX.9", "Le guichet : threads et Platform.runLater", "Won't", "A.5", "hors examen"),
+    ("FX", "FX.10", "Le guichet : threads et Platform.runLater", "Won't", "A.5", "hors examen"),
 
     ("FIC", "FIC.1", "Trois classes qui se connaissent", "Should", "A.1", "livré"),
     ("FIC", "FIC.2", "Enregistrer des objets", "Must", "A.5", "livré"),
@@ -493,12 +494,14 @@ APPRENTISSAGE = [
     ("LAM", "LAM.c", "Passer un comportement en paramètre", "A.6", "LAM.2"),
     ("LAM", "LAM.d", "Employer les interfaces de java.util.function", "A.6", "LAM.3"),
     ("LAM", "LAM.e", "Employer une référence de méthode", "A.6", "LAM.3"),
-    ("FX", "FX.a", "Construire une fenêtre et disposer des composants", "A.5", "FX.1, FX.6"),
-    ("FX", "FX.b", "Relier un composant à un gestionnaire d'ActionEvent", "A.5", "FX.2"),
-    ("FX", "FX.c", "Traiter un KeyEvent et un MouseEvent", "A.5", "FX.3, FX.4"),
+    ("FX", "FX.a", "Construire une fenêtre et disposer des composants", "A.5", "FX.1, FX.3"),
+    ("FX", "FX.b", "Relier un composant à un gestionnaire d'ActionEvent", "A.5", "FX.1, FX.2"),
+    ("FX", "FX.c", "Traiter un KeyEvent et un MouseEvent", "A.5", "FX.4, FX.5"),
     ("FX", "FX.d", "Distinguer filtre et gestionnaire, comprendre la propagation", "A.5", "FX.5"),
-    ("FX", "FX.e", "Construire une application graphique complète", "A.5", "FX.6"),
-    ("FX", "FX.f", "Séparer la vue du contrôleur avec FXML", "C.1", "FX.7, FX.8"),
+    ("FX", "FX.e", "Construire une application graphique complète", "A.5", "FX.9"),
+    ("FX", "FX.f", "Séparer la vue du contrôleur avec FXML", "C.1", "FX.9"),
+    ("FX", "FX.g", "Observer une propriété par un ChangeListener (facultatif)", "A.5", "FX.6, FX.7"),
+    ("FX", "FX.h", "Lier des valeurs par un binding (facultatif)", "A.5", "FX.8"),
     ("FIC", "FIC.a", "Modéliser un petit domaine à trois classes liées", "A.1", "FIC.1"),
     ("FIC", "FIC.b", "Protéger une collection interne rendue par un accesseur", "C.1", "FIC.1"),
     ("FIC", "FIC.c", "Sérialiser des objets et les relire", "A.5", "FIC.2"),
@@ -656,6 +659,14 @@ VERIFICATIONS = [
      "Les 8 exercices FX tournent, ainsi que LanceurClic et "
      "LanceurPropagation. Les classes Lanceur, ajoutees le 14/09, sont donc "
      "eprouvees sur les trois projets : recueil, demos et demineur."),
+
+    ("JavaFX — FX.8 (bindings) et pom.xml",
+     "a faire", "",
+     "FX.8 et son corrige ont ete ecrits le 11/10 sans JavaFX disponible : "
+     "ni compiles ni lances. La calculatrice est passee de e08 a e09 "
+     "(package, FXML, fx:controller) : a relancer. Le pom designe "
+     "desormais ClicApp (demos) et fx.e01 (exercices, solutions) pour "
+     "javafx:run : a essayer."),
 
     ("Captures d'ecran sous Windows",
      "a faire", "",

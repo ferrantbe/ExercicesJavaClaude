@@ -1,4 +1,4 @@
-package be.ephec.java.fx.e08;
+package be.ephec.java.fx.e09;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -6,7 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 
 /**
- * FX.8 — A COMPLETER.
+ * FX.9 — A COMPLETER.
  *
  * Le CONTROLEUR : il ecoute la vue, interroge le modele, et met la vue a
  * jour. Il ne calcule rien lui-meme.

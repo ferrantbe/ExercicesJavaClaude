@@ -12,17 +12,17 @@ Sections à déclarer dans `module_fx1.py`, listes `SECTIONS` et `LIBELLES` :
 | # | `SECTIONS` (titre de l'intercalaire) | `LIBELLES` (repère et sommaire) |
 |---|---|---|
 | 1 | Lancer une application JavaFX | Le lancement |
-| 2 | Une fenêtre, une scène, des composants | La fenêtre |
+| 2 | Une fenêtre et ses composants | La fenêtre |
 | 3 | Brancher un bouton | Les gestionnaires |
-| 4 | L'événement porte de l'information | Les événements |
+| 4 | Ce que dit un événement | Les événements |
 | 5 | Un événement voyage | La propagation |
 
 La slide du fil rouge (6.1) n'a pas d'intercalaire, comme la slide 5.1 du
 deck FIC.
 
 **FX1 est un code de deck, pas de thème.** Le thème reste FX, avec un seul
-fascicule (`FX_enonces.docx`) et des exercices numérotés de FX.1 à FX.8.
-Ce deck couvre FX.1 à FX.5 ; le deck FX2 couvre FX.6 à FX.8.
+fascicule (`FX_enonces.docx`) et des exercices numérotés de FX.1 à FX.10.
+Ce deck couvre FX.1 à FX.5 ; le deck FX2 couvre FX.6 à FX.9.
 
 **Sources** : deck 10 (`d10.pptx`, 49 slides : événements, Stage et Scene,
 layouts, contrôles), deck 09 (`d09.pptx`, slides 7 à 22 : présentation et
@@ -90,7 +90,7 @@ deux sessions). Le deck FX2 ne porte rien qui soit évalué.
 - Les exemples suivent une lampe de bureau (`Lampe`, un `Label` d'état, un
   bouton interrupteur, une ampoule en `Circle`), pour ne réutiliser ni le
   compteur des exercices, ni `ClicApp` et `PropagationApp` de la
-  démonstration, ni la calculatrice de FX.8.
+  démonstration, ni la calculatrice de FX.9.
 - Le fil rouge reçoit un nouvel incrément, G.34, présenté en 6.1. Le deck
   FX2 présentera G.35.
 
@@ -274,9 +274,9 @@ IntelliJ.
 
 ---
 
-## Section 2 - Une fenêtre, une scène, des composants
+## Section 2 - Une fenêtre et ses composants
 
-### 2.1 · Une fenêtre, une scène, des composants
+### 2.1 · Une fenêtre et ses composants
 
 *(intercalaire)*
 
@@ -372,10 +372,10 @@ parcourt de haut en bas, puis de bas en haut.
 
 | Conteneur | Range ses enfants | Usage typique |
 |---|---|---|
-| `HBox` | côte à côte, sur une ligne | une rangée de boutons |
+| `HBox` | côte à côte | une rangée de boutons |
 | `VBox` | les uns sous les autres | un formulaire |
-| `BorderPane` | en cinq zones : haut, bas, gauche, droite, centre | une fenêtre d'application |
-| `StackPane` | empilés, centrés les uns sur les autres | un texte posé sur une forme |
+| `BorderPane` | en cinq zones | une application |
+| `StackPane` | empilés et centrés | un texte sur une forme |
 
 **Note**
 
@@ -385,8 +385,10 @@ fenêtre change de taille. C'est ce qui permet à une interface de rester
 lisible quand on l'agrandit.
 
 Les quatre conteneurs du tableau sont ceux des exercices. Un `BorderPane` ne
-range pas ses enfants dans une liste : on les place zone par zone, par
-`setTop`, `setCenter` ou `setBottom`. Un `StackPane` empile ses enfants dans
+range pas ses enfants dans une liste : il a cinq zones, le haut, le bas, la
+gauche, la droite et le centre, et on les remplit une à une, par `setTop`,
+`setCenter` ou `setBottom`. Un `StackPane` centre ses enfants les uns sur
+les autres. Un `StackPane` empile ses enfants dans
 l'ordre où on les ajoute : le dernier est au-dessus.
 
 Il en existe d'autres, que vous rencontrerez dans la Javadoc : `FlowPane`,
@@ -477,7 +479,7 @@ démonstration.
 
 ### 3.3 · Démonstration
 
-**Source** `Demo_FX.docx`, étapes 1 et 2, 6 minutes, avant FX.1
+**Source** `Demo_FX.docx`, étapes 1 et 2, 7 minutes, avant FX.1
 
 **Slide**
 
@@ -541,9 +543,8 @@ examen 2023
 **Slide**
 
 - La méthode `addEventHandler` nomme le type d'événement écouté
-- Plusieurs gestionnaires peuvent s'ajouter au même composant
-- La méthode `removeEventHandler` retire un gestionnaire, si on lui redonne le même objet
-- On range donc ce gestionnaire dans un champ
+- Les gestionnaires ajoutés s'additionnent
+- Pour en retirer un, `removeEventHandler` veut le même objet : on le range dans un champ
 
 ```java
 private final EventHandler<ActionEvent> basculement =
@@ -601,15 +602,15 @@ vous éviteront l'erreur la plus fréquente : un composant déclaré dans
 
 ---
 
-## Section 4 - L'événement porte de l'information
+## Section 4 - Ce que dit un événement
 
-### 4.1 · L'événement porte de l'information
+### 4.1 · Ce que dit un événement
 
 *(intercalaire)*
 
 ### 4.2 · Démonstration
 
-**Source** `Demo_FX.docx`, étape 3, 3 minutes, avant FX.4
+**Source** `Demo_FX.docx`, étape 3, 4 minutes, avant FX.4
 
 **Slide**
 
@@ -668,19 +669,25 @@ la lambda `evenement -> noterBouton(evenement)`.
 
 **Slide**
 
-| Classe | Quand | Types courants |
+| Classe | Produit par | Types utiles ici |
 |---|---|---|
-| `ActionEvent` | un bouton est actionné, Entrée dans un champ | `ACTION` |
-| `KeyEvent` | une touche est enfoncée, relâchée, frappée | `KEY_PRESSED`, `KEY_RELEASED`, `KEY_TYPED` |
-| `MouseEvent` | la souris clique, bouge, entre ou sort | `MOUSE_CLICKED`, `MOUSE_MOVED`, `MOUSE_ENTERED` |
-| `WindowEvent` | la fenêtre s'affiche ou va se fermer | `WINDOW_SHOWN`, `WINDOW_CLOSE_REQUEST` |
+| `ActionEvent` | un bouton actionné | `ACTION` |
+| `KeyEvent` | le clavier | `KEY_PRESSED`, `KEY_TYPED` |
+| `MouseEvent` | la souris | `MOUSE_CLICKED` |
+| `WindowEvent` | la fenêtre | `WINDOW_CLOSE_REQUEST` |
 
 **Note**
 
 Toutes ces classes héritent d'`Event`. Chacune déclare des champs statiques
 qui désignent ses types précis : ce sont eux qu'on passe à
-`addEventHandler`, comme `ActionEvent.ACTION` à la slide 3.5. Chaque
-famille a aussi un type `ANY`, qui les regroupe tous.
+`addEventHandler`, comme `ActionEvent.ACTION` à la slide 3.5. Le tableau ne
+retient que ceux des exercices et de l'examen ; il y en a d'autres,
+`KEY_RELEASED`, `MOUSE_MOVED` ou `MOUSE_ENTERED` par exemple. Chaque famille
+a aussi un type `ANY`, qui les regroupe tous.
+
+Un `ActionEvent` vient aussi d'un champ de saisie quand on y presse Entrée,
+et `WINDOW_CLOSE_REQUEST` survient quand l'utilisateur ferme la fenêtre :
+c'est là qu'on lui demanderait de confirmer.
 
 Un piège vous attend à l'import. Il existe un `KeyEvent` et un `MouseEvent`
 dans `java.awt.event`, hérités d'une bibliothèque plus ancienne, et ils
@@ -737,9 +744,8 @@ une touche qui n'en produit pas ?
 **Slide**
 
 - Le type `KEY_TYPED` donne un caractère, par `getCharacter`
-- Le type `KEY_PRESSED` donne une touche, par `getCode`
-- Les flèches, Échap ou F1 n'ont pas de caractère : seul `KEY_PRESSED` les voit
-- La méthode `getCode` retourne une valeur de l'énumération `KeyCode`
+- Le type `KEY_PRESSED` donne une touche, par `getCode`, un `KeyCode`
+- Une flèche n'a pas de caractère : seul `KEY_PRESSED` la voit
 
 ```java
 racine.addEventHandler(KeyEvent.KEY_PRESSED, this::toucheEnfoncee);
@@ -759,7 +765,9 @@ Une touche enfoncée produit toujours un `KEY_PRESSED`, puis un
 `KEY_RELEASED` quand on la lâche. Si elle produit un caractère, un
 `KEY_TYPED` s'y ajoute. Les deux familles ne répondent pas à la même
 question : `KEY_TYPED` dit quel texte l'utilisateur a tapé, `KEY_PRESSED`
-dit quelle touche physique il a enfoncée.
+dit quelle touche physique il a enfoncée. Les flèches, Échap ou F1
+n'ont pas de caractère : seul `KEY_PRESSED` les voit, et `getCode` les
+nomme par une valeur de l'énumération `KeyCode`.
 
 La méthode `getCharacter` n'a de sens que pour `KEY_TYPED`, et `getCode`
 que pour `KEY_PRESSED` et `KEY_RELEASED` : dans l'autre cas, elles
@@ -820,7 +828,7 @@ souris comme déclencheur, c'est le second qu'il attend.
 
 ### 5.2 · Démonstration
 
-**Source** `Demo_FX.docx`, étapes 4 et 5, 6 minutes, avant FX.5
+**Source** `Demo_FX.docx`, étapes 4 et 5, 7 minutes, avant FX.5
 
 **Slide**
 
@@ -878,14 +886,14 @@ désigne toujours la cible.
 
 | | Filtre | Gestionnaire |
 |---|---|---|
-| Intervient | à la descente | à la remontée |
-| Ordre | du conteneur vers la cible | de la cible vers les conteneurs |
-| S'ajoute par | `addEventFilter` | `addEventHandler`, ou `setOnXxx` |
+| Phase | la descente | la remontée |
+| Ordre | du haut vers la cible | de la cible vers le haut |
+| Ajout | `addEventFilter` | `addEventHandler` |
 | Sert à | intercepter avant les enfants | réagir à ce qui s'est passé |
 
 **Note**
 
-Filtre et gestionnaire sont le même objet, un `EventHandler`. Ce qui les
+Filtre et gestionnaire sont le même type d'objet, un `EventHandler`. Ce qui les
 distingue, c'est le moment où on les appelle : un filtre pendant la
 descente, un gestionnaire pendant la remontée. C'est pour cela qu'ils
 portent deux noms, et qu'on les ajoute par deux méthodes différentes.
@@ -895,7 +903,8 @@ gestionnaires du cercle. Ce n'était pas une question d'ordre d'écriture :
 le conteneur est traversé à la descente, avant que l'événement n'atteigne
 le cercle.
 
-Presque tout le code JavaFX utilise des gestionnaires. Un filtre se justifie
+Les raccourcis `setOnAction` ou `setOnMouseClicked` posent tous des
+gestionnaires. Presque tout le code JavaFX en reste là. Un filtre se justifie
 quand un conteneur doit voir un événement avant ses enfants, et parfois les
 en priver. C'est le sujet de la slide suivante.
 

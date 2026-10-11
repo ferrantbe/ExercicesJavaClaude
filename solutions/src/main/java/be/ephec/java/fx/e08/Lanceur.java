@@ -5,7 +5,7 @@ import javafx.application.Application;
 /**
  * CORRIGE
  *
- * C'EST CETTE CLASSE QU'IL FAUT LANCER, pas ApplicationCalculatrice.
+ * C'EST CETTE CLASSE QU'IL FAUT LANCER, pas PseudoLie.
  *
  * Sans elle, le programme refuse de demarrer :
  *
@@ -25,6 +25,6 @@ import javafx.application.Application;
 public class Lanceur {
 
     public static void main(String[] args) {
-        Application.launch(ApplicationCalculatrice.class, args);
+        Application.launch(PseudoLie.class, args);
     }
 }

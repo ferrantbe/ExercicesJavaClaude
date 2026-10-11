@@ -223,7 +223,7 @@ def construire(themes, racine, sortie, solutions):
         # doit ecrire les tests.
         # Ressources du theme : fichiers FXML, images, jeux de donnees.
         # Elles vivent a cote du code, dans src/main/resources, et suivent
-        # le meme decoupage par theme. Sans elles, FX.8 ne se lancerait pas.
+        # le meme decoupage par theme. Sans elles, FX.9 ne se lancerait pas.
         ressources = racine / module / RESSOURCES / theme
         if ressources.is_dir():
             for fichier in sorted(ressources.rglob("*")):

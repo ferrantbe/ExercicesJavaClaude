@@ -123,6 +123,14 @@ La calculatrice y est construite entièrement par le professeur.
 
 ## Séance 11 — 13/04 — JavaFX : événements, layouts, contrôles
 
+> **Mise à jour du 11/10/2026.** Les numéros `FX` des deux tableaux ci-dessous
+> sont périmés : l'ordre a été revu à l'écriture du fascicule, puis un exercice
+> sur les bindings a été inséré. Correspondance actuelle : ex. 47 → `FX.1`,
+> 48 → `FX.2`, 49 → `FX.3`, 50 → `FX.4`, 46 → `FX.5`, 51 (`TextField`) → `FX.6`,
+> 52 → `FX.7`, nouveau → `FX.8` (bindings), calculatrice → `FX.9`,
+> guichet → `FX.10` (Won't). Le démineur (ex. 51 du deck 10) est devenu le
+> projet `DemineurClaude`. Le fascicule fait foi.
+
 | Actuel | Nouveau | Énoncé | Source |
 |---|---|---|---|
 | Exercice 46 | `FX.1` | `EventFilter` sur `MouseEvent.MOUSE_CLICKED` | 10 / s29 |

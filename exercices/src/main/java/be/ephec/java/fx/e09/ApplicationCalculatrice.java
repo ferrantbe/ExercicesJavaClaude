@@ -1,4 +1,4 @@
-package be.ephec.java.fx.e08;
+package be.ephec.java.fx.e09;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -6,7 +6,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
- * FX.8 — CORRIGE. Fournie, inchangee.
+ * FX.9 — Cette classe vous est FOURNIE.
  *
  * Le point d'entree d'une application FXML tient en quatre lignes : on
  * charge le fichier de vue, on en fait une Scene, on la montre.

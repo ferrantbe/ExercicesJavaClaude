@@ -60,7 +60,7 @@ c.push(tableau(["Code", "Titre", "Ce que vous y travaillez", "Exercices"], [
   ["JUN", "Tests unitaires JUnit", "Assertions, TDD, écriture de classes de test", "3"],
   ["GEN", "Types génériques", "Classes et méthodes paramétrées, joker", "6"],
   ["LAM", "Lambdas et références de méthodes", "Interfaces fonctionnelles, java.util.function", "3"],
-  ["FX", "JavaFX", "Fenêtres, composants, gestion d'événements", "8"],
+  ["FX", "JavaFX", "Fenêtres, événements, propriétés et bindings, MVC", "9"],
   ["FIC", "Fichiers", "Lecture et écriture, sérialisation", "3"],
   ["REC", "Exercices récapitulatifs", "Révision transversale avant l'examen", "à définir"]
 ], [1000, 3050, 4000, 1310], [0]));

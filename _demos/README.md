@@ -52,7 +52,7 @@ volontairement, et il serait fâcheux qu'elle casse quoi que ce soit.
 | `ABS` | 12 min | avant `ABS.1` | `A.4` |
 | `ITF` | 12 min | avant `ITF.1` | `C.1` |
 | `LAM` | 12 min | avant `LAM.1` | `A.6` |
-| `FX` | 15 min | avant `FX.1` | `A.5` |
+| `FX` | 18 min, en trois temps | avant `FX.1`, `FX.4`, `FX.5` | `A.5` |
 | `EXC` | 10 à 12 min | avant `EXC.1` | `B.3` |
 | `JUN` | 15 min | avant `JUN.1` | `B.1`, `B.2` |
 

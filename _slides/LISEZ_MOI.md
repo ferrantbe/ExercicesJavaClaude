@@ -39,7 +39,7 @@ parfois dans deux decks.
 | `d06.pptx` | 68 | **GameHub `G.14`-`G.20`** (11-19), `EXC` (20-68) |
 | `d07.pptx` | 55 | `JUN`, en entier |
 | `d08.pptx` | 98 | `GEN` (9-55), `LAM` (56-98) |
-| `d09.pptx` | 74 | `FX` — installation, MVC, FXML, la calculatrice (`FX.8`) |
+| `d09.pptx` | 74 | `FX` — installation, MVC, FXML, la calculatrice (`FX.9`) |
 | `d10.pptx` | 49 | `FX` — événements, layouts, contrôles |
 | `d11.pptx` | 20 | `FX` — propriétés et bindings |
 | `d12.pptx` | 46 | `FIC`, en entier |
@@ -67,7 +67,7 @@ probablement vu que le premier.
 `11b_Clean_Code.pptx` (27 slides) ne nourrit aucun module : il a servi à écrire
 `Memento_Clean_Code.docx`.
 
-`99_Threads.pptx` (52 slides) concerne `FX.9`, classé Won't et hors examen.
+`99_Threads.pptx` (52 slides) concerne `FX.10`, classé Won't et hors examen.
 Attention : ses slides 13 à 34 sont celles de `d12`, recopiées — seules les
 douze premières portent réellement sur les threads.
 

@@ -1,4 +1,4 @@
-package be.ephec.java.fx.e08;
+package be.ephec.java.fx.e09;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -6,7 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 
 /**
- * FX.8 — CORRIGE.
+ * FX.9 — CORRIGE.
  *
  * Le controleur ne calcule rien : il lit la vue, appelle le modele, et
  * reecrit la vue. C'est tout ce qu'on lui demande.

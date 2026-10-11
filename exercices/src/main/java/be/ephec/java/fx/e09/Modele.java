@@ -1,7 +1,7 @@
-package be.ephec.java.fx.e08;
+package be.ephec.java.fx.e09;
 
 /**
- * FX.8 — A COMPLETER.
+ * FX.9 — A COMPLETER.
  *
  * Le MODELE de l'architecture MVC : il porte la logique metier, et rien
  * d'autre.

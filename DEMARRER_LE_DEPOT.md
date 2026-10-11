@@ -28,7 +28,7 @@ alors par une commande, sans aucun envoi de votre part.
 **Un dépôt privé**, je ne peux pas. Le clone y demande un jeton
 d'authentification, et je n'ai pas le droit d'en manipuler un.
 
-Le dépôt contient les **corrigés** des soixante-dix exercices. En public,
+Le dépôt contient les **corrigés** des soixante et onze exercices. En public,
 un étudiant qui cherche bien les trouve. Trois issues :
 
 - tout en public, en acceptant que les corrigés soient trouvables ;
