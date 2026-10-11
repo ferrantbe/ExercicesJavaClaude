@@ -715,7 +715,7 @@ de champs et de méthodes que le contrôleur doit porter.
 
 - Le démineur : un projet JavaFX complet, facultatif
 - Vous écrivez la grille et ses règles ; la fenêtre est fournie
-- Dix tests JUnit vérifient votre grille, sans ouvrir de fenêtre
+- Onze tests JUnit vérifient votre grille, sans ouvrir de fenêtre
 
 **Note**
 
@@ -731,9 +731,10 @@ votre grille est juste avant même que vous ne lanciez une partie.
 Le thème compte un dixième exercice, `FX.10`, sur les threads d'une
 application graphique. Il est hors examen et n'est pas traité en séance.
 
-**Réserve** Le démineur n'a été ni lancé ni testé (classeur, onglet
-Vérifications). Le moment où l'annoncer reste à décider (todo, « Valider
-l'exercice facultatif du démineur »).
+**Réserve** Le démineur a son dépôt, `DemineurClaude`, avec un énoncé en
+sept étapes (D.1 à D.7) et un projet étudiant généré par
+`depot_demineur.py`. Les onze tests et le squelette n'ont pas été compilés
+côté Claude : à lancer avant de l'annoncer.
 
 ---
 

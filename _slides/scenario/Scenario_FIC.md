@@ -832,7 +832,9 @@ l'historique.
 Avant d'écrire une ligne, décidez du format, avec la question des
 exercices du thème : qui lira ce journal, et quand ?
 
-**Réserve** `G.35` est à écrire dans le projet GameHub, après `G.34`.
+**Réserve** `G.35` est écrit dans le projet GameHub (`JournalParties`,
+`GameHub`) : un `PrintWriter` en ajout, un `BufferedReader` pour relire,
+une ligne de quatre champs par partie. Non compilé côté Claude.
 Un découpage en deux incréments (garder en mémoire, puis écrire) a été
 envisagé et écarté : le hub ne jouant qu'une partie par lancement, une
 mémoire sans fichier ne montrerait rien. La note a été corrigée après

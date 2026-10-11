@@ -431,9 +431,14 @@ que les étudiants rencontreront en séance 1, avant d'avoir écrit une ligne de
     Claude. Ce qui est vérifié : squelette et corrigé exposent les mêmes
     signatures, les 18 appels du test et de la vue sont tous déclarés, les deux
     versions compilent
-  * à faire avant de le proposer : lancer les dix tests sur le corrigé, jouer
-    une partie complète, et vérifier qu'un squelette neuf fait bien échouer les
-    dix tests
+  * **11/10** : l'énoncé et le squelette du 14/09 étaient perdus. Le projet vit
+    désormais dans le dépôt `DemineurClaude`, organisé comme GameHub : corrigé
+    annoté de marqueurs `//@ecrire`, énoncé régénéré (D.1 à D.7, 4 pages),
+    projet étudiant produit par `depot_demineur.py`. Onze tests (un ajouté :
+    grille impossible refusée par une `IllegalArgumentException`)
+  * à faire avant de le proposer : lancer les onze tests sur le corrigé, jouer
+    une partie complète, et vérifier qu'un squelette neuf fait échouer les dix
+    tests qui dépendent des méthodes à écrire
   * à décider : quand l'offrir — après la séance 11 (JavaFX vu) ou plus tôt,
     puisqu'il ne demande que du calcul
   * distribution : le dossier moins les répertoires préfixés `_`
