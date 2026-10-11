@@ -410,6 +410,37 @@ que les étudiants rencontreront en séance 1, avant d'avoir écrit une ligne de
   * Moodle 5 en cours de mise à jour ; VPL ou CodeRunner non vérifiés
 * **Livraison du fascicule dans les archives**
   * `livrer.py` n'embarque pas les Word ; une dizaine de lignes à ajouter si souhaité
+* **Distribution aux étudiants : trois dépôts publics** — décidé le 11/10
+  * trois dépôts privés de travail (`ExercicesJavaClaude`, `GameHubClaude`,
+    `DemineurClaude`), repassés en privé **avant la première séance** ; trois
+    dépôts publics clonables par les étudiants, créés vides le 11/10 :
+    `github.com/ferrantbe/ExercicesJava`, `…/GameHub`, `…/Demineur`
+  * règle : le public n'a **aucun historique commun** avec le privé. Il est
+    alimenté par copie de fichiers, jamais par un push ou un fork du privé
+  * recueil : fait le 11/10. `livrer.py 0` produit le projet de départ,
+    `livrer.py N --depot` dépose les énoncés de la séance dans le clone local
+    du public (`../ExercicesJava` par défaut), `--solutions` en plus pour les
+    corrigés. Le script ne commite ni ne pousse
+  * Moodle : une section `Général`, puis `Cours01`, `Cours02`… Dans `Général` :
+    le projet de départ, les mémentos, le lien vers les dépôts, et une entrée
+    expliquant la récupération par Git. Corrigés publiés par restriction de
+    date (a priori active)
+  * à écrire : l'explication, pour la première séance, des manipulations à
+    faire (cloner, puis `pull` à chaque séance, commiter son travail avant) —
+    pour ceux qui le veulent, l'archive par séance restant la voie principale.
+    Le README racine ne décrit encore que les archives
+  * à trancher : les corrigés partent-ils aussi dans le dépôt public, ou
+    seulement sur Moodle ? Un étudiant qui extrait le zip des corrigés dans son
+    clone, puis reçoit les mêmes fichiers par `pull`, aura un refus de Git
+    (fichiers non suivis écrasés). Un seul canal pour les corrigés
+  * GameHub et Démineur : `depot_gamehub.py` produit un dépôt **à partir des
+    corrigés** (un commit par incrément) — il ne peut pas alimenter tel quel
+    le dépôt public. Forme des incréments publics à décider (tags d'état de
+    départ ?)
+  * toujours bloquant pour la voie Git : Git est-il installé sur les postes
+    de l'école ?
+  * vu le 11/10 dans la liste des activités Moodle : pas de VPL. CodeRunner
+    est un type de question de Quiz, il n'apparaît pas dans cette liste
 * **Trancher la distribution du dépôt Git de GameHub** — *should*
   * le cours avait décidé « pas de Git pour les étudiants ». Le dépôt existe
     maintenant, avec sa notice `Git_pour_GameHub.docx` et ses quatre captures

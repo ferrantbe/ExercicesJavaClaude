@@ -159,10 +159,17 @@ suivre** — ils se sont contredits une fois.
 Quatorze séances, plus aucune vide. Les anciennes séances 4 et 10, qui
 l'étaient depuis septembre, ont été absorbées.
 
-**La distribution aux étudiants.** Comment leur remettre le matériel :
-dépôt GitHub public, archives par séance produites par `livrer.py`,
-dossiers par module produits par `dossier_module.py` ? Les trois existent
-et ne disent pas la même chose. Point important, pas encore creusé.
+**La distribution aux étudiants — orientée le 11/10.** Moodle reste le
+canal principal : une section `Général`, puis une section par séance
+(`Cours01`, `Cours02`…), avec l'archive de `livrer.py` et les corrigés
+publiés par restriction de date. En parallèle, trois dépôts GitHub
+**publics** (`ExercicesJava`, `GameHub`, `Demineur`) pour ceux qui veulent
+cloner, distincts des trois dépôts de travail `…Claude`, qui repassent en
+privé avant la première séance. Le public n'a aucun historique commun avec
+le privé : il est alimenté par copie (`livrer.py --depot`). Restent ouverts :
+le canal des corrigés côté Git, la forme publique de GameHub et du
+Démineur, et la présence de Git sur les postes de l'école.
+`dossier_module.py` sert à préparer, pas à distribuer.
 
 **Le classement de `FIC` — réglé le 11/10.** Passé de `Should` à `Must`,
 ses trois exercices avec, puisqu'il vaut un sixième de l'examen.

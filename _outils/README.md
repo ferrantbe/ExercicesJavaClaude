@@ -147,6 +147,59 @@ affiche la liste et la demande.
 | `--solutions` | seulement l'archive des solutions |
 | `--verifier` | controle sans rien produire |
 
+### La seance 0 : le projet de depart
+
+```
+python3 _outils/livrer.py 0
+```
+
+Produit `livraisons/Seance00_ExercicesJava.zip` : le pom parent, les trois
+pom de module, le README, un `.gitignore` propre a l'etudiant et les
+documents de reference. C'est ce qui va dans la section `General` de Moodle.
+
+Le pom parent y est **filtre** : il ne declare plus le module `_travail`,
+qui n'existe pas chez l'etudiant. Laisser la declaration ferait echouer
+Maven a l'ouverture du projet.
+
+### Le depot public : --depot
+
+```
+python3 _outils/livrer.py 0 --depot               le projet de depart
+python3 _outils/livrer.py 3 --depot               les enonces de la seance 3
+python3 _outils/livrer.py 3 --depot --solutions   ses corriges et ses demos
+python3 _outils/livrer.py 3 --depot /un/chemin    un autre clone que celui par defaut
+```
+
+En plus des archives, copie la livraison dans un clone LOCAL du depot public
+`github.com/ferrantbe/ExercicesJava`. Sans chemin, le clone est cherche a
+`../ExercicesJava`, a cote de ce projet (cle `depot_public` de
+`livraisons.json`). Pour les enonces, le fascicule du theme part avec le code.
+
+**Le script ne commite et ne pousse rien.** Il liste ce qui est ajoute ou
+remplace, puis affiche les quatre commandes Git a lancer apres relecture.
+
+**Les corriges ne partent qu'avec `--solutions`.** Sans l'option, seuls les
+enonces sont deposes, meme si les deux archives ont ete fabriquees.
+
+**Le depot public n'a aucun historique commun avec celui-ci.** C'est la
+regle qui protege les corriges : un push ou un fork depuis le depot prive
+emporterait tout son historique, corriges compris, meme absents des fichiers.
+Le depot public n'est donc alimente que par ce script.
+
+Les garde-fous :
+
+| Controle | Ce qu'il empeche |
+|---|---|
+| origine contenant `Claude` | deposer dans un depot prive |
+| dossier sans `.git`, ou lie a ce projet | deposer au mauvais endroit |
+| chemin commencant par `_` | publier un dossier du professeur |
+| reverification de tout `exercices/` du depot | publier un corrige, d'ou qu'il vienne |
+| fichier deja publie et different | un correctif silencieux : il est signale en jaune |
+
+Un fichier deja publie qui change provoquera un conflit chez l'etudiant qui
+l'a modifie. Le script le signale ; annoncez le correctif sur le forum en
+nommant les fichiers.
+
 ### Deplacer un theme dans le calendrier
 
 Editer `livraisons.json` et deplacer le code du theme d'une seance a l'autre.
