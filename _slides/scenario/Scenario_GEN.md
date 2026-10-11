@@ -938,19 +938,19 @@ quand vous créez un objet de la classe.
 **Slide**
 
 - **G.31** - Un objet par joueur *(fil rouge GameHub)*
-- La même paire, partout dans GameHub
+- Deux champs jumeaux deviennent un objet
 
 **Note**
 
 Relisez votre GameHub avec un œil neuf. Le jeu de Nim garde deux
-stratégies, la bataille deux pioches, et `distribuer` reçoit deux mains.
-Chaque fois, deux champs ou deux paramètres jumeaux, et un `if` pour choisir
-le bon.
+stratégies dans deux champs jumeaux, et choisit la bonne par un opérateur
+ternaire ; il fait de même pour les joueurs. La bataille passe ses deux
+pioches en paramètres jumeaux.
 
 `G.31` vous fait écrire une seule classe, `ParJoueur<T>`, qui garde une chose
-pour chaque joueur, puis vous fait l'introduire là où ces paires existent
-déjà. La même classe servira pour des stratégies, des joueurs et des pioches,
-sans transtypage.
+pour chaque joueur, puis vous fait l'introduire dans le Nim. La même classe
+y sert pour des stratégies et pour des joueurs, sans transtypage. La
+bataille fait l'objet d'une question : faut-il y aller aussi ?
 
 Une question à garder en tête : `ParJoueur<T>` stocke la même chose qu'une
 `Paire<T>`. Que dit-elle de plus ?

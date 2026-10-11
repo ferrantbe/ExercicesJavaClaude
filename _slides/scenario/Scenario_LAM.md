@@ -634,7 +634,7 @@ Relisez aussi `G.17`. Sa question vous demandait quel nom porte une interface
 réponse est sous vos yeux : `StrategieNim` est fonctionnelle, et
 `StrategieTimide` tiendrait en une lambda, `(pile, regles) -> 1`.
 
-**Réserve** `G.32` est à écrire dans le projet GameHub, après `G.31` (GEN),
-qui ne figure pas encore dans `GameHub_enonces.docx`. Le tableau
-d'introduction du fascicule s'arrête à « G.29 et G.30 ».
+**Réserve** `G.32` est écrit dans le projet GameHub, après `G.31` (GEN).
+Ses états n'ont pas été compilés côté Claude, faute de compilateur Java :
+à vérifier par `etats_gamehub.py --verifier`.
 

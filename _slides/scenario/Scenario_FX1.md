@@ -982,28 +982,28 @@ La seconde partie tient en une ligne. Ne la cherchez pas dans le cercle.
 **Slide**
 
 - **G.33** - Le Nim dans une fenêtre *(fil rouge GameHub)*
-- Le jeu ne change pas : seule la façon d'y jouer change
+- Les classes du Nim servent telles quelles, sauf sa boucle
 
 **Note**
 
 Jusqu'ici, on joue à GameHub dans la console. `G.33` donne une fenêtre au
-jeu de Nim : un libellé affiche la pile, trois boutons prennent une, deux
-ou trois allumettes, et les touches 1, 2 et 3 font la même chose. Après
-chaque coup du joueur, la stratégie de la machine joue le sien, et le
-libellé se met à jour.
+jeu de Nim, vous contre la machine : un libellé affiche la pile, trois
+boutons prennent une, deux ou trois allumettes, et les touches 1, 2 et 3
+font la même chose. Après chaque coup, la stratégie de la machine joue le
+sien. La fenêtre est une application à part, avec son propre lanceur : le
+hub console ne change pas.
 
-La contrainte qui compte : aucune classe du jeu ne doit changer. La fenêtre
-appelle le jeu comme le faisait la console, et affiche ce qu'il retourne.
-Si vous devez modifier le jeu pour l'afficher, demandez-vous ce qu'il
-faisait qui ne lui appartenait pas.
+La contrainte qui compte : la pile, les règles et les stratégies servent
+sans une ligne changée. `JeuNim`, en revanche, ne sert pas : sa méthode
+`jouer` est une boucle qui va jusqu'au bout de la partie sans s'arrêter, et
+une fenêtre ne peut pas l'attendre. La question de l'incrément est là : où
+est passée la boucle ? Relisez la slide 3.2 avant de répondre.
 
 Une question à garder pour le deck suivant : les boutons qui prendraient
 plus d'allumettes qu'il n'en reste devraient être désactivés. Où écririez-
 vous cette règle, et combien de fois ?
 
-**Réserve** `G.33` est à écrire dans le projet GameHub, que ce dépôt ne
-contient pas : la note suppose un jeu de Nim jouable par appels de
-méthodes, sans lecture de la console dans le jeu lui-même, à vérifier sur
-le code réel de `G.17`. La question de fin annonce `G.34`, prévu pour le
-deck FX2 (les boutons désactivés par un binding). L'incrément de FIC,
-présenté après les deux decks FX, devient `G.35` (décidé).
+**Réserve** `G.33` est écrit dans le projet GameHub (`fenetre/FenetreNim`,
+`LanceurFenetreNim`), mais n'a été ni compilé ni lancé : JavaFX n'est pas
+disponible côté Claude. À éprouver avant la séance. La question de fin
+annonce `G.34`, au deck FX2.

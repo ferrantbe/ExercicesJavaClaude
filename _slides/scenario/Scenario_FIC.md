@@ -817,18 +817,23 @@ choisissant un format.
 **Slide**
 
 - **G.35** - Un journal qui survit *(fil rouge GameHub)*
-- Le journal des parties, relu au lancement
+- Chaque partie écrite dans un fichier, relue au lancement
 
 **Note**
 
-Depuis `G.13`, GameHub tient un journal des parties jouées. Il disparaît à
-chaque arrêt du programme. `G.35` le fait survivre : écrit dans un fichier
-à chaque partie terminée, relu au lancement suivant.
+Depuis `G.13`, GameHub a un journal, mais il ne garde rien : il compte les
+coups d'une partie et les annonce sur la console. Et le hub ne joue qu'une
+partie par lancement. Sans fichier, aucune partie ne survit à la suivante.
+
+`G.35` donne une mémoire au journal : chaque partie terminée s'écrit dans
+un fichier, et au lancement suivant GameHub relit ce fichier pour afficher
+l'historique.
 
 Avant d'écrire une ligne, décidez du format, avec la question des
 exercices du thème : qui lira ce journal, et quand ?
 
-**Réserve** `G.35` est à écrire dans le projet GameHub, après `G.31` (GEN),
-`G.32` (LAM), et `G.33` et `G.34` (les deux decks FX, qui précèdent FIC). Le contenu de la note suppose que `JournalParties` garde
-les parties en mémoire : à vérifier sur le code réel de `G.13`, que ce
-dépôt ne contient pas.
+**Réserve** `G.35` est à écrire dans le projet GameHub, après `G.34`.
+Un découpage en deux incréments (garder en mémoire, puis écrire) a été
+envisagé et écarté : le hub ne jouant qu'une partie par lancement, une
+mémoire sans fichier ne montrerait rien. La note a été corrigée après
+lecture du code : `JournalParties` ne garde aucune partie.

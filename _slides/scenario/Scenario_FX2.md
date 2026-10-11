@@ -478,8 +478,9 @@ début de ce thème pourquoi on ne teste pas une fenêtre. Un modèle qui
 n'importe rien de JavaFX se teste comme n'importe quelle classe.
 
 Le second gain est que le modèle survit à son écran. C'est exactement ce
-que demandait l'incrément G.33 : le jeu de Nim est passé de la console à
-une fenêtre sans qu'aucune de ses classes ne change.
+que montrait l'incrément G.33 : la pile, les règles et les stratégies du
+Nim sont passées de la console à une fenêtre sans une ligne changée. Seul
+`JeuNim`, qui mêlait la boucle de partie et l'affichage, n'a pas suivi.
 
 ---
 
@@ -751,14 +752,15 @@ Le deck FX1 se terminait sur une question : les boutons qui prendraient
 plus d'allumettes qu'il n'en reste devraient être désactivés, mais où
 écrire cette règle, et combien de fois ?
 
-`G.34` y répond par un binding. Le contrôleur de la fenêtre de Nim tient
-une `IntegerProperty` qui suit la taille de la pile, et chaque bouton se
+`G.34` y répond par un binding. La fenêtre du Nim tient une
+`IntegerProperty` qui suit la taille de la pile, et chaque bouton se
 désactive par une seule instruction : celui qui prend trois allumettes,
-quand il en reste moins de trois. Le jeu, lui, ne change toujours pas.
+quand il en reste moins de trois. À la fin, tous sont grisés, sans aucune
+condition « partie finie ». Les classes du Nim, elles, ne changent
+toujours pas.
 
 Avant d'écrire une ligne, demandez-vous qui met cette propriété à jour, et
-pourquoi elle vit dans le contrôleur plutôt que dans le jeu.
+pourquoi elle vit dans la fenêtre plutôt que dans la pile.
 
-**Réserve** `G.34` est à écrire dans le projet GameHub, après `G.33`, que
-ce dépôt ne contient pas. Même réserve que pour `G.33` (scénario FX1,
-6.1) : le jeu de Nim est supposé jouable par appels de méthodes.
+**Réserve** `G.34` est écrit dans le projet GameHub, mais n'a été ni
+compilé ni lancé : JavaFX n'est pas disponible côté Claude.
