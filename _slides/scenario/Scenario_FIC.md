@@ -94,7 +94,7 @@ l'objectif A.5 demande de savoir utiliser.
 - Les exemples de code évitent de reproduire les corrigés : 3.3 affiche les
   lignes au lieu de les ranger dans une liste (`lireLignes`, FIC.3), 4.4
   écrit un entier et un objet au lieu d'une liste (`enregistrer`, FIC.2).
-- Le fil rouge reçoit un nouvel incrément, G.33, présenté en 5.1. Sa place
+- Le fil rouge reçoit un nouvel incrément, G.35, présenté en 5.1. Sa place
   dans le deck sera revue à la consolidation des slides.
 
 **Retirés de l'ancien deck** :
@@ -812,23 +812,23 @@ choisissant un format.
 
 ### 5.1 · Le fil rouge
 
-**Source** `GameHub_enonces.docx`, G.13 et G.33
+**Source** `GameHub_enonces.docx`, G.13 et G.35
 
 **Slide**
 
-- **G.33** - Un journal qui survit *(fil rouge GameHub)*
+- **G.35** - Un journal qui survit *(fil rouge GameHub)*
 - Le journal des parties, relu au lancement
 
 **Note**
 
 Depuis `G.13`, GameHub tient un journal des parties jouées. Il disparaît à
-chaque arrêt du programme. `G.33` le fait survivre : écrit dans un fichier
+chaque arrêt du programme. `G.35` le fait survivre : écrit dans un fichier
 à chaque partie terminée, relu au lancement suivant.
 
 Avant d'écrire une ligne, décidez du format, avec la question des
 exercices du thème : qui lira ce journal, et quand ?
 
-**Réserve** `G.33` est à écrire dans le projet GameHub, après `G.31` (GEN)
-et `G.32` (LAM). Le contenu de la note suppose que `JournalParties` garde
+**Réserve** `G.35` est à écrire dans le projet GameHub, après `G.31` (GEN),
+`G.32` (LAM), et `G.33` et `G.34` (les deux decks FX, qui précèdent FIC). Le contenu de la note suppose que `JournalParties` garde
 les parties en mémoire : à vérifier sur le code réel de `G.13`, que ce
 dépôt ne contient pas.

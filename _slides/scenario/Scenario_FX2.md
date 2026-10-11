@@ -27,7 +27,7 @@ Ce deck couvre FX.6 à FX.9 ; le deck FX1 couvre FX.1 à FX.5.
 mot sur les bindings), deck 09 (`d09.pptx`, slides 14, 17, 18 et 29 à 50 :
 MVC, FXML, la vue de la calculatrice), `FX_enonces.docx` (FX.6 à FX.9),
 les corrigés de `be.ephec.java.fx` (e06 à e09), le scénario FX1 (dont les
-exemples de la lampe et l'incrément G.34), le guide IntelliJ (IDE.14,
+exemples de la lampe et l'incrément G.33), le guide IntelliJ (IDE.14,
 IDE.29), le mémento technique (TEC-FX.3), le classeur d'objectifs (FX.e à
 FX.h). L'intercalaire vient de `d09`, slide 7.
 
@@ -82,7 +82,7 @@ et 4 peuvent se réduire à leur exercice.
   ailleurs : Won't, hors examen.
 - Le démineur (`DemineurClaude`) est annoncé en 5.1 comme travail
   facultatif.
-- Le fil rouge reçoit l'incrément G.35, présenté en 5.2. Il répond à la
+- Le fil rouge reçoit l'incrément G.34, présenté en 5.2. Il répond à la
   question posée en fin de deck FX1.
 
 **Retirés des anciens decks** :
@@ -478,7 +478,7 @@ début de ce thème pourquoi on ne teste pas une fenêtre. Un modèle qui
 n'importe rien de JavaFX se teste comme n'importe quelle classe.
 
 Le second gain est que le modèle survit à son écran. C'est exactement ce
-que demandait l'incrément G.34 : le jeu de Nim est passé de la console à
+que demandait l'incrément G.33 : le jeu de Nim est passé de la console à
 une fenêtre sans qu'aucune de ses classes ne change.
 
 ---
@@ -738,11 +738,11 @@ l'exercice facultatif du démineur »).
 
 ### 5.2 · Le fil rouge
 
-**Source** `GameHub_enonces.docx`, G.34 et G.35
+**Source** `GameHub_enonces.docx`, G.33 et G.34
 
 **Slide**
 
-- **G.35** - Des boutons qui savent quand se taire *(fil rouge GameHub)*
+- **G.34** - Des boutons qui savent quand se taire *(fil rouge GameHub)*
 - Relire la question de fin du deck FX1
 
 **Note**
@@ -751,7 +751,7 @@ Le deck FX1 se terminait sur une question : les boutons qui prendraient
 plus d'allumettes qu'il n'en reste devraient être désactivés, mais où
 écrire cette règle, et combien de fois ?
 
-`G.35` y répond par un binding. Le contrôleur de la fenêtre de Nim tient
+`G.34` y répond par un binding. Le contrôleur de la fenêtre de Nim tient
 une `IntegerProperty` qui suit la taille de la pile, et chaque bouton se
 désactive par une seule instruction : celui qui prend trois allumettes,
 quand il en reste moins de trois. Le jeu, lui, ne change toujours pas.
@@ -759,7 +759,6 @@ quand il en reste moins de trois. Le jeu, lui, ne change toujours pas.
 Avant d'écrire une ligne, demandez-vous qui met cette propriété à jour, et
 pourquoi elle vit dans le contrôleur plutôt que dans le jeu.
 
-**Réserve** `G.35` est à écrire dans le projet GameHub, après `G.34`, que
-ce dépôt ne contient pas. Mêmes réserves que pour `G.34` (scénario FX1,
-6.1) : le jeu de Nim est supposé jouable par appels de méthodes, et la
-place de `G.33` (FIC) dans la numérotation reste à arbitrer.
+**Réserve** `G.34` est à écrire dans le projet GameHub, après `G.33`, que
+ce dépôt ne contient pas. Même réserve que pour `G.33` (scénario FX1,
+6.1) : le jeu de Nim est supposé jouable par appels de méthodes.

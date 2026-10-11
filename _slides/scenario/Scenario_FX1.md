@@ -91,8 +91,8 @@ deux sessions). Le deck FX2 ne porte rien qui soit évalué.
   bouton interrupteur, une ampoule en `Circle`), pour ne réutiliser ni le
   compteur des exercices, ni `ClicApp` et `PropagationApp` de la
   démonstration, ni la calculatrice de FX.9.
-- Le fil rouge reçoit un nouvel incrément, G.34, présenté en 6.1. Le deck
-  FX2 présentera G.35.
+- Le fil rouge reçoit un nouvel incrément, G.33, présenté en 6.1. Le deck
+  FX2 présentera G.34.
 
 **Retirés des anciens decks** :
 
@@ -977,16 +977,16 @@ La seconde partie tient en une ligne. Ne la cherchez pas dans le cercle.
 
 ### 6.1 · Le fil rouge
 
-**Source** `GameHub_enonces.docx`, G.17 et G.34
+**Source** `GameHub_enonces.docx`, G.17 et G.33
 
 **Slide**
 
-- **G.34** - Le Nim dans une fenêtre *(fil rouge GameHub)*
+- **G.33** - Le Nim dans une fenêtre *(fil rouge GameHub)*
 - Le jeu ne change pas : seule la façon d'y jouer change
 
 **Note**
 
-Jusqu'ici, on joue à GameHub dans la console. `G.34` donne une fenêtre au
+Jusqu'ici, on joue à GameHub dans la console. `G.33` donne une fenêtre au
 jeu de Nim : un libellé affiche la pile, trois boutons prennent une, deux
 ou trois allumettes, et les touches 1, 2 et 3 font la même chose. Après
 chaque coup du joueur, la stratégie de la machine joue le sien, et le
@@ -1001,10 +1001,9 @@ Une question à garder pour le deck suivant : les boutons qui prendraient
 plus d'allumettes qu'il n'en reste devraient être désactivés. Où écririez-
 vous cette règle, et combien de fois ?
 
-**Réserve** `G.34` est à écrire dans le projet GameHub, que ce dépôt ne
+**Réserve** `G.33` est à écrire dans le projet GameHub, que ce dépôt ne
 contient pas : la note suppose un jeu de Nim jouable par appels de
 méthodes, sans lecture de la console dans le jeu lui-même, à vérifier sur
-le code réel de `G.17`. La numérotation est à arbitrer : `G.33` (FIC) est
-présenté dans un deck qui vient après FX ; `G.34` ne doit donc pas en
-dépendre, ou les numéros doivent être échangés. La question de fin annonce
-`G.35`, prévu pour le deck FX2 (les boutons désactivés par un binding).
+le code réel de `G.17`. La question de fin annonce `G.34`, prévu pour le
+deck FX2 (les boutons désactivés par un binding). L'incrément de FIC,
+présenté après les deux decks FX, devient `G.35` (décidé).
