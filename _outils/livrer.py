@@ -66,6 +66,7 @@ traine, d'ou qu'il vienne, est signale.
 """
 
 import argparse
+import shlex
 import shutil
 import subprocess
 import json
@@ -481,12 +482,26 @@ def publier(entrees, depot, message):
                         "commiter. Retirer ou corriger le(s) fichier(s) "
                         "signale(s), puis relancer le script.", ROUGE))
 
+    # Chemin et message entre guillemets si besoin : les dossiers du
+    # professeur contiennent des espaces, et la commande doit pouvoir etre
+    # copiee-collee telle quelle dans le terminal.
+    chemin = shlex.quote(str(depot))
     print()
     print(colore("Depot public pret. Relire, puis :", VERT))
-    print(f"    git -C {depot} status")
-    print(f"    git -C {depot} add -A")
-    print(f'    git -C {depot} commit -m "{message}"')
-    print(f"    git -C {depot} push")
+    print(f"    git -C {chemin} status")
+    print(f"    git -C {chemin} add -A")
+    print(f"    git -C {chemin} commit -m {shlex.quote(message)}")
+    print(f"    git -C {chemin} {commande_push(depot)}")
+
+
+def commande_push(depot):
+    """Le premier push d'un depot neuf doit lier la branche locale a celle
+    de GitHub (-u). Ensuite, un simple push suffit."""
+    code, _ = git(depot, "rev-parse", "--abbrev-ref", "--symbolic-full-name", "@{u}")
+    if code == 0:
+        return "push"
+    _, branche = git(depot, "branch", "--show-current")
+    return f"push -u origin {branche or 'main'}"
 
 
 def main():
