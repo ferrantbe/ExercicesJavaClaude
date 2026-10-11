@@ -208,9 +208,9 @@ MODULES = [
     ("LAM", "Lambdas et références de méthodes", "Must", "08b", 3, 3, "oui", "écrite", 1, "livré"),
     ("FX", "JavaFX et gestion d'événements", "Must", "09, 10, 11", 9, 0, "oui", "écrite", 3,
      "livré — sans classes de test, par nature"),
-    ("FIC", "Fichiers", "Should", "12", 3, 3, "oui", "écrite", 1, "livré"),
+    ("FIC", "Fichiers", "Must", "12", 3, 3, "oui", "écrite", 1, "livré — passé Must le 11/10 : vaut un sixième de l'examen"),
     ("REC", "Exercices récapitulatifs", "Could", "13", 0, 0, "non", "—", 0,
-     "en attente — format à décider"),
+     "examen d'une année précédente + récapitulatifs à écrire"),
     ("THR", "Threads", "Won't", "99", 0, 0, "non", "—", 0, "en suspens"),
     ("GAM", "Fil rouge GameHub", "Could", "01, 02, 03, 04, 06", 30, 3, "oui", "—", 2,
      "G.1 à G.30 — tout est corrigé sauf G.10, remplacé"),
@@ -359,9 +359,9 @@ EXERCICES = [
 
     ("FX", "FX.10", "Le guichet : threads et Platform.runLater", "Won't", "A.5", "hors examen"),
 
-    ("FIC", "FIC.1", "Trois classes qui se connaissent", "Should", "A.1", "livré"),
+    ("FIC", "FIC.1", "Trois classes qui se connaissent", "Must", "A.1", "livré"),
     ("FIC", "FIC.2", "Enregistrer des objets", "Must", "A.5", "livré"),
-    ("FIC", "FIC.3", "Enregistrer du texte", "Should", "A.5", "livré"),
+    ("FIC", "FIC.3", "Enregistrer du texte", "Must", "A.5", "livré"),
     ("REC", "REC.*", "Récapitulatifs — format et place à décider", "Could", "A.1", "en attente"),
     ("GAM", "G.1–G.9", "Le modèle : joueur, partie, énumérations, record", "Should", "A.1", "corrigé"),
     ("GAM", "G.10–G.13", "Classe abstraite et patron Observateur", "Should", "A.4", "corrigé"),
@@ -618,60 +618,61 @@ for feuille in wb.worksheets:
 # =====================================================================
 
 VERIFICATIONS = [
+    # Remise a zero le 11/10/2026 : le professeur reprend l'ensemble.
+    # Les verifications de septembre portaient sur un etat anterieur aux
+    # seize decks, aux cinq nouveaux increments GameHub et a l'enonce du
+    # demineur. Une ligne « fait » datee d'avant aurait menti.
+
+    ("Slides — relecture et adaptation",
+     "a faire", "",
+     "Les seize decks sont produits et n'ont jamais ete relus. C'est le "
+     "gros du travail qui reste : contenu, enchainement, duree reelle de "
+     "chaque seance."),
+
     ("Exercices — compilation et tests",
-     "fait", "14-15/09",
-     "Les 70 squelettes lances par le professeur. Tests rouges la ou ils "
-     "doivent l'etre. Defauts trouves : PLACES_MAX non declare dans STA.1, "
-     "et 52 tests verts des le depart — trois phenomenes distincts, "
-     "expliques dans le memento des exercices."),
+     "a faire", "",
+     "70 squelettes. Verifie en septembre, a refaire : STA.1 et ABS.5 ont "
+     "change depuis."),
 
     ("Solutions — compilation et execution",
-     "en cours", "15/09",
-     "Corriges lances un par un. Defauts trouves : JUN.3 n'avait aucun "
-     "corrige, nombres magiques dans COL.1 et COL.6, affichage ligne par "
-     "ligne dans ENU.3, programmes qui questionnent sans s'annoncer "
-     "(POO.4, POO.5, TMP.1, TMP.3, TAB.1, TAB.2, EXC.4)."),
+     "a faire", "",
+     "Verifie en septembre. Depuis, JUN.3 a recu son corrige, et sept "
+     "programmes ont ete repris."),
 
     ("Enonces — relecture detaillee",
-     "en cours", "15/09",
-     "Lecture des 15 fascicules et des 5 documents de reference. Defauts "
-     "trouves : comptes d'exercices perimes, IDE.9 decrivant un ecran "
-     "invisible, section Git qui se contredisait, 3 renvois absents des "
-     "documents, et les .docx casses par l'outil de typographie."),
-
-    ("Classes de test — execution",
-     "fait", "14/09",
-     "60 classes, 15 themes. FX n'en a aucune, par choix : ses exercices "
-     "ouvrent une fenetre et ne se verifient qu'a l'oeil."),
-
-    ("GameHub — les 30 increments",
-     "fait", "13/09",
-     "Les 30 etats reconstitues compilent, verifies par le compilateur du "
-     "JDK a chaque generation du depot."),
-
-    ("Demineur — tests et jeu",
      "a faire", "",
-     "Ni les 10 tests de GrilleTest ni le jeu lui-meme n'ont ete lances. "
-     "Exercice facultatif : a valider avant de le proposer."),
+     "Les quinze fascicules et les cinq documents de reference. Entamee en "
+     "septembre, jamais achevee."),
 
-    ("JavaFX — les 8 exercices et les 2 demos",
-     "fait", "15/09",
-     "Les 8 exercices FX tournent, ainsi que LanceurClic et "
-     "LanceurPropagation. Les classes Lanceur, ajoutees le 14/09, sont donc "
-     "eprouvees sur les trois projets : recueil, demos et demineur."),
-
-    ("JavaFX — FX.8 (bindings) et pom.xml",
+    ("GameHub — les 35 increments",
      "a faire", "",
-     "FX.8 et son corrige ont ete ecrits le 11/10 sans JavaFX disponible : "
-     "ni compiles ni lances. La calculatrice est passee de e08 a e09 "
-     "(package, FXML, fx:controller) : a relancer. Le pom designe "
-     "desormais ClicApp (demos) et fx.e01 (exercices, solutions) pour "
-     "javafx:run : a essayer."),
+     "Trente compilaient en septembre. Cinq se sont ajoutes depuis, dont "
+     "deux qui ouvrent une fenetre JavaFX."),
+
+    ("Demineur — tests, jeu et enonce",
+     "a faire", "",
+     "Jamais verifie. Ni les dix tests de GrilleTest, ni le jeu, ni "
+     "l'enonce en sept etapes ecrit depuis."),
+
+    ("JavaFX — les exercices, les demos, FX.8",
+     "a faire", "",
+     "Les huit exercices et les deux demos tournaient en septembre. FX.8 "
+     "— bindings et pom.xml — n'a jamais ete eprouve."),
 
     ("Captures d'ecran sous Windows",
      "a faire", "",
-     "Les 23 captures du guide et du document Git viennent d'un macOS. "
-     "Nice to have, voir le todo."),
+     "Les 23 captures du guide et du document Git viennent d'un macOS."),
+
+    ("REC — l'examen blanc et les recapitulatifs",
+     "a faire", "",
+     "Formule arretee le 11/10 : un examen d'une annee precedente, plus des "
+     "exercices recapitulatifs. Aucun recapitulatif n'est ecrit."),
+
+    ("La distribution aux etudiants",
+     "a faire", "",
+     "Depot GitHub public, archives par seance de livrer.py, dossiers par "
+     "module de dossier_module.py : trois voies qui ne disent pas la meme "
+     "chose. Point important, pas encore creuse."),
 ]
 
 ws6 = wb.create_sheet("Verifications")
@@ -699,9 +700,10 @@ for quoi, etat, quand, detail in VERIFICATIONS:
     ligne += 1
 
 ligne += 1
-c = ws6.cell(ligne, 1, "Une verification qui trouve des defauts est une verification qui a servi. "
-                       "Les vingt-trois defauts listes ci-dessus etaient tous invisibles "
-                       "a la relecture du code.")
+c = ws6.cell(ligne, 1, "Tout est repasse a « a faire » le 11/10/2026 : le professeur reprend "
+                       "l'ensemble. Une ligne « fait » datee de septembre aurait menti, "
+                       "puisque les seize decks, cinq increments GameHub et l'enonce du "
+                       "demineur sont arrives depuis.")
 ws6.merge_cells(start_row=ligne, start_column=1, end_row=ligne, end_column=4)
 c.font = Font(name=POLICE, size=10, italic=True, color=ACCENT)
 c.alignment = Alignment(vertical="center", wrap_text=True, indent=1)

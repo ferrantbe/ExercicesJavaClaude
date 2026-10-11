@@ -133,7 +133,12 @@ commits.
 
 ## Ce qui reste indécis
 
-**La séance 13 et `REC`.** Quatorze séances de 18h00 à 21h15, pause de vingt
+**`REC` : la formule est arrêtée, le contenu non.** La séance 13 combinera
+un **examen d'une année précédente** et des **exercices récapitulatifs** —
+décidé le 11/10. L'examen précédent couvre le terrain tout de suite ; les
+récapitulatifs restent à écrire, et aucun ne l'est à ce jour.
+
+**La séance 13 et `REC`, le détail.** Quatorze séances de 18h00 à 21h15, pause de vingt
 minutes — donc deux blocs de 95 et 80 minutes. Un examen blanc complet
 (2h30) n'y tient pas : il se fera à la maison, la séance 14 servant à sa
 correction. Six exercices `REC` sont prévus, un par question d'examen,
@@ -145,22 +150,51 @@ durée de l'examen — 2h30 pour 5 questions aujourd'hui, une sixième demande
 étudiants ». Le dépôt existe, avec sa notice. Point bloquant à vérifier :
 Git est-il installé sur les postes de l'école ?
 
-**L'ordre des modules.** Deux anomalies mesurées : `PKG` emploie l'héritage
-alors qu'il précède `ABS`, et `FIC` pèse désormais un sixième de l'examen
-tout en passant après `FX`. Un ordre corrigé a été proposé le 15/09 ; il
-n'est pas appliqué.
+**L'ordre des modules — réglé le 11/10.** `PKG` descend après `ABS` et
+`ITF`, `FIC` remonte avec `LAM`. L'ordre vit en deux endroits qui
+concordent désormais : la numérotation des decks dans `_slides/generes/`
+et la table `_outils/livraisons.json`. **Si l'un change, l'autre doit
+suivre** — ils se sont contredits une fois.
 
-**Les slides.** Seul support jamais touché.
+Quatorze séances, plus aucune vide. Les anciennes séances 4 et 10, qui
+l'étaient depuis septembre, ont été absorbées.
+
+**La distribution aux étudiants.** Comment leur remettre le matériel :
+dépôt GitHub public, archives par séance produites par `livrer.py`,
+dossiers par module produits par `dossier_module.py` ? Les trois existent
+et ne disent pas la même chose. Point important, pas encore creusé.
+
+**Le classement de `FIC` — réglé le 11/10.** Passé de `Should` à `Must`,
+ses trois exercices avec, puisqu'il vaut un sixième de l'examen.
 
 ---
 
+## Le poids du dépôt
+
+331 Mo au 11/10, dont 158 de `.git` : 65 Mo de decks sources, 39 de decks
+produits, le reste en documents et captures. Décision du 11/10 : **tout
+reste dans le dépôt**, la cohérence valant mieux que la légèreté.
+
+Conséquence à connaître : Git garde chaque version pour toujours. Supprimer
+des versions intermédiaires est possible, mais cela **réécrit l'historique**
+et oblige tous les clones à repartir de zéro.
+
+La marche à suivre, testée, est dans
+`_slides/generes/RETIRER_VERSIONS_INTERMEDIAIRES.md`. **Seuil retenu : agir
+quand `.git` dépasse 500 Mo** — la moitié du gigaoctet que GitHub recommande
+de ne pas dépasser. Une régénération complète des seize decks ajoute environ
+39 Mo, ce qui laisse une dizaine de passages avant d'y arriver.
+
 ## Ce qui a été vérifié, et ce qui ne l'a pas été
 
-**Vérifié** : les 70 squelettes compilent et leurs tests échouent où ils le
-doivent ; les corrigés compilent et s'exécutent ; les 30 états de GameHub
-compilent ; les 8 exercices `FX` et les 2 démos JavaFX tournent.
+**Tout est à revérifier.** Le professeur reprend l'ensemble à partir du
+11/10 : la feuille `Verifications` du tableau de bord a été remise
+entièrement à « à faire ». Les vérifications de septembre portaient sur un
+état antérieur aux seize decks, aux cinq nouveaux incréments GameHub et à
+l'énoncé du démineur.
 
-**Pas vérifié** : les 10 tests du démineur et le jeu lui-même ; `FX.8`
+**Jamais vérifié, même en septembre** : les 10 tests du démineur et le jeu
+lui-même ; `FX.8`
 (bindings), écrit le 11/10 sans JavaFX disponible, ni compilé ni lancé.
 
 **Une limite permanente côté Claude** : ni JUnit ni JavaFX ne sont

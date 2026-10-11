@@ -498,9 +498,15 @@ relancable au fur et a mesure que les decks arrivent.
 
 ## La fabrique des slides vit ici aussi
 
-`_slides/` contient le moteur de generation des decks, les onze
-`module_xxx.py` et les onze scenarios. Rien ne s'y compile : ce dossier est
+`_slides/` contient le moteur de generation des decks, les seize
+`module_xxx.py`, les seize scenarios, les douze decks sources et **les seize
+decks produits**, dans `generes/`. Rien ne s'y compile : ce dossier est
 independant du projet Maven.
+
+Les seize decks existent depuis le 11/10. `STA` n'en a pas : ses deux
+exercices sont couverts par la section 4 du deck `POO`, et c'est voulu.
+`FX` en a deux — `FX1` pour les evenements, `FX2` pour les proprietes et
+l'architecture.
 
 Il y vit pour une raison : un deck, un fascicule et une demonstration parlent
 du meme module. Les separer, c'est les laisser diverger — ce qui est arrive en

@@ -1,26 +1,91 @@
 {
-  "_commentaire": "sans_tests : themes dont les exercices n'ont volontairement pas de classe de test. Une interface graphique ne se verifie pas par un test unitaire ; l'enonce decrit alors ce qu'il faut observer.",
-  "sans_tests": ["fx"],
-
-  "_commentaire": [
-    "Table seance -> themes livres. C'est le SEUL fichier a editer quand le",
-    "calendrier bouge. Deplacer un theme d'une seance a l'autre ne demande",
-    "aucun renommage de package : c'est tout l'interet de la numerotation",
-    "thematique.",
-    "Une seance sans exercice propre (seances 4 et 10) a une liste vide."
+  "_commentaire": "Repartition revue le 11/10/2026, alignee sur la numerotation des decks de _slides/generes/. PKG descend apres ABS et ITF : PKG.5 porte sur protected, qui n'a aucun sens sans heritage. FIC remonte avec LAM, car il vaut desormais un sixieme de l'examen. Plus aucune seance vide.",
+  "sans_tests": [
+    "fx"
   ],
-
-  "1":  { "nom": "Seance01_POO",         "themes": ["poo", "sta"] },
-  "2":  { "nom": "Seance02_TMP_PKG_TAB_ENU", "themes": ["tmp", "pkg", "tab", "enu"] },
-  "3":  { "nom": "Seance03_ABS_ITF",     "themes": ["abs", "itf"] },
-  "4":  { "nom": "Seance04",             "themes": [] },
-  "5":  { "nom": "Seance05_COL",         "themes": ["col"] },
-  "6":  { "nom": "Seance06_EXC",         "themes": ["exc"] },
-  "7":  { "nom": "Seance07_JUN",         "themes": ["jun"] },
-  "8":  { "nom": "Seance08_GEN",         "themes": ["gen"] },
-  "9":  { "nom": "Seance09_LAM",         "themes": ["lam"] },
-  "10": { "nom": "Seance10",             "themes": [] },
-  "11": { "nom": "Seance11_FX",          "themes": ["fx"] },
-  "12": { "nom": "Seance12_FIC",         "themes": ["fic"] },
-  "13": { "nom": "Seance13_REC",         "themes": ["rec"] }
+  "1": {
+    "nom": "Seance01_INI_POO",
+    "themes": [
+      "poo",
+      "sta"
+    ]
+  },
+  "2": {
+    "nom": "Seance02_TMP",
+    "themes": [
+      "tmp"
+    ]
+  },
+  "3": {
+    "nom": "Seance03_TAB_ENU",
+    "themes": [
+      "tab",
+      "enu"
+    ]
+  },
+  "4": {
+    "nom": "Seance04_ABS",
+    "themes": [
+      "abs"
+    ]
+  },
+  "5": {
+    "nom": "Seance05_ITF",
+    "themes": [
+      "itf"
+    ]
+  },
+  "6": {
+    "nom": "Seance06_PKG",
+    "themes": [
+      "pkg"
+    ]
+  },
+  "7": {
+    "nom": "Seance07_COL",
+    "themes": [
+      "col"
+    ]
+  },
+  "8": {
+    "nom": "Seance08_EXC",
+    "themes": [
+      "exc"
+    ]
+  },
+  "9": {
+    "nom": "Seance09_JUN",
+    "themes": [
+      "jun"
+    ]
+  },
+  "10": {
+    "nom": "Seance10_GEN",
+    "themes": [
+      "gen"
+    ]
+  },
+  "11": {
+    "nom": "Seance11_LAM_FIC",
+    "themes": [
+      "lam",
+      "fic"
+    ]
+  },
+  "12": {
+    "nom": "Seance12_FX1",
+    "themes": [
+      "fx"
+    ]
+  },
+  "13": {
+    "nom": "Seance13_FX2_REC",
+    "themes": [
+      "rec"
+    ]
+  },
+  "14": {
+    "nom": "Seance14_REC",
+    "themes": []
+  }
 }

@@ -71,6 +71,21 @@ probablement vu que le premier.
 Attention : ses slides 13 à 34 sont celles de `d12`, recopiées — seules les
 douze premières portent réellement sur les threads.
 
+## Où en est la fabrique
+
+**Les seize decks sont produits**, au 11/10/2026. Ils sont dans
+`generes/`, numérotés dans l'ordre pédagogique.
+
+`STA` n'a pas de deck à lui : ses deux exercices sont couverts par la
+section 4 du deck `POO`, « Membres de classe ». Ce n'est pas un oubli.
+
+`FX` en a deux. `FX1` traite les événements, `FX2` les propriétés et
+l'architecture MVC ; la frontière tombe entre `FX.5` et `FX.6`, là où l'on
+cesse de réagir à un événement pour déclarer une dépendance permanente.
+
+Ce qui reste à faire porte sur le **contenu** des decks, pas sur la
+fabrique : relecture et adaptation, séance par séance.
+
 ## Les trois dossiers
 
 | | |

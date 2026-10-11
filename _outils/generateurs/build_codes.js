@@ -72,7 +72,7 @@ c.push(runs([
   ", et une numérotation séquentielle de ",
   { t: "G.1", code: true },
   " à ",
-  { t: "G.30", code: true },
+  { t: "G.35", code: true },
   " : son ordre est imposé par les dépendances entre incréments, pas par un thème."
 ]));
 c.push(runs([
