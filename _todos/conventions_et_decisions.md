@@ -2,7 +2,7 @@
 
 *Document destiné à la base de connaissances du Projet. Il porte ce qui ne
 se déduit pas des fichiers : les règles qu'on s'est données, les décisions
-prises, et celles qui attendent. Mis à jour le 15/09/2026.*
+prises, et celles qui attendent. Mis à jour le 12/10/2026.*
 
 ---
 
@@ -192,6 +192,8 @@ quand `.git` dépasse 500 Mo** — la moitié du gigaoctet que GitHub recommande
 de ne pas dépasser. Une régénération complète des seize decks ajoute environ
 39 Mo, ce qui laisse une dizaine de passages avant d'y arriver.
 
+---
+
 ## Ce qui a été vérifié, et ce qui ne l'a pas été
 
 **Tout est à revérifier.** Le professeur reprend l'ensemble à partir du
@@ -208,3 +210,43 @@ lui-même ; `FX.8`
 disponibles dans l'environnement. Tout ce qui touche à ces deux-là doit être
 éprouvé sur la machine du professeur, et les réserves sont signalées dans les
 réponses.
+
+---
+
+## Les decks remaniés et le support imprimable
+
+**Les decks retouchés à la main vivent dans `_slides/remanies/`.** Le
+professeur y reprend les decks générés : reformulation, éléments graphiques,
+animations. Un deck remanié devient la référence : le régénérer avec
+`construire_deck.py` effacerait les retouches. `_slides/generes/` garde la
+version produite par le moteur, pour pouvoir comparer les deux. INI est le
+premier deck remanié, le 12/10.
+
+**Les puces sont formulées en phrases**, souvent précédées d'une phrase
+d'introduction qui donne le contexte. Des puces trop courtes paraissent
+sèches. Choix confirmé le 12/10 sur INI, à suivre pour les modules suivants.
+
+**Le professeur adapte le texte des slides, pas les notes.** Les notes
+portent la prose du support imprimable. Claude relit chaque deck remanié et
+propose les mises à jour des notes quand elles ne concordent plus avec les
+slides.
+
+**Le support imprimable : un document unique pour la théorie de tous les
+modules.** Les mémentos et documents techniques vont dans un second document
+général (décidé le 12/10). La rédaction attend la fin de la révision des
+slides. Seul existe un test sur POO, de septembre, dont les scripts n'ont
+jamais été versés au dépôt.
+
+---
+
+## Le traitement des images dans les decks
+
+**Images sous licence CC** : créditer l'auteur, la licence avec un lien vers
+son texte, et la source, en ajoutant « recadrée » ou « modifiée » si on a
+touché à l'image. Exemple, sous la photo de la slide Clean Code d'INI :
+« By Angelacleancoder - Own work, CC BY-SA 4.0,
+https://commons.wikimedia.org/w/index.php?curid=88628927 - recadrée », en
+8 pt, avec un lien hypertexte sur « CC BY-SA 4.0 ».
+
+**Images décoratives** : clic droit, Texte de remplacement, cocher « Marquer
+comme élément décoratif ». Ce qui est marqué ainsi reste hors du support.
