@@ -2,7 +2,8 @@ const fs = require("fs");
 const {
   Document, Packer, Paragraph, TextRun, HeadingLevel, AlignmentType,
   Table, TableRow, TableCell, WidthType, ShadingType, BorderStyle,
-  PageBreak, LevelFormat, convertInchesToTwip, Bookmark, InternalHyperlink
+  PageBreak, LevelFormat, convertInchesToTwip, Bookmark, InternalHyperlink,
+  ExternalHyperlink
 } = require("docx");
 
 const MONO = "Consolas";
@@ -1459,6 +1460,21 @@ c.push(runs([
   ", Robert C. Martin, Prentice Hall, 2008. Les chapitres 2 (noms), 3 (fonctions), 4 (commentaires), 6 (objets), 7 (erreurs), 9 (tests) et 10 (classes) correspondent aux sections de ce mémento."
 ]));
 c.push(p("Le site cleancoders.com propose les vidéos de l'auteur. La conférence « Clean Code » d'Uncle Bob, disponible en ligne, en donne un aperçu d'une heure."));
+
+// La video n'a pas de libelle propre : le lien est donne en clair, pour
+// rester lisible sur papier.
+const VIDEO_LUCAS = "https://www.youtube.com/watch?v=VioMQpZMtnA";
+c.push(new Paragraph({
+  spacing: { after: 120 },
+  children: [
+    new TextRun({ text: typo("En français, Julien Lucas présente ces principes dans une vidéo : "), size: 22 }),
+    new ExternalHyperlink({
+      link: VIDEO_LUCAS,
+      children: [new TextRun({ text: VIDEO_LUCAS, size: 22, color: LIEN, underline: {} })]
+    }),
+    new TextRun({ text: ".", size: 22 })
+  ]
+}));
 
 // ---------------- document ----------------
 const doc = new Document({

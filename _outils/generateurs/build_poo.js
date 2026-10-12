@@ -668,7 +668,9 @@ children.push(runs([
   " et ",
   { t: "Character.MAX_RADIX", code: true },
   " donnent les bases utilisables. Consultez la Javadoc pour connaître leurs valeurs et ",
-  "le comportement de la méthode face à une entrée invalide."
+  "le comportement de la méthode face à une entrée invalide. Pour l'afficher sans quitter IntelliJ, voir ",
+  { t: "IDE.14", code: true },
+  "."
 ]));
 
 children.push(h2("Énoncé"));
@@ -761,7 +763,7 @@ children.push(bullet("Pourquoi la base maximale est-elle 36 ?"));
 children.push(bullet("enBase10 ne rattrape pas l'exception : elle la laisse passer. Est-ce un oubli ? Qui est le mieux placé pour décider quoi faire d'une saisie invalide, la méthode de calcul ou le programme ?"));
 children.push(runsSimple([
   "Cette séparation entre le calcul et le dialogue est la règle ",
-  { t: "CC-MET.7", code: true },
+  { t: "CC-MET.8", code: true },
   " du mémento Clean Code : une méthode fait quelque chose ou répond à une question, pas les deux. C'est aussi ce qui rend ",
   { t: "enBase10", code: true },
   " testable, alors qu'une méthode qui affiche ne l'est pas — voir ",
