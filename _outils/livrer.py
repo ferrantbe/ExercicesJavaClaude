@@ -90,8 +90,18 @@ IGNORES = {"target", ".idea", "__pycache__"}
 
 # Ce que contient le projet de depart (seance 0), en plus du pom parent
 # filtre et du .gitignore ci-dessous. Les dossiers sont copies en entier.
-PROJET_DE_DEPART = ["README.md", "exercices/pom.xml", "solutions/pom.xml",
+PROJET_DE_DEPART = ["exercices/pom.xml", "solutions/pom.xml",
                     "demos/pom.xml", "documents"]
+
+# Le README de l'etudiant n'est pas celui du projet de travail : celui-ci
+# peut parler des outils et des dossiers du professeur. README_publiable.md
+# est copie sous le nom README.md.
+README_PUBLIABLE = "README_publiable.md"
+
+# Ce qu'un document publie ne doit jamais citer : les noms des depots de
+# travail et les dossiers du professeur.
+MOTS_PRIVES = ("Claude", "_outils", "_todos", "_objectifs", "_travail",
+               "_slides", "_captures", "_demos", "_corrige")
 
 # Le .gitignore du projet etudiant. Celui du professeur parle de decks, de
 # livraisons et de dossiers prives : rien de cela n'existe chez l'etudiant.
@@ -313,6 +323,10 @@ def collecter(themes, racine, solutions):
 def construire(themes, racine, sortie, solutions):
     """Fabrique une archive. Renvoie la liste des chemins qu'elle contient."""
     entrees = collecter(themes, racine, solutions)
+    if not solutions:
+        # Le README annonce un fascicule par theme dans enonces/ : l'archive
+        # le livre donc avec le code, comme le depot public.
+        entrees += fascicules(themes, racine)[0]
     ecrire_archive(entrees, sortie)
     return [str(Path(RACINE_ARCHIVE) / r) for _, r in entrees]
 
@@ -353,10 +367,26 @@ def pom_etudiant(racine):
     return texte
 
 
+def readme_etudiant(racine):
+    """README_publiable.md, verifie : il ne doit citer ni les depots de
+    travail ni les dossiers du professeur."""
+    fichier = racine / README_PUBLIABLE
+    if not fichier.is_file():
+        sys.exit(colore(f"{README_PUBLIABLE} introuvable a la racine du projet : "
+                        "c'est lui qui devient le README de l'etudiant.", ROUGE))
+    texte = fichier.read_text(encoding="utf-8")
+    trouves = [mot for mot in MOTS_PRIVES if mot in texte]
+    if trouves:
+        sys.exit(colore(f"{README_PUBLIABLE} cite {', '.join(trouves)} : ce sont "
+                        "des noms du projet de travail. Rien n'a ete produit.", ROUGE))
+    return texte
+
+
 def collecter_depart(racine):
     """Les entrees du projet de depart, dans le meme format que collecter()."""
     entrees = [(pom_etudiant(racine), Path("pom.xml")),
-               (GITIGNORE_ETUDIANT, Path(".gitignore"))]
+               (GITIGNORE_ETUDIANT, Path(".gitignore")),
+               (readme_etudiant(racine), Path("README.md"))]
     for element in PROJET_DE_DEPART:
         chemin = racine / element
         if chemin.is_dir():
@@ -373,10 +403,9 @@ def collecter_depart(racine):
 
 
 def fascicules(themes, racine):
-    """Les fascicules d'enonces des themes, pour le depot public.
-    L'archive de seance ne les contient pas : ils sont deposes a part sur
-    Moodle. Un theme sans fascicule (REC, tant qu'il n'est pas ecrit) est
-    simplement signale."""
+    """Les fascicules d'enonces des themes, livres avec le code : dans
+    l'archive des enonces comme dans le depot public. Un theme sans fascicule
+    (REC, tant qu'il n'est pas ecrit) est simplement signale."""
     entrees, absents = [], []
     for theme in themes:
         fichier = racine / "enonces" / f"{theme.upper()}_enonces.docx"

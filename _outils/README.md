@@ -155,7 +155,12 @@ python3 _outils/livrer.py 0
 
 Produit `livraisons/Seance00_ExercicesJava.zip` : le pom parent, les trois
 pom de module, le README, un `.gitignore` propre a l'etudiant et les
-documents de reference. C'est ce qui va dans la section `General` de Moodle.
+documents de reference.
+
+Le README de l'etudiant est **`README_publiable.md`**, copie sous le nom
+`README.md`. Le `README.md` du projet de travail ne part jamais. Le script
+refuse un `README_publiable.md` qui cite un depot `...Claude` ou un dossier
+du professeur (`_outils`, `_todos`...). C'est ce qui va dans la section `General` de Moodle.
 
 Le pom parent y est **filtre** : il ne declare plus le module `_travail`,
 qui n'existe pas chez l'etudiant. Laisser la declaration ferait echouer
