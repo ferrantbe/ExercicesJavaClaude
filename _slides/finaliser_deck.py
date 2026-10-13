@@ -37,6 +37,8 @@ from pptx.oxml.ns import qn
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from mise_en_forme import cran_dessous, uniformiser_titre_intercalaire  # noqa: E402
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "_outils"))
+from animer_code import animer_slide as animer_code  # noqa: E402
 from pptx.util import Emu, Inches, Pt
 
 # ---------------------------------------------------------------------------
@@ -769,6 +771,8 @@ def main():
     uniformiser_intercalaires(prs)    # apres numeroter : le numero compte dans la largeur
     nettoyer_animations(prs)
     n = harmoniser_code_inline(prs)
+    for slide in prs.slides:          # le code sous le texte vient au clic, en fondu
+        animer_code(slide)
     print(f"{n} mots de code realignes sur leur prose")
     prs.save(sortie)
     print(f"{len(prs.slides)} slides -> {sortie}")

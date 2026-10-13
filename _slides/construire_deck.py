@@ -32,6 +32,8 @@ from pptx.oxml.ns import qn
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from mise_en_forme import cran_dessous, uniformiser_titre_intercalaire  # noqa: E402
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "_outils"))
+from organiser_exercices import LOGO_GAMEHUB, traiter_slide as organiser_exercices  # noqa: E402
 from pptx.util import Emu, Inches, Pt
 
 NS_R = "http://schemas.openxmlformats.org/officeDocument/2006/relationships"
@@ -573,6 +575,9 @@ def slide_renvoi(prs, bloc, numero, image_exo, fascicules):
     if image_exo:
         slide.shapes.add_picture(io.BytesIO(image_exo["blob"]), Inches(11.3), Inches(0.2),
                                  Inches(1.4), Inches(1.4 * image_exo["h"] / image_exo["l"]))
+    # icones a cote de leurs cartes, un groupe par sorte, animation s'il y en a deux
+    # (meme logique que _outils/organiser_exercices.py, qui la porte)
+    organiser_exercices(slide, LOGO_GAMEHUB if LOGO_GAMEHUB.exists() else None)
     ajouter_numero(slide, numero)
     return slide
 
