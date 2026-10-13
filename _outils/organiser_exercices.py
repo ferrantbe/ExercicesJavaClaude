@@ -22,6 +22,7 @@ son contenu, et l'outil peut etre relance sans risque.
 """
 import argparse
 import copy
+import hashlib
 import re
 import sys
 from pathlib import Path
@@ -47,15 +48,45 @@ def taille_image(sh):
         return None
 
 
+def _empreinte(blob):
+    return hashlib.md5(blob).hexdigest()
+
+
+EMPREINTE_LOGO = _empreinte(LOGO_GAMEHUB.read_bytes()) if LOGO_GAMEHUB.exists() else None
+ROTATION_LOGO = 7.0          # le logo GameHub est legerement incline (choix du 14/10/2026)
+TAILLE_LOGO = Inches(1.33)   # 3,38 cm
+
+
 def sorte_icone(sh):
+    """Le cerveau (image 320 x 320) ou le logo GameHub (reconnu a son image ou a son nom).
+
+    Une simple taille d'image ne suffit pas : l'icone des demonstrations fait aussi
+    512 x 512, et avait ete prise pour le logo le 13/10.
+    """
     if sh.shape_type != 13:
         return None
     t = taille_image(sh)
     if t == (320, 320):
         return "module"
-    if t == (512, 512) or "gamehub" in sh.name.lower():
+    try:
+        image = _empreinte(sh.image.blob)
+    except Exception:
+        image = None
+    if image == EMPREINTE_LOGO or "gamehub" in sh.name.lower():
         return "gamehub"
     return None
+
+
+def remettre_logo(slide, ic, logo):
+    """Remplace un logo GameHub qui porte la mauvaise image ; rend la nouvelle forme."""
+    if logo is None or _empreinte(ic.image.blob) == EMPREINTE_LOGO:
+        return ic
+    neuf = slide.shapes.add_picture(str(logo), ic.left, ic.top, TAILLE_LOGO, TAILLE_LOGO)
+    neuf.name = "iconGameHub"
+    neuf.rotation = ROTATION_LOGO
+    ic._element.addprevious(neuf._element)
+    ic._element.getparent().remove(ic._element)
+    return neuf
 
 
 def codes_dans(sh):
@@ -153,10 +184,13 @@ def traiter_slide(slide, logo):
             icones[k] = sh
         elif k is not None:
             sh._element.getparent().remove(sh._element)
+    if "gamehub" in icones:
+        icones["gamehub"] = remettre_logo(slide, icones["gamehub"], logo)
     if "gamehub" in sortes and "gamehub" not in icones and logo is not None:
         icones["gamehub"] = slide.shapes.add_picture(str(logo), X_ICONE["gamehub"], Y_HAUT["gamehub"],
-                                                    Inches(1.33), Inches(1.33))
+                                                    TAILLE_LOGO, TAILLE_LOGO)
         icones["gamehub"].name = "iconGameHub"
+        icones["gamehub"].rotation = ROTATION_LOGO
     mixte = len(sortes) == 2
     for s, ic in icones.items():
         if mixte:
