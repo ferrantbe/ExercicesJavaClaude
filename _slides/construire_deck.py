@@ -29,6 +29,9 @@ from pptx.enum.dml import MSO_THEME_COLOR
 from pptx.enum.shapes import MSO_SHAPE
 from pptx.enum.text import MSO_ANCHOR, PP_ALIGN
 from pptx.oxml.ns import qn
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from mise_en_forme import cran_dessous, uniformiser_titre_intercalaire  # noqa: E402
 from pptx.util import Emu, Inches, Pt
 
 NS_R = "http://schemas.openxmlformats.org/officeDocument/2006/relationships"
@@ -122,12 +125,11 @@ JETONS = re.compile(r"(`[^`]+`|\*\*[^*]+\*\*|\*\([^)]*\)\*)")
 # un mot de code se pose quatre points plus bas que la prose qui l'entoure
 # (28 pt de prose -> 24 pt de code). Les deux occupent alors la meme largeur
 # par caractere, ce qui laisse les mesures de hauteur valables.
-RAPPORT_CODE = 6 / 7
 
 
 def taille_inline(t):
-    """Taille d'un mot de code place dans de la prose de taille t."""
-    return round(t * RAPPORT_CODE)
+    """Taille d'un mot de code dans de la prose de taille t : un cran en dessous."""
+    return cran_dessous(t)
 
 
 def est_code(run):
@@ -429,13 +431,8 @@ def textes_intercalaire(slide, titre_section, sous_titre):
               and not s.is_placeholder]
     boites.sort(key=lambda s: (s.top, s.left))
     poser_une_ligne(boites[0], titre_section)
-    tf = boites[0].text_frame
-    taille = max((r.font.size.pt for p in tf.paragraphs for r in p.runs if r.font.size),
-                 default=40)
-    maxi = Inches(LARGEUR - 0.3) - boites[0].left
-    largeur = min(Emu(int(Inches(len(titre_section) * taille * 0.5 / 72 + 0.6))), maxi)
-    if largeur > boites[0].width:
-        boites[0].width = largeur
+    # style commun a tous les decks (mise_en_forme.py), quel que soit le deck source
+    uniformiser_titre_intercalaire(boites[0], Inches(LARGEUR))
     if len(boites) > 1:
         if sous_titre:
             poser_une_ligne(boites[1], sous_titre)

@@ -37,7 +37,7 @@ FASCICULES = {"TAB": "fascicule TAB", "G": "fil rouge GameHub"}
 SECTIONS = [
     "Un tableau, c'est une taille fixe",
     "Parcourir un tableau",
-    "Des lignes de longueurs différentes",
+    "Lignes de tailles différentes",
     "L'opérateur ternaire",
     "Des objets qui se connaissent",
 ]
@@ -56,7 +56,7 @@ LIBELLES = [
 INTERCALAIRES = {
     "1.1": ("Un tableau, c'est une taille fixe", None),
     "2.1": ("Parcourir un tableau", None),
-    "3.1": ("Des lignes de longueurs différentes", None),
+    "3.1": ("Lignes de tailles différentes", None),
     "4.1": ("L'opérateur ternaire", None),
     "5.1": ("Des objets qui se connaissent", None),
 }

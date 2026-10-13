@@ -469,8 +469,8 @@ fait collaborer quatre, et range des objets dans un tableau.
 
 **Slide**
 - Un champ peut être un objet, comme il peut être un `int`
-- Un vendeur **a une** personne, il n'**est pas** une personne
-- La différence entre « a un » et « est un » : thème **ABS**
+- Ici, le vendeur est un rôle que joue une personne : il **a une** `Person`
+- On aurait pu dire qu'il **est une** personne, par héritage, comme en C# : c'est un autre modèle, que le thème **ABS** compare à celui-ci
 ```
 Person  <---[1]---  Vendor  ---[*]--->  Sale  ---[1]--->  Car
 ```
@@ -480,10 +480,13 @@ Rien de nouveau techniquement : un champ dont le type est une classe, vous
 en écrivez depuis le module POO. Ce qui change, c'est le nombre de classes
 qui collaborent.
 
-La tentation est d'écrire qu'un vendeur **est** une personne, ce qui se
-traduirait par de l'héritage. Ce n'est pas le sujet de cette séance, et la
-distinction mérite mieux qu'une note de bas de page : vous y viendrez au
-thème ABS, et vous pourrez alors reprendre cet exercice pour en discuter.
+Le vendeur est modélisé ici comme un rôle que joue une personne : un Vendor
+possède une Person, sous la forme d'un champ. On aurait pu, tout aussi
+légitimement, écrire qu'un vendeur **est** une personne, ce qui se traduit par
+de l'héritage, que vous connaissez par le C#. Ce n'est pas faux : c'est un
+autre modèle. Celui de l'exercice a un avantage : la même personne pourrait
+jouer d'autres rôles, être cliente par exemple, sans changer de classe. Le
+thème ABS compare les deux approches sur cet exemple.
 
 ---
 

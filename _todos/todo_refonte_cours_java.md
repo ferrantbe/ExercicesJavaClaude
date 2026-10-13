@@ -206,6 +206,8 @@ que Q4 de l'examen.
   * Clean Code, Threads, Fichiers, récapitulatifs — aucun ne correspond aux cinq créneaux de l'épreuve
   * [ ] descendre Fichiers plus tôt (s'articule bien avec les exceptions, séance 6)
   * [x] Clean Code diffusé par petites touches via le mémento, plus en bloc
+* **Promesse de TAB à tenir dans ABS** (13/10)
+  * [ ] ajouter à `Scenario_ABS.md` une slide « a un ou est un ? » sur le vendeur de `TAB.4` : le modèle par rôle (`Vendor` a une `Person`) contre l'héritage (`Vendor extends Person`), avec l'argument du rôle (une même personne peut être vendeur et cliente, un objet ne change pas de classe, une seule classe mère). Le deck TAB, sa note et le fascicule TAB l'annoncent. À faire au remaniement d'ABS
 * **Ce qui va bien, à préserver**
   * densité saine, ~400 caractères par slide
   * reprise inter-decks faible, 2 à 12 %

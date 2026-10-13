@@ -18,10 +18,12 @@ Ne touche jamais : les zones de code, les cellules deja en Consolas, les
 reperes de section, les numeros de slide, les notes. --essai : rapport seul.
 """
 import argparse, copy, re, sys
+from pathlib import Path
 from pptx import Presentation
 from pptx.oxml.ns import qn
 
-ECHELLE = [8, 9, 10, 10.5, 11, 12, 14, 16, 18, 20, 24, 28, 32, 36, 40, 44, 48, 54, 60, 66, 72, 80, 88, 96]
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "_slides"))
+from mise_en_forme import cran_dessous  # noqa: E402  (la regle de taille vit la)
 
 MOTS_CLES = set("""abstract assert boolean break byte catch class continue default do else extends
 finally float for if implements import instanceof int new private protected return static super
@@ -59,11 +61,6 @@ def categorie(mot):
             or re.fullmatch(r"[A-Z][A-Z0-9]*_[A-Z0-9_]+", base)):      # MAX_VALUE
         return "auto"
     return None
-
-
-def cran_dessous(pt):
-    plus_petits = [t for t in ECHELLE if t < pt - 0.01]
-    return plus_petits[-1] if plus_petits else pt
 
 
 def formes(shapes):

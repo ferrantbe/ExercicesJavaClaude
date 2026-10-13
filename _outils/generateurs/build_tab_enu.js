@@ -521,8 +521,8 @@ tab.push(bulletRuns([
 ]));
 tab.push(encadre([
   [{ t: "Une remarque sur le vendeur", b: true }],
-  ["Un Vendor possède une Person : c'est un champ, comme un autre. On serait tenté d'écrire qu'un vendeur EST une personne, ce qui se traduirait par de l'héritage — mais ce n'est pas le sujet de cette séance, et la distinction entre « a un » et « est un » mérite mieux qu'une note de bas de page."],
-  ["Vous y viendrez au thème ABS, et vous pourrez alors reprendre cet exercice pour en discuter."]
+  ["Un Vendor possède une Person : c'est un champ, comme un autre. Le vendeur est vu ici comme un rôle que joue une personne. On aurait pu écrire, tout aussi légitimement, qu'un vendeur EST une personne : c'est l'héritage, que vous connaissez par le C#. Les deux modèles se défendent ; celui-ci permettrait à la même personne de jouer d'autres rôles, d'être cliente par exemple, sans changer de classe."],
+  ["Le thème ABS compare les deux approches sur cet exemple."]
 ]));
 
 // =====================================================================

@@ -34,6 +34,9 @@ from pptx.enum.dml import MSO_THEME_COLOR
 from pptx.enum.shapes import MSO_SHAPE, PP_PLACEHOLDER
 from pptx.enum.text import MSO_ANCHOR, PP_ALIGN
 from pptx.oxml.ns import qn
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from mise_en_forme import cran_dessous, uniformiser_titre_intercalaire  # noqa: E402
 from pptx.util import Emu, Inches, Pt
 
 # ---------------------------------------------------------------------------
@@ -455,11 +458,11 @@ TAILLES = (28, 26, 24, 22, 20)
 
 # Consolas est plus large que Corbel : dans du texte courant, un mot de code
 # se pose quatre points plus bas que la prose qui l'entoure (28 -> 24).
-RAPPORT_CODE = 6 / 7
 
 
 def taille_inline(t):
-    return round(t * RAPPORT_CODE)
+    """Taille d'un mot de code dans de la prose de taille t : un cran en dessous."""
+    return cran_dessous(t)
 
 
 def est_code(run):
@@ -649,6 +652,16 @@ def uniformiser_titres(prs):
                 r.font.size = Pt(TAILLE_TITRE)
 
 
+def uniformiser_intercalaires(prs):
+    """Meme style de titre pour tous les intercalaires (voir mise_en_forme.py)."""
+    tailles = []
+    for slide in prs.slides:
+        boite = titre_intercalaire(slide)
+        if boite is not None:
+            tailles.append(uniformiser_titre_intercalaire(boite, prs.slide_width))
+    return tailles
+
+
 def arrondir_code(prs):
     for slide in prs.slides:
         for f in slide.shapes:
@@ -753,6 +766,7 @@ def main():
     ombrer_boites(prs)
     numeroter(prs)
     reconstruire_sections(prs)
+    uniformiser_intercalaires(prs)    # apres numeroter : le numero compte dans la largeur
     nettoyer_animations(prs)
     n = harmoniser_code_inline(prs)
     print(f"{n} mots de code realignes sur leur prose")
