@@ -32,7 +32,7 @@ yield""".split())
 # Mots-cles qui sont aussi des mots francais : decision au cas par cas.
 AMBIGUS = set("public package interface final case long double char record enum short continue super".split())
 # Classes dont le nom est aussi un mot francais courant (titre de module, par exemple).
-AMBIGUS |= {"Collections", "Exceptions", "Interfaces"}
+AMBIGUS |= {"Collection", "Collections", "Exceptions", "Interfaces"}
 CLASSES = set("""String Scanner Integer Object Math System Character Boolean Long Double Float Byte Short
 LocalDate LocalTime LocalDateTime Duration Period Instant ZonedDateTime ZoneId DayOfWeek Month Year
 ChronoUnit DateTimeFormatter DateTimeParseException ResolverStyle List ArrayList LinkedList Map HashMap

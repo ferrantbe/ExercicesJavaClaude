@@ -1,6 +1,6 @@
 # Scénario du module ABS — Classes abstraites
 
-Huit sections, 42 slides (43 avec le sommaire posé par le finaliseur).
+Huit sections, 43 slides (44 avec le sommaire posé par le finaliseur).
 
 Retouches faites à la main dans PowerPoint, qu'une reconstruction ne reproduit pas :
 les deux flèches animées — « commun » vers le haut, « différent » vers le bas — sur la
@@ -234,6 +234,43 @@ donc se tromper sans être prévenu.
 
 En C#, l'appel au constructeur de base s'écrit dans l'en-tête ; en Java, il s'écrit dans
 le corps, en première instruction. La conséquence est la même, la place est différente.
+
+### 1.7 · A une personne, ou est une personne ?
+
+**Source** — promesse du module TAB (slide « Un objet peut en contenir un autre », sa note,
+et l'encadré « Une remarque sur le vendeur » du fascicule TAB), ajoutée le 13/10/2026
+
+**Slide**
+
+- Au module TAB, un vendeur **avait une** `Person` : un champ. L'héritage permet l'autre modèle : `Vendor extends Person`
+- **Est une** : le vendeur reçoit tout ce que sait la personne. Simple, tant que ce rôle ne change pas
+- **A une** : le vendeur est un rôle. La même personne peut aussi être cliente, ou cesser de vendre
+
+```java
+// a une personne : un rôle          // est une personne : l'héritage
+class Vendor {                        class Vendor extends Person {
+    private Person personne;              private Sale[] ventes;
+    private Sale[] ventes;            }
+}
+```
+
+**Note**
+
+Au module TAB, le vendeur de l'exercice TAB.4 possédait une Person : c'était un champ,
+comme un autre. Maintenant que l'héritage est là, l'autre modèle s'écrit : un vendeur est
+une personne, Vendor extends Person.
+
+Les deux se défendent. L'héritage est le plus direct : le vendeur reçoit le nom, le
+prénom et tout ce que la personne sait faire, sans rien redéclarer. Il convient tant que
+le vendeur restera vendeur, toute sa vie dans le programme.
+
+Le modèle par rôle est plus souple. La même personne peut être vendeur et cliente à la
+fois, ou cesser d'être vendeur sans disparaître. Avec l'héritage, c'est impossible : un
+objet ne change jamais de classe, et une classe Java n'a qu'une seule mère. Une personne
+qui est à la fois vendeur et cliente ne peut pas hériter des deux.
+
+La question à se poser est donc moins « est-ce vrai dans la vie ? » que « ce rôle
+peut-il changer, ou se cumuler ? ». Si oui, le champ ; si non, l'héritage.
 
 ## Section 2 — Le même code, trois fois
 
