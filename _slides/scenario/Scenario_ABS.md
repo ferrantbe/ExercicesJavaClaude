@@ -1,6 +1,6 @@
 # Scénario du module ABS — Classes abstraites
 
-Huit sections, 43 slides (44 avec le sommaire posé par le finaliseur).
+Huit sections, 45 slides (46 avec le sommaire posé par le finaliseur).
 
 Retouches faites à la main dans PowerPoint, qu'une reconstruction ne reproduit pas :
 les deux flèches animées — « commun » vers le haut, « différent » vers le bas — sur la
@@ -285,6 +285,38 @@ peut-il changer, ou se cumuler ? ». Si oui, le champ ; si non, l'héritage.
 Cette section pose le problème que la classe abstraite résout, et montre le geste par
 lequel on le corrige. Le problème est la duplication entre classes sœurs, et c'est
 l'erreur la plus fréquente à l'examen.
+
+### 2.1a · Un exemple : prévenir un utilisateur
+
+**Source** — slide de contexte ajoutée le 14/10/2026, à la demande du professeur, pour que
+la section ne commence pas directement par le code
+
+**Slide**
+
+- Une application doit prévenir ses utilisateurs, et elle a plusieurs moyens de le faire
+- Un mail, un SMS, une notification sur le téléphone : trois canaux, un même geste, envoyer un texte
+- Première idée, la plus naturelle : une classe par canal, chacune écrite pour elle-même
+- Voyons ce que cette première idée coûte, avant de chercher mieux
+
+```java
+NotificationMail          NotificationSms          NotificationPush
+  envoyer(texte)            envoyer(texte)           envoyer(texte)
+```
+
+**Note**
+
+Avant de parler de classe abstraite, il faut un problème qu'elle résout. Celui-ci est
+volontairement ordinaire : une application qui doit prévenir ses utilisateurs, par mail,
+par SMS ou par une notification sur le téléphone.
+
+Les trois canaux font la même chose, envoyer un texte, mais chacun à sa façon. La
+première idée, celle que presque tout le monde a, est d'écrire une classe par canal,
+chacune de son côté. Elle n'est pas mauvaise : elle fonctionne, et chaque classe est
+simple.
+
+Les slides suivantes montrent ce qu'elle coûte : du code répété trois fois, et surtout
+aucun moyen de traiter les trois canaux ensemble. C'est ce double défaut que la classe
+abstraite va corriger.
 
 ### 2.2 · Trois classes, un seul comportement
 
@@ -597,6 +629,44 @@ parcours, c'est exactement ce dont la section 7 aura besoin.
 Remarquez que `Cercle` ne contient qu'une méthode. Tout le reste — la position, la
 rotation, l'affichage — vit dans la classe mère et n'est écrit qu'une fois.
 
+### 4.4a · `@Override`, aussi pour une méthode abstraite
+
+**Source** — slide ajoutée le 14/10/2026, à la demande du professeur : sur la slide
+précédente, `@Override` apparaît sans être expliqué dans ce contexte
+
+**Slide**
+
+- Rappel : `@Override` demande au compilateur de vérifier qu'on redéfinit bien une méthode de la classe mère
+- Définir une méthode abstraite, c'est aussi la redéfinir : l'annotation s'écrit de la même façon
+- Avec elle, une faute de frappe est signalée sur la ligne fautive, et non sur la classe
+
+```java
+public class Cercle extends Forme {
+
+    @Override
+    public String Nom() {          // refus : Nom() ne redéfinit rien
+        return "cercle";
+    }
+}
+```
+
+**Note**
+
+L'annotation `@Override` a été présentée avec la redéfinition, en début de module : elle
+demande au compilateur de vérifier qu'une méthode remplace bien une méthode de la classe
+mère. Elle s'applique exactement de la même façon quand la méthode de la mère est
+abstraite. Pour Java, fournir le corps d'une méthode abstraite, c'est la redéfinir.
+
+On pourrait penser l'annotation inutile ici, puisque le compilateur refuse déjà une
+classe concrète qui oublie une méthode abstraite. La différence est dans l'endroit où il
+le dit. Sans `@Override`, une faute de frappe comme `Nom()` au lieu de `nom()` crée une
+nouvelle méthode, et l'erreur tombe sur la ligne de la classe : `Cercle` ne définirait
+pas `nom()`. Avec l'annotation, l'erreur tombe sur la méthode mal écrite, qui ne
+redéfinit rien. On trouve la faute là où elle est.
+
+Vous n'avez d'ailleurs pas à l'écrire vous-même : quand IntelliJ génère les méthodes à
+fournir (Code → Implement Methods), il ajoute `@Override` à chacune.
+
 ### 4.5 · Petit détour : le reste d'une division négative
 
 **Slide**
@@ -781,13 +851,24 @@ la classe abstraite, et le sujet d'`ABS.3`.
 
 ### 6.2 · De quoi il s'agit
 
-**Source** — fascicule ABS, contexte d'ABS.3
+**Source** — fascicule ABS, contexte d'ABS.3 ; diagramme ajouté le 14/10/2026, à la
+demande du professeur. Dans le deck remanié, le diagramme est dessiné (formes) ; la
+version texte ci-dessous est celle que produit le moteur.
 
 **Slide**
 
-- Une application affiche des mouvements bancaires
-- Elle traite une banque, il faut en ajouter une seconde
-- Chaque banque livre les mêmes données, à sa façon
+- Une application affiche les mouvements bancaires d'une seule banque, Fric en Vrac
+- Il faut ajouter Banquier Pépère : mêmes informations, autre ordre de colonnes
+- Le total et le rapport restent les mêmes d'une banque à l'autre
+
+```java
+              VisualiseurDeDonneesBancaires   (abstraite)   - - ->  Mouvement
+              total()  rapport()                                     compte, montant,
+              donneesBrutes()  nomDeLaBanque()  versMouvement(ligne)   communication
+                  ^                                   ^
+   VisualiseurFricEnVrac                  VisualiseurBanquierPepere
+   existe déjà : votre modèle             à écrire : ABS.3
+```
 
 **Note**
 
@@ -796,12 +877,19 @@ ses utilisateurs. Elle fonctionne aujourd'hui avec une seule banque, Fric en Vra
 faut y ajouter Banquier Pépère.
 
 Les deux banques livrent exactement les mêmes informations : un compte, un montant, une
-communication. Elles ne les livrent pas dans le même ordre de colonnes, et c'est la
-seule chose qui les distingue.
+communication. Chaque ligne devient un Mouvement, un record. Elles ne les livrent pas
+dans le même ordre de colonnes, et c'est la seule chose qui les distingue.
 
-Tout le reste — convertir les lignes, additionner les montants, mettre le rapport en
-forme — est identique d'une banque à l'autre. La question du dispositif est donc : où
-placer ce qui diffère, pour n'écrire qu'une fois ce qui ne diffère pas ?
+Le diagramme montre où l'on va. En haut, la classe abstraite VisualiseurDeDonneesBancaires
+sait calculer le total et mettre le rapport en forme ; ces deux méthodes sont écrites une
+fois pour toutes. Les trois méthodes en italique, elle ne sait pas les écrire : d'où
+viennent les données, comment s'appelle la banque, comment se lit une ligne. Ce sont ses
+méthodes abstraites.
+
+En bas, une sous-classe par banque. Celle de Fric en Vrac existe déjà et vous sert de
+modèle ; celle de Banquier Pépère est à écrire, et c'est tout l'exercice ABS.3. La
+question du dispositif est donc : où placer ce qui diffère, pour n'écrire qu'une fois ce
+qui ne diffère pas ?
 
 ### 6.3 · Le squelette, puis le détail
 
@@ -817,11 +905,12 @@ placer ce qui diffère, pour n'écrire qu'une fois ce qui ne diffère pas ?
 public abstract class VisualiseurDeDonneesBancaires {
 
     // a fournir par chaque banque
-    protected abstract String[][] donnees();
-    protected abstract String nomBanque();
-    protected abstract Mouvement lire(String[] ligne);
+    protected abstract String[][] donneesBrutes();
+    protected abstract String nomDeLaBanque();
+    protected abstract Mouvement versMouvement(String[] ligne);
 
     // deja ecrit, une fois pour toutes
+    public Mouvement[] mouvements() { ... }
     public double total() { ... }
     public String rapport() { ... }
 }
@@ -850,18 +939,30 @@ chercher le détail au moment où il en a besoin.
 - Une troisième banque coûtera une classe, et pas une ligne ailleurs
 
 ```java
-Fric en Vrac      compte, montant, communication
-Banquier Pepere   communication, compte, montant
+Banque            ligne[0]        ligne[1]   ligne[2]
+-------------------------------------------------------
+Fric en Vrac      compte          montant    communication
+Banquier Pepere   communication   compte     montant
 ```
+
+*(Dans le deck remanié, ce bloc est un tableau : une ligne d'en-têtes, une ligne par
+banque, et une couleur par information, la même d'une banque à l'autre. Modifié le
+14/10/2026, à la demande du professeur.)*
 
 **Note**
 
-Le cas est réduit à l'essentiel, et c'est volontaire : deux banques, trois colonnes,
-et un ordre qui diffère. Tout le reste est identique.
+Le cas est réduit à l'essentiel, et c'est volontaire : deux banques, trois colonnes, et
+un ordre qui diffère. Le tableau le montre ligne par ligne : chaque banque livre un
+compte, un montant et une communication, mais pas dans les mêmes cases. Les couleurs
+suivent chaque information d'une banque à l'autre ; les en-têtes donnent l'indice de la
+colonne, celui qu'on lit dans le tableau de chaînes, ligne[0], ligne[1] et ligne[2].
+
+Toute la différence entre les deux visualiseurs tient donc dans versMouvement : l'un lit
+le compte en ligne[0], l'autre en ligne[1]. Le reste est identique.
 
 C'est exactement la situation où la duplication est tentante. Recopier le visualiseur
 existant et déplacer trois indices prend cinq minutes et fonctionne. Puis le calcul du
-total se révèle faux un jour, et il faut le corriger dans les deux — c'est la troisième
+total se révèle faux un jour, et il faut le corriger dans les deux : c'est la troisième
 question de fin d'exercice.
 
 La bonne réponse tient en trois méthodes de deux lignes, et rien d'autre.

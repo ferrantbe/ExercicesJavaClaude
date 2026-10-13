@@ -8,7 +8,8 @@ se trouve SOUS le texte de la slide, le texte s'affiche d'abord et le code
 vient au clic suivant, en fondu. Un code place a cote du texte, ou au-dessus,
 reste affiche d'emblee.
 
-Les zones de code sont les formes dont le nom commence par « Code ». Une zone
+Les zones de code sont les formes dont le nom commence par « Code » ; un schema
+dessine (groupe nomme « Diagramme... ») suit la meme regle. Une zone
 deja animee n'est pas touchee ; une animation existante est gardee, et le
 code s'ajoute apres elle. Peut etre relance sans risque.
 """
@@ -43,7 +44,7 @@ def textes_principaux(slide):
     titre = slide.shapes.title
     return [sh for sh in slide.shapes
             if sh.has_text_frame and sh.text_frame.text.strip()
-            and not sh.name.startswith(("Code", "Repere", "Espace réservé du num", "Slide Number"))
+            and not sh.name.startswith(("Code", "Diagramme", "Repere", "Espace réservé du num", "Slide Number"))
             and (titre is None or sh.shape_id != titre.shape_id)]
 
 
@@ -58,7 +59,7 @@ def sous_le_texte(code, textes):
 
 def animer_slide(slide):
     """Rend le nombre de zones de code animees sur cette slide."""
-    codes = sorted([sh for sh in slide.shapes if sh.name.startswith("Code")], key=lambda s: s.top)
+    codes = sorted([sh for sh in slide.shapes if sh.name.startswith(("Code", "Diagramme"))], key=lambda s: s.top)
     textes = textes_principaux(slide)
     if not codes or not textes:
         return 0
