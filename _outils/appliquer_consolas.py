@@ -29,6 +29,8 @@ switch synchronized this throw throws try void volatile while var null true fals
 yield""".split())
 # Mots-cles qui sont aussi des mots francais : decision au cas par cas.
 AMBIGUS = set("public package interface final case long double char record enum short".split())
+# Classes dont le nom est aussi un mot francais courant (titre de module, par exemple).
+AMBIGUS |= {"Collections", "Exceptions", "Interfaces"}
 CLASSES = set("""String Scanner Integer Object Math System Character Boolean Long Double Float Byte Short
 LocalDate LocalTime LocalDateTime Duration Period Instant ZonedDateTime ZoneId DayOfWeek Month Year
 ChronoUnit DateTimeFormatter DateTimeParseException ResolverStyle List ArrayList LinkedList Map HashMap
@@ -181,7 +183,8 @@ def traiter(chemin, sortie, aussi, essai):
                     if not texte.strip() or all((r.font.name or "") == "Consolas" for r in par.runs if r.text.strip()):
                         continue
                     cibles = []
-                    urls = [u.span() for u in re.finditer(r"(?:https?://|www\.)\S+", texte)]
+                    urls = [u.span() for u in re.finditer(
+                        r"(?:https?://|www\.)\S+|\b[\w-]+(?:\.[\w-]+)*\.(?:com|org|net|fr|be|io|dev|edu|eu)\b\S*", texte)]
                     for m in JETON.finditer(texte):
                         if any(a <= m.start() < b for a, b in urls):
                             continue                          # une adresse web reste telle quelle
