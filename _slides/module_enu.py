@@ -35,7 +35,7 @@ SECTIONS = [
     "Des valeurs qui se comptent",
     "Déclarer une énumération",
     "L'ordre porte l'information",
-    "Comparer et aiguiller",
+    "Comparer et aiguiller : switch",
     "Une enum est une classe",
     "Un détour par deux outils",
     "Les records",

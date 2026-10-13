@@ -30,7 +30,7 @@ finally float for if implements import instanceof int new private protected retu
 switch synchronized this throw throws try void volatile while var null true false sealed permits
 yield""".split())
 # Mots-cles qui sont aussi des mots francais : decision au cas par cas.
-AMBIGUS = set("public package interface final case long double char record enum short".split())
+AMBIGUS = set("public package interface final case long double char record enum short continue super".split())
 # Classes dont le nom est aussi un mot francais courant (titre de module, par exemple).
 AMBIGUS |= {"Collections", "Exceptions", "Interfaces"}
 CLASSES = set("""String Scanner Integer Object Math System Character Boolean Long Double Float Byte Short
