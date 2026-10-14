@@ -245,12 +245,14 @@ La section suivante dira pourquoi ce voisinage compte.
 
 *(intercalaire)*
 
-### 2.2 · Qui peut atteindre un membre
+### 2.2 · Qui peut atteindre le membre d'une classe
 
-**Source** d02/17, réécrite
+**Source** d02/17, réécrite ; titre et première ligne revus le 14/10/2026, à la demande
+du professeur
 
 **Slide**
 
+- Un membre d'une classe, c'est l'un de ses champs ou l'une de ses méthodes
 - Le niveau `private` : le code de la classe seul
 - Le niveau `public` : tout le programme
 - Sans modificateur : le package, et nulle part ailleurs
@@ -272,8 +274,10 @@ Un mot de vocabulaire d'abord. `public`, `private` et les autres s'appellent
 des modificateurs d'accès. L'ancien support disait « accesseurs », mais dans ce
 cours un accesseur est une méthode comme `getTitre`, et la section 3 en parle.
 
-Ces modificateurs s'appliquent aux champs, aux méthodes, aux constructeurs, et
-à la classe elle-même. Il en existe un quatrième, `protected`, que vous avez
+Le titre parle de membres : c'est le nom commun aux champs et aux méthodes d'une
+classe. Dans le code de la slide, isbn est un champ, cote et titre sont des méthodes ;
+tous trois sont des membres de Livre, et chacun a son niveau d'accès. Les
+modificateurs s'appliquent aussi aux constructeurs, et à la classe elle-même. Il en existe un quatrième, `protected`, que vous avez
 rencontré au module ABS : il attendra la section 6, parce qu'il ne se comprend
 qu'avec l'héritage.
 
