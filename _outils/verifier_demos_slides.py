@@ -122,6 +122,10 @@ def verifier_theme(theme):
     if not dossier.is_dir():
         print(f"{theme} : pas de dossier slides")
         return True
+    if any("import javafx" in f.read_text(encoding="utf-8") for f in dossier.rglob("*.java")):
+        # JavaFX n'est pas disponible ici : ce code se verifie en le lancant dans IntelliJ
+        print(f"  --    {theme}.slides : JavaFX, non verifie ici (a lancer dans IntelliJ)")
+        return True
     fichiers = sorted(dossier.glob("*.java"))
     sources = {f.stem: f.read_text(encoding="utf-8") for f in fichiers}
     executables = [n for n, s in sources.items() if "static void main" in s]

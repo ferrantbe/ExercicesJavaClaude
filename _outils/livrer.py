@@ -326,6 +326,12 @@ def collecter(themes, racine, solutions):
                         racine / "demos" / PAQUET_DEMO_TEST / theme / "slides"):
             for fichier in fichiers_java(dossier):
                 entrees.append((fichier, fichier.relative_to(racine)))
+        # les ressources du code des slides (vues FXML du theme FX)
+        vues = racine / "demos" / "src" / "main" / "resources" / "be" / "ephec" / "java" / "demo" / theme / "slides"
+        if vues.is_dir():
+            for fichier in sorted(vues.rglob("*")):
+                if fichier.is_file():
+                    entrees.append((fichier, fichier.relative_to(racine)))
 
     return entrees
 

@@ -218,6 +218,8 @@ Le champ est `final` : la propriété ne change jamais, c'est sa valeur qui
 change. Les contrôles JavaFX sont tous écrits sur ce modèle, et c'est ce
 qui vous permettra de reconnaître leurs propriétés dans la Javadoc.
 
+Le code complet, à lancer : demos, classe `demo.fx.slides.fx2.ProprietesEnConsole`.
+
 ---
 
 ### 1.4 · S'abonner à un changement
@@ -262,6 +264,8 @@ change : pour afficher la valeur de départ, il faut l'afficher soi-même.
 prévient pas quand on lui donne la valeur qu'elle a déjà. C'est le
 comportement documenté de `ChangeListener`, à vérifier sur une machine.
 
+Le code complet, à lancer : demos, classe `demo.fx.slides.fx2.ProprietesEnConsole`.
+
 ---
 
 ### 1.5 · Les contrôles en ont aussi
@@ -295,6 +299,8 @@ cochée à la souris, au clavier, ou que le programme l'ait cochée par
 Pour trouver la propriété d'un contrôle, cherchez dans sa Javadoc ou dans
 la complétion une méthode qui finit par `Property`. Ctrl+Q ouvre la
 Javadoc sans quitter l'éditeur, voir IDE.14. C'est la démarche de FX.6.
+
+Le code complet, à lancer : demos, classe `demo.fx.slides.fx2.LanceurVariateur`.
 
 ---
 
@@ -357,6 +363,8 @@ valeur dès la création du lien, et la suivra tant qu'il existe.
 La dernière puce est une conséquence. Si le texte du libellé est égal à
 l'intensité, le modifier à la main n'a plus de sens. La méthode `unbind`
 défait le lien quand il le faut.
+
+Le code complet, à lancer : demos, classe `demo.fx.slides.fx2.LanceurVariateur`.
 
 ---
 
@@ -425,6 +433,8 @@ endroits, ici un curseur et une valeur du programme, `reglage`, une
 
 Les deux propriétés doivent être du même genre : deux nombres, deux
 textes, deux booléens.
+
+Le code complet, à lancer : demos, classe `demo.fx.slides.fx2.LanceurVariateur`.
 
 ---
 
@@ -523,6 +533,8 @@ Remarquez aussi que le modèle ne contient pas de propriété JavaFX. Ce
 serait tentant, pour le lier directement à la vue ; ce serait aussi
 importer JavaFX dans le modèle. Le modèle de FX.9 n'en contient pas.
 
+Le code complet : demos, classe `demo.fx.slides.fx2.Lampe`.
+
 ---
 
 ## Section 4 - Décrire l'écran en FXML
@@ -597,6 +609,8 @@ les `new` ni les appels.
 Pour savoir quels attributs un élément accepte, lisez la Javadoc de sa
 classe : chaque méthode qui commence par `set` correspond à un attribut.
 
+Le code complet, à lancer : demos, classe `demo.fx.slides.fx2.LanceurApplicationLampe`.
+
 ---
 
 ### 4.4 · Charger une vue
@@ -634,6 +648,8 @@ passer par son `throws`. Vous retrouverez ces exceptions au module FIC.
 C'est exactement ce que fait la classe `ApplicationCalculatrice` de FX.9,
 qui vous est fournie. Elle ne crée aucun composant et ne branche aucun
 gestionnaire : tout est dans le fichier et dans le contrôleur.
+
+Le code complet, à lancer : demos, classe `demo.fx.slides.fx2.LanceurApplicationLampe`.
 
 ---
 
@@ -681,6 +697,8 @@ correspondre exactement à ceux du fichier.
 méthode du contrôleur. Elle reçoit l'événement, et `getSource` reste
 disponible. C'est ce qui permettra à FX.9 de brancher dix boutons sur une
 seule méthode.
+
+Le code complet, à lancer : demos, classe `demo.fx.slides.fx2.LanceurApplicationLampe`.
 
 ---
 

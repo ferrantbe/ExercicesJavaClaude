@@ -244,6 +244,8 @@ passe pas par les modules. L'explication complète est en TEC-FX.4.
 
 Vous n'avez rien à écrire dans ces classes. Elles sont fournies.
 
+Le code complet, à lancer : demos, classe `demo.fx.slides.fx1.LanceurLampe`.
+
 ---
 
 ### 1.4 · Si rien ne démarre
@@ -321,6 +323,8 @@ quelques millisecondes, mais la fenêtre reste ouverte et le programme
 continue de tourner. Ce qu'il fait pendant ce temps est le sujet de la
 section suivante.
 
+Le code complet, à lancer : demos, classe `demo.fx.slides.fx1.LanceurLampe`.
+
 ---
 
 ### 2.3 · Le graphe de scène
@@ -361,6 +365,8 @@ Si on ne donne pas de taille à la scène, elle s'adapte à son contenu.
 
 Gardez cet arbre en tête. Il est la clé de la section 5 : un événement le
 parcourt de haut en bas, puis de bas en haut.
+
+Le code complet, à lancer : demos, classe `demo.fx.slides.fx1.LanceurInterrupteur`.
 
 ---
 
@@ -434,6 +440,8 @@ IDE.14.
 
 D'autres contrôles, la case à cocher et le curseur, attendront le deck
 suivant, qui en a besoin.
+
+Le code complet, à lancer : demos, classe `demo.fx.slides.fx1.LanceurInterrupteur`.
 
 ---
 
@@ -533,6 +541,8 @@ Lisez la lambda de la slide en deux temps. La flèche dit quand : au moment
 où l'événement survient. La méthode appelée dit quoi : basculer la lampe.
 Le paramètre `evenement` est reçu, même si on ne s'en sert pas ici.
 
+Le code complet, à lancer : demos, classe `demo.fx.slides.fx1.LanceurInterrupteur`.
+
 ---
 
 ### 3.5 · `setOnAction` n'est qu'un raccourci
@@ -575,6 +585,8 @@ range dans un champ pour la retrouver plus tard.
 
 C'est aussi une question d'examen classique : activer un bouton et en
 désactiver un autre, en ajoutant et retirant leurs gestionnaires.
+
+Le code complet, à lancer : demos, classe `demo.fx.slides.fx1.LanceurInterrupteur`.
 
 ---
 
@@ -660,6 +672,8 @@ calculatrice.
 
 La référence de méthode `this::noterBouton` vient du module LAM : elle vaut
 la lambda `evenement -> noterBouton(evenement)`.
+
+Le code complet, à lancer : demos, classe `demo.fx.slides.fx1.LanceurInterrupteur`.
 
 ---
 
@@ -783,6 +797,8 @@ bouton à l'autre. À vérifier sur une machine : le gestionnaire posé sur la
 racine reçoit-il bien les flèches quand un bouton a le focus ? L'examen
 2024 s2 le suppose, avec des carrés et sans bouton.
 
+Le code complet, à lancer : demos, classe `demo.fx.slides.fx1.LanceurClavierEtSouris`.
+
 ---
 
 ### 4.8 · La souris
@@ -817,6 +833,8 @@ sont pas les mêmes déclencheurs. L'`ActionEvent` survient aussi quand on
 actionne le bouton au clavier, avec la barre d'espace. Le `MOUSE_CLICKED`
 ne survient qu'à la souris. Quand un énoncé demande d'utiliser le clic de
 souris comme déclencheur, c'est le second qu'il attend.
+
+Le code complet, à lancer : demos, classe `demo.fx.slides.fx1.LanceurClavierEtSouris`.
 
 ---
 
@@ -953,6 +971,8 @@ consommation est vérifiée avant de passer au nœud suivant), pas d'un essai.
 À vérifier sur une machine avant la séance : deux gestionnaires sur un même
 nœud, le premier appelle `consume`, le second s'affiche-t-il ? Si ce n'est
 pas le cas, retirer la puce et le dernier paragraphe de la note.
+
+Le code complet, à lancer : demos, classe `demo.fx.slides.fx1.LanceurClavierEtSouris`.
 
 ---
 
