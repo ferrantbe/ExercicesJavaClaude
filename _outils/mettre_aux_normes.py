@@ -7,8 +7,9 @@ Enchaine, dans cet ordre, les outils de _outils/ :
   1. uniformiser_intercalaires  titres d'intercalaire : Calibri gras, 66 pt ou moins
   2. organiser_exercices        slides d'exercices : icones, groupes, un clic par exercice
   3. animer_sommaire            « Au programme » : une section par clic
-  4. animer_code                code (ou schema) sous le texte : en fondu, au clic
-  5. appliquer_consolas         mots de code en Consolas, cas sans ambiguite seulement
+  4. ajuster_code               zone de code trop large : retrecie a son contenu, centree
+  5. animer_code                code (ou schema) sous le texte : en fondu, au clic
+  6. appliquer_consolas         mots de code en Consolas, cas sans ambiguite seulement
 
 Chaque outil peut etre relance sans risque : un deck deja aux normes ressort
 inchange. Les cas ambigus de la regle Consolas sont listes, jamais appliques.
@@ -24,7 +25,7 @@ from pathlib import Path
 
 ICI = Path(__file__).resolve().parent
 ETAPES = ["uniformiser_intercalaires", "organiser_exercices", "animer_sommaire",
-          "animer_code", "appliquer_consolas"]
+          "ajuster_code", "animer_code", "appliquer_consolas"]
 
 
 def main():
