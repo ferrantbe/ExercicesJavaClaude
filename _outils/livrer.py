@@ -315,7 +315,15 @@ def collecter(themes, racine, solutions):
             for dossier in (racine / "demos" / PAQUET_DEMO / theme,
                             racine / "demos" / PAQUET_DEMO_TEST / theme):
                 for fichier in fichiers_java(dossier):
+                    if "slides" in fichier.relative_to(dossier).parts:
+                        continue          # deja livre avec la seance, ci-dessous
                     entrees.append((fichier, fichier.relative_to(racine)))
+
+        # Le code des slides (demo/<theme>/slides) n'est pas un corrige : c'est
+        # le code montre au cours. Il part avec la seance, solutions ou non
+        # (decision du 14/10/2026).
+        for fichier in fichiers_java(racine / "demos" / PAQUET_DEMO / theme / "slides"):
+            entrees.append((fichier, fichier.relative_to(racine)))
 
     return entrees
 

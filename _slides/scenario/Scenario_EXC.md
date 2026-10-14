@@ -1,10 +1,15 @@
 # Scénario du module EXC — Exceptions
 
-*Quatre sections, 24 slides plus le sommaire. Rubriques : `**Source**` et
+*Quatre sections, 25 slides plus le sommaire. Rubriques : `**Source**` et
 `**Réserve**` sont des commentaires de fabrication, `**Slide**` et `**Note**`
 produisent le contenu et les notes du présentateur.*
 
 ## Fabrication
+
+*Le code des slides existe aussi en fichiers exécutables, dans le projet `demos`,
+package `be.ephec.java.demo.exc.slides` (pilote du 14/10/2026). Chaque note qui en a
+un le signale. `_outils/verifier_demos_slides.py exc` vérifie qu'ils compilent et
+produisent la sortie annoncée.*
 
 Sections à déclarer dans `module_exc.py`, listes `SECTIONS` et `LIBELLES` :
 
@@ -194,6 +199,8 @@ bon.
 Ce module explique ce qui se passe quand cette ligne s'exécute, comment
 écrire vos propres exceptions, et comment les attraper.
 
+Le code complet, à exécuter : demos, classe `demo.exc.slides.VousEnLevezDeja`.
+
 ---
 
 ### 1.4 · Une exception est un objet
@@ -269,9 +276,49 @@ moment de la création de l'exception. C'est ce que la démonstration a lu.
 L'exception `IllegalArgumentException` vient du JDK. On y revient à la
 section 4.
 
+Le code complet, à exécuter : demos, classe `demo.exc.slides.ElleRemonteLaPile`.
+
 ---
 
+### 1.5a · Du `throw` au `catch`
+
+**Source** — schéma ajouté le 14/10/2026, à la demande du professeur : l'exception levée
+dans `verifier` remonte la pile jusqu'au `catch` du `main`. Dans le deck remanié, le schéma
+est dessiné (formes) ; la version texte ci-dessous est celle que produit le moteur.
+
+**Slide**
+
+- Chaque appel empile une méthode : `main` appelle `monter`, qui appelle `verifier`
+- L'exception levée dans `verifier` traverse `monter`, abandonnée, jusqu'au `catch` de `main`
+
+```java
+verifier(12)   throw new IllegalArgumentException(...)    // s'arrete net
+     ^   |
+monter(12)     deplacer(12) n'est jamais execute           // abandonnee
+     ^   |
+main()         try { ... } catch (IllegalArgumentException e) { ... }   // traitee ici
+appelle  remonte
+```
+
+**Note**
+
+Le schéma se lit de deux façons. De bas en haut, ce sont les appels : main appelle
+monter, qui appelle verifier. Chaque appel empile une méthode, et la plus récente est en
+haut. C'est la pile d'appels du mémento technique, TEC-EXE.1.
+
+De haut en bas, c'est le trajet de l'exception. verifier la lève avec throw et s'arrête
+net. L'exception descend dans monter, qui ne la traite pas : monter est abandonnée à son
+tour, et deplacer n'est jamais exécutée. Elle arrive enfin dans main, où l'appel était
+entouré d'un try. Le catch correspond au type de l'exception, il la reçoit, et le
+programme continue après le catch.
+
+Sans ce try, l'exception sortirait aussi du main, et la JVM afficherait la trace : la
+même pile, figée au moment du throw. La section 3 montre comment écrire ce try et ce
+catch, et surtout où les placer.
+
 ## Section 2 — Lever, puis déclarer
+
+Le code complet, à exécuter : demos, classe `demo.exc.slides.DuThrowAuCatch`.
 
 ### 2.1 · Lever, puis déclarer
 
@@ -312,6 +359,8 @@ montre. Le critère est dans le tableau du fascicule.
 À l'examen, la première question de chaque session demande d'écrire une
 classe de ce genre.
 
+Le code complet : demos, package `demo.exc.slides`, avec l'ascenseur qui l'utilise.
+
 ---
 
 ### 2.3 · Lever avec `throw`, déclarer avec `throws`
@@ -346,6 +395,8 @@ constructeur s'écrit de la même manière : `throws` après la parenthèse.
 
 Remarquez le message : il nomme l'étage demandé et l'intervalle permis.
 Quelqu'un qui lira la trace sans le code saura quoi corriger.
+
+Le code complet, à exécuter : demos, classe `demo.exc.slides.LeverEtDeclarer`.
 
 ---
 
@@ -390,6 +441,8 @@ section 4.
 
 Vous retrouverez ce `throws` dans les tests du module JUN : une méthode de
 test qui appelle une méthode capable d'échouer doit, elle aussi, choisir.
+
+Le code complet, à exécuter : demos, classe `demo.exc.slides.AttraperOuDeclarer`.
 
 ---
 
@@ -456,6 +509,8 @@ C'est tout l'enjeu de l'encadré d'`EXC.1`.
 Une variable déclarée dans le `try` n'existe pas dans le `catch`, ni après :
 déclarez-la avant si vous en avez besoin des deux côtés.
 
+Le code complet, à exécuter : demos, classe `demo.exc.slides.CeQueLeTrySaute`.
+
 ---
 
 ### 3.3 · Plusieurs `catch`, ou un seul
@@ -496,6 +551,8 @@ eux, quand le traitement est le même.
 Faut-il un `catch` par exception, ou un seul pour toute la famille ? Le
 fascicule pose la question à `EXC.3`, et la règle CC-ERR.5 y répond.
 
+Le code complet, à exécuter : demos, classe `demo.exc.slides.PlusieursCatch`.
+
 ---
 
 ### 3.4 · Un `catch` fait quelque chose
@@ -532,6 +589,8 @@ qui saura quoi en faire.
 Une nuance, que vous croiserez dans GameHub. Attraper une exception pour
 redemander une saisie est un vrai traitement, même quand l'objet exception ne
 sert plus. On nomme alors la variable `ignoree` : le nom dit que c'est voulu.
+
+Le code complet, à exécuter : demos, classe `demo.exc.slides.UnCatchFaitQuelqueChose`.
 
 ---
 
@@ -570,6 +629,8 @@ ou se passer de `catch` comme ici.
 On s'en sert pour libérer ce qu'on a pris : un verrou, une connexion, un
 fichier ouvert. Le module FIC montrera une écriture plus courte pour les
 fichiers, qui fait ce travail toute seule.
+
+Le code complet, à exécuter : demos, classe `demo.exc.slides.CeQueFinallyGarantit`.
 
 ---
 
@@ -636,6 +697,8 @@ rencontré `ArithmeticException` pendant la démonstration, et
 presque partout, et le compilateur ne vous prévient d'aucune.
 
 C'est tout le piège de l'exercice suivant.
+
+Le code complet, à exécuter : demos, classe `demo.exc.slides.UneExceptionQuePersonneNAnnonce`.
 
 ---
 
@@ -730,6 +793,8 @@ et la valeur reçue.
 
 Le module JUN vous demandera d'écrire une méthode qui lève une
 `IllegalArgumentException`, et de le vérifier.
+
+Le code complet, à exécuter : demos, classe `demo.exc.slides.LeverUneExceptionDuJdk`.
 
 ---
 
