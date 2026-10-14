@@ -11,8 +11,18 @@ pas besoin de javac ni de Maven), puis compare :
   - la sortie standard, ligne par ligne ;
   - pour un programme qui s'arrete sur une exception, la premiere ligne de la trace.
 
+Deux complements, facultatifs, dans la meme classe :
+  - un commentaire « Entree : » donne ce que le programme lit au clavier ;
+  - une ligne attendue qui commence par ~ est une expression reguliere, pour une
+    sortie qui change d'un jour a l'autre (une annee, un age).
+
 Il sert a garantir que le code montre aux etudiants compile, et fait ce que la
 slide et ses commentaires annoncent. Code de retour 1 si une seule classe echoue.
+Les classes de test (demos/src/test/.../<theme>/slides) sont aussi lancees, sans
+JUnit : une doublure minimale de JUnit (@Test, @BeforeEach, @DisplayName,
+assertEquals, assertThrows, assertTrue, assertFalse) est collee au fichier, et
+chaque methode @Test doit passer. C'est une verification de logique, pas de
+configuration : elle ne remplace pas un lancement dans IntelliJ.
 """
 import re
 import subprocess
@@ -22,11 +32,81 @@ from pathlib import Path
 
 RACINE = Path(__file__).resolve().parent.parent
 BASE = RACINE / "demos" / "src" / "main" / "java" / "be" / "ephec" / "java" / "demo"
+BASE_TEST = RACINE / "demos" / "src" / "test" / "java" / "be" / "ephec" / "java" / "demo"
+
+DOUBLURE_JUNIT = """
+@java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.RUNTIME) @interface Test {}
+@java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.RUNTIME) @interface BeforeEach {}
+@java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.RUNTIME) @interface DisplayName { String value(); }
+class DoublureJUnit {
+    static void assertEquals(Object attendu, Object obtenu) {
+        if (!java.util.Objects.equals(attendu, obtenu))
+            throw new AssertionError("expected: <" + attendu + "> but was: <" + obtenu + ">");
+    }
+    static void assertEquals(double attendu, double obtenu, double delta) {
+        if (Math.abs(attendu - obtenu) > delta)
+            throw new AssertionError("expected: <" + attendu + "> but was: <" + obtenu + ">");
+    }
+    static void assertTrue(boolean b) { if (!b) throw new AssertionError("expected true"); }
+    static void assertFalse(boolean b) { if (b) throw new AssertionError("expected false"); }
+    interface Executable { void execute() throws Throwable; }
+    static <T extends Throwable> T assertThrows(Class<T> type, Executable e) {
+        try { e.execute(); } catch (Throwable t) {
+            if (type.isInstance(t)) return type.cast(t);
+            throw new AssertionError("expected " + type.getSimpleName() + " but was " + t);
+        }
+        throw new AssertionError("expected " + type.getSimpleName() + " to be thrown");
+    }
+}
+"""
+
+LANCEUR = """
+public class LanceurDeTests {
+    public static void main(String[] args) throws Exception {
+        int echecs = 0;
+        for (String nom : args) {
+            Class<?> c = Class.forName(nom);
+            for (java.lang.reflect.Method m : c.getDeclaredMethods()) {
+                if (!m.isAnnotationPresent(Test.class)) continue;
+                Object o = c.getDeclaredConstructor().newInstance();
+                try {
+                    for (java.lang.reflect.Method b : c.getDeclaredMethods())
+                        if (b.isAnnotationPresent(BeforeEach.class)) { b.setAccessible(true); b.invoke(o); }
+                    m.setAccessible(true);
+                    m.invoke(o);
+                    System.out.println("vert  " + nom + "." + m.getName());
+                } catch (java.lang.reflect.InvocationTargetException e) {
+                    echecs++;
+                    System.out.println("ROUGE " + nom + "." + m.getName() + " : " + e.getCause());
+                }
+            }
+        }
+        System.exit(echecs == 0 ? 0 : 1);
+    }
+}
+"""
 
 
 def attendu(source):
     m = re.search(r"/\*\s*Sortie attendue :\s*\n(.*?)\*/", source, re.S)
     return None if m is None else [l.strip() for l in m.group(1).strip().splitlines()]
+
+
+def entree(source):
+    m = re.search(r"/\*\s*Entree :\s*\n(.*?)\*/", source, re.S)
+    return None if m is None else "\n".join(l.strip() for l in m.group(1).strip().splitlines()) + "\n"
+
+
+def conforme(obtenu, voulu):
+    if len(obtenu) != len(voulu):
+        return False
+    for o, v in zip(obtenu, voulu):
+        if v.startswith("~"):
+            if not re.fullmatch(v[1:], o):
+                return False
+        elif o != v:
+            return False
+    return True
 
 
 def a_plat(source):
@@ -61,7 +141,8 @@ def verifier_theme(theme):
         with tempfile.TemporaryDirectory() as tmp:
             f = Path(tmp) / f"{nom}.java"
             f.write_text(texte, encoding="utf-8")
-            r = subprocess.run(["java", str(f)], capture_output=True, text=True, timeout=60)
+            r = subprocess.run(["java", str(f)], capture_output=True, text=True, timeout=60,
+                               input=entree(sources[nom]))
         if "error:" in r.stderr and "Exception in thread" not in r.stderr:
             print(f"  ECHEC {theme}.slides.{nom} : ne compile pas\n{r.stderr[:800]}")
             ok = False
@@ -72,7 +153,7 @@ def verifier_theme(theme):
         voulu = attendu(sources[nom])
         if voulu is None:
             print(f"  ?     {theme}.slides.{nom} : pas de « Sortie attendue »")
-        elif obtenu == voulu:
+        elif conforme(obtenu, voulu):
             print(f"  ok    {theme}.slides.{nom}")
         else:
             ok = False
@@ -80,9 +161,43 @@ def verifier_theme(theme):
     return ok
 
 
+def verifier_tests(theme):
+    dossier = BASE_TEST / theme / "slides"
+    if not dossier.is_dir():
+        return True
+    imports, corps, classes = set(), [], []
+    # le code teste : tout le main/slides du depot (un test peut en importer un autre theme)
+    for f in sorted(BASE.glob("*/slides/*.java")):
+        src = f.read_text(encoding="utf-8")
+        if "static void main" in src:
+            continue
+        i, c = a_plat(src)
+        imports.update(x for x in i if "be.ephec" not in x)
+        corps.append(c)
+    for f in sorted(dossier.glob("*.java")):
+        src = f.read_text(encoding="utf-8")
+        i, c = a_plat(src)
+        imports.update(x for x in i if "org.junit" not in x and "be.ephec" not in x)
+        nom = f.stem
+        c = re.sub(rf"^(\s*)class {nom}\b", rf"\1class {nom} extends DoublureJUnit", c, count=1, flags=re.M)
+        corps.append(c)
+        classes.append(nom)
+    texte = "\n".join(sorted(imports)) + "\n" + LANCEUR + DOUBLURE_JUNIT + "\n".join(corps)
+    with tempfile.TemporaryDirectory() as tmp:
+        f = Path(tmp) / "LanceurDeTests.java"
+        f.write_text(texte, encoding="utf-8")
+        r = subprocess.run(["java", str(f)] + classes, capture_output=True, text=True, timeout=120)
+    if r.returncode != 0 and not r.stdout:
+        print(f"  ECHEC tests {theme} : ne compilent pas\n{r.stderr[:1500]}")
+        return False
+    for l in r.stdout.splitlines():
+        print(f"  test  {theme}.slides.{l[6:]}" if l.startswith("vert") else f"  ECHEC {l}")
+    return r.returncode == 0
+
+
 def main():
     themes = sys.argv[1:] or sorted(p.name for p in BASE.iterdir() if (p / "slides").is_dir())
-    resultats = [verifier_theme(t) for t in themes]
+    resultats = [verifier_theme(t) and verifier_tests(t) for t in themes]
     sys.exit(0 if all(resultats) else 1)
 
 

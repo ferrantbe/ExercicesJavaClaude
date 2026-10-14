@@ -322,8 +322,10 @@ def collecter(themes, racine, solutions):
         # Le code des slides (demo/<theme>/slides) n'est pas un corrige : c'est
         # le code montre au cours. Il part avec la seance, solutions ou non
         # (decision du 14/10/2026).
-        for fichier in fichiers_java(racine / "demos" / PAQUET_DEMO / theme / "slides"):
-            entrees.append((fichier, fichier.relative_to(racine)))
+        for dossier in (racine / "demos" / PAQUET_DEMO / theme / "slides",
+                        racine / "demos" / PAQUET_DEMO_TEST / theme / "slides"):
+            for fichier in fichiers_java(dossier):
+                entrees.append((fichier, fichier.relative_to(racine)))
 
     return entrees
 

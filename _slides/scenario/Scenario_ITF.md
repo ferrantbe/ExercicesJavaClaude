@@ -114,6 +114,8 @@ Le nom choisi ici dit une capacité, pas une nature. C'est une habitude utile :
 beaucoup d'interfaces du JDK se terminent par `-able`, `Comparable`,
 `Runnable`, `Serializable`.
 
+Le code complet, à exécuter : demos, classe `demo.itf.slides.LeTypePeutEtreLInterface`.
+
 ---
 
 ### 1.4 · Une classe s'engage
@@ -165,6 +167,8 @@ elle fait vérifier par le compilateur que la méthode correspond bien à une
 promesse. Une faute de frappe dans le nom devient une erreur de compilation au
 lieu d'un silence.
 
+Le code complet, à exécuter : demos, classe `demo.itf.slides.LeTypePeutEtreLInterface`.
+
 ---
 
 ### 1.5 · Le type peut être l'interface
@@ -199,6 +203,8 @@ mesurables ne peut plus dépendre par accident d'un détail des colis.
 La question est posée en fin d'`ITF.3` sur un tableau de `Translatable` :
 essayez d'y appeler une méthode qui n'est pas dans l'interface, et lisez ce que
 dit le compilateur.
+
+Le code complet, à exécuter : demos, classe `demo.itf.slides.LeTypePeutEtreLInterface`.
 
 ---
 
@@ -235,6 +241,8 @@ n'avez pas écrite et dont votre code n'a jamais entendu parler.
 Retenez la formulation : le type d'un paramètre déclare ce dont la méthode a
 besoin. Écrire `Colis` au lieu de `Mesurable` reviendrait à exiger beaucoup plus
 que nécessaire. La section 4 en fera un principe.
+
+Le code complet, à exécuter : demos, classe `demo.itf.slides.RecevoirUnComportementEnParametre`.
 
 ---
 
@@ -579,6 +587,8 @@ Il y a une conséquence moins visible et plus coûteuse : pour tester le
 contrôleur, il faut construire une interface graphique. Nous y reviendrons au
 module JUN.
 
+Le code complet, à exécuter : demos, classe `demo.itf.slides.DeuxClassesQuiSeTiennent`.
+
 ---
 
 ### 4.3 · Une interface entre les deux
@@ -618,6 +628,8 @@ pouvait parler à n'importe lequel.
 Le gain de testabilité devient concret : une classe de test peut fournir au
 contrôleur un afficheur de quatre lignes qui retient le dernier message, et
 vérifier ce qui a été signalé sans ouvrir la moindre fenêtre.
+
+Le code complet, à exécuter : demos, classe `demo.itf.slides.UneInterfaceEntreLesDeux`.
 
 ---
 
@@ -725,6 +737,8 @@ Le jour où un tricycle arrive à la pompe, la station devra être modifiée. El
 le sera à chaque nouveau transport, et rien dans le compilateur ne préviendra
 qu'on l'a oubliée.
 
+Le code complet, à exécuter : demos, classe `demo.itf.slides.LInterfaceSupprimeLeTest`.
+
 ---
 
 ### 4.6 · L'interface supprime le test
@@ -764,6 +778,8 @@ de la slide précédente, appliqués ensemble.
 Le tricycle peut arriver : s'il a un moteur, il implémente `Motorise`, et la
 station le sert sans avoir été rouverte. Sinon il ne se présente pas à la
 pompe.
+
+Le code complet, à exécuter : demos, classe `demo.itf.slides.LInterfaceSupprimeLeTest`.
 
 ---
 
@@ -959,6 +975,8 @@ petits utilitaires liés à l'interface là où on les cherche.
 Ne confondez pas les deux `static` : celui du champ est imposé, celui de la
 méthode est un choix.
 
+Le code complet, à exécuter : demos, classe `demo.itf.slides.DesConstantesEtDesMethodesUtilitaires`.
+
 ---
 
 ### 6.3 · Ajouter une méthode sans casser l'existant
@@ -1001,6 +1019,8 @@ section 3. Depuis Java 8, une interface peut porter du code. La distinction
 utile reste celle des intentions, « est un » contre « sait faire », et une
 interface qui se met à porter beaucoup de code est généralement une classe
 abstraite qui s'ignore.
+
+Le code complet, à exécuter : demos, classe `demo.itf.slides.AjouterUneMethodeSansCasser`.
 
 ---
 

@@ -425,6 +425,8 @@ objets construits à partir d'elle. Chaque appel à `new` fabrique un nouvel
 exemplaire, un objet, avec ses propres valeurs de champs. Deux livres créés
 par deux `new` sont deux objets distincts, même s'ils portent le même titre.
 
+Le code complet, à exécuter : demos, classe `demo.poo.slides.ClasseEtObjet`.
+
 ---
 
 ### 2.4 · Démonstration
@@ -486,6 +488,8 @@ Vous connaissez déjà `private` depuis C# ; la section 3 montre pourquoi on
 l'emploie ici. IntelliJ peut générer un constructeur à partir des champs
 (voir IDE.12).
 
+Le code complet, à exécuter : demos, classe `demo.poo.slides.LeConstructeur`.
+
 ---
 
 ### 2.6 · Le mot-clé this
@@ -516,6 +520,8 @@ L'oubli de `this` est une erreur silencieuse. L'instruction `titre = titre;`
 est parfaitement valide : elle affecte le paramètre à lui-même, et le champ
 reste à `null`. Le compilateur ne dit rien ; IntelliJ, en revanche, souligne
 la ligne (voir IDE.15).
+
+Le code complet, à exécuter : demos, classe `demo.poo.slides.LeMotCleThis`.
 
 ---
 
@@ -594,6 +600,8 @@ d'où vient cette méthode.
 `toString()` est rarement appelée explicitement. `System.out.println(dune)`
 l'appelle pour vous, et la concaténation d'une chaîne et d'un objet aussi.
 
+Le code complet, à exécuter : demos, classe `demo.poo.slides.LaMethodeToString`.
+
 ---
 
 ### 2.9 · Exercices
@@ -651,6 +659,8 @@ passer par lui. Rien n'empêche d'écrire une année de parution négative :
 le programme compile, s'exécute, et produit des résultats faux sans que
 personne ne s'en aperçoive.
 
+Le code complet, à exécuter : demos, classe `demo.poo.slides.LeProblemeDUnChampPublic`.
+
 ---
 
 ### 3.3 · Fermer les champs, ouvrir des accesseurs
@@ -688,6 +698,8 @@ modifie `set`. Pour un champ booléen, le getter commence par `is`.
 Ces méthodes, qu'on appelle des accesseurs, jouent le rôle des propriétés
 de C#. IntelliJ sait les générer (voir IDE.12).
 
+Le code complet : demos, classe `demo.poo.slides.Livre`.
+
 ---
 
 ### 3.4 · Ce que le détour permet
@@ -721,6 +733,8 @@ détail ; retenez pour l'instant que `throw` interrompt la méthode et
 signale l'erreur à l'appelant. `IllegalArgumentException` est une exception
 dite non contrôlée : le compilateur n'exige pas qu'on l'attrape, et le code
 appelant reste donc débarrassé de tout `try/catch`.
+
+Le code complet, à exécuter : demos, classe `demo.poo.slides.CeQueLeDetourPermet`.
 
 ---
 
@@ -775,6 +789,8 @@ cache pourtant derrière.
 
 `LocalDate.now().getYear()` donne l'année en cours. Les classes de dates
 font l'objet du module TMP.
+
+Le code complet, à exécuter : demos, classe `demo.poo.slides.LaDonneeQuiNExistePas`.
 
 ---
 
@@ -963,6 +979,8 @@ appelle le constructeur. Remarquez aussi que ce compteur ne diminue jamais.
 Java ne prévient pas un objet de sa disparition ; le mémento technique
 explique pourquoi (TEC-EXE.4).
 
+Le code complet, à exécuter : demos, classe `demo.poo.slides.UnCompteurDInstances`.
+
 ---
 
 ### 4.8 · Méthodes de classe
@@ -989,6 +1007,8 @@ objet `Math`, et la classe `Math` ne permet d'ailleurs pas d'en créer.
 Java accepte qu'on appelle une méthode statique à travers une variable
 d'objet, mais l'écriture laisse croire que la méthode dépend de cet objet.
 IntelliJ le signale par un avertissement.
+
+Le code complet, à exécuter : demos, classe `demo.poo.slides.MethodesDeClasse`.
 
 ---
 
@@ -1061,6 +1081,8 @@ entre les mots. Nommer une valeur plutôt que l'écrire en dur rend le code
 lisible et évite de la répéter : c'est la règle CC-NOM.7 du mémento Clean
 Code.
 
+Le code complet, à exécuter : demos, classe `demo.poo.slides.LesConstantes`.
+
 ---
 
 ### 4.11 · À quoi servent les méthodes de classe
@@ -1129,6 +1151,8 @@ nom, et ce nom dit en plus comment lire les paramètres.
 Rendre le constructeur `private` oblige tout le code extérieur à passer par
 les fabriques : personne ne peut plus écrire `new Point(3, 4)` en se
 demandant ce que représentent les deux nombres.
+
+Le code complet, à exécuter : demos, classe `demo.poo.slides.LesFabriques`.
 
 ---
 
@@ -1299,6 +1323,8 @@ On peut ordonner les questions pour éviter qu'un `nextLine()` suive un
 supplémentaire. L'exercice POO.5 vous demandera de chercher une manière de
 ne jamais tomber dans le piège.
 
+Le code complet, à exécuter : demos, classe `demo.poo.slides.UnPiegeNextIntNextLine`.
+
 ---
 
 ### 5.7 · Exercices
@@ -1386,6 +1412,8 @@ Le débogueur rend ce partage visible : il affiche à côté de chaque objet un
 numéro, et deux variables qui portent le même numéro désignent le même
 objet.
 
+Le code complet, à exécuter : demos, classe `demo.poo.slides.DeuxNomsUnSeulObjet`.
+
 ---
 
 ### 6.4 · Exercice
@@ -1432,6 +1460,8 @@ travers lui se voit de partout.
 Ce n'est pas pour autant un passage par référence : la troisième ligne
 fait désigner un autre objet à la copie, et la variable de l'appelant n'en
 est pas affectée. TEC-EXE.3 reprend ce raisonnement.
+
+Le code complet, à exécuter : demos, classe `demo.poo.slides.CeQueVousAvezObserve`.
 
 ---
 
@@ -1513,6 +1543,8 @@ Java convertit automatiquement un primitif en wrapper et inversement :
 c'est l'autoboxing et l'unboxing. Cela permet d'écrire `Integer boite = 5;`
 sans conversion explicite.
 
+Le code complet, à exécuter : demos, classe `demo.poo.slides.CeQuOffrentLesWrappers`.
+
 ---
 
 ### 7.4 · Séparer le calcul du dialogue
@@ -1552,6 +1584,8 @@ contente alors de dialoguer.
 Cette séparation est une règle du cours à partir de maintenant. Le mémento
 Clean Code la formule en CC-MET.8 : une méthode agit ou répond, jamais les
 deux.
+
+Le code complet, à exécuter : demos, classe `demo.poo.slides.Disque`.
 
 ---
 

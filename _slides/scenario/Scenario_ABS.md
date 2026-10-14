@@ -111,6 +111,8 @@ Elle appelle `deposer` et `solde` sans les avoir écrites, puisqu'elle en a hér
 Une classe ne peut étendre qu'une seule classe. C'est une différence importante avec
 les interfaces, que le module suivant abordera.
 
+Le code complet, à exécuter : demos, classe `demo.abs.slides.UneClasseQuiReprendUneAutre`.
+
 ### 1.3 · Appeler le constructeur de la classe mère
 
 **Source** — deck 01, slide 40
@@ -143,6 +145,8 @@ classe mère n'a pas de constructeur sans argument.
 
 Le mot-clé `super` sert aussi à appeler une méthode de la mère depuis la fille, quand
 on la redéfinit sans vouloir la remplacer complètement.
+
+Le code complet, à exécuter : demos, classe `demo.abs.slides.UneClasseQuiReprendUneAutre`.
 
 ### 1.4 · Redéfinir une méthode
 
@@ -179,6 +183,8 @@ facultative pour le langage ; elle ne l'est pas dans votre code.
 L'appel à `super.deposer` ajoute un comportement sans jeter celui de la mère. Sans lui,
 la version de la fille remplacerait purement et simplement l'autre.
 
+Le code complet, à exécuter : demos, classe `demo.abs.slides.UneClasseQuiReprendUneAutre`.
+
 ### 1.5 · Ce que la fille voit de la mère
 
 **Slide**
@@ -209,6 +215,8 @@ les quatre niveaux de visibilité, et `PKG.5` lui est consacré.
 Le réflexe de tout passer en `protected` pour se simplifier la vie coûte cher : chaque
 champ ouvert est un champ que les sous-classes peuvent corrompre, et qu'on ne peut plus
 renommer sans les casser.
+
+Le code complet, à exécuter : demos, classe `demo.abs.slides.UneClasseQuiReprendUneAutre`.
 
 ### 1.6 · De C# à Java
 
@@ -353,6 +361,8 @@ dire pourquoi.
 C'est l'objet de CC-CLS.3 du mémento Clean Code : la duplication entre sous-classes se
 traite en faisant remonter ce qui est commun, pas en le recopiant plus soigneusement.
 
+Le code complet, à exécuter : demos, classe `demo.abs.slides.TroisClassesUnComportement`.
+
 ### 2.3 · Ce qu'on ne peut pas faire
 
 **Slide**
@@ -377,6 +387,8 @@ les traite ensemble. Le seul type commun est `Object`, qui ne sait rien envoyer 
 
 Le programme se retrouve à répéter le même traitement canal par canal, avec une
 condition pour chacun. Ajouter Slack demandera de retoucher tous ces endroits.
+
+Le code complet, à exécuter : demos, classe `demo.abs.slides.TroisClassesUnComportement`.
 
 ### 2.4 · Démonstration
 
@@ -460,6 +472,8 @@ La distinction à retenir est celle entre déclarer et instancier. La variable `
 de type `Notification` : c'est une promesse sur ce qu'elle sait faire, pas sur la classe
 exacte de l'objet qu'elle désigne.
 
+Le code complet, à exécuter : demos, classe `demo.abs.slides.UnTypeQuOnNeConstruitPas`.
+
 ### 3.3 · À quoi sert un type qu'on ne construit pas
 
 **Slide**
@@ -488,6 +502,8 @@ Elle sert de vocabulaire. Écrire `Notification[]` dit au compilateur que tous l
 Le tableau ci-dessus ne contient aucune `Notification`, au sens strict. Il ne contient
 que des objets de sous-classes — et c'est la section 5 qui expliquera ce qui se passe
 quand on appelle une méthode dessus.
+
+Le code complet, à exécuter : demos, classe `demo.abs.slides.UnTypeQuOnNeConstruitPas`.
 
 ### 3.4 · Un constructeur, quand même
 
@@ -520,6 +536,8 @@ classe : ce constructeur existe pour les sous-classes. C'est une question d'`ABS
 elle mérite une vraie réponse.
 
 ## Section 4 — Ce qui monte, ce qui descend
+
+Le code complet, à exécuter : demos, classe `demo.abs.slides.UnTypeQuOnNeConstruitPas`.
 
 ### 4.1 · Ce qui monte, ce qui descend
 
@@ -562,6 +580,8 @@ porter aussi.
 Le lien entre les deux est à sens unique : une classe abstraite peut très bien n'avoir
 aucune méthode abstraite, alors qu'une classe qui en a une est forcément abstraite.
 
+Le code complet, à exécuter : demos, classe `demo.abs.slides.UnTypeQuOnNeConstruitPas`.
+
 ### 4.3 · La règle de partage
 
 **Source** — fascicule ABS, « Ce qu'il faut avoir en tête »
@@ -599,6 +619,8 @@ Le test pratique est simple. Si vos trois sous-classes contiennent plus d'une m�
 demandez-vous ce qui aurait dû monter. C'est la question posée en fin d'`ABS.1`, et elle
 revient à chaque exercice du thème.
 
+Le code complet, à exécuter : demos, classe `demo.abs.slides.LaRegleDePartage`.
+
 ### 4.4 · L'obligation faite aux sous-classes
 
 **Slide**
@@ -628,6 +650,8 @@ parcours, c'est exactement ce dont la section 7 aura besoin.
 
 Remarquez que `Cercle` ne contient qu'une méthode. Tout le reste — la position, la
 rotation, l'affichage — vit dans la classe mère et n'est écrit qu'une fois.
+
+Le code complet, à exécuter : demos, classe `demo.abs.slides.LaRegleDePartage`.
 
 ### 4.4a · `@Override`, aussi pour une méthode abstraite
 
@@ -667,6 +691,8 @@ redéfinit rien. On trouve la faute là où elle est.
 Vous n'avez d'ailleurs pas à l'écrire vous-même : quand IntelliJ génère les méthodes à
 fournir (Code → Implement Methods), il ajoute `@Override` à chacune.
 
+Le code complet : demos, classe `demo.abs.slides.Cercle`.
+
 ### 4.5 · Petit détour : le reste d'une division négative
 
 **Slide**
@@ -695,6 +721,8 @@ La correction tient en une expression : ajouter le diviseur au résultat, puis r
 le modulo. Le premier modulo ramène la valeur dans l'intervalle, l'addition la rend
 positive, le second efface le tour de trop. Le test d'`ABS.1` vérifie ce cas
 précisément.
+
+Le code complet, à exécuter : demos, classe `demo.abs.slides.LeResteDUneDivisionNegative`.
 
 ### 4.6 · Exercices
 

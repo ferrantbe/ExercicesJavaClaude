@@ -220,6 +220,8 @@ La salle de spectacle servira d'exemple pour tout le module. Elle a une
 capacité, on y réserve des places, et elle refuse ce qu'elle ne peut pas
 servir. Sa documentation viendra à la section 3.
 
+Le code complet, à exécuter : demos, classe `demo.jun.slides.UnProgrammeQuiAfficheNeVerifieRien`.
+
 ---
 
 ### 1.4 · Démonstration
@@ -328,6 +330,8 @@ vous dira que la salle aurait dû valoir ce qu'elle vaut.
 Enfin, la ligne qui fait le test est la dernière. Sans elle, la méthode
 appelle du code, ne vérifie rien, et passe au vert. C'est ce que la
 démonstration a montré.
+
+Le code complet, à lancer : demos, test `demo.jun.slides.SalleTest`.
 
 ---
 
@@ -466,6 +470,8 @@ d'une salle qui réserve quand même la moitié de la demande.
 C'est ce que l'examen appelle tester « sur base d'une classe implémentée par
 un tiers et/ou de spécifications techniques ». La spécification, c'est ceci.
 
+Le code complet : demos, classe `demo.jun.slides.Salle`.
+
 ---
 
 ### 3.3 · Vérifier qu'une exception est levée
@@ -505,6 +511,8 @@ qu'`assertThrows(Exception.class, ...)` accepterait n'importe quelle exception,
 y compris celle d'un bug. `assertThrows` rend l'exception attrapée : on peut
 en vérifier le message.
 
+Le code complet, à lancer : demos, test `demo.jun.slides.SalleTest`.
+
 ---
 
 ### 3.4 · Le `throws` d'une méthode de test
@@ -543,6 +551,8 @@ CC-ERR.6.
 
 Dans `assertThrows`, en revanche, rien à déclarer : c'est JUnit qui attrape.
 
+Le code complet, à lancer : demos, test `demo.jun.slides.SalleTest`.
+
 ---
 
 ### 3.5 · Après l'échec, l'état
@@ -579,6 +589,8 @@ comportement, le refus d'une demande trop grande, vu sous ses deux faces.
 
 C'est la même idée qu'en EXC.1, où le test vérifiait que le point ne bougeait
 pas quand le déplacement était refusé. Cette fois, c'est vous qui l'écrivez.
+
+Le code complet, à lancer : demos, test `demo.jun.slides.SalleTest`.
 
 ---
 
@@ -681,6 +693,8 @@ Une exception : si l'énoncé impose un nom, on le respecte à la lettre. La
 session de 2022 imposait `testConcatene`, et la correspondance exacte à
 l'énoncé fait partie des critères.
 
+Le code complet, à lancer : demos, test `demo.jun.slides.SalleTest`.
+
 ---
 
 ### 4.4 · Chaque test repart de zéro
@@ -730,6 +744,8 @@ N'en abusez pas. Si la valeur qui compte pour un test est cachée dans
 test reste visible dans le test. JUnit propose d'autres annotations du même
 genre ; vous n'en aurez pas besoin.
 
+Le code complet, à lancer : demos, test `demo.jun.slides.SalleAvecPreparationTest`.
+
 ---
 
 ### 4.5 · Un test se justifie par le défaut qu'il attrape
@@ -771,6 +787,8 @@ limite », elle dit quelle erreur ce cas limite démasque.
 **Réserve** La forme sous laquelle l'examen demande la justification n'est
 écrite dans aucune des six sessions fournies : ni commentaire, ni question
 orale. La note ne la présume pas. À préciser si une forme est attendue.
+
+Le code complet : demos, classe `demo.jun.slides.Salle`.
 
 ---
 
@@ -870,6 +888,8 @@ accepte n'importe laquelle.
 
 **Réserve** Le deck ITF ne donne au contrôleur que `setAfficheur`. La note
 parle donc de « l'action à vérifier » sans nommer de méthode.
+
+Le code complet, à lancer : demos, test `demo.jun.slides.ControleurTest`.
 
 ---
 
