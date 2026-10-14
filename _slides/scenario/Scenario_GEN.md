@@ -282,6 +282,8 @@ la classe ne sait rien de ce que sera `T`. Elle ne peut donc appeler sur un
 Le diamant de droite, déjà vu au module COL, laisse le compilateur déduire
 l'argument de la déclaration.
 
+Le code complet, à exécuter : demos, classe `demo.gen.slides.DeclarerUnParametre`.
+
 ---
 
 ### 1.5 · Un `T` se transmet
@@ -322,6 +324,8 @@ C'est la forme de la question 2 de l'examen dans cinq sessions sur six : une
 classe générique, une collection privée, quelques méthodes qui délèguent, et
 un `Programme` qui montre la même classe au service de deux types. Aucun
 exercice du thème ne la pratique : regardez-la bien.
+
+Le code complet, à exécuter : demos, classe `demo.gen.slides.DeclarerUnParametre`.
 
 ---
 
@@ -384,6 +388,8 @@ C'est la forme de la `Map<K, V>` du module COL. L'ordre compte :
 `Ticket<Valise, Integer>` est un autre type, et le compilateur refuserait
 alors `new Ticket<>(42, valise)`.
 
+Le code complet, à exécuter : demos, classe `demo.gen.slides.DeclarerUnParametre`.
+
 ---
 
 ### 2.3 · Un argument de type peut être générique
@@ -417,6 +423,8 @@ Sa méthode `retirer` rend une `List<Valise>`, sans transtypage.
 
 Dans la troisième, le diamant fonctionne même imbriqué : le compilateur
 déduit `Casier<Valise>` de la déclaration.
+
+Le code complet, à exécuter : demos, classe `demo.gen.slides.DeclarerUnParametre`.
 
 ---
 
@@ -480,6 +488,8 @@ virtuelle, sans être recompilé. Le type brut que la démonstration a montré
 vient de là : c'est ce qui reste d'une classe générique une fois ses
 arguments effacés.
 
+Le code complet, à exécuter : demos, classe `demo.gen.slides.UneSeuleClasseALExecution`.
+
 ---
 
 ### 3.3 · Vérifier, puis effacer
@@ -516,6 +526,8 @@ les `deposer` avant de l'écrire. C'est la vérification qui refuse une erreur
 de type, pas le transtypage : elle a lieu avant l'effacement.
 
 Le module FIC s'appuiera sur cette slide.
+
+Le code complet, à exécuter : demos, classe `demo.gen.slides.UneSeuleClasseALExecution`.
 
 ---
 
@@ -628,6 +640,8 @@ La dernière ligne de la slide reste une question, et c'est voulu. Une
 répondez pas encore : l'exercice suivant vous fait essayer, et le
 compilateur répondra.
 
+Le code complet, à exécuter : demos, classe `demo.gen.slides.ExtendsEtSuper`.
+
 ---
 
 ### 4.3 · Exercices
@@ -687,6 +701,8 @@ n'est pas tout à fait « lecture seule ».
 C'est le joker de `GEN.4`. Sur un triplet sans mutateur, on ne voit que la
 lecture. Sur une liste, on voit aussi ce qui est refusé.
 
+Le code complet, à exécuter : demos, classe `demo.gen.slides.ExtendsEtSuper`.
+
 ---
 
 ### 4.5 · `? super` : on ajoute
@@ -723,6 +739,8 @@ maintenant le lire : un critère écrit pour des `Bagage` sait tester des
 `Valise`, et peut donc servir sur une `List<Valise>`. Le module LAM en
 montrera d'autres dans les signatures du JDK. Les reconnaître suffit : en
 écrire est rare.
+
+Le code complet, à exécuter : demos, classe `demo.gen.slides.ExtendsEtSuper`.
 
 ---
 
@@ -767,6 +785,8 @@ La dernière ligne montre la forme explicite. Vous la croiserez dans des
 documentations, rarement dans du code : le compilateur s'en passe presque
 toujours.
 
+Le code complet, à exécuter : demos, classe `demo.gen.slides.LeCompilateurDeduitLeT`.
+
 ---
 
 ### 5.3 · Une méthode statique déclare son `T`
@@ -806,6 +826,8 @@ de la méthode, déduit à chaque appel.
 
 C'est une fabrique, au sens du module STA : une méthode statique qui
 construit et rend un objet prêt à servir.
+
+Le code complet, à exécuter : demos, classe `demo.gen.slides.LeCompilateurDeduitLeT`.
 
 ---
 
@@ -874,6 +896,8 @@ Pour le reste, l'héritage fonctionne comme au module ABS : redéfinition,
 séparément et ne la mentionne pas : à vérifier qu'elle ne répond pas à la
 place de l'étudiant.
 
+Le code complet, à exécuter : demos, classe `demo.gen.slides.DeuxFaconsDHeriter`.
+
 ---
 
 ### 6.3 · Une interface générique
@@ -909,6 +933,8 @@ son côté implémenter `Depot<T>`, et transmettre son paramètre.
 Vous connaissez déjà une interface générique : `List<E>`, slide 1.2. Le
 module LAM vous en fera implémenter d'autres, comme `Comparator<T>`, sans
 écrire de classe.
+
+Le code complet, à exécuter : demos, classe `demo.gen.slides.DeuxFaconsDHeriter`.
 
 ---
 

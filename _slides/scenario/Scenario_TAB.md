@@ -107,6 +107,8 @@ La taille, elle, est fixée une fois pour toutes. C'est la limite du tableau,
 et c'est aussi ce qui le rend simple et rapide. Quand cette limite devient
 gênante, il faut une collection, et c'est le thème COL.
 
+Le code complet, à exécuter : demos, classe `demo.tab.slides.DeclarerUnTableau`.
+
 ---
 
 ### 1.4 · Ce que la démonstration a montré
@@ -159,6 +161,8 @@ Cette lecture explique les deux `length` différents vus en démonstration, et
 elle a une conséquence que la section 3 exploitera : rien n'oblige les
 lignes à faire toutes la même longueur.
 
+Le code complet, à exécuter : demos, classe `demo.tab.slides.DeclarerUnTableau`.
+
 ---
 
 ## Section 2 — Parcourir un tableau
@@ -192,6 +196,8 @@ strict, parce que les indices vont de zéro à `length - 1`. Un inférieur ou
 égal produit une `ArrayIndexOutOfBoundsException`, et c'est probablement
 l'erreur la plus fréquente de toute la programmation.
 
+Le code complet, à exécuter : demos, classe `demo.tab.slides.DeclarerUnTableau`.
+
 ---
 
 ### 2.3 · La boucle for-each
@@ -215,6 +221,8 @@ le risque de sortir du tableau.
 En contrepartie, `v` est une copie de la valeur : lui affecter quelque chose
 ne touche pas au tableau. C'est une restriction, pas un défaut — et c'est
 exactement ce que `TAB.2` vous demandera d'essayer pour le constater.
+
+Le code complet, à exécuter : demos, classe `demo.tab.slides.DeclarerUnTableau`.
 
 ---
 
@@ -324,6 +332,8 @@ Une boucle for-each imbriquée s'en sort naturellement, puisque la première
 parcourt des `int[]` et la seconde des `int` — chaque ligne annonce sa
 propre longueur.
 
+Le code complet, à exécuter : demos, classe `demo.tab.slides.DesLignesDeTaillesDifferentes`.
+
 ---
 
 ### 3.3 · Exercices
@@ -381,6 +391,8 @@ est-il plus grand que b ? si oui `a`, sinon `b` ».
 Ternaire signifie simplement « à trois opérandes ». C'est le seul de Java
 dans ce cas, d'où son nom.
 
+Le code complet, à exécuter : demos, classe `demo.tab.slides.LOperateurTernaire`.
+
 ---
 
 ### 4.3 · Ce qu'un if ne permet pas
@@ -403,6 +415,8 @@ une valeur est attendue, ce qu'un `if` ne permet pas.
 
 Employer un ternaire uniquement pour raccourcir un `if` qui ne retourne
 rien, c'est en revanche le détourner de son usage.
+
+Le code complet, à exécuter : demos, classe `demo.tab.slides.LOperateurTernaire`.
 
 ---
 

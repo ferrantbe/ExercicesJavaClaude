@@ -91,6 +91,8 @@ L'énumération déplace cette vérification : ce qui était une convention à r
 une règle que le compilateur applique. Voir CC-NOM.4 sur les nombres magiques et CC-NOM.7
 sur les noms qui portent leur sens.
 
+Le code complet, à exécuter : demos, classe `demo.enu.slides.TroisCouleursPasUneDePlus`.
+
 ### 1.3 · Il existe d'autres types que la classe
 
 **Source** — deck 02, slides 44 et 45, réduits à ce qui concerne ce module
@@ -129,6 +131,8 @@ Cette section donne la syntaxe et les cinq méthodes que toute énumération pos
 que personne les écrive. Elle se termine sur le point qui portera toute la section
 suivante : l'ordre de déclaration n'est pas décoratif.
 
+Le code complet, à exécuter : demos, classe `demo.enu.slides.DeclarerUneEnumeration`.
+
 ### 2.2 · Déclarer une énumération
 
 **Source** — deck 02, slide 46
@@ -159,6 +163,8 @@ l'erreur se voit au moment où elle s'écrit, pas six mois plus tard.
 
 Une énumération est un type comme un autre. Elle sert de type de champ, de type de
 paramètre et de type de retour, et le module en verra les trois usages.
+
+Le code complet, à exécuter : demos, classe `demo.enu.slides.DeclarerUneEnumeration`.
 
 ### 2.3 · Ce que toute énumération sait faire
 
@@ -223,6 +229,8 @@ module FIC.
 
 ## Section 3 — L'ordre porte l'information
 
+Le code complet, à exécuter : demos, classe `demo.enu.slides.DeclarerUneEnumeration`.
+
 ### 3.1 · L'ordre porte l'information
 
 **Slide**
@@ -280,6 +288,8 @@ d'abord au 1, ce qui donne toujours la position courante augmentée de zéro : l
 compile, ne produit aucun avertissement, et le feu reste bloqué sur sa première couleur.
 Ce genre de faute est le plus coûteux qui soit, parce que rien ne le signale. Un test
 l'attrape immédiatement.
+
+Le code complet, à exécuter : demos, classe `demo.enu.slides.DeclarerUneEnumeration`.
 
 ### 3.4 · Ce que ce détour fait gagner
 
@@ -360,6 +370,8 @@ C'est une exception notable. Sur les `String` et sur les objets en général, `=
 les références et donne des surprises ; sur les énumérations, il est à la fois correct et
 préférable, parce qu'il ne lève pas d'exception si la variable vaut `null`.
 
+Le code complet, à exécuter : demos, classe `demo.enu.slides.DeclarerUneEnumeration`.
+
 ### 4.3 · Aiguiller : la forme classique
 
 **Source** — deck 02, slide 51
@@ -394,6 +406,8 @@ L'enchaînement d'un cas sur le suivant est parfois voulu, comme ici pour traite
 et le dimanche ensemble. Il est bien plus souvent accidentel, et c'est pourquoi Java a
 fini par proposer autre chose.
 
+Le code complet, à exécuter : demos, classe `demo.enu.slides.Aiguiller`.
+
 ### 4.4 · Aiguiller : la forme à flèches
 
 **Slide**
@@ -418,6 +432,8 @@ donc plus de `break` à oublier.
 Quand une branche demande plusieurs instructions, on ouvre des accolades après la flèche.
 Les étiquettes qui partagent un traitement se regroupent sur une même ligne, séparées par
 des virgules.
+
+Le code complet, à exécuter : demos, classe `demo.enu.slides.Aiguiller`.
 
 ### 4.5 · Un `switch` qui retourne une valeur
 
@@ -449,6 +465,8 @@ oublie de l'affecter.
 Quand une branche a besoin de plusieurs lignes, elle s'écrit entre accolades et fournit sa
 valeur avec `yield`. C'est le seul endroit du langage où ce mot-clé apparaît.
 
+Le code complet, à exécuter : demos, classe `demo.enu.slides.Aiguiller`.
+
 ### 4.6 · Tous les cas, sans oubli
 
 **Slide**
@@ -479,6 +497,8 @@ C'est l'inverse exact de la démonstration du lecteur de musique, où l'ajout d'
 passait inaperçu. Écrire un `default` qui ne sert qu'à faire taire le compilateur revient
 donc à renoncer à cette vérification : mieux vaut s'en passer quand tous les cas sont
 couverts.
+
+Le code complet, à exécuter : demos, classe `demo.enu.slides.Aiguiller`.
 
 ### 4.7 · Exercices
 
@@ -551,6 +571,8 @@ l'information, et évite qu'une table de correspondance traîne ailleurs dans le
 
 C'est ce mécanisme qu'ENU.3 met en œuvre : le libellé français d'une couleur de carte est
 porté par la couleur elle-même, et la carte se contente de le demander.
+
+Le code complet, à exécuter : demos, classe `demo.enu.slides.UneEnumPortantDesDonnees`.
 
 ### 5.3 · Trois détails de syntaxe
 
@@ -650,6 +672,8 @@ début et d'échanger chacune avec une carte tirée parmi celles qui la précèd
 certaines dispositions sortiraient plus souvent que d'autres. Ce mélange porte un nom,
 Fisher-Yates, et la question est laissée ouverte dans le fascicule.
 
+Le code complet, à exécuter : demos, classe `demo.enu.slides.HasardEtStringJoiner`.
+
 ### 6.3 · Assembler avec un séparateur
 
 **Slide**
@@ -678,6 +702,8 @@ qu'il n'y a plus de condition à lire.
 
 Le constructeur accepte deux arguments de plus, un préfixe et un suffixe, ce qui permet
 d'encadrer la liste de crochets ou de parenthèses sans effort supplémentaire.
+
+Le code complet, à exécuter : demos, classe `demo.enu.slides.HasardEtStringJoiner`.
 
 ### 6.4 · Exercices
 
@@ -736,6 +762,8 @@ comme la slide suivante le détaille.
 L'accesseur porte le nom du composant, sans préfixe : on écrit `origine.x()` et non
 `origine.getX()`. C'est déroutant les premières fois, et c'est la convention.
 
+Le code complet, à exécuter : demos, classe `demo.enu.slides.LesRecords`.
+
 ### 7.3 · Ce que le compilateur écrit
 
 **Source** — deck 02, slide 53
@@ -768,6 +796,8 @@ redéfinit pas. La question reviendra.
 ENU.4 fait la démonstration de tout cela d'une façon un peu particulière : plusieurs tests
 sont verts avant que vous ayez écrit une ligne. Ce n'est pas une panne, c'est le
 compilateur qui a fait le travail.
+
+Le code complet, à exécuter : demos, classe `demo.enu.slides.LesRecords`.
 
 ### 7.4 · Un record ne change pas
 
@@ -819,6 +849,8 @@ déduit des autres se calcule, elle ne se stocke pas. Ajouter un composant `aire
 à le maintenir cohérent avec la largeur et la hauteur, et ouvrirait la porte à la
 contradiction. C'est la question déjà rencontrée avec la température en deux unités.
 
+Le code complet, à exécuter : demos, classe `demo.enu.slides.LesRecords`.
+
 ### 7.6 · Valider à la construction
 
 **Source** — deck 02, slide 54
@@ -850,6 +882,8 @@ L'instruction `throw` interrompt la construction et signale l'erreur à l'appela
 mécanisme complet des exceptions, et la façon de les traiter, sont le sujet du module EXC.
 Pour l'instant, il suffit de savoir que l'objet n'est pas créé et que le programme s'arrête
 là s'il ne fait rien.
+
+Le code complet, à exécuter : demos, classe `demo.enu.slides.LesRecords`.
 
 ### 7.7 · Quand le record ne convient pas
 

@@ -195,6 +195,8 @@ va de 1 à 12, sans le décalage d'une case qu'on trouve dans de vieilles
 API. La méthode `parse` n'accepte que le format ISO ; tout autre format demandera un
 `DateTimeFormatter`, en section 8.
 
+Le code complet, à exécuter : demos, classe `demo.tmp.slides.FabriquerEtLireUneDate`.
+
 ---
 
 ### 1.7 · Lire un morceau de date
@@ -222,6 +224,8 @@ pour l'instant, il suffit de savoir que `jour` peut s'afficher et se
 comparer. Et `lengthOfMonth` répond à une question que vous ne voudrez
 jamais calculer vous-même.
 
+Le code complet, à exécuter : demos, classe `demo.tmp.slides.FabriquerEtLireUneDate`.
+
 ---
 
 ### 1.8 · Comparer deux dates
@@ -243,6 +247,8 @@ raisonnement que pour les chaînes, où `equals` remplace `==`. Cette
 distinction entre primitifs et objets, vue au module POO, resservira tout
 au long de l'année.
 
+Le code complet, à exécuter : demos, classe `demo.tmp.slides.FabriquerEtLireUneDate`.
+
 ---
 
 ### 1.9 · L'heure seule
@@ -262,6 +268,8 @@ int heure       = debut.getHour();
 La classe `LocalTime` suit exactement les mêmes conventions : pas de constructeur,
 des méthodes statiques, des accesseurs prévisibles. Quelques constantes
 sont fournies pour les valeurs remarquables.
+
+Le code complet, à exécuter : demos, classe `demo.tmp.slides.ExemplesAvecLocalTime`.
 
 ---
 
@@ -283,6 +291,8 @@ rdv.toLocalTime();   // 18:00
 La classe `LocalDateTime` combine les deux, et sait retourner chacune de ses moitiés.
 Retenez cette dernière possibilité : passer d'une classe à l'autre est
 souvent la réponse à une méthode qui refuse vos arguments.
+
+Le code complet, à exécuter : demos, classe `demo.tmp.slides.LesDeuxALaFois`.
 
 ---
 
@@ -335,6 +345,8 @@ La tournure surprend : c'est l'unité qui porte la méthode `between`, et les
 deux dates sont ses arguments. Lisez-la de gauche à droite — « en jours,
 l'écart entre ceci et cela ». `ChronoUnit` propose `DAYS`, `WEEKS`,
 `MONTHS`, `YEARS`, et une dizaine d'autres.
+
+Le code complet, à exécuter : demos, classe `demo.tmp.slides.ChronoUnitLUniteDeMesure`.
 
 ---
 
@@ -417,6 +429,8 @@ plus loin.
 Ne pas dire ici que les dates sont immuables. TMP.2 est construit pour le
 faire découvrir.
 
+Le code complet, à exécuter : demos, classe `demo.tmp.slides.DecalerUneDate`.
+
 ---
 
 ### 3.3 · Exercices
@@ -496,6 +510,8 @@ Vous connaissez `println` depuis le premier programme. Son petit frère
 construit une ligne morceau par morceau — l'affichage d'une matrice, par
 exemple, au module TAB.
 
+Le code complet, à exécuter : demos, classe `demo.tmp.slides.PrintlnEtPrint`.
+
 ---
 
 ### 4.3 · `printf` : un gabarit et des valeurs
@@ -519,6 +535,8 @@ valeurs ou une question de présentation.
 
 Employez `%n` plutôt que la barre oblique inversée n : `%n` produit le
 retour à la ligne de la machine sur laquelle le programme tourne.
+
+Le code complet, à exécuter : demos, classe `demo.tmp.slides.PrintlnEtPrint`.
 
 ---
 
@@ -573,6 +591,8 @@ l'œil, et vous chercherez l'erreur ailleurs.
 La règle : dès que le texte produit est comparé par un test, précisez la
 locale.
 
+Le code complet, à exécuter : demos, classe `demo.tmp.slides.PrintlnEtPrint`.
+
 ---
 
 ### 4.6 · `String.format`, la version testable
@@ -602,6 +622,8 @@ formatage rendront donc des `String`, et seul le `main` appellera `printf`.
 Le détour s'arrête ici. On reprend la mesure du temps là où on l'avait
 laissée, avec une question restée ouverte : peut-on compter des secondes
 entre deux dates ?
+
+Le code complet, à exécuter : demos, classe `demo.tmp.slides.PrintlnEtPrint`.
 
 ---
 
@@ -639,6 +661,8 @@ réponse dans dix minutes — n'essayez pas de la deviner, essayez-la.
 **Réserve**
 Ni atStartOfDay, ni le nom de l'exception. TMP.3 est construit pour que
 l'étudiant lise le message d'erreur.
+
+Le code complet, à exécuter : demos, classe `demo.tmp.slides.CeQueLocalDateNeContientPas`.
 
 ---
 
@@ -720,6 +744,8 @@ l'expliquer.
 **Réserve**
 Pas de réponse sur cette slide.
 
+Le code complet, à exécuter : demos, classe `demo.tmp.slides.AjouterDesMois`.
+
 ---
 
 ### 6.3 · Exercices
@@ -793,6 +819,8 @@ annonce un âge. Ces unités n'ont pas de longueur fixe : un mois vaut 28,
 29, 30 ou 31 jours. Un `Period` ne mémorise donc pas une quantité de temps,
 mais une recette d'ajustement du calendrier.
 
+Le code complet, à exécuter : demos, classe `demo.tmp.slides.PeriodEtDuration`.
+
 ---
 
 ### 7.3 · `Duration`, les unités de l’horloge
@@ -820,6 +848,8 @@ elles ne se combinent pas comme on l'attendrait.
 **Réserve**
 toMinutesPart n'apparaît pas ici. TMP.5 demande de la trouver dans la
 Javadoc.
+
+Le code complet, à exécuter : demos, classe `demo.tmp.slides.PeriodEtDuration`.
 
 ---
 
@@ -891,6 +921,8 @@ le nombre de lettres la largeur souhaitée. La confusion entre `mm` et `MM`
 est le classique du genre, et elle ne provoque aucune erreur : elle donne
 simplement une date fausse.
 
+Le code complet, à exécuter : demos, classe `demo.tmp.slides.UneDateEtSonTexte`.
+
 ---
 
 ### 8.3 · Du texte vers la date
@@ -911,6 +943,8 @@ ne correspond pas au motif lève une `DateTimeParseException` : le programme
 s'arrête et affiche une trace. Traiter proprement ce genre d'incident est
 tout un sujet, auquel le module EXC est consacré ; pour l'instant,
 contentez-vous de constater ce qui se passe.
+
+Le code complet, à exécuter : demos, classe `demo.tmp.slides.UneDateEtSonTexte`.
 
 ---
 

@@ -141,8 +141,10 @@ def verifier_theme(theme):
         with tempfile.TemporaryDirectory() as tmp:
             f = Path(tmp) / f"{nom}.java"
             f.write_text(texte, encoding="utf-8")
+            # lance dans un dossier temporaire : un programme qui ecrit des fichiers
+            # (theme FIC) ne laisse rien dans le depot
             r = subprocess.run(["java", str(f)], capture_output=True, text=True, timeout=60,
-                               input=entree(sources[nom]))
+                               input=entree(sources[nom]), cwd=tmp)
         if "error:" in r.stderr and "Exception in thread" not in r.stderr:
             print(f"  ECHEC {theme}.slides.{nom} : ne compile pas\n{r.stderr[:800]}")
             ok = False
@@ -166,8 +168,11 @@ def verifier_tests(theme):
     if not dossier.is_dir():
         return True
     imports, corps, classes = set(), [], []
-    # le code teste : tout le main/slides du depot (un test peut en importer un autre theme)
-    for f in sorted(BASE.glob("*/slides/*.java")):
+    # le code teste : le main/slides du theme, plus celui des themes que les tests importent
+    themes = {theme}
+    for f in dossier.glob("*.java"):
+        themes |= set(re.findall(r"import be\.ephec\.java\.demo\.(\w+)\.slides\.", f.read_text(encoding="utf-8")))
+    for f in sorted(p for t in sorted(themes) for p in (BASE / t / "slides").glob("*.java")):
         src = f.read_text(encoding="utf-8")
         if "static void main" in src:
             continue

@@ -182,6 +182,8 @@ justifie : la classe porte un nom, et on peut la tester seule.
 Quand il ne sert qu'une fois, le prix devient dissuasif. On finit par écrire
 une boucle à la place, et le critère se perd dans la boucle.
 
+Le code complet, à exécuter : demos, classe `demo.lam.slides.DeLaClasseALaLambda`.
+
 ---
 
 ### 1.3 · La classe anonyme
@@ -218,6 +220,8 @@ appel. Une classe anonyme voit les champs de la classe où elle est écrite.
 
 Le fichier a disparu, mais regardez ce qui reste autour de la ligne utile :
 cinq lignes de cérémonie. La démonstration va montrer ce qu'IntelliJ en fait.
+
+Le code complet, à exécuter : demos, classe `demo.lam.slides.DeLaClasseALaLambda`.
 
 ---
 
@@ -288,6 +292,8 @@ attendue, cette écriture est permise. Le programme fait exactement la même
 chose qu'avec `TitreLong`. Seul le coût d'écriture a changé, et avec lui
 l'envie de le faire.
 
+Le code complet, à exécuter : demos, classe `demo.lam.slides.DeLaClasseALaLambda`.
+
 ---
 
 ### 2.3 · Son type vient d'où elle va
@@ -330,6 +336,8 @@ retourne rien. D'où les parenthèses vides. La lambda emballe l'appel, et
 Une lambda est donc un objet comme un autre : on la range dans une variable,
 on la passe en paramètre, on la met dans un tableau.
 
+Le code complet, à exécuter : demos, classe `demo.lam.slides.LesFormesDUneLambda`.
+
 ---
 
 ### 2.4 · Les formes d'une lambda
@@ -367,6 +375,8 @@ Dès que le corps compte plus d'une instruction, il prend des accolades, et
 le `return` redevient obligatoire, comme dans une méthode. Un corps en bloc
 est permis, mais s'il s'allonge, c'est le signe qu'il mérite un nom. La
 section suivante dit comment le lui donner.
+
+Le code complet, à exécuter : demos, classe `demo.lam.slides.LesFormesDUneLambda`.
 
 ---
 
@@ -467,6 +477,8 @@ Remarquez le paramètre `auteur`, inutile ici puisqu'une liste vide ne dépend
 de personne. La signature d'`apply` l'impose, comme au module COL : la
 lambda doit le nommer, même sans s'en servir.
 
+Le code complet, à exécuter : demos, classe `demo.lam.slides.LesMethodesDeCOLSansClasse`.
+
 ---
 
 ### 3.4 · La référence de méthode
@@ -512,6 +524,8 @@ une lambda, puis le seul nom d'une méthode. À chaque étape, la même idée,
 avec moins à écrire. La différence entre la lambda et la référence n'est plus
 le coût, c'est le nom : le fascicule en fait l'encadré de `LAM.3`.
 
+Le code complet, à exécuter : demos, classe `demo.lam.slides.DeLaClasseALaLambda`.
+
 ---
 
 ### 3.5 · Un stream, en passant *(facultative)*
@@ -550,6 +564,8 @@ Pour un tableau d'entiers, `Arrays.stream(tableau)` ouvre le même
 enchaînement. Comme les éléments sont des `int`, `mapToObj` les transforme
 alors en objets, par exemple en chaînes avec `String::valueOf`, avant de les
 joindre. C'est de quoi répondre à la dernière question de `LAM.3`.
+
+Le code complet, à exécuter : demos, classe `demo.lam.slides.LesMethodesDeCOLSansClasse`.
 
 ---
 

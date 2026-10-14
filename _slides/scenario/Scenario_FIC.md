@@ -228,6 +228,8 @@ retrouverez `println` à la section 3, et `nextLine` aussi.
 Attention au mot : ces flux n'ont rien à voir avec les *streams* de la
 slide facultative du module LAM, qui traitent des collections.
 
+Le code complet, à exécuter : demos, classe `demo.fic.slides.VousEcrivezDejaDansUnFlux`.
+
 ---
 
 ### 1.4 · Deux familles, quatre racines
@@ -302,6 +304,8 @@ Le même emboîtement existe à la lecture, avec `FileInputStream`,
 `BufferedInputStream` et `DataInputStream` et ses méthodes `readInt` et
 `readDouble`. Vous le retrouverez à la section 4.
 
+Le code complet, à exécuter : demos, classe `demo.fic.slides.LesFluxSEmboitent`.
+
 ---
 
 ### 1.6 · Exercices
@@ -363,6 +367,8 @@ Le module EXC vous a donné l'outil : le bloc `finally` s'exécute toujours,
 exception ou non. Il suffit d'y penser à chaque fichier, et c'est
 précisément là que tout le monde finit par oublier.
 
+Le code complet, à exécuter : demos, classe `demo.fic.slides.UnFluxOuvertSeFerme`.
+
 ---
 
 ### 2.3 · Le `try` avec ressources
@@ -398,6 +404,8 @@ L'interface `AutoCloseable` ne déclare qu'une méthode, `close`. Toutes les
 classes de flux l'implémentent, et `Scanner` aussi. Désormais, tout flux
 s'ouvre dans un `try` avec ressources, dans les exemples de ce deck comme
 dans vos exercices.
+
+Le code complet, à exécuter : demos, classe `demo.fic.slides.UnFluxOuvertSeFerme`.
 
 ---
 
@@ -436,6 +444,8 @@ fin d'un fichier binaire. La slide 4.6 dira quand on la rencontre.
 
 Le choix entre traiter et déclarer vous revient dans les exercices. Les
 signatures imposées par le fascicule l'indiquent souvent.
+
+Le code complet, à exécuter : demos, classe `demo.fic.slides.IOExceptionUneExceptionControlee`.
 
 ---
 
@@ -482,6 +492,8 @@ jamais d'exception, même si l'écriture échoue. Seul le constructeur du
 `FileWriter` peut en lever une. La méthode `checkError` dit après coup si
 quelque chose a mal tourné.
 
+Le code complet, à exécuter : demos, classe `demo.fic.slides.EcrireEtRelireUnTexte`.
+
 ---
 
 ### 3.3 · Relire ligne par ligne
@@ -518,6 +530,8 @@ Vous rencontrerez aussi une autre écriture, plus ancienne :
 retourne `null` quand le fichier est épuisé. Les deux font le même travail ;
 les corrigés du thème utilisent `Scanner`.
 
+Le code complet, à exécuter : demos, classe `demo.fic.slides.EcrireEtRelireUnTexte`.
+
 ---
 
 ### 3.4 · Une ligne, plusieurs champs
@@ -551,6 +565,8 @@ celui qui relit. Changez l'un sans l'autre, et la relecture se trompe.
 L'ancien cours découpait les lignes avec `StringTokenizer`. Cette classe
 existe toujours, mais sa documentation elle-même conseille d'utiliser
 `split` à sa place.
+
+Le code complet, à exécuter : demos, classe `demo.fic.slides.EcrireEtRelireUnTexte`.
 
 ---
 
@@ -589,6 +605,8 @@ elle, ouvrir un flux vers un fichier d'un dossier absent lève une
 
 Les signatures des exercices du thème reçoivent un `File`.
 
+Le code complet, à exécuter : demos, classe `demo.fic.slides.UnNomNEstPasUnFichier`.
+
 ---
 
 ### 3.6 · `Path` et `Files` *(facultative)*
@@ -624,6 +642,8 @@ deux se convertissent l'un dans l'autre : `fichier.toPath()` et
 
 Vous trouverez aussi `Paths.get(...)` dans du code plus ancien : il fait la
 même chose que `Path.of`, apparu avec Java 11.
+
+Le code complet, à exécuter : demos, classe `demo.fic.slides.UnNomNEstPasUnFichier`.
 
 ---
 
@@ -719,6 +739,8 @@ La méthode `readObject` déclare aussi `ClassNotFoundException` : le
 programme qui relit doit disposer de la classe de l'objet écrit, ce qui
 n'est pas garanti.
 
+Le code complet, à exécuter : demos, classe `demo.fic.slides.LesFluxDObjets`.
+
 ---
 
 ### 4.5 · Une étiquette, pas un contrat
@@ -754,6 +776,8 @@ rien : une classe sans l'étiquette compile, et c'est l'écriture qui
 Les classes du JDK qui portent des données sont presque toutes déjà
 étiquetées. C'est pourquoi une liste de chaînes ou de dates s'écrit sans
 qu'on y pense, alors qu'une classe écrite par vous doit le déclarer.
+
+Le code complet, à exécuter : demos, classe `demo.fic.slides.LesFluxDObjets`.
 
 ---
 

@@ -185,6 +185,8 @@ Vous apprenez ici à **lire** cette notation. L'écriture d'une classe qui
 reçoit un type en paramètre, comme `List` le fait, sera détaillée au module
 GEN.
 
+Le code complet, à exécuter : demos, classe `demo.col.slides.LesOperationsDUneListe`.
+
 ---
 
 ### 1.4 · Des objets, pas des types primitifs
@@ -217,6 +219,8 @@ avec `==` compare deux objets, pas deux nombres : écrivez `equals`, ou
 convertissez d'abord en `int`. Et un `Integer` peut valoir `null`, ce qu'un
 `int` ne peut pas : la conversion échoue alors à l'exécution. La slide 4.3
 montre où ce cas se présente.
+
+Le code complet, à exécuter : demos, classe `demo.col.slides.LesOperationsDUneListe`.
 
 ---
 
@@ -294,6 +298,8 @@ versions : `remove(int)` retire la position, `remove(Object)` retire
 l'élément. Sur une `List<Integer>`, `remove(2)` retire donc l'élément en
 position 2, pas le nombre 2.
 
+Le code complet, à exécuter : demos, classe `demo.col.slides.LesOperationsDUneListe`.
+
 ---
 
 ### 2.3 · Parcourir une collection
@@ -324,6 +330,8 @@ Contrairement à un tableau, dont l'affichage produisait un code illisible au
 module TAB, une collection s'affiche entre crochets, éléments séparés par des
 virgules. C'est commode pour vérifier ce que contient une structure en cours
 de mise au point.
+
+Le code complet, à exécuter : demos, classe `demo.col.slides.LesOperationsDUneListe`.
 
 ---
 
@@ -385,6 +393,8 @@ Les méthodes `min` et `max` retournent le plus petit et le plus grand
 élément, `frequency` compte les apparitions d'une valeur. La Javadoc de
 `Collections` en contient une vingtaine d'autres.
 
+Le code complet, à exécuter : demos, classe `demo.col.slides.CollectionEtCollections`.
+
 ---
 
 ### 2.6 · Nommer ses bornes
@@ -423,6 +433,8 @@ partout. C'est la règle CC-NOM.7 du mémento Clean Code.
 **Réserve** la dernière ligne de code est celle du tirage de COL.1, COL.5 et
 COL.6. Elle n'est vérifiée par aucun test, puisqu'elle vit dans un
 `Programme`. La retirer de la slide si l'on préfère la laisser chercher.
+
+Le code complet, à exécuter : demos, classe `demo.col.slides.NommerSesBornes`.
 
 ---
 
@@ -488,6 +500,8 @@ parcourt avec la boucle `for`, mais on ne demande jamais « le troisième
 élément ». Ce n'est pas une limite : c'est ce qui lui permet d'autres
 services, que COL.6 vous fera découvrir.
 
+Le code complet, à exécuter : demos, classe `demo.col.slides.CeQuUnEnsembleRefuse`.
+
 ---
 
 ### 3.3 · Qui décide que deux éléments sont égaux
@@ -527,6 +541,8 @@ la main est possible, toujours ensemble, et IntelliJ les génère. Ce cours ne
 vous le demandera pas : un record suffit dans tous les exercices.
 
 La même règle vaut pour les clés d'une table, à la section 4.
+
+Le code complet, à exécuter : demos, classe `demo.col.slides.CeQuUnEnsembleRefuse`.
 
 ---
 
@@ -624,6 +640,8 @@ valeur. Les valeurs, elles, peuvent se répéter.
 Remarquez qu'une table n'est pas une `Collection` : l'interface `Map` n'hérite
 pas de `Collection`, et n'a pas de méthode `add`.
 
+Le code complet, à exécuter : demos, classe `demo.col.slides.RangerEtRetrouverParCle`.
+
 ---
 
 ### 4.3 · Une clé absente
@@ -656,6 +674,8 @@ La méthode `getOrDefault` évite le problème : elle retourne la valeur si la
 clé existe, et la valeur par défaut fournie sinon. Elle sert souvent quand
 une absence a un sens naturel, zéro pour un compte, une liste vide pour un
 ensemble de résultats.
+
+Le code complet, à exécuter : demos, classe `demo.col.slides.RangerEtRetrouverParCle`.
 
 ---
 
@@ -691,6 +711,8 @@ recherche à chaque tour.
 
 Ces vues suivent l'ordre de la table : aucun pour une `HashMap`, l'ordre des
 clés pour une `TreeMap`.
+
+Le code complet, à exécuter : demos, classe `demo.col.slides.RangerEtRetrouverParCle`.
 
 ---
 
@@ -789,6 +811,8 @@ Le `? super E` se lit « un critère qui sait tester des `E` ». Il autorise par
 exemple un critère écrit pour des `Object` sur une liste de `String`. Son
 écriture sera détaillée au module GEN.
 
+Le code complet, à exécuter : demos, classe `demo.col.slides.UneMethodeQuiRecoitUnCritere`.
+
 ---
 
 ### 5.4 · Écrire le critère dans une classe
@@ -824,6 +848,8 @@ interface que le JDK a écrite à votre place.
 La classe porte un nom qui dit ce qu'elle teste. On peut la réutiliser, et la
 tester séparément. Le critère, lui, est une constante nommée : la règle de la
 slide 2.6 vaut partout.
+
+Le code complet, à exécuter : demos, classe `demo.col.slides.UneMethodeQuiRecoitUnCritere`.
 
 ---
 
@@ -885,6 +911,8 @@ n'a été rangé, il n'existe aucune liste pour Zola, et `get` retourne `null`.
 Ajouter un titre demande donc deux étapes : obtenir la liste, en la créant si
 elle n'existe pas encore, puis y ajouter.
 
+Le code complet, à exécuter : demos, classe `demo.col.slides.LireUnTypeEmboite`.
+
 ---
 
 ### 6.3 · Créer au premier usage
@@ -924,6 +952,8 @@ qui sait tester, `computeIfAbsent` reçoit un objet qui sait fabriquer.
 
 La méthode `apply` reçoit la clé, ici le nom de l'auteur. Elle n'en a pas
 besoin pour créer une liste vide, mais l'interface le lui donne.
+
+Le code complet, à exécuter : demos, classe `demo.col.slides.LireUnTypeEmboite`.
 
 ---
 
@@ -990,6 +1020,8 @@ C'est le rôle qu'elle jouera dans le fil rouge.
 `ArrayDeque` est l'implémentation à préférer. `LinkedList`, vue à la
 slide 2.4, implémente aussi `Deque`, mais elle est plus lente pour cet usage.
 
+Le code complet, à exécuter : demos, classe `demo.col.slides.UneFileADeuxBouts`.
+
 ---
 
 ### 7.3 · Prendre et remettre
@@ -1024,6 +1056,8 @@ file n'est pas vide avant de puiser, comme dans la boucle ci-dessus.
 Le jeu de bataille tient tout entier dans cette boucle : tant qu'aucune
 pioche n'est vide, chaque joueur prend sa première carte, et le gagnant remet
 les deux à la fin de la sienne.
+
+Le code complet, à exécuter : demos, classe `demo.col.slides.UneFileADeuxBouts`.
 
 ---
 
