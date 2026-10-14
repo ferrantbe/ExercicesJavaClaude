@@ -42,10 +42,10 @@ FASCICULES = {
 SECTIONS = [
     "Ce qu'une interface déclare",
     "Plusieurs interfaces à la fois",
-    "Interface ou abstraite ?",
+    "Interface ou classe abstraite ?",
     "Dépendre d'un contrat",
     "Le patron Observateur",
-    "Ce qu'elle porte aussi",
+    "Autres caractéristiques de l’interface",
 ]
 
 LIBELLES = [
