@@ -1,6 +1,6 @@
 # Scénario du module ITF — Interfaces
 
-*Six sections, 35 slides plus le sommaire. Rubriques : `**Source**` et
+*Six sections, 37 slides plus le sommaire. Rubriques : `**Source**` et
 `**Réserve**` sont des commentaires de fabrication, `**Slide**` et `**Note**`
 produisent le contenu et les notes du présentateur.*
 
@@ -509,6 +509,41 @@ intermédiaires, dont seules les sous-classes ont besoin : voir `PKG.5`.
 
 *(intercalaire)*
 
+### 4.1a · Le modèle MVC : qui fait quoi
+
+**Source** — slide ajoutée le 14/10/2026, à la demande du professeur, pour situer les
+classes `GUI` et `Controleur` des slides suivantes. Dans le deck remanié, le diagramme
+est dessiné (formes) ; la version texte ci-dessous est celle que produit le moteur.
+
+**Slide**
+
+- Une application graphique se découpe souvent en trois rôles : la vue, le contrôleur et le modèle
+- La vue (`GUI`) affiche et capte les gestes de l'utilisateur ; le modèle porte les données et les règles
+- Le contrôleur fait le lien : il reçoit l'action, met le modèle à jour, et demande à la vue d'afficher
+
+```java
+Utilisateur  -- clic -->  Vue (GUI)  -- action -->  Controleur  -- met a jour -->  Modele
+                                     <-- affiche(message) --
+```
+
+**Note**
+
+Les slides qui suivent parlent d'un contrôleur et d'une classe GUI. Ces deux noms
+viennent d'un découpage très répandu dans les applications graphiques, le modèle MVC :
+Modèle, Vue, Contrôleur.
+
+La vue est ce que l'utilisateur voit : la fenêtre, ses boutons, ses zones de texte. Elle
+capte les gestes, un clic, une saisie, mais ne décide de rien. Le modèle porte les
+données et les règles du métier, sans rien savoir de l'écran. Le contrôleur fait le lien :
+il reçoit l'action transmise par la vue, met le modèle à jour, puis demande à la vue
+d'afficher le résultat.
+
+Chaque rôle peut ainsi changer sans toucher aux autres : une autre fenêtre, une version
+console, des règles qui évoluent. Du moins en principe. La flèche « affiche » est celle qui
+pose problème : si le contrôleur la tient vers une classe GUI précise, il ne pourra plus
+parler à rien d'autre. C'est exactement ce que montre la slide suivante. Les modules FX
+reviendront sur ce découpage avec JavaFX.
+
 ### 4.2 · Deux classes qui se tiennent
 
 **Source** d03/48, code corrigé
@@ -613,6 +648,43 @@ petites interfaces, qu'une classe combine si elle le souhaite. C'est la raison
 pour laquelle `Translatable` et `Rotatable` sont deux interfaces et pas une.
 
 ---
+
+### 4.4a · Des transports et une station-service
+
+**Source** d03/51 (les classes de transport), reprise en diagramme le 14/10/2026, à la
+demande du professeur, pour présenter la situation avant le code. Dans le deck remanié,
+le diagramme est dessiné (formes) ; la version texte ci-dessous est celle que produit le
+moteur.
+
+**Slide**
+
+- Une petite hiérarchie de transports : chacun sait bouger, à sa façon
+- Une station-service doit faire le plein des transports qu'on lui présente
+- Mais seuls certains ont un moteur, et aucune classe ne les rassemble
+
+```java
+                       Transport  (abstraite)       StationService
+                       bouge()                      faireLePlein(?)
+        ^            ^             ^            ^
+     Voiture       Avion          Moto         Velo
+     a moteur      a moteur       a moteur     sans moteur
+```
+
+**Note**
+
+Voici la situation avant tout code. Une classe abstraite Transport déclare ce que tout
+transport sait faire, bouger, et quatre sous-classes le font chacune à leur façon : la
+voiture roule, l'avion vole, la moto se faufile, le vélo pédale. Le découpage est
+correct : chacune de ces classes est bien un transport.
+
+Arrive une station-service, qui doit faire le plein des transports qu'on lui présente.
+Le problème apparaît tout de suite sur le diagramme : faire le plein n'a de sens que pour
+les transports à moteur. Ce sont la voiture, l'avion et la moto, mais pas le vélo. Or
+aucune classe de la hiérarchie ne rassemble les transports à moteur : la propriété
+traverse la famille au lieu de la suivre.
+
+La slide suivante montre la première réponse qui vient à l'esprit, et pourquoi elle ne
+tient pas.
 
 ### 4.5 · Un comportement qui ne suit pas la hiérarchie
 

@@ -89,8 +89,8 @@ PLAN = [
     ("3.1", "inter", None),
     ("3.2", "table", None), ("3.3", "new", None), ("3.4", "renvoi", None),
 
-    ("4.1", "inter", None),
-    ("4.2", "new", None), ("4.3", "new", None), ("4.4", "new", None),
+    ("4.1", "inter", None), ("4.1a", "new", None),
+    ("4.2", "new", None), ("4.3", "new", None), ("4.4", "new", None), ("4.4a", "new", None),
     ("4.5", "new", None), ("4.6", "new", None),
 
     ("5.1", "inter", None),
