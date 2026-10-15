@@ -619,7 +619,7 @@ renvoyer plutôt au deck GEN, slides 3.3 et 3.5. *Corrigé le 10/10/2026 :
 
 - `Valise` et `Sac` héritent de `Bagage`
 - Une `List<Bagage>` accepte donc des valises et des sacs
-- Et une `List<Valise>` ?
+- Peut-on passer une `List<Valise>` à une méthode qui attend une `List<Bagage>` ?
 
 ```java
 // Valise extends Bagage, Sac extends Bagage
@@ -635,10 +635,10 @@ Rien de neuf ici : c'est la substitution du module ABS. Partout où l'on
 attend un `Bagage`, on peut donner une `Valise`. Une liste de bagages peut
 donc contenir des valises et des sacs mélangés.
 
-La dernière ligne de la slide reste une question, et c'est voulu. Une
-`List<Valise>` peut-elle passer là où l'on attend une `List<Bagage>` ? Ne
-répondez pas encore : l'exercice suivant vous fait essayer, et le
-compilateur répondra.
+La dernière puce de la slide reste une question, et c'est voulu : peut-on
+passer une `List<Valise>` à une méthode qui attend une `List<Bagage>` ?
+L'intuition dit oui, puisqu'une valise est un bagage. Ne répondez pas
+encore : l'exercice suivant vous fait essayer, et le compilateur répondra.
 
 Le code complet, à exécuter : demos, classe `demo.gen.slides.ExtendsEtSuper`.
 
@@ -739,6 +739,44 @@ maintenant le lire : un critère écrit pour des `Bagage` sait tester des
 `Valise`, et peut donc servir sur une `List<Valise>`. Le module LAM en
 montrera d'autres dans les signatures du JDK. Les reconnaître suffit : en
 écrire est rare.
+
+Le code complet, à exécuter : demos, classe `demo.gen.slides.ExtendsEtSuper`.
+
+### 4.6 · `? extends` ou `? super`
+
+**Source** nouvelle ; tableau de synthèse ajouté le 15/10/2026, à la demande du
+professeur
+
+**Slide**
+
+Tout dépend de ce que la méthode fait de la liste : la lire, ou la remplir.
+
+| | `? extends Bagage` | `? super Valise` |
+|---|---|---|
+| Accepte | `Bagage`, `Valise`, `Sac` | `Valise`, `Bagage`, `Object` |
+| Lire | oui, des `Bagage` | des `Object` seulement |
+| Ajouter | non | oui, des `Valise` |
+| La liste | fournit | reçoit |
+| Exemple | `poidsTotal(...)` | `charger(...)` |
+
+**Note**
+
+Ce tableau résume les deux slides précédentes. La question à se poser porte
+sur la méthode, pas sur la liste : que fait-elle de ce qu'on lui donne ?
+
+Si elle lit, si la liste lui fournit des éléments, le joker est extends :
+toutes les listes de la famille passent, et chaque élément lu est au moins un
+Bagage. Mais elle ne peut rien y ajouter, puisqu'elle ignore de quoi la liste
+est réellement faite : une liste de sacs n'accepterait pas une valise.
+
+Si elle ajoute, si la liste reçoit des éléments, le joker est super : la
+liste accepte au moins des valises, quelle qu'elle soit. En échange, ce
+qu'on en lit n'est garanti que comme un Object.
+
+Les anglophones retiennent la règle sous le nom PECS, Producer Extends,
+Consumer Super : la liste qui produit utilise extends, celle qui consomme
+utilise super. Une méthode qui fait les deux, lire et ajouter, n'utilise pas
+de joker : elle prend une List<Bagage>.
 
 Le code complet, à exécuter : demos, classe `demo.gen.slides.ExtendsEtSuper`.
 
