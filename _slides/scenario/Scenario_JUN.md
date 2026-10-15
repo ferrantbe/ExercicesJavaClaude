@@ -1,6 +1,6 @@
 # Scénario du module JUN - Tests unitaires avec JUnit
 
-*Cinq sections, 27 slides plus le sommaire. Rubriques : `**Source**` et
+*Cinq sections, 31 slides plus le sommaire. Rubriques : `**Source**` et
 `**Réserve**` sont des commentaires de fabrication, `**Slide**` et `**Note**`
 produisent le contenu et les notes du présentateur.*
 
@@ -10,7 +10,7 @@ Sections à déclarer dans `module_jun.py`, listes `SECTIONS` et `LIBELLES` :
 
 | # | `SECTIONS` (titre de l'intercalaire) | `LIBELLES` (repère et sommaire) |
 |---|---|---|
-| 1 | Le test change de main | Le renversement |
+| 1 | À vous d'écrire les tests | À vous d'écrire les tests |
 | 2 | Ce qu'un test contient | Écrire un test |
 | 3 | Vérifier tout le contrat | Vérifier un contrat |
 | 4 | Choisir ses cas, et les justifier | Choisir et justifier |
@@ -146,17 +146,20 @@ Chaque session depuis 2022 consacre sa troisième question à une classe de test
 
 ---
 
-## Section 1 - Le test change de main
+## Section 1 - À vous d'écrire les tests
 
-### 1.1 · Le test change de main
+### 1.1 · À vous d'écrire les tests
 
 *(intercalaire)*
 
 ### 1.2 · Qui écrit quoi
 
-**Source** nouvelle
+**Source** nouvelle ; phrase d'introduction ajoutée le 15/10/2026, à la demande du
+professeur
 
 **Slide**
+
+Jusqu'ici, le test était fourni et vous écriviez le code. Dans ce module, les rôles s'inversent : c'est à vous d'écrire les tests.
 
 | Exercice | Fourni | À écrire |
 |---|---|---|
@@ -625,9 +628,12 @@ lisant ne prouve rien, et ne servira plus le jour où le code changera.
 
 ### 4.2 · Où se logent les défauts
 
-**Source** nouvelle
+**Source** nouvelle ; phrase d'introduction ajoutée le 15/10/2026, à la demande du
+professeur
 
 **Slide**
+
+On ne peut pas tout tester : on regroupe les cas en familles, on en teste un de chaque, et l'on vise les frontières.
 
 | Famille de cas | Pour une salle de 10 places |
 |---|---|
@@ -849,15 +855,83 @@ ce que vous avez écrit.
 
 *(intercalaire)*
 
-### 5.2 · Tester sans ouvrir la fenêtre
+### 5.1b · Pourquoi certaines classes résistent aux tests
 
-**Source** nouvelle ; annoncée par le deck ITF, slide 4.2
+**Source** nouvelle ; ajoutée le 15/10/2026, à la demande du professeur, pour donner le
+contexte de la section
 
 **Slide**
 
-- Le contrôleur du module ITF ne dépend que d'`Afficheur`
-- Le test lui fournit un afficheur qui retient le message
-- Puis il vérifie ce qui a été signalé, sans rien ouvrir
+- Un test prépare une situation, déclenche une action, vérifie le résultat : seul, et en un instant
+- Certaines classes l'en empêchent : elles ouvrent une fenêtre, lisent la date du jour, ou tirent au hasard
+- Le remède est dans la classe elle-même : une interface à la place de la fenêtre, un paramètre à la place de la date ou du hasard
+
+**Note**
+
+Jusqu'ici, les classes testées étaient sages : une salle, une tirelire, une
+moyenne. On les crée, on les appelle, on regarde le résultat. Toutes les classes
+ne se laissent pas faire aussi facilement.
+
+Une classe qui ouvre une fenêtre ne peut pas tourner dans un test : il faudrait
+que quelqu'un regarde l'écran. Une classe qui lit la date du jour donne un
+résultat qui change d'une année à l'autre : un test juste aujourd'hui sera faux
+demain. Une classe qui tire au hasard ne donne jamais deux fois la même chose :
+que vérifier ?
+
+Dans les trois cas, ce n'est pas le test qu'il faut changer, c'est la classe. Les
+slides qui suivent montrent les deux remèdes : une interface, que vous connaissez
+depuis le module ITF, et un paramètre. Retenez l'idée générale : une classe
+difficile à tester est souvent une classe mal découpée.
+
+---
+
+### 5.1a · Rappel : le contrôleur du module ITF
+
+**Source** deck ITF, slide « Une interface entre les deux » ; rappel ajouté le
+15/10/2026, à la demande du professeur
+
+**Slide**
+
+- Au module ITF, le contrôleur ne dépend plus que d'une interface, `Afficheur`, reçue par `setAfficheur`
+- C'est ce qui va permettre de le tester sans rien ouvrir
+
+```java
+public interface Afficheur {
+    void affiche(String message);
+}
+public class Controleur {
+    private Afficheur afficheur;
+    public void setAfficheur(Afficheur afficheur) { this.afficheur = afficheur; }
+    public void annoncer(String evenement) {
+        afficheur.affiche("Evenement : " + evenement);
+    }
+}
+```
+
+**Note**
+
+Un rappel du module ITF, avant de s'en servir. Le contrôleur ne tient plus une
+référence vers la fenêtre, mais vers l'interface Afficheur, qui ne promet qu'une
+chose : afficher un message. Qui affiche, et comment, le contrôleur l'ignore. On
+le lui dit par setAfficheur.
+
+La méthode annoncer est un exemple d'action du contrôleur : elle ne sait pas où
+part son message, elle le confie à l'afficheur qu'on lui a donné. C'est
+exactement cette ignorance qui rend le test possible.
+
+Le code complet : demos, classe `demo.itf.slides.Controleur`.
+
+---
+
+### 5.2 · Une doublure à la place de la fenêtre
+
+**Source** nouvelle ; annoncée par le deck ITF, slide 4.2. Titre et texte revus le
+15/10/2026
+
+**Slide**
+
+- Pour le test, on écrit un faux afficheur : il n'affiche rien, il retient le dernier message
+- Ce remplaçant s'appelle une doublure ; il vit dans `src/test`, à côté du test
 
 ```java
 class AfficheurQuiRetient implements Afficheur {
@@ -873,44 +947,123 @@ class AfficheurQuiRetient implements Afficheur {
 
 **Note**
 
-Le module ITF l'avait promis. Parce que le contrôleur dépend d'une interface
-et non de la fenêtre, un test peut lui donner n'importe quelle implémentation,
-y compris celle-ci, qui n'affiche rien et retient le dernier message.
+Le contrôleur accepte n'importe quel Afficheur. Le test en profite pour lui en
+donner un qui lui convient : une classe qui implémente Afficheur, mais au lieu
+d'afficher, range le message dans un champ, que le test pourra lire.
 
-Le test passe cet afficheur au contrôleur par `setAfficheur`, déclenche
-l'action à vérifier, puis compare `afficheur.dernier` au message attendu. Aucune
-fenêtre ne s'ouvre, et le test tourne en quelques millisecondes.
+On appelle ce genre de remplaçant une doublure, comme au cinéma : elle tient le
+rôle à la place de la vraie, le temps d'une scène. Elle ne sert qu'au test, et
+vit donc dans src/test.
 
-Cette classe vit dans `src/test`, à côté du test : elle ne sert qu'à lui. On
-appelle ce genre de remplaçant une doublure. Vous en avez déjà vu le principe
-inversé dans JUN.2 : le vérificateur ne connaît que l'interface `Tirelire`, et
-accepte n'importe laquelle.
+Vous avez déjà rencontré le principe, dans l'autre sens, avec JUN.2 : le
+vérificateur ne connaît que l'interface Tirelire, et accepte n'importe laquelle.
 
-**Réserve** Le deck ITF ne donne au contrôleur que `setAfficheur`. La note
-parle donc de « l'action à vérifier » sans nommer de méthode.
+---
+
+### 5.2a · Tester sans ouvrir la fenêtre
+
+**Source** nouvelle ; ajoutée le 15/10/2026, à la demande du professeur : le test
+lui-même, que la slide précédente ne montrait pas
+
+**Slide**
+
+- Le test branche la doublure, déclenche l'action, puis lit ce qu'elle a retenu
+- Aucune fenêtre ne s'ouvre : le test tourne en quelques millisecondes
+
+```java
+@Test
+void leControleurSignaleLEvenement() {
+    Controleur controleur = new Controleur();
+    AfficheurQuiRetient afficheur = new AfficheurQuiRetient();
+    controleur.setAfficheur(afficheur);
+
+    controleur.annoncer("bouton presse");
+
+    assertEquals("Evenement : bouton presse", afficheur.dernier);
+}
+```
+
+**Note**
+
+Le test suit les trois temps habituels. Préparer : un contrôleur, et la doublure
+qu'on lui branche par setAfficheur. Agir : annoncer un événement. Vérifier : la
+doublure a-t-elle reçu le bon message ?
+
+Le contrôleur n'a pas changé d'une ligne pour être testé : c'est le même que
+celui qui pilotera la vraie fenêtre. C'est tout l'intérêt de l'interface du
+module ITF. Sans elle, ce test serait impossible.
 
 Le code complet, à lancer : demos, test `demo.jun.slides.ControleurTest`.
 
 ---
 
-### 5.3 · Ni le jour, ni le hasard
+### 5.2b · Rappel : l'âge du livre, au module POO
 
-**Source** nouvelle ; règle CC-TST.3
+**Source** deck POO, slide « La donnée qui n'existe pas » ; rappel ajouté le
+15/10/2026, à la demande du professeur
 
 **Slide**
 
-- Un test donne le même résultat aujourd'hui, dans six mois, et ailleurs
-- La date du jour ou un tirage se passent en paramètre
-- `computeAge(int annee)`, au module POO, est né pour cela
+- Au module POO, l'âge d'un livre n'était pas stocké : `getAge` le calculait à partir de la date du jour
+- Juste, mais difficile à tester : le résultat change chaque année, sans que le code change
+
+```java
+public class Livre {
+    private String titre;
+    private int anneeDeParution;
+
+    public int getAge() {
+        return LocalDate.now().getYear() - anneeDeParution;
+    }
+}
+```
 
 **Note**
 
-Une méthode qui lit l'horloge ou tire au hasard ne peut pas être testée telle
-quelle : son résultat change sans que le code change. La solution n'est pas
-dans le test, elle est dans la classe. On sépare le calcul, qui reçoit la date
-ou la valeur en paramètre, de la commodité qui va la chercher.
+Un rappel du module POO. L'âge d'un livre n'est pas une donnée qu'on range dans
+un champ : il se déduit de l'année de parution et de l'année en cours. La
+méthode getAge le calcule donc à chaque appel, en lisant la date du jour.
 
-Le mémento Clean Code montre l'exemple complet en CC-TST.3. Retenez le
-réflexe : quand une classe est difficile à tester, c'est le plus souvent sa
-conception qui parle. L'interface de la slide précédente et ce paramètre sont
-deux réponses à la même question.
+C'était le bon choix au module POO, et il reste juste. Mais essayez d'écrire son
+test : pour Dune, paru en 1965, faut-il attendre 61, ou 62 ? Cela dépend du jour
+où le test tourne. Un test écrit aujourd'hui deviendra rouge le premier janvier,
+alors que personne n'aura touché au code. La slide suivante montre comment
+découper la méthode pour lever ce problème.
+
+Le code complet : demos, classe `demo.poo.slides.Livre`.
+
+---
+
+### 5.3 · Ni le jour, ni le hasard
+
+**Source** nouvelle ; règle CC-TST.3. Texte et code revus le 15/10/2026
+
+**Slide**
+
+- Le calcul reçoit l'année en paramètre : le test la fixe, et le résultat ne bouge plus
+- Une version de confort, sans paramètre, va chercher l'année et délègue au calcul
+
+```java
+public int getAge(int anneeCourante) {           // testable
+    return anneeCourante - anneeDeParution;
+}
+public int getAge() {                            // pratique
+    return getAge(LocalDate.now().getYear());
+}
+
+assertEquals(61, dune.getAge(2026));   // vrai aujourd'hui, et dans dix ans
+```
+
+**Note**
+
+On sépare le calcul de la commodité. Le calcul reçoit l'année en paramètre :
+le test la fixe, et le résultat ne bouge plus. La version sans paramètre, celle
+qu'on appelle d'habitude, se contente d'aller chercher l'année et de déléguer.
+Vous avez déjà fait ce découpage au module POO, avec computeAge(int annee).
+
+Le hasard se traite de la même façon : la classe reçoit son Random au lieu de le
+créer, et le test lui en donne un avec une graine, qui tire toujours les mêmes
+nombres. Le mémento Clean Code montre l'exemple complet en CC-TST.3.
+
+Le code complet, à lancer : demos, test `demo.jun.slides.LivreTest`.
+

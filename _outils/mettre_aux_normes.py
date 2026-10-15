@@ -7,6 +7,7 @@ Enchaine, dans cet ordre, les outils de _outils/ :
   1. uniformiser_intercalaires  titres d'intercalaire : Calibri gras, 66 pt ou moins
   2. organiser_exercices        slides d'exercices : icones, groupes, un clic par exercice
   3. animer_sommaire            « Au programme » : une section par clic
+     animer_lignes              tableau en bandeaux sombres : une ligne par clic
   4. ajuster_code               zone de code trop large : retrecie a son contenu, centree
   5. animer_code                code (ou schema) sous le texte : en fondu, au clic
   6. appliquer_consolas         mots de code en Consolas, cas sans ambiguite seulement
@@ -25,7 +26,7 @@ from pathlib import Path
 
 ICI = Path(__file__).resolve().parent
 ETAPES = ["uniformiser_intercalaires", "organiser_exercices", "animer_sommaire",
-          "ajuster_code", "animer_code", "appliquer_consolas"]
+          "animer_lignes", "ajuster_code", "animer_code", "appliquer_consolas"]
 
 
 def main():

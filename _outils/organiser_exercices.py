@@ -151,6 +151,9 @@ def poser_animation(slide, ids):
 def traiter_slide(slide, logo):
     """Reconstruit la slide de renvoi. Rend la liste des changements (vide si rien)."""
     avant = etree.tostring(slide.shapes._spTree) + etree.tostring(slide._element.find(qn("p:timing")) if slide._element.find(qn("p:timing")) is not None else etree.Element("x"))
+    titre = slide.shapes.title
+    if titre is None or not titre.text_frame.text.strip().startswith(("Exercice", "Le fil rouge")):
+        return []                # seules les slides de renvoi sont concernees (cf. JUN « Qui ecrit quoi »)
     if not any(codes_dans(sh) for sh in slide.shapes):
         return []
     # 1. tout a plat : on degroupe ce qui contient une carte ou une icone

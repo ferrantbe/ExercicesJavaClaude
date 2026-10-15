@@ -40,6 +40,7 @@ from mise_en_forme import cran_dessous, uniformiser_titre_intercalaire  # noqa: 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "_outils"))
 from animer_code import animer_slide as animer_code  # noqa: E402
 from animer_sommaire import animer_slide as animer_sommaire  # noqa: E402
+from animer_lignes import animer_slide as animer_lignes  # noqa: E402
 from ajuster_code import ajuster_slide as ajuster_code  # noqa: E402
 from pptx.util import Emu, Inches, Pt
 
@@ -777,6 +778,7 @@ def main():
         ajuster_code(slide, prs.slide_width)   # code trop large : retreci et centre
         animer_code(slide)
         animer_sommaire(slide)        # « Au programme » : une section par clic
+        animer_lignes(slide)          # tableau en bandeaux : une ligne par clic
     print(f"{n} mots de code realignes sur leur prose")
     prs.save(sortie)
     print(f"{len(prs.slides)} slides -> {sortie}")

@@ -35,7 +35,7 @@ FASCICULES = {"JUN": "fascicule JUN"}
 #            n'est ni numerote ni repere.
 # LIBELLES : la version courte, pour le sommaire et le repere en bas de slide.
 SECTIONS = [
-    "Le test change de main",
+    "À vous d'écrire les tests",
     "Ce qu'un test contient",
     "Vérifier tout le contrat",
     "Choisir ses cas, et les justifier",
@@ -43,7 +43,7 @@ SECTIONS = [
 ]
 
 LIBELLES = [
-    "Le renversement",
+    "À vous d'écrire les tests",
     "Écrire un test",
     "Vérifier un contrat",
     "Choisir et justifier",
@@ -78,8 +78,8 @@ PLAN = [
     ("4.2", "table", None), ("4.3", "new", None), ("4.4", "new", None),
     ("4.5", "new", None), ("4.6", "new", None), ("4.7", "renvoi", None),
 
-    ("5.1", "inter", None),
-    ("5.2", "new", None), ("5.3", "new", None),
+    ("5.1", "inter", None), ("5.1b", "new", None), ("5.1a", "new", None),
+    ("5.2", "new", None), ("5.2a", "new", None), ("5.2b", "new", None), ("5.3", "new", None),
 ]
 
 

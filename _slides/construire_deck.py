@@ -75,7 +75,7 @@ def lire_scenario(chemin):
         entete, _, corps = morceau.partition("\n")
         ident, _, titre = entete.partition(" · ")
         titre = re.sub(r"\s*\*\(.*?\)\*", "", titre).strip()
-        bloc = {"titre": titre, "puces": [], "code": [], "note": [], "table": []}
+        bloc = {"titre": titre, "puces": [], "code": [], "note": [], "table": [], "intro": []}
         section, dans_code, tampon, paragraphe = None, False, [], []
         for ligne in corps.splitlines():
             if dans_code:
@@ -103,6 +103,9 @@ def lire_scenario(chemin):
                     bloc["puces"].append(ligne[2:].strip())
                 elif ligne.startswith("|") and not re.match(r"^\|[-| :]+\|$", ligne):
                     bloc["table"].append([c.strip() for c in ligne.strip("|").split("|")])
+                elif ligne.strip() and not ligne.startswith(("|", "*", "#")) and not bloc["table"]:
+                    # une phrase d'introduction, avant un tableau (15/10/2026)
+                    bloc["intro"].append(ligne.strip())
             elif section == "note":
                 if ligne.strip():
                     paragraphe.append(ligne.strip())
@@ -487,9 +490,21 @@ def slide_tableau(prs, bloc, numero):
         largeurs.append(max(1.6, long_max * 0.16))
     echelle = 11.9 / sum(largeurs)
     largeurs = [l * echelle for l in largeurs]
-    haut_ligne = min(0.72, (BAS_PUCES - HAUT) / len(lignes))
+    haut = HAUT
+    if bloc.get("intro"):
+        # la phrase d'introduction au-dessus du tableau, qui descend d'autant
+        boite = slide.shapes.add_textbox(Inches(GAUCHE + 0.15), Inches(1.35), Inches(11.6), Inches(0.8))
+        boite.name = "Introduction"
+        boite.text_frame.word_wrap = True
+        remplir_paragraphe(boite.text_frame.paragraphs[0], " ".join(bloc["intro"]), Pt(22))
+        for r in boite.text_frame.paragraphs[0].runs:
+            if r.font.color.type is None:
+                r.font.color.rgb = BLANC
+        haut = 2.2
+    haut_ligne = min(0.72, (BAS_PUCES - 0.55 - haut) / len(lignes)) if bloc.get("intro") \
+        else min(0.72, (BAS_PUCES - HAUT) / len(lignes))
     taille = 22 if len(lignes) <= 6 else 20
-    y = HAUT
+    y = haut
     for i, ligne in enumerate(lignes):
         x = GAUCHE
         if i:
