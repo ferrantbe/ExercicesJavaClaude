@@ -36,16 +36,16 @@ FASCICULES = {"EXC": "fascicule EXC", "G": "fil rouge GameHub"}
 # LIBELLES : la version courte, pour le sommaire et le repere en bas de slide.
 SECTIONS = [
     "Un objet qui interrompt",
-    "Lever, puis déclarer",
+    "Lever, et déclarer",
     "Attraper là où l'on peut agir",
-    "Ce que le compilateur ne voit pas",
+    "Celles que le compilateur ne voit pas",
 ]
 
 LIBELLES = [
-    "Le mécanisme",
-    "Lever et déclarer",
-    "Attraper",
-    "Les non contrôlées",
+    "Le mécanisme des exceptions",
+    "Lever et déclarer une exception",
+    "Attraper les exceptions",
+    "Les exceptions non contrôlées",
 ]
 
 # Titre des intercalaires, sans numero : le finaliseur le pose.

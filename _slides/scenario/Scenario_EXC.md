@@ -15,10 +15,10 @@ Sections à déclarer dans `module_exc.py`, listes `SECTIONS` et `LIBELLES` :
 
 | # | `SECTIONS` (titre de l'intercalaire) | `LIBELLES` (repère et sommaire) |
 |---|---|---|
-| 1 | Un objet qui interrompt | Le mécanisme |
-| 2 | Lever, puis déclarer | Lever et déclarer |
-| 3 | Attraper là où l'on peut agir | Attraper |
-| 4 | Ce que le compilateur ne voit pas | Les non contrôlées |
+| 1 | Un objet qui interrompt | Le mécanisme des exceptions |
+| 2 | Lever, et déclarer | Lever et déclarer une exception |
+| 3 | Attraper là où l'on peut agir | Attraper les exceptions |
+| 4 | Celles que le compilateur ne voit pas | Les exceptions non contrôlées |
 
 La slide du fil rouge (5.1) n'a pas d'intercalaire, comme la slide 7.1 du
 deck ITF et les slides 8.1 et 8.2 du deck COL.
@@ -169,7 +169,7 @@ Le reste du module met des mots et des règles sur ce qui vient d'être montré.
 
 ---
 
-### 1.3 · Vous en levez déjà
+### 1.3 · Vous levez déjà des exceptions
 
 **Source** nouvelle
 
@@ -238,7 +238,7 @@ Le tableau du fascicule dit quand choisir l'une ou l'autre.
 
 ---
 
-### 1.5 · Elle remonte la pile
+### 1.5 · Les exceptions remontent la pile
 
 **Source** d06/27, réécrite ; rappel du mémento technique, TEC-EXE.1
 
@@ -289,7 +289,7 @@ est dessiné (formes) ; la version texte ci-dessous est celle que produit le mot
 **Slide**
 
 - Chaque appel empile une méthode : `main` appelle `monter`, qui appelle `verifier`
-- L'exception levée dans `verifier` traverse `monter`, abandonnée, jusqu'au `catch` de `main`
+- L'exception levée dans `verifier` remonte par `monter`, abandonnée, jusqu'au `catch` de `main`
 
 ```java
 verifier(12)   throw new IllegalArgumentException(...)    // s'arrete net
@@ -316,11 +316,11 @@ Sans ce try, l'exception sortirait aussi du main, et la JVM afficherait la trace
 même pile, figée au moment du throw. La section 3 montre comment écrire ce try et ce
 catch, et surtout où les placer.
 
-## Section 2 — Lever, puis déclarer
+## Section 2 — Lever, et déclarer
 
 Le code complet, à exécuter : demos, classe `demo.exc.slides.DuThrowAuCatch`.
 
-### 2.1 · Lever, puis déclarer
+### 2.1 · Lever, et déclarer
 
 *(intercalaire)*
 
@@ -660,9 +660,9 @@ dans un `finally`, sans ajouter de `catch`.
 
 ---
 
-## Section 4 — Ce que le compilateur ne voit pas
+## Section 4 — Celles que le compilateur ne voit pas
 
-### 4.1 · Ce que le compilateur ne voit pas
+### 4.1 · Celles que le compilateur ne voit pas
 
 *(intercalaire)*
 
