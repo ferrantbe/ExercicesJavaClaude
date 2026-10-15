@@ -256,7 +256,7 @@ Le code complet, à lancer : demos, classe `demo.fx.slides.fx1.LanceurLampe`.
 
 - « JavaFX runtime components are missing » : rien ne manque
 - Vous avez lancé la classe d'application au lieu du `Lanceur`
-- En secours : `javafx:run`, dans la fenêtre Maven
+- En secours : `javafx:run`, dans la fenêtre Maven (guide IntelliJ, `IDE.28`)
 
 **Note**
 
@@ -271,8 +271,9 @@ d'exécution d'IntelliJ désigne-t-elle bien le `Lanceur` ?
 Le second est de passer par Maven. Dans la fenêtre Maven, sous Plugins puis
 javafx, un double-clic sur `javafx:run` construit lui-même la bonne ligne de
 commande. La classe lancée est réglée dans le `pom.xml` : le premier
-exercice par défaut, un autre si vous le précisez. Voir ERR.7 du guide
-IntelliJ.
+exercice par défaut, un autre si vous le précisez. La procédure pas à pas,
+avec le choix du module et le lancement d'un autre exercice, est en IDE.28
+du guide IntelliJ ; le message lui-même est expliqué en ERR.7.
 
 ---
 
@@ -329,7 +330,9 @@ Le code complet, à lancer : demos, classe `demo.fx.slides.fx1.LanceurLampe`.
 
 ### 2.3 · Le graphe de scène
 
-**Source** d10/33 et 35, réécrites
+**Source** d10/33 et 35, réécrites ; partagée en deux le 15/10/2026, à la demande
+du professeur, quand le schéma Stage / Scene / racine / nœuds a été ajouté. Dans le
+deck remanié, ce schéma est une image, à droite des puces.
 
 **Slide**
 
@@ -337,6 +340,32 @@ Le code complet, à lancer : demos, classe `demo.fx.slides.fx1.LanceurLampe`.
 - La scène contient une seule racine
 - Un conteneur range des enfants, qui peuvent être des conteneurs
 - L'ensemble forme un arbre de nœuds (`Node`)
+
+**Note**
+
+Tout ce qu'une fenêtre affiche est un nœud, un objet d'une sous-classe de
+`Node` : un libellé, un bouton, un cercle, et aussi les conteneurs qui les
+rangent. Les nœuds s'emboîtent : une racine contient des enfants, qui
+contiennent leurs propres enfants. On appelle cet arbre le graphe de scène.
+
+L'image se lit de bas en haut. La fenêtre, le `Stage`, est fournie par
+JavaFX. Elle affiche une scène, la `Scene`. La scène n'accepte qu'un nœud,
+sa racine. Et cette racine porte tous les autres nœuds : ce sont eux qu'on
+voit.
+
+Pour afficher plusieurs composants, on les range donc dans un conteneur, qui
+devient la racine. La slide suivante construit cet empilement en code.
+
+---
+
+### 2.3a · Construire le graphe de scène
+
+**Source** seconde moitié de l'ancienne slide 2.3
+
+**Slide**
+
+- On crée les nœuds, puis le conteneur qui les range, puis la scène autour de la racine
+- `getChildren()` rend la liste des enfants : on peut y ajouter après coup
 
 ```java
 Label etat = new Label("Eteinte");
@@ -351,15 +380,14 @@ racine.getChildren().add(new Label("Bureau"));
 
 **Note**
 
-Tout ce qu'une fenêtre affiche est un nœud, un objet d'une sous-classe de
-`Node` : un libellé, un bouton, un cercle, et aussi les conteneurs qui les
-rangent. Les nœuds s'emboîtent : une racine contient des enfants, qui
-contiennent leurs propres enfants. On appelle cet arbre le graphe de scène.
+Le même arbre, construit en code, dans l'ordre où on l'écrit : d'abord les
+nœuds qu'on verra, le libellé et le bouton ; puis le conteneur qui les range,
+une `VBox`, qui devient la racine ; enfin la scène, qui reçoit cette racine.
+Il ne reste qu'à donner la scène à la fenêtre, ce que fait `start`.
 
-La scène n'accepte qu'un nœud, sa racine. Pour afficher plusieurs
-composants, on les range donc dans un conteneur, qui devient la racine. Les
-enfants d'un conteneur se lisent et se modifient par `getChildren`, qui
-retourne une liste : vous savez déjà vous en servir depuis le module COL.
+Les enfants d'un conteneur se lisent et se modifient par `getChildren`, qui
+retourne une liste : vous savez déjà vous en servir depuis le module COL. On
+peut donc ajouter un nœud après coup, comme la dernière ligne le montre.
 
 Si on ne donne pas de taille à la scène, elle s'adapte à son contenu.
 
@@ -893,6 +921,83 @@ racine : la touche est adressée au composant qui a le focus, et remonte
 jusqu'à elle. C'est aussi pourquoi `getSource` change au fil du voyage :
 il désigne le nœud dont le gestionnaire s'exécute, alors que `getTarget`
 désigne toujours la cible.
+
+---
+
+### 5.3a · La propagation des événements
+
+**Source** deck 10 (JavaFX Événements), slide 24, importée telle quelle le 15/10/2026
+avec son animation, à la demande du professeur. Dans le deck remanié, le schéma et
+l'animation sont ceux d'origine ; la version texte ci-dessous est celle que produit
+le moteur. Crédit : Stack Overflow, question 25740103.
+
+**Slide**
+
+- On clique sur le cercle : l'événement part de la cible
+- Il remonte le chemin vers la fenêtre, nœud par nœud
+- Chaque gestionnaire rencontré pour ce type d'événement est appelé
+
+**Note**
+
+L'animation montre ce que fait un gestionnaire enregistré par addEventHandler.
+On clique sur le cercle : l'événement part de lui, la cible, et remonte le chemin
+vers la fenêtre, nœud par nœud. Chaque nœud traversé qui porte un gestionnaire
+pour ce type d'événement le déclenche au passage.
+
+Ici, deux gestionnaires sont attachés au même nœud : ils sont appelés tous les
+deux, l'un après l'autre. C'est la phase de remontée, qu'on appelle le
+bouillonnement : l'image de la bulle qui remonte à la surface.
+
+---
+
+### 5.3b · Les `EventFilter`
+
+**Source** deck 10, slide 25, importée avec son animation (voir 5.3a).
+
+**Slide**
+
+- Le chemin est parcouru en deux phases
+- La capture : l'événement descend de la fenêtre vers la cible
+- Le bouillonnement : il remonte de la cible vers la fenêtre
+
+**Note**
+
+L'événement ne part pas directement de la cible. JavaFX trace d'abord le
+chemin, de la fenêtre jusqu'au nœud visé, puis le fait parcourir deux fois.
+
+Première phase, la capture : l'événement descend du Stage vers la cible, en
+passant par la scène et chaque conteneur. Seconde phase, le bouillonnement : il
+remonte le même chemin, de la cible vers le Stage. L'animation montre ce trajet
+en U.
+
+Les deux phases existent pour tout événement. Ce qui change, c'est qui écoute à
+quel moment : c'est l'objet de la slide suivante.
+
+---
+
+### 5.3c · `EventHandler` et `EventFilter`
+
+**Source** deck 10, slide 26, importée avec son animation (voir 5.3a).
+
+**Slide**
+
+- Deux types d'objets traitent les événements
+- Les `EventFilter` lors de la descente
+- Les `EventHandler` lors de la remontée
+
+**Note**
+
+Deux sortes d'objets peuvent réagir sur ce trajet. Les filtres, enregistrés par
+addEventFilter, sont appelés pendant la descente. Les gestionnaires, enregistrés
+par addEventHandler ou par les raccourcis setOnAction et setOnMouseClicked, sont
+appelés pendant la remontée.
+
+Un filtre posé sur un conteneur voit donc passer l'événement avant ses enfants,
+et avant la cible. C'est ce qui lui permet de l'intercepter, par consume, avant
+qu'il n'arrive : la slide consume() le montre.
+
+Dans la quasi-totalité des cas, un gestionnaire suffit. Le filtre sert quand un
+conteneur doit surveiller ou bloquer ce qui arrive à tous ses enfants.
 
 ---
 

@@ -73,7 +73,7 @@ PLAN = [
     ("1.2", "new", None), ("1.3", "new", None), ("1.4", "new", None),
 
     ("2.1", "inter", None),
-    ("2.2", "new", None), ("2.3", "new", None), ("2.4", "table", None),
+    ("2.2", "new", None), ("2.3", "new", None), ("2.3a", "new", None), ("2.4", "table", None),
     ("2.5", "new", None),
 
     ("3.1", "inter", None),
@@ -87,7 +87,7 @@ PLAN = [
 
     ("5.1", "inter", None),
     ("5.2", "demo", "Demo_FX"),
-    ("5.3", "new", None), ("5.4", "table", None), ("5.5", "new", None),
+    ("5.3", "new", None), ("5.3a", "new", None), ("5.3b", "new", None), ("5.3c", "new", None), ("5.4", "table", None), ("5.5", "new", None),
     ("5.6", "renvoi", None),
 
     ("6.1", "renvoi", None),
