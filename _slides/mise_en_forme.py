@@ -8,6 +8,9 @@ Une regle ne vit qu'ici : la changer ici la change partout.
 - Le titre d'un intercalaire est en Calibri gras, aligne a gauche, a 66 pt ;
   s'il ne tient pas sur une ligne, il descend d'un cran a la fois (60, 54,
   48, 44...) jusqu'a tenir. Valide le 13/10/2026.
+- La hauteur du bandeau suit la taille du titre : 3,07 cm a 66 pt (valide le
+  15/10/2026), soit une ligne de Calibri plus les marges internes ; 2,81 cm a
+  60 pt, 2,30 cm a 48 pt. La position haute est la meme pour tous : 2,63 cm.
 """
 from pathlib import Path
 
@@ -22,6 +25,15 @@ TAILLE_INTERCALAIRE = 66
 TAILLE_INTERCALAIRE_MIN = 32
 POLICE_INTERCALAIRE = "Calibri"
 MARGE_DROITE = Inches(0.3)
+HAUTEUR_66 = 3.07            # cm, hauteur du bandeau pour un titre de 66 pt
+MARGES_HAUT_BAS = 0.254      # cm, marges internes par defaut (0,127 cm en haut et en bas)
+HAUT_INTERCALAIRE = 2.63     # cm, position du bandeau depuis le haut de la slide
+
+
+def hauteur_bandeau(taille):
+    """Hauteur (EMU) du bandeau d'un titre d'intercalaire de taille pt, sur une ligne."""
+    par_point = (HAUTEUR_66 - MARGES_HAUT_BAS) / TAILLE_INTERCALAIRE
+    return int((MARGES_HAUT_BAS + par_point * taille) * 360000)
 
 
 def cran_dessous(pt):
@@ -125,4 +137,8 @@ def uniformiser_titre_intercalaire(boite, largeur_diapo):
             _reordonner(rpr)
 
     boite.width = Emu(int(min(largeur(taille), disponible) * 914400))
+    # hauteur fixee par la regle : PowerPoint ne recalcule pas seul la hauteur
+    # « ajustee au texte » quand la taille change en dehors de l'edition
+    boite.height = Emu(hauteur_bandeau(taille))
+    boite.top = Emu(int(HAUT_INTERCALAIRE * 360000))
     return taille
