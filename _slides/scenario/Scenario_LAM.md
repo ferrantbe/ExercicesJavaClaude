@@ -1,6 +1,6 @@
 # Scénario du module LAM - Lambdas et références de méthodes
 
-*Trois sections, 18 slides plus le sommaire. Rubriques : `**Source**` et
+*Trois sections, 19 slides plus le sommaire. Rubriques : `**Source**` et
 `**Réserve**` sont des commentaires de fabrication, `**Slide**` et `**Note**`
 produisent le contenu et les notes du présentateur.*
 
@@ -293,6 +293,46 @@ chose qu'avec `TitreLong`. Seul le coût d'écriture a changé, et avec lui
 l'envie de le faire.
 
 Le code complet, à exécuter : demos, classe `demo.lam.slides.DeLaClasseALaLambda`.
+
+---
+
+### 2.2a · Rappel : l'interface fonctionnelle
+
+**Source** deck ITF, slide « Une interface, une seule méthode » ; rappel ajouté
+le 15/10/2026, à la demande du professeur
+
+**Slide**
+
+- Une interface fonctionnelle n'a qu'une seule méthode abstraite
+- C'est celle que la lambda écrit : aucune hésitation possible
+- `@FunctionalInterface` demande au compilateur de vérifier la règle
+
+```java
+@FunctionalInterface
+public interface Predicate<T> {      // java.util.function
+
+    boolean test(T t);               // la seule methode abstraite
+
+    // ... plus des methodes default, qui ne comptent pas
+}
+```
+
+**Note**
+
+Un rappel du module ITF, qui a défini le terme et vous a fait écrire
+Calculateur. Une interface est dite fonctionnelle quand elle déclare une
+seule méthode abstraite. Elle peut avoir en plus des méthodes default ou
+static : elles ont déjà un corps, et ne comptent donc pas.
+
+C'est ce qui rend la lambda possible. Une lambda n'apporte qu'un corps de
+méthode, sans nom. Pour que le compilateur sache quelle méthode elle écrit, il
+n'en faut qu'une à écrire. Predicate, que removeIf attend, est exactement de
+ce type : sa seule méthode abstraite est test.
+
+L'annotation @FunctionalInterface n'est pas obligatoire, mais elle protège :
+si quelqu'un ajoute une seconde méthode abstraite à l'interface, le
+compilateur refuse, au lieu de casser silencieusement toutes les lambdas qui
+l'utilisent. Vous l'écrirez vous-même dans l'exercice LAM.2.
 
 ---
 

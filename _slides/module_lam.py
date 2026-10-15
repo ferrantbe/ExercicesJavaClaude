@@ -65,7 +65,7 @@ PLAN = [
     ("1.4", "demo", "Demo_LAM"),
 
     ("2.1", "inter", None),
-    ("2.2", "new", None), ("2.3", "new", None), ("2.4", "new", None),
+    ("2.2", "new", None), ("2.2a", "new", None), ("2.3", "new", None), ("2.4", "new", None),
     ("2.5", "renvoi", None),
 
     ("3.1", "inter", None),
