@@ -1080,17 +1080,96 @@ c.push(runs([
   "C'est le seul point où JavaFX se distingue vraiment. Une application JavaFX a besoin que la bibliothèque soit annoncée à la JVM au démarrage, ce qu'un simple clic sur la flèche verte ne fait pas toujours. Deux façons de procéder, selon ce que l'énoncé indique."
 ]));
 c.push(bulletRuns([
-  { t: "Depuis Maven", b: true },
-  " : dans la fenêtre Maven, sous Plugins → javafx, double-cliquez sur ",
-  { t: "javafx:run", code: true },
-  ". Le greffon construit lui-même la ligne de commande correcte."
-]));
-c.push(bulletRuns([
   { t: "Depuis IntelliJ", b: true },
-  ", en lançant une classe de démarrage distincte de la classe d'application. C'est le montage que le projet du cours utilise, et il est expliqué le moment venu dans le fascicule ",
+  ", en lançant une classe de démarrage distincte de la classe d'application : le ",
+  { t: "Lanceur", code: true },
+  ". C'est le montage que le projet du cours utilise, et il est expliqué le moment venu dans le fascicule ",
   { t: "FX", code: true },
   "."
 ]));
+c.push(bulletRuns([
+  { t: "Depuis Maven", b: true },
+  ", par le greffon JavaFX, qui construit lui-même la ligne de commande correcte. C'est la solution de secours quand le lancement normal échoue : la procédure suit."
+]));
+
+c.push(h3("Lancer par Maven : javafx:run"));
+c.push(runs([
+  { t: "1. Ouvrez la fenêtre Maven. ", b: true },
+  "Cliquez sur l'icône ",
+  { t: "m", code: true },
+  " de la barre verticale de droite, ou passez par ",
+  { t: "View → Tool Windows → Maven", code: true },
+  "."
+]));
+c.push(runs([
+  { t: "2. Dépliez le bon module. ", b: true },
+  "La fenêtre montre le projet parent, puis ses modules, chacun nommé « Exercices Java IN2 — … » : ",
+  { t: "enonces", i: true }, " (vos exercices), ",
+  { t: "solutions", i: true }, ", ",
+  { t: "demos du cours", i: true }, " et ",
+  { t: "bac a sable du cours", i: true },
+  ". Dépliez celui qui contient la classe à lancer, en général ",
+  { t: "enonces", i: true },
+  ". Pas le nœud du haut, marqué « (parent) » : depuis lui, Maven lancerait la commande dans chaque module, l'un après l'autre."
+]));
+c.push(runs([
+  { t: "3. Lancez. ", b: true },
+  "Sous le module, dépliez ",
+  { t: "Plugins → javafx", code: true },
+  ", puis double-cliquez sur ",
+  { t: "javafx:run", code: true },
+  ". La console Maven s'ouvre en bas, puis la fenêtre de l'application apparaît ; la fermer termine l'exécution. La première fois, Maven télécharge le greffon : il faut une connexion internet, et quelques secondes de patience."
+]));
+c.push(...image("ide-28-javafx-run.png", "La fenêtre Maven : le greffon javafx, sous Plugins, dans le module à lancer.", 9));
+c.push(runs([
+  { t: "Quelle classe est lancée ? ", b: true },
+  "Celle que désigne la propriété ",
+  { t: "javafx.mainClass", code: true },
+  " dans le ",
+  { t: "pom.xml", code: true },
+  " du module : pour les énoncés et les solutions, le premier exercice JavaFX, ",
+  { t: "be.ephec.java.fx.e01.CompteurParticipants", code: true },
+  ". Le greffon accepte directement la classe d'application : inutile de passer par le Lanceur."
+]));
+c.push(runs([
+  { t: "Lancer un autre exercice", b: true },
+  ", sans toucher au ",
+  { t: "pom.xml", code: true },
+  " : faites un clic droit sur ",
+  { t: "javafx:run", code: true },
+  " et choisissez ",
+  { t: "Modify Run Configuration…", code: true },
+  "."
+]));
+c.push(...image("ide-28-javafx-menu.png", "Le menu contextuel de javafx:run.", 8));
+c.push(runs([
+  "Dans la fenêtre qui s'ouvre, trois réglages :"
+]));
+c.push(bulletRuns([
+  { t: "Name", b: true },
+  " : un nom parlant, « FX.2 » par exemple."
+]));
+c.push(bulletRuns([
+  { t: "Run", b: true },
+  " : la commande. Gardez ce qu'IntelliJ a écrit, et ajoutez la classe à lancer après ",
+  { t: "javafx:run", code: true },
+  " :"
+]));
+c.push(...code([
+  "javafx:run -Djavafx.mainClass=be.ephec.java.fx.e02.CompteurParticipants -f pom.xml"
+]));
+c.push(bulletRuns([
+  { t: "Working directory", b: true },
+  " : le dossier dont Maven lit le ",
+  { t: "pom.xml", code: true },
+  ". Vérifiez qu'il désigne bien le module, par exemple le dossier ",
+  { t: "exercices", code: true },
+  ". S'il indique la racine du projet, choisissez le dossier du module avec l'icône de dossier : sinon, Maven partirait du ",
+  { t: "pom.xml", code: true },
+  " parent et lancerait la commande dans chaque module."
+]));
+c.push(...image("ide-28-javafx-config.png", "La configuration d'exécution : son nom, la commande Maven, le dossier de travail.", 10));
+c.push(p("Validez par OK. La configuration apparaît ensuite dans la liste déroulante en haut à droite d'IntelliJ, et la flèche verte la relance."));
 c.push(runs([
   "Si vous obtenez le message ",
   { t: "JavaFX runtime components are missing", code: true },
