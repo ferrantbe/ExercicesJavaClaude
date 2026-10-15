@@ -1,6 +1,6 @@
 # Scénario du module LAM - Lambdas et références de méthodes
 
-*Trois sections, 19 slides plus le sommaire. Rubriques : `**Source**` et
+*Trois sections, 20 slides plus le sommaire. Rubriques : `**Source**` et
 `**Réserve**` sont des commentaires de fabrication, `**Slide**` et `**Note**`
 produisent le contenu et les notes du présentateur.*
 
@@ -194,7 +194,7 @@ Le code complet, à exécuter : demos, classe `demo.lam.slides.DeLaClasseALaLamb
 
 - Une classe écrite à l'endroit même où l'on crée son objet
 - Elle n'a pas de nom : elle ne servira qu'ici
-- Le mot `new` est suivi de l'interface, puis du corps de la classe
+- Le mot `new` est suivi de l'interface (ou d'une classe abstraite), puis du corps de la classe
 
 ```java
 titres.removeIf(new Predicate<String>() {
@@ -261,7 +261,7 @@ deux sens. Quand une lambda vous semble obscure, dépliez-la.
 
 **Slide**
 
-- On retire tout ce que le compilateur peut déduire
+- Il y a une écriture encore plus courte que la classe anonyme : on retire tout ce que le compilateur peut déduire
 - Il reste le paramètre, une flèche, et ce qu'on en fait
 
 ```java
@@ -336,7 +336,7 @@ l'utilisent. Vous l'écrirez vous-même dans l'exercice LAM.2.
 
 ---
 
-### 2.3 · Son type vient d'où elle va
+### 2.3 · Le type de la lambda vient du contexte
 
 **Source** nouvelle ; promesse du deck JUN, slide 3.3
 
@@ -344,7 +344,7 @@ l'utilisent. Vous l'écrirez vous-même dans l'exercice LAM.2.
 
 - Une lambda n'a pas de type à elle : elle prend celui de sa destination
 - Une variable, un paramètre : c'est le type cible
-- Il doit être une interface fonctionnelle, sinon quelle méthode écrire ?
+- Ce type doit être une interface fonctionnelle, sinon quelle méthode écrire ?
 
 ```java
 // la variable fixe le type
@@ -490,7 +490,8 @@ Mais c'est alors pour le nom, pas pour la signature.
 
 **Slide**
 
-- Les critères du module COL tiennent chacun sur une ligne
+- Au module COL, `removeIf` et `computeIfAbsent` recevaient un objet de `TitreLong` ou de `NouvelleListe`, deux classes écrites pour l'occasion
+- Une lambda les remplace, en une ligne, là où elle sert
 - La méthode `forEach` reçoit un `Consumer` : elle agit sur chaque élément
 
 ```java
@@ -528,7 +529,8 @@ Le code complet, à exécuter : demos, classe `demo.lam.slides.LesMethodesDeCOLS
 **Slide**
 
 - Si la lambda ne fait qu'appeler une méthode, on désigne la méthode
-- La classe, deux deux-points, le nom : sans parenthèses
+- La classe, deux deux-points, le nom (sans parenthèses)
+- Le paramètre vient de `removeIf`, qui passe chaque titre à `estLong`
 
 ```java
 public class Titres {
@@ -570,19 +572,19 @@ Le code complet, à exécuter : demos, classe `demo.lam.slides.DeLaClasseALaLamb
 
 ### 3.5 · Un stream, en passant *(facultative)*
 
-**Source** nouvelle ; demandée par la dernière question de LAM.3
+**Source** nouvelle ; texte et code revus le 15/10/2026, à la demande du professeur
 
 **Slide**
 
-- Un stream enchaîne des comportements sur une collection
-- Chaque étape reçoit une lambda, ou une référence de méthode
+- Un stream fait passer les éléments d'une collection par une suite d'étapes
+- `filter` garde certains éléments, `map` les transforme, `collect` rassemble le résultat
 - La collection d'origine n'est pas modifiée
 
 ```java
-String longs = titres.stream()
-        .filter(titre -> titre.length() > LONGUEUR_MAX)
-        .map(titre -> titre.toUpperCase())
-        .collect(Collectors.joining(", "));
+String longs = titres.stream()                          // 1. ouvrir le flux
+        .filter(titre -> titre.length() > LONGUEUR_MAX)  // 2. garder les longs
+        .map(titre -> titre.toUpperCase())               // 3. mettre en majuscules
+        .collect(Collectors.joining(", "));              // 4. joindre en un texte
 ```
 
 **Note**
@@ -590,22 +592,63 @@ String longs = titres.stream()
 Slide facultative, que l'on peut sauter en classe. Elle montre où mènent les
 lambdas quand on les enchaîne.
 
-La méthode `stream` ouvre un flux sur les éléments de la liste. La méthode
-`filter` reçoit un `Predicate` et ne laisse passer que les titres qu'il
-accepte. La méthode `map` reçoit une `Function` et transforme chaque titre.
-Enfin `collect` rassemble ce qui reste ; `Collectors.joining` en fait une
-seule chaîne, avec le séparateur donné.
+Un stream n'est pas une collection : c'est un passage. Les éléments de la
+liste y entrent l'un après l'autre et traversent des étapes, chacune décrite
+par une lambda. Le code se lit de haut en bas, comme une recette.
 
-Contrairement à `removeIf`, rien n'est retiré de `titres` : le stream produit
-un résultat neuf. Le code se lit comme une phrase, étape par étape, et dit ce
-qu'il fait plutôt que comment il le fait.
+Première étape, stream ouvre le flux sur les titres de la liste. Deuxième,
+filter reçoit un Predicate, le même genre d'objet que removeIf, et ne laisse
+passer que les titres qu'il accepte : ici, les titres longs. Troisième, map
+reçoit une Function et transforme chaque titre qui passe : ici, en
+majuscules. Le nombre d'éléments ne change pas, seule leur forme change.
+Dernière étape, collect rassemble ce qui sort du flux en un résultat ;
+Collectors.joining en fait une seule chaîne, avec le séparateur donné.
 
-Pour un tableau d'entiers, `Arrays.stream(tableau)` ouvre le même
-enchaînement. Comme les éléments sont des `int`, `mapToObj` les transforme
-alors en objets, par exemple en chaînes avec `String::valueOf`, avant de les
-joindre. C'est de quoi répondre à la dernière question de `LAM.3`.
+La différence avec removeIf est essentielle : removeIf retire des éléments de
+la liste elle-même, alors que le stream laisse titres intacte et produit un
+résultat neuf, ici une String. La slide suivante suit quatre titres à travers
+les étapes.
+
+Pour un tableau d'entiers, Arrays.stream(tableau) ouvre le même enchaînement.
+Comme les éléments sont des int, mapToObj les transforme alors en objets, par
+exemple en chaînes avec String::valueOf, avant de les joindre. C'est de quoi
+répondre à la dernière question de LAM.3.
 
 Le code complet, à exécuter : demos, classe `demo.lam.slides.LesMethodesDeCOLSansClasse`.
+
+---
+
+### 3.5a · Le stream, étape par étape *(facultative)*
+
+**Source** nouvelle ; ajoutée le 15/10/2026, à la demande du professeur
+
+**Slide**
+
+Suivons quatre titres à travers les étapes, avec LONGUEUR_MAX = 8.
+
+| Étape | Ce qui en sort |
+|---|---|
+| 1. `stream` | Nana · La Débâcle · Germinal · Le Docteur Pascal |
+| 2. `filter` | La Débâcle · Le Docteur Pascal |
+| 3. `map` | LA DÉBÂCLE · LE DOCTEUR PASCAL |
+| 4. `collect` | "LA DÉBÂCLE, LE DOCTEUR PASCAL" |
+
+**Note**
+
+Les lignes apparaissent l'une après l'autre : faites deviner ce qui sort de
+chaque étape avant de cliquer.
+
+Le flux part des quatre titres. filter ne laisse passer que ceux qui
+dépassent huit caractères : Nana et Germinal, qui en ont quatre et huit,
+s'arrêtent là. La limite est abaissée à 8 pour l'exemple : avec 20, il
+faudrait des titres trop longs pour tenir dans le tableau. map met chacun
+des deux survivants en majuscules : ils sont toujours deux, mais changés.
+collect, enfin, n'est plus une suite d'éléments : il les assemble en une
+seule String, séparés par une virgule et une espace.
+
+Pendant tout ce trajet, la liste titres n'a pas bougé : elle contient
+toujours ses quatre titres, dans le même ordre. C'est la différence avec
+removeIf.
 
 ---
 

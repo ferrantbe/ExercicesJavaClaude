@@ -70,7 +70,7 @@ PLAN = [
 
     ("3.1", "inter", None),
     ("3.2", "table", None), ("3.3", "new", None), ("3.4", "new", None),
-    ("3.5", "new", None), ("3.6", "renvoi", None),
+    ("3.5", "new", None), ("3.5a", "table", None), ("3.6", "renvoi", None),
 
     ("4.1", "new", None), ("4.2", "renvoi", None),
 ]
