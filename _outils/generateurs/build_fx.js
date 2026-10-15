@@ -382,12 +382,16 @@ fx.push(saut());
 fx.push(h1("FX.9 — Une calculatrice, en MVC"));
 fx.push(p("Package : be.ephec.java.fx.e09", { italic: true, color: GREY }));
 fx.push(h2("Objectif"));
-fx.push(p("Construire une application complète, et séparer ce qui s'affiche de ce qui calcule."));
+fx.push(p("Construire une application complète, de l'écran au calcul, et séparer ce qui s'affiche de ce qui calcule."));
+fx.push(encadre([
+  [{ t: "Un exercice guidé", b: true }],
+  ["Cet exercice se fait en suivant le deck ", { t: "FX3", code: true }, " — « La calculatrice, pas à pas ». Il construit la calculatrice étape par étape, dans l'ordre où vous l'écrivez : la vue d'abord, puis le contrôleur branché sur ses boutons, enfin le modèle et les opérateurs. Gardez le deck ouvert à côté de votre projet, et faites chaque étape au moment où il la montre."]
+]));
 fx.push(h2("Contexte : l'architecture MVC"));
 fx.push(p("Dès qu'une application dépasse quelques composants, on sépare trois responsabilités."));
 fx.push(tableau(["Rôle", "Ce qu'il fait", "Ici"], [
   ["le Modèle", "les données et la logique métier", "Modele.java — à écrire"],
-  ["la Vue", "la description de l'écran", "calculatrice.fxml — fourni"],
+  ["la Vue", "la description de l'écran", "calculatrice.fxml — à écrire"],
   ["le Contrôleur", "écoute la vue, interroge le modèle, met la vue à jour", "Controleur.java — à écrire"]
 ], [1900, 4400, 3060], [0]));
 fx.push(runs([
@@ -396,8 +400,22 @@ fx.push(runs([
   { t: "calculer()", code: true },
   ", alors qu'aucun test ne peut vérifier une fenêtre."
 ]));
-fx.push(h2("Le FXML, et les deux mécanismes à comprendre"));
-fx.push(p("La vue vous est fournie. Lisez-la : tout ce qu'elle contient remplace du code que vous auriez écrit à la main dans les huit exercices précédents."));
+fx.push(h2("La vue, à écrire"));
+fx.push(runs([
+  "Le squelette ne contient que la racine de la vue : une ",
+  { t: "VBox", code: true },
+  " qui nomme son contrôleur. Vous écrivez le reste en suivant la section 2 du deck ",
+  { t: "FX3", code: true },
+  " : l'écran, puis les quatre lignes de touches. Tout ce que le fichier contiendra remplace du code que vous auriez écrit à la main dans les huit exercices précédents."
+]));
+fx.push(h2("La vue attendue"));
+fx.push(tableau(["Élément", "Contenu", "Dimensions"], [
+  ["VBox (la racine)", "l'écran, puis quatre lignes de touches", "300 × 300, espacement 10, centrée"],
+  ["StackPane", "un Rectangle (le cadre) et le Text affichage", "cadre de 230 × 50"],
+  ["HBox × 4", "7 8 9 / — 4 5 6 x — 1 2 3 - — 0 C = +", "espacement 10, centrées"],
+  ["Button", "une touche", "50 × 50"]
+], [2200, 4300, 2860], [0]));
+fx.push(p("Trois attributs relient cette vue au contrôleur :"));
 fx.push(tableau(["Dans le FXML", "Dans le contrôleur"], [
   ["fx:controller=\"...Controleur\"", "désigne la classe qui reçoit les événements"],
   ["fx:id=\"affichage\"", "@FXML private Text affichage — injecté au chargement"],
@@ -409,9 +427,11 @@ fx.push(runs([
   { t: "Modele", code: true },
   " et ",
   { t: "Controleur", code: true },
-  ". ",
+  ", après avoir écrit la vue. ",
   { t: "ApplicationCalculatrice", code: true },
-  " et le FXML vous sont fournis."
+  " et ",
+  { t: "Lanceur", code: true },
+  " vous sont fournis."
 ]));
 fx.push(tableau(["Méthode", "Ce qu'elle fait"], [
   ["Modele.calculer", "applique l'opérateur — \"+\", \"-\", \"x\" ou \"/\" — aux deux nombres"],

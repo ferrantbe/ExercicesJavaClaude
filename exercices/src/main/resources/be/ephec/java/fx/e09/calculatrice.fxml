@@ -1,56 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
-  FX.9 — Ce fichier vous est FOURNI.
+  FX.9 - La VUE de la calculatrice. C'est a vous de l'ecrire.
 
-  C'est la VUE de l'architecture MVC : la description de l'ecran, en XML.
-  Vous n'avez rien a y modifier, mais lisez-le : tout ce qu'il contient
-  remplace du code que vous auriez ecrit a la main.
+  Suivez la section 2 du deck FX3, « La calculatrice, pas a pas » :
+  1. les cinq enfants de la VBox : un StackPane, puis quatre HBox ;
+  2. les attributs de la VBox : prefWidth, prefHeight, spacing, alignment ;
+  3. le cadre de l'ecran, un Rectangle, et les imports en tete du fichier ;
+  4. le Text affichage, relie au champ @FXML du controleur par fx:id ;
+  5. les quatre lignes de touches, puis leurs onAction (section 3 du deck).
 
-  fx:controller   la classe qui recevra les evenements
-  fx:id           le nom sous lequel un composant sera injecte
-  onAction        la methode du controleur appelee au clic
+  La racine ci-dessous est fournie : elle nomme le controleur, et le
+  fichier se charge deja. Lancez Lanceur : une fenetre vide s'ouvre.
 -->
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Text?>
 
-<VBox spacing="6.0" xmlns:fx="http://javafx.com/fxml"
+<VBox xmlns:fx="http://javafx.com/fxml"
       fx:controller="be.ephec.java.fx.e09.Controleur">
-    <padding>
-        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
-    </padding>
 
-    <StackPane prefHeight="50.0" style="-fx-background-color: #eeeeee;">
-        <Text fx:id="affichage" text="0" style="-fx-font-size: 24;"/>
-    </StackPane>
-
-    <HBox spacing="6.0">
-        <Button text="7" prefWidth="55" onAction="#chiffrePresse"/>
-        <Button text="8" prefWidth="55" onAction="#chiffrePresse"/>
-        <Button text="9" prefWidth="55" onAction="#chiffrePresse"/>
-        <Button text="/" prefWidth="55" onAction="#operateurPresse"/>
-    </HBox>
-    <HBox spacing="6.0">
-        <Button text="4" prefWidth="55" onAction="#chiffrePresse"/>
-        <Button text="5" prefWidth="55" onAction="#chiffrePresse"/>
-        <Button text="6" prefWidth="55" onAction="#chiffrePresse"/>
-        <Button text="x" prefWidth="55" onAction="#operateurPresse"/>
-    </HBox>
-    <HBox spacing="6.0">
-        <Button text="1" prefWidth="55" onAction="#chiffrePresse"/>
-        <Button text="2" prefWidth="55" onAction="#chiffrePresse"/>
-        <Button text="3" prefWidth="55" onAction="#chiffrePresse"/>
-        <Button text="-" prefWidth="55" onAction="#operateurPresse"/>
-    </HBox>
-    <HBox spacing="6.0">
-        <Button text="0" prefWidth="55" onAction="#chiffrePresse"/>
-        <Button text="C" prefWidth="55" onAction="#effacer"/>
-        <Button text="=" prefWidth="55" onAction="#operateurPresse"/>
-        <Button text="+" prefWidth="55" onAction="#operateurPresse"/>
-    </HBox>
 </VBox>

@@ -568,7 +568,8 @@ installation est décrite en IDE.29 du guide IntelliJ.
 
 Le FXML n'est pas au programme de l'examen : la question JavaFX se résout
 toujours en Java. Il vous sert à comprendre comment se construisent les
-vraies applications, et à faire FX.9, dont la vue vous est fournie.
+vraies applications, et à faire FX.9, où vous l'écrirez vous-même, guidé
+pas à pas par le deck FX3.
 
 ---
 
@@ -710,16 +711,16 @@ Le code complet, à lancer : demos, classe `demo.fx.slides.fx2.LanceurApplicatio
 
 **Note**
 
-`FX.9` est la seule application complète du thème. La vue et la classe
-d'application sont fournies ; vous écrivez le modèle, puis le contrôleur.
+`FX.9` est la seule application complète du thème, et le deck FX3, « La
+calculatrice, pas à pas », la construit avec vous : la vue en FXML d'abord,
+puis le contrôleur branché sur ses boutons, enfin le modèle et les
+opérateurs. La classe d'application et le `Lanceur` sont fournis.
 
-Commencez par le modèle, et vérifiez-le avant de toucher au contrôleur :
-la première question de fin vous demande d'écrire sa classe de test, et
-c'est le bon moment. Un contrôleur qui appelle un modèle juste est bien
-plus simple à mettre au point.
-
-Lisez le fichier FXML avant d'écrire le contrôleur. Il vous dit les noms
-de champs et de méthodes que le contrôleur doit porter.
+Suivez le deck dans l'ordre, et faites chaque étape dans votre projet au
+moment où elle est montrée. Quand vient le modèle, vérifiez-le avant
+d'écrire les opérateurs : la première question de fin vous demande d'écrire
+sa classe de test, et c'est le bon moment. Un contrôleur qui appelle un
+modèle juste est bien plus simple à mettre au point.
 
 ---
 
