@@ -302,6 +302,14 @@ les decks déjà remaniés, `finaliser_deck.py` pour les decks générés.
 * Ne pousser que les versions de decks qui comptent ; les archives de Claude
   ne contiennent que les fichiers modifiés.
 
+### L'ordre des séances
+
+* **FIC passe après JavaFX**, en séance 14, comme le numéro de son deck (15) :
+  décidé le 16/10/2026. LAM est seul en séance 11.
+* Le thème `fx` part entier en séance 12 (`livrer.py` livre par thème) ; la
+  séance 13 joue FX2 et FX3 sans nouveau thème. Le thème `rec` sera ajouté à
+  `livraisons.json` quand les exercices récapitulatifs existeront.
+
 ### FX : la calculatrice guidée
 
 * Nouveau deck **FX3, « La calculatrice, pas à pas »**, tiré de l'ancien deck

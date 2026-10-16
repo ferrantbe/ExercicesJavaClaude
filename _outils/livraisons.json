@@ -1,5 +1,5 @@
 {
-  "_commentaire": "Repartition revue le 11/10/2026, alignee sur la numerotation des decks de _slides/generes/. PKG descend apres ABS et ITF : PKG.5 porte sur protected, qui n'a aucun sens sans heritage. FIC remonte avec LAM, car il vaut desormais un sixieme de l'examen. Plus aucune seance vide.",
+  "_commentaire": "Repartition revue le 16/10/2026, alignee sur la numerotation des decks de _slides/remanies/. PKG vient apres ABS et ITF : PKG.5 porte sur protected, qui n'a aucun sens sans heritage. FIC passe apres JavaFX, comme le numero de son deck (15) : decide le 16/10/2026. Le theme fx part entier en seance 12 (livrer.py livre par theme) ; la seance 13 joue les decks FX2 et FX3, dont la calculatrice guidee de FX.9, sans nouveau theme. Le theme rec sera ajoute quand les exercices recapitulatifs existeront.",
   "depot_public": "../ExercicesJava",
   "_depot_public": "Clone local du depot PUBLIC (github.com/ferrantbe/ExercicesJava), relatif a la racine de ce projet. Utilise par livrer.py --depot sans chemin.",
   "sans_tests": [
@@ -68,10 +68,9 @@
     ]
   },
   "11": {
-    "nom": "Seance11_LAM_FIC",
+    "nom": "Seance11_LAM",
     "themes": [
-      "lam",
-      "fic"
+      "lam"
     ]
   },
   "12": {
@@ -81,13 +80,13 @@
     ]
   },
   "13": {
-    "nom": "Seance13_FX2_REC",
-    "themes": [
-      "rec"
-    ]
+    "nom": "Seance13_FX2_FX3",
+    "themes": []
   },
   "14": {
-    "nom": "Seance14_REC",
-    "themes": []
+    "nom": "Seance14_FIC",
+    "themes": [
+      "fic"
+    ]
   }
 }
