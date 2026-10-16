@@ -6,6 +6,16 @@ Dix-neuf semaines avant la première séance.
 
 ---
 
+
+> **État au 16/10/2026.** Les 17 decks sont remaniés (`_slides/remanies/`,
+> d'INI à FIC, FX en trois decks), mis aux normes et alignés sur leur
+> scénario ; le code de leurs slides est exécutable et vérifié (`demos`).
+> Restent : la révision des démonstrations et des exercices par Frédéric ;
+> la mise en page commune des documents (logo EPHEC, page de garde) ; un
+> **recueil unique d'exercices, en plus des fascicules** (décidé, après la
+> révision) ; le support imprimable. Le détail des décisions récentes est dans
+> `conventions_et_decisions.md`, section « Décisions des 14 au 16 octobre ».
+
 ## 0. Conventions arrêtées — à respecter partout
 
 Ce bloc n'est pas une tâche, c'est le référentiel. Toute production nouvelle
@@ -222,12 +232,12 @@ En aval du fascicule de chaque thème : impossible de renvoyer vers `TAB.3`
 avant que `TAB.3` n'existe. Se fait donc à l'intérieur de chaque tranche
 verticale.
 
-* [ ] Retirer les énoncés des slides, les remplacer par une slide de renvoi
+* [x] Retirer les énoncés des slides, les remplacer par une slide de renvoi *(fait : slides « Exercices » et « Le fil rouge »)*
 * [ ] Réduire « exercices en retard » à une slide listant les codes à corriger
   * rend 5 à 10 slides par séance
 * [x] README : ouvrir le projet par le `pom.xml`, et que faire en cas de « JDK isn't specified »
 * [ ] Vérifier le JDK des machines de l'école et aligner le projet dessus
-* [ ] Éprouver la manipulation programmatique des `.pptx` sur un deck avant de généraliser
+* [x] Éprouver la manipulation programmatique des `.pptx` sur un deck avant de généraliser *(fait : moteur et outils de `_outils/`)*
   * si la mise en forme est abîmée, basculer sur une liste d'instructions à appliquer à la main
 
 ---
@@ -353,8 +363,8 @@ SDK du projet » relève du second. Chacun renvoie à l'autre.
 * [x] **Mémento technique écrit** — 17 pages, 24 sections, sommaire cliquable
   * `TEC-PLA` la plateforme, `TEC-FX` les interfaces graphiques, `TEC-CMP` la
     compilation, `TEC-EXE` pile et tas, `TEC-MVN` Maven, `TEC-GIT` culture générale
-  * [ ] retirer les slides 9 à 13 du deck JavaFX, désormais reprises dans `TEC-FX`
-  * [ ] retirer la slide 16 du deck JavaFX : sa procédure de configuration ne
+  * [x] retirer les slides 9 à 13 du deck JavaFX, désormais reprises dans `TEC-FX`
+  * [x] retirer la slide 16 du deck JavaFX : sa procédure de configuration ne
     s'applique pas à un projet Maven, et `IDE.28` du guide la remplace
   * corrigé au passage : la slide 11 datait Swing de 2007, c'est 1998
   * `TEC-ZIP` ajouté : extraire une archive au bon endroit sous macOS et Windows
@@ -507,7 +517,7 @@ Décidé sur le principe, reporté après le recueil d'exercices. Se fait
 thème par thème, à l'intérieur des tranches verticales de la section 2,
 plutôt qu'en un lot séparé.
 
-* [ ] **Découper les decks existants en decks thématiques**
+* [x] **Découper les decks existants en decks thématiques** *(fait : 17 decks, FX en trois)*
   * `POO` (~63), `TMP` (~8), `PKG` (~6), `TAB` (~20), `ENU` (~20)
   * `ABS` (~30), `ITF` (~36)
   * `COL` (~49), `EXC` (~68), `JUN` (~55)

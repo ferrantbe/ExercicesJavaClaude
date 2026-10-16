@@ -1,13 +1,41 @@
 # Ce qui bloque — décisions, arbitrages, vérifications
 
-État au terme de la construction des thèmes. Neuf séances sur onze sont
-livrables ; ce document ne contient que ce qui attend une réponse de ta part.
+État mis à jour le 16/10/2026 : la section 0 dit ce qui reste ouvert. Les
+sections suivantes datent de la construction des thèmes ; certaines sont
+sans doute réglées depuis, à relire lors de la révision.
 
 Les points sont classés par **ce qu'ils empêchent**, pas par thème. Ceux de la
 section 1 arrêtent une production en cours ; ceux de la section 4 peuvent
 attendre sans conséquence.
 
 ---
+
+---
+
+## 0. Ouvert au 16/10/2026
+
+Les decks sont terminés. Ce qui reste, par ordre :
+
+* **Révision des démonstrations et des exercices** (Frédéric), en notant au fil
+  de l'eau les retouches de mise en page souhaitées.
+* **Page de garde et logo EPHEC** : à fournir par Frédéric (fichier officiel,
+  ou exemple de page de garde). Une modification de `boite.js` s'applique à
+  tous les documents ; le guide IntelliJ a sa propre copie de la fonction.
+* **Recueil unique d'exercices**, en plus des fascicules (fournis en PDF à
+  chaque séance) : décidé, à faire après la révision.
+* **À vérifier dans IntelliJ, impossible ici** :
+  * le code des slides JavaFX (`demo.fx.slides`, cinq applications et
+    `ProprietesEnConsole`), en particulier les flèches du clavier dans
+    `ClavierEtSouris` ;
+  * les deux `calculatrice.fxml` de FX.9 (squelette et corrigé), dans Scene
+    Builder ou en lançant ;
+  * les animations des trois slides importées dans FX1 (slides 30 à 32) ;
+  * la configuration `javafx:run` : dossier de travail du module (IDE.28).
+* **Images** : les quatre intercalaires de FX3 n'ont encore que l'image
+  provisoire ; les huit images d'ABS sont les versions Bing d'origine (à
+  régénérer si on veut aligner la série) ; crédit à ajouter pour le schéma du
+  graphe de scène de FX1 (slide 9) s'il vient d'un site.
+* **Support imprimable** : à générer une fois la révision terminée.
 
 ## 1. Bloquant — il me manque quelque chose de ta part
 

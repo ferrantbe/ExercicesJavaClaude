@@ -725,24 +725,44 @@ remplace l'écran, et `nouvelleSaisie` repasse à faux.
 
 ### 4.5 · À vous : les opérateurs
 
-**Source** d09/72, réécrite selon l'énoncé de FX.9
+**Source** d09/72, réécrite selon l'énoncé de FX.9 ; arbre de décision ajouté le
+15/10/2026, à la demande du professeur, d'après le schéma de l'ancien cours,
+corrigé (l'ancien schéma n'enchaînait pas les opérateurs et ne traitait pas la
+division par zéro). Dans le deck, l'arbre est dessiné (formes) et apparaît en
+cinq clics : la lecture du bouton ; la question « un opérateur est-il en
+attente ? » ; les réponses « non » et « oui » ; la division par zéro, qui
+s'arrête là ; puis, sauf erreur, la suite commune.
 
 **Slide**
 
-- S'il y a un opérateur en attente, on calcule ; on affiche le résultat
-- On retient le nouvel opérateur ; « = » ne retient rien
-- Une division par zéro affiche « Erreur », et tout repart à zéro
-- `effacer` remet l'écran à 0, et oublie ce qui était en attente
+- `operateurPresse` : l'arbre donne la structure, à vous le code
+- Et `effacer` remet l'écran à 0, et oublie ce qui était en attente
 
 **Note**
 
-C'est la seule méthode que le deck ne guide pas pas à pas : l'énoncé de
-FX.9 en donne la logique, et sa liste « Ce que vous devez observer » sert
-de vérification.
+C'est la seule méthode que le deck ne guide pas pas à pas : l'arbre en donne
+la structure, à vous d'en écrire le code. Les étapes apparaissent au clic,
+dans l'ordre où la méthode les exécute.
 
-Attention au tout premier opérateur : rien n'est encore en attente, il
-n'y a donc rien à calculer. Et le contrôleur attrape l'exception du modèle,
-puisque c'est lui qui sait quoi afficher.
+On lit d'abord le texte du bouton, comme pour les chiffres. Puis une seule
+question : un opérateur attend-il déjà ? Si non, c'est le tout premier
+opérateur de l'opération : rien à calculer, le nombre affiché devient le
+premier nombre. Si oui, on confie le calcul au modèle, et son résultat
+devient le nouveau premier nombre : c'est ce qui permet d'enchaîner,
+2 + 3 + 4 = 9.
+
+La division par zéro est le seul chemin qui s'arrête en route. Le modèle
+lève une exception, le contrôleur l'attrape, affiche « Erreur » et remet
+tout à zéro. Il ne retient surtout pas l'opérateur pressé : sans quoi la
+calculatrice ne repartirait pas proprement.
+
+Dans les deux autres cas, la suite est la même : le « = » clôt le calcul et
+ne laisse rien en attente, un autre opérateur est retenu pour le prochain
+calcul. Enfin, le prochain chiffre commencera un nouveau nombre.
+
+Le bouton « C » est plus simple : `effacer` remet l'écran à 0 et oublie le
+premier nombre et l'opérateur en attente. La liste « Ce que vous devez
+observer » de FX.9 sert de vérification.
 
 ---
 

@@ -250,3 +250,62 @@ https://commons.wikimedia.org/w/index.php?curid=88628927 - recadrée », en
 
 **Images décoratives** : clic droit, Texte de remplacement, cocher « Marquer
 comme élément décoratif ». Ce qui est marqué ainsi reste hors du support.
+
+---
+
+## Décisions des 14 au 16 octobre 2026
+
+Toutes ces règles sont appliquées par les outils : `mettre_aux_normes.py` pour
+les decks déjà remaniés, `finaliser_deck.py` pour les decks générés.
+
+### Mise en forme des slides
+
+| Règle | Outil |
+|---|---|
+| **Code trop large** : une zone de code pleine largeur ne laisse pas plus de 20 % de vide à droite de sa plus longue ligne ; sinon elle est rétrécie à son contenu (plus 10 %) et centrée. Une zone chevauchée par une annotation n'est pas déplacée. | `_outils/ajuster_code.py` |
+| **Tableaux en bandeaux sombres** : chaque ligne forme un groupe et apparaît au clic, balayage depuis la gauche ; l'en-tête et la phrase d'introduction restent visibles. | `_outils/animer_lignes.py` |
+| **Phrase d'introduction d'un tableau** : une phrase écrite dans le scénario juste avant un tableau devient une introduction au-dessus de lui. | `construire_deck.py` |
+| **Bandeau des intercalaires** : 3,07 cm de haut à 66 pt, proportionnel à la taille (2,81 cm à 60 pt, 2,30 cm à 48 pt), position haute 2,63 cm. | `_slides/mise_en_forme.py` |
+| **Slides d'exercices** : seules les slides titrées « Exercices » ou « Le fil rouge » sont traitées comme telles. | `_outils/organiser_exercices.py` |
+
+### Le code des slides
+
+* Le code montré dans les slides existe en fichiers exécutables, dans le projet
+  `demos`, package `be.ephec.java.demo.<thème>.slides` (tests dans
+  `src/test/.../<thème>/slides`). Chaque programme se termine par un
+  commentaire « Sortie attendue » ; « Entree : » donne la saisie clavier, et
+  une ligne attendue commençant par `~` est une expression régulière.
+* `_outils/verifier_demos_slides.py` compile, exécute et compare ; les tests
+  JUnit passent par une doublure. JavaFX n'est pas vérifiable ici : signalé.
+* **Jamais le code d'un corrigé** : les slides qui reprennent une solution
+  d'exercice n'ont pas de code exécutable.
+* Le code des slides part **avec l'archive de la séance**, pas avec les
+  solutions (`livrer.py`). Chaque note concernée se termine par « Le code
+  complet, à exécuter : demos, classe … ».
+* Couvert : 15 thèmes. **PKG laissé de côté** (décidé) : ce deck se montre
+  mieux en provoquant les erreurs de visibilité en direct.
+
+### Les illustrations
+
+* Catalogue : `_illustrations/illus_generees/Illustrations_sections.xlsx`, une
+  ligne par intercalaire, prompt complet, fichier, statut.
+* Tous les prompts : format 16:9 et bloc « tiers supérieur vide ».
+* Les images du dépôt sont en **JPEG** (qualité 90), jamais en PNG.
+* Image reprise d'un site : créditer auteur, source et licence.
+
+### Le dépôt
+
+* Nettoyé le 15/10/2026 : de 689 à 255 Mo (procédure et pièges dans
+  `_slides/generes/RETIRER_VERSIONS_INTERMEDIAIRES.md`).
+* `_slides/generes/` ne garde que les decks pas encore remaniés ; tous le sont
+  depuis le 16/10/2026, les autres se régénèrent par le moteur.
+* Ne pousser que les versions de decks qui comptent ; les archives de Claude
+  ne contiennent que les fichiers modifiés.
+
+### FX : la calculatrice guidée
+
+* Nouveau deck **FX3, « La calculatrice, pas à pas »**, tiré de l'ancien deck
+  09 (slides 24 à 74), réécrit pour le projet Maven et aligné sur le corrigé.
+* **FX.9 devient un exercice guidé** par ce deck : le FXML n'est plus fourni
+  (le squelette ne contient que la racine) ; le corrigé contient le FXML que
+  construit le deck.
