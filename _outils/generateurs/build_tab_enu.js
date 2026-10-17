@@ -115,15 +115,22 @@ function code(lines) {
   }));
 }
 
+// Un titre peut aussi recevoir des fragments : ["ENU.4 — Un ", { t: "record",
+// code: true }, " d'étudiant"]. Le code y est en Consolas 12 gras (choix de
+// Frederic dans ENU, 17/10/2026).
 const h1 = (t) => new Paragraph({
   heading: HeadingLevel.HEADING_1, spacing: { before: 360, after: 160 }, keepNext: true,
   children: [(() => {
-      const trouve = CODE_EXERCICE.exec(t);
-      const morceau = new TextRun({ text: typo(t), bold: true, size: 30, color: ACCENT });
+      const parts = Array.isArray(t) ? t : [t];
+      const texte = parts.map(x => typeof x === "string" ? x : x.t).join("");
+      const trouve = CODE_EXERCICE.exec(texte);
+      const morceaux = parts.map(x => typeof x === "string"
+        ? new TextRun({ text: typo(x), bold: true, size: 30, color: ACCENT })
+        : new TextRun({ text: x.t, bold: true, size: 24, font: MONO }));
       return trouve
-        ? new Bookmark({ id: ancre(trouve[0]), children: [morceau] })
-        : morceau;
-    })()]
+        ? new Bookmark({ id: ancre(trouve[0]), children: morceaux })
+        : morceaux;
+    })()].flat()
 });
 
 const h2 = (t) => new Paragraph({
@@ -499,7 +506,7 @@ modeEmploi(enu, "ENU", [
 ]);
 
 enu.push(h2("L'énumération en deux minutes"));
-enu.push(p("Une enum est une classe dont on énumère à l'avance toutes les valeurs possibles. Il n'en existera jamais d'autres, et le compilateur le sait."));
+enu.push(runs(["Une ", { t: "enum", code: true }, " est une classe dont on énumère à l'avance toutes les valeurs possibles. Il n'en existera jamais d'autres, et le compilateur le sait."]));
 enu.push(...code([
   "public enum DayOfWeek { MONDAY, TUESDAY, WEDNESDAY }",
   "",
@@ -520,7 +527,9 @@ enu.push(runs([
   " s'en sert pour calculer une couleur suivante sans écrire une seule condition."
 ]));
 enu.push(runs([
-  { t: "Une enum est une classe. ", b: true },
+  { t: "Une ", b: true },
+  { t: "enum", b: true, code: true },
+  { t: " est une classe. ", b: true },
   "Elle peut donc contenir des champs, un constructeur et des méthodes, ce qu'",
   { t: "ENU.3", code: true },
   " met en pratique."
@@ -629,7 +638,7 @@ enu.push(...code([
 ]));
 enu.push(encadre([
   [{ t: "Le piège", b: true }],
-  ["Si vos conversions retournent des valeurs fausses, regardez le type des opérations. 9 / 5 vaut 1 en Java, parce que ce sont deux entiers et que la division entière tronque. Il suffit qu'un seul des opérandes soit un double pour que le calcul devienne décimal."],
+  ["Si vos conversions retournent des valeurs fausses, regardez le type des opérations. 9 / 5 vaut 1 en Java, parce que ce sont deux entiers et que la division entière tronque le résultat. Il suffit qu'un seul des opérandes soit un double pour que le calcul devienne décimal."],
   ["Le message d'échec du test vous le rappellera, mais autant le savoir avant."]
 ]));
 enu.push(h2("Comment vérifier votre code"));
@@ -679,18 +688,28 @@ enu.push(runs([
   { t: "Value", code: true },
   ", deux énumérations dont chaque constante connaît son libellé français : ",
   { t: "PIQUE", code: true },
-  " connaît « Pique », ",
+  " connaît ",
+  { t: "\"Pique\"", code: true },
+  ", ",
   { t: "AS", code: true },
-  " connaît « As », ",
+  " connaît ",
+  { t: "\"As\"", code: true },
+  ", ",
   { t: "DIX", code: true },
-  " connaît « 10 ». Les valeurs se déclarent dans l'ordre du jeu, de l'as au roi."
+  " connaît ",
+  { t: "\"10\"", code: true },
+  ". Les valeurs se déclarent dans l'ordre du jeu, de l'as au roi."
 ]));
 enu.push(runs([
   "Écrivez ensuite ",
   { t: "Card", code: true },
   ", dont le ",
   { t: "toString", code: true },
-  " retourne « As de Pique » ou « Roi de Trèfle », puis ",
+  " retourne ",
+  { t: "\"As de Pique\"", code: true },
+  " ou ",
+  { t: "\"Roi de Trèfle\"", code: true },
+  ", puis ",
   { t: "Deck", code: true },
   " :"
 ]));
@@ -707,9 +726,9 @@ enu.push(bulletRuns([
 ]));
 enu.push(bulletRuns([
   { t: "shuffle()", code: true },
-  " mélange le paquet. Une façon de faire : parcourir le tableau de la fin vers le début et, à chaque étape, échanger la carte courante avec une carte tirée au hasard parmi celles qui la précèdent — ",
+  " mélange le paquet. Une façon de faire : parcourir le tableau de la fin vers le début et, à chaque étape, échanger la carte courante avec une carte tirée au hasard parmi elle-même et celles qui la précèdent — ",
   { t: "hasard.nextInt(i + 1)", code: true },
-  "."
+  ". Les cartes déjà parcourues sont à leur place définitive."
 ]));
 enu.push(h2("Le programme"));
 enu.push(runs([
@@ -740,7 +759,7 @@ enu.push(bulletRuns([
   { t: "nextInt(52)", code: true },
   " ? Les deux mélangent, mais un seul le fait équitablement. Cherchez « mélange de Fisher-Yates » si la question vous intéresse."
 ]));
-enu.push(bullet("Deux cartes « As de Pique » construites séparément sont-elles égales ? Testez avec ==, et gardez la question de côté : elle reviendra."));
+enu.push(bulletRuns(["Deux cartes ", { t: "\"As de Pique\"", code: true }, " construites séparément sont-elles égales ? Testez avec ", { t: "==", code: true }, ", et gardez la question de côté : elle reviendra."]));
 enu.push(bulletRuns([
   "L'ordre de déclaration des valeurs décide du résultat de compareTo. Est-ce visible en lisant la classe, ou faut-il le deviner ? Voir ",
   { t: "CC-COM.3", code: true },
@@ -749,7 +768,7 @@ enu.push(bulletRuns([
 enu.push(saut());
 
 // --- ENU.4
-enu.push(h1("ENU.4 — Un record d'étudiant"));
+enu.push(h1(["ENU.4 — Un ", { t: "record", code: true }, " d'étudiant"]));
 enu.push(p("Package : be.ephec.java.enu.e04", { italic: true, color: GREY }));
 enu.push(h2("Objectif"));
 enu.push(p("Écrire en une ligne ce qui en demanderait trente, et savoir quand ce n'est pas approprié."));
@@ -770,9 +789,13 @@ enu.push(h2("Énoncé"));
 enu.push(runs([
   "L'en-tête du record ",
   { t: "Student", code: true },
-  " vous est fourni : un nom (",
+  " vous est fourni : un ",
+  { t: "nom", code: true },
+  " (",
   { t: "String", code: true },
-  ") et une cote (",
+  ") et une ",
+  { t: "cote", code: true },
+  " (",
   { t: "int", code: true },
   "), dans cet ordre. Regardez-le bien — cette seule ligne suffit au compilateur pour écrire le constructeur, les accesseurs, ",
   { t: "toString", code: true },
@@ -794,7 +817,11 @@ enu.push(runs([
   { t: "Programme", code: true },
   " : créez un ",
   { t: "tableau", b: true },
-  " d'étudiants et affichez chacun d'eux suivi de « reussi » ou « echec »."
+  " d'étudiants et affichez chacun d'eux suivi de ",
+  { t: "\"reussi\"", code: true },
+  " ou ",
+  { t: "\"echec\"", code: true },
+  "."
 ]));
 enu.push(h2("Comment vérifier votre code"));
 enu.push(verif([
@@ -804,7 +831,7 @@ enu.push(verif([
 ]));
 enu.push(h2("Questions à se poser"));
 enu.push(bullet("Écrivez la même chose sous forme de classe ordinaire, avec ses champs, son constructeur, ses accesseurs et son toString. Combien de lignes ?"));
-enu.push(bullet("Rien n'empêche de construire un Student avec une cote de 47. Où placeriez-vous une vérification, et qu'est-ce qui devrait se produire ? Vous aurez la réponse au thème EXC."));
+enu.push(bulletRuns(["Rien n'empêche de construire un ", { t: "Student", code: true }, " avec une cote de 47. Où placeriez-vous une vérification, et qu'est-ce qui devrait se produire ? Vous aurez la réponse au thème EXC."]));
 enu.push(bulletRuns([
   { t: "passe()", code: true },
   " n'est ni un champ ni un accesseur : c'est un calcul. Pourquoi ne pas stocker un booléen ",
@@ -820,19 +847,31 @@ enu.push(runs([
   { t: "Quatre des cinq tests seront verts avant que vous n'écriviez une ligne. ", b: true },
   "Ce n'est pas une panne, et c'est même toute la démonstration de l'exercice."
 ]));
-enu.push(p("Trois d'entre eux vérifient les accesseurs, le toString et le equals. Vous ne les avez pas écrits : le compilateur les a écrits, parce que vous avez déclaré un record. Les voir passer, c'est constater de ses yeux ce qu'une seule ligne de déclaration vous a évité."));
+enu.push(runs(["Trois d'entre eux vérifient les accesseurs, le ", { t: "toString", code: true }, " et le ", { t: "equals", code: true }, ". Vous ne les avez pas écrits : le compilateur les a écrits, parce que vous avez déclaré un record. Les voir passer, c'est constater de ses yeux ce qu'une seule ligne de déclaration vous a évité."]));
 enu.push(runs([
-  "Le quatrième mesure la forme du record. Seul le cinquième est rouge, et il porte sur la seule chose que le compilateur ne pouvait pas deviner : ",
+  "Le quatrième mesure la forme du ",
+  { t: "record", code: true },
+  ". Seul le cinquième est rouge, et il porte sur la seule chose que le compilateur ne pouvait pas deviner : ",
   { t: "passe()", code: true },
   ", la règle de réussite."
 ]));
 enu.push(runs([
   { t: "Écrivez la même classe sans record, pour comparer. ", b: true },
-  "Deux champs, un constructeur, deux accesseurs, un toString, un equals, un hashCode. Comptez les lignes, puis relisez la déclaration du record."
+  "Deux champs, un constructeur, deux accesseurs, un ",
+  { t: "toString", code: true },
+  ", un ",
+  { t: "equals", code: true },
+  ", un ",
+  { t: "hashCode", code: true },
+  ". Comptez les lignes, puis relisez la déclaration du ",
+  { t: "record", code: true },
+  "."
 ]));
 
 enu.push(bulletRuns([
-  "Un record ne fournit ni setter ni constructeur vide. Qu'est-ce que cela vous interdit, et pourquoi est-ce souhaitable ici ? Voir ",
+  "Un ",
+  { t: "record", code: true },
+  " ne fournit ni setter ni constructeur vide. Qu'est-ce que cela vous interdit, et pourquoi est-ce souhaitable ici ? Voir ",
   { t: "CC-OBJ.2", code: true },
   "."
 ]));

@@ -240,6 +240,11 @@ def traiter_run(run, titre, rapport):
     if est_consolas(rpr_int):
         if couleur(rpr_int) in COULEURS_LIENS:
             return run
+        if titre:
+            # Du code dans un titre garde sa taille, plus grande que 9 pt :
+            # seule la couleur suit la regle (ENU.4, 17/10/2026).
+            garde = [e for e in enfants(rpr_int) if e[0] != "w:color"] + [("w:color", COULEUR_CODE)]
+            return ouverture + recomposer(garde) + reste + "</w:r>"
         return ouverture + rpr_code(rpr_int) + reste + "</w:r>"
 
     # Texte ordinaire : un seul <w:t>, rien d'autre (tabulation, champ...).
