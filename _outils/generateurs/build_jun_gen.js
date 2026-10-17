@@ -135,7 +135,7 @@ jun.push(bulletRuns([
 jun.push(bullet("et dans ce cas, le contenu n'a pas bougé."));
 jun.push(encadre([
   [{ t: "Ce n'est pas encore une classe de test JUnit", b: true }],
-  ["C'est le raisonnement qu'une classe de test met en œuvre, écrit à la main pour qu'on puisse le vérifier automatiquement. Chaque clause vérifiée correspond à ce que serait une méthode @Test."],
+  ["C'est le raisonnement qu'une classe de test met en pratique, écrit à la main pour qu'on puisse le vérifier automatiquement. Chaque clause vérifiée correspond à ce que serait une méthode @Test."],
   ["Ne lisez pas le code des implémentations pour trouver leurs défauts. Repérer un bug en lisant ne prouve rien ; un test qui échoue, si — et c'est ce qui continuera de fonctionner quand le code changera dans six mois."]
 ]));
 jun.push(h2("Comment vérifier votre code"));

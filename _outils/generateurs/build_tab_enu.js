@@ -523,7 +523,7 @@ enu.push(runs([
   { t: "Une enum est une classe. ", b: true },
   "Elle peut donc contenir des champs, un constructeur et des méthodes, ce qu'",
   { t: "ENU.3", code: true },
-  " met en œuvre."
+  " met en pratique."
 ]));
 enu.push(saut());
 
@@ -587,6 +587,15 @@ enu.push(bulletRuns([
   { t: "CC-NOM.7", code: true },
   " et ",
   { t: "CC-NOM.4", code: true },
+  "."
+]));
+enu.push(bulletRuns([
+  "Dans la version sans test, d'où vient le 3 ? C'est le nombre de couleurs, écrit en dur : avec une quatrième couleur, il faudrait penser à le changer aussi. Remplacez-le par ",
+  { t: "CouleurDeFeu.values().length", code: true },
+  " — un tableau a une longueur, pas de ",
+  { t: "size()", code: true },
+  ", réservé aux collections — et vérifiez qu'ajouter une couleur ne demande plus que sa déclaration. Voir ",
+  { t: "CC-NOM.7", code: true },
   "."
 ]));
 enu.push(saut());

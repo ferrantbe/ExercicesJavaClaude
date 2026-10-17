@@ -4,7 +4,7 @@ package be.ephec.java.jun.e02;
  * JUN.2 — A COMPLETER.
  *
  * Ce n'est pas encore une classe de test JUnit : c'est le RAISONNEMENT qu'une
- * classe de test met en oeuvre, ecrit a la main pour qu'on puisse le verifier.
+ * classe de test met en pratique, ecrit a la main pour qu'on puisse le verifier.
  */
 public class Verificateur {
 

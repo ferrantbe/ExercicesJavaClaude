@@ -232,7 +232,7 @@ qu'on attend de vous entre deux séances.
 
 **Note**
 Un module suit toujours le même chemin. Les slides posent les notions. Une
-démonstration les met en œuvre devant vous, dans IntelliJ. Vous pratiquez
+démonstration les met en pratique devant vous, dans IntelliJ. Vous pratiquez
 ensuite avec les exercices du fascicule, puis vous faites avancer GameHub,
 le projet qui traverse toute l'année.
 

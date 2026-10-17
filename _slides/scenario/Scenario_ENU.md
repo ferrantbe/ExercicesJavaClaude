@@ -569,7 +569,7 @@ L'intérêt se voit à l'usage. Le taux d'une remise appartient à la remise, et
 classe qui calcule un prix. Écrire `SPECIAL.appliquer(prix)` place le calcul là où vit
 l'information, et évite qu'une table de correspondance traîne ailleurs dans le programme.
 
-C'est ce mécanisme qu'ENU.3 met en œuvre : le libellé français d'une couleur de carte est
+C'est ce mécanisme qu'ENU.3 met en pratique : le libellé français d'une couleur de carte est
 porté par la couleur elle-même, et la carte se contente de le demander.
 
 Le code complet, à exécuter : demos, classe `demo.enu.slides.UneEnumPortantDesDonnees`.
