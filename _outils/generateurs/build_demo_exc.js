@@ -13,8 +13,10 @@ function aDire(texte) {
 }
 
 function couverture(c, module, titre, duree, quand) {
+  // Logo de l'EPHEC en haut a gauche (16/10/2026), comme a l'examen.
+  c.push(require(__dirname + "/boite.js").logo());
   c.push(new Paragraph({
-    spacing: { before: 1000, after: 100 }, alignment: AlignmentType.CENTER,
+    spacing: { before: 500, after: 100 }, alignment: AlignmentType.CENTER,
     children: [new TextRun({ text: "Démonstration du cours", size: 24, color: GREY })]
   }));
   c.push(new Paragraph({

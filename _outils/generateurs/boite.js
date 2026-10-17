@@ -3,7 +3,7 @@ const {
   Document, Packer, Paragraph, TextRun, HeadingLevel, AlignmentType,
   Table, TableRow, TableCell, WidthType, ShadingType, BorderStyle,
   PageBreak, LevelFormat, convertInchesToTwip,
-  Bookmark, InternalHyperlink
+  Bookmark, InternalHyperlink, ImageRun
 } = require("docx");
 
 const MONO = "Consolas";
@@ -35,10 +35,19 @@ function typo(texte) {
     .replace(/« /g, "«" + INSECABLE);
 }
 
+/**
+ * La ligne « Package : … » qui suit le titre d'un exercice reste attachee
+ * au paragraphe suivant. Le titre l'est deja a elle (keepNext des h1) :
+ * sans ce second maillon, titre et ligne de package pouvaient finir seuls
+ * en bas de page, l'enonce commencant sur la page d'apres.
+ */
+const LIGNE_PACKAGE = /^Package\s*:/;
+
 function p(text, o = {}) {
   return new Paragraph({
     spacing: { after: o.after === undefined ? 120 : o.after },
     alignment: o.align,
+    keepNext: o.keepNext || LIGNE_PACKAGE.test(String(text)),
     children: [new TextRun({ text: typo(text), bold: o.bold, italics: o.italic, size: o.size || 22, color: o.color })]
   });
 }
@@ -73,7 +82,8 @@ function morceaux(list) {
 }
 
 const runs = (l, o = {}) => new Paragraph({
-  spacing: { after: o.after === undefined ? 120 : o.after }, children: morceaux(l)
+  spacing: { after: o.after === undefined ? 120 : o.after }, keepNext: o.keepNext,
+  children: morceaux(l)
 });
 
 const bullet = (t) => new Paragraph({
@@ -214,52 +224,185 @@ function encadre(lignes, couleur) {
 const verif = (l) => encadre(l);
 const saut = () => new Paragraph({ children: [new PageBreak()] });
 
+/**
+ * Les titres de section communs a tous les exercices.
+ *
+ * Ils sont definis ici pour qu'un changement de libelle se fasse en un
+ * seul endroit (renommage du 16/10/2026 : « Specifications » et
+ * « Verification » sont devenus plus explicites pour les etudiants).
+ */
+const TITRES = {
+  objectif: "Objectif",
+  contexte: "Contexte",
+  enonce: "Énoncé",
+  specifications: "Spécifications à respecter",
+  fourni: "Ce qui vous est fourni",
+  exemples: "Exemples attendus",
+  verification: "Comment vérifier votre code",
+  observer: "Ce que vous devez observer",
+  questions: "Questions à se poser"
+};
+
+/**
+ * Le logo de l'EPHEC, en haut a gauche de chaque page de garde.
+ *
+ * Repris de la page de garde de l'examen de seconde session, a la meme
+ * taille (4,2 x 2 cm). L'image ne fait que 363 x 173 pixels : suffisant a
+ * cette taille, a remplacer si une version de meilleure definition existe.
+ */
+const LOGO = fs.readFileSync(__dirname + "/logo_ephec.png");
+function logo() {
+  return new Paragraph({
+    spacing: { after: 0 },
+    children: [new ImageRun({
+      type: "png", data: LOGO,
+      transformation: { width: 159, height: 76 },
+      altText: { name: "logo", title: "EPHEC", description: "Logo de l'EPHEC" }
+    })]
+  });
+}
+
 function couverture(c, theme, titre, sous) {
+  c.push(logo());
   c.push(new Paragraph({
-    spacing: { before: 1200, after: 120 }, alignment: AlignmentType.CENTER,
-    children: [new TextRun({ text: "Programmation orientée objet — Java", size: 26, color: GREY })]
+    spacing: { before: 700, after: 120 }, alignment: AlignmentType.CENTER,
+    children: [new TextRun({ text: typo("Programmation orientée objet — Java"), size: 26, color: GREY })]
   }));
   c.push(new Paragraph({
     spacing: { after: 100 }, alignment: AlignmentType.CENTER,
-    children: [new TextRun({ text: "Thème " + theme, bold: true, size: 52, color: ACCENT })]
+    children: [new TextRun({ text: typo("Thème " + theme), bold: true, size: 52, color: ACCENT })]
   }));
   c.push(new Paragraph({
     spacing: { after: 200 }, alignment: AlignmentType.CENTER,
-    children: [new TextRun({ text: titre, bold: true, size: 32, color: ACCENT })]
+    children: [new TextRun({ text: typo(titre), bold: true, size: 32, color: ACCENT })]
   }));
   c.push(new Paragraph({
     spacing: { after: 800 }, alignment: AlignmentType.CENTER,
-    children: [new TextRun({ text: sous, size: 26, color: GREY })]
+    children: [new TextRun({ text: typo(sous), size: 26, color: GREY })]
   }));
   c.push(p("EPHEC — Bachelier en informatique, niveau 2", { align: AlignmentType.CENTER, color: GREY }));
   c.push(p("Année académique 2026-2027", { align: AlignmentType.CENTER, color: GREY }));
   c.push(saut());
 }
 
+/**
+ * Ce que chaque section d'un exercice apporte, dans l'ordre ou elles
+ * apparaissent. Le fascicule FX n'a pas de tests automatiques : la ligne
+ * de verification y est remplacee par ce qu'il faut observer a l'ecran.
+ */
+function sectionsExercice(theme) {
+  const verifier = theme === "FX"
+    ? [TITRES.observer, "Ce que la fenêtre doit montrer et comment elle doit réagir. Les interfaces JavaFX ne sont pas testées automatiquement : c'est vous qui vérifiez, en manipulant."]
+    : [TITRES.verification, "La classe de test à lancer et ce qu'elle contrôle. Tant qu'elle n'est pas entièrement verte, l'exercice n'est pas terminé."];
+  return [
+    [TITRES.objectif, "Ce que l'exercice vous fait pratiquer, en une ou deux phrases."],
+    [TITRES.contexte, "Facultatif. La situation ou le rappel qui éclaire l'énoncé."],
+    [TITRES.enonce, "Ce qu'il faut écrire. Un énoncé long est parfois découpé en deux parties."],
+    [TITRES.specifications, "Les noms, les signatures et les comportements imposés. Les tests s'appuient dessus : respectez-les à la lettre."],
+    [TITRES.fourni, "Les classes déjà écrites que vous trouverez dans le package de l'exercice."],
+    [TITRES.exemples, "Des valeurs d'entrée et les résultats qu'elles doivent produire."],
+    verifier,
+    [TITRES.questions, "Des questions pour prendre du recul une fois l'exercice réussi. Il n'y a rien à rendre : ce sont elles qui fixent ce que vous avez appris."]
+  ];
+}
+
+/** Le tableau des sections, pose dans l'encadre gris. */
+function tableauSections(theme) {
+  const w = [2500, 6380];
+  const cellule = (contenu, largeur, o = {}) => new TableCell({
+    width: { size: largeur, type: WidthType.DXA },
+    shading: { type: ShadingType.CLEAR, fill: o.fill || "FFFFFF" },
+    margins: { top: 50, bottom: 50, left: 100, right: 100 },
+    children: [new Paragraph({
+      spacing: { after: 0 },
+      children: [new TextRun({ text: typo(contenu), bold: o.bold, size: 20 })]
+    })]
+  });
+  return new Table({
+    columnWidths: w, width: { size: w[0] + w[1], type: WidthType.DXA },
+    rows: [
+      new TableRow({ tableHeader: true, children: [
+        cellule("Section", w[0], { bold: true, fill: "D9D9D9" }),
+        cellule("Ce qu'elle vous apporte", w[1], { bold: true, fill: "D9D9D9" })
+      ] }),
+      ...sectionsExercice(theme).map(([titre, sens]) => new TableRow({
+        cantSplit: true,
+        children: [cellule(titre, w[0], { bold: true }), cellule(sens, w[1])]
+      }))
+    ]
+  });
+}
+
+/**
+ * L'introduction du fascicule, dans un encadre gris clair.
+ *
+ * Le gris dit au lecteur que ce bloc n'est pas un exercice mais la facon
+ * de lire ceux qui suivent (demande du 16/10/2026). Le tableau des
+ * exercices reste en dehors : c'est un sommaire, et il devra pouvoir etre
+ * remplace par une table des matieres dans le recueil unique.
+ */
+function encadreIntroduction(theme) {
+  const para = (l, o = {}) => new Paragraph({
+    spacing: { before: o.before || 0, after: o.after === undefined ? 100 : o.after },
+    keepNext: true, children: morceaux(l)
+  });
+  return new Table({
+    columnWidths: [W], width: { size: W, type: WidthType.DXA },
+    borders: {
+      top: { style: BorderStyle.SINGLE, size: 2, color: "BFBFBF" },
+      bottom: { style: BorderStyle.SINGLE, size: 2, color: "BFBFBF" },
+      left: { style: BorderStyle.SINGLE, size: 2, color: "BFBFBF" },
+      right: { style: BorderStyle.SINGLE, size: 2, color: "BFBFBF" },
+      insideHorizontal: { style: BorderStyle.NONE }, insideVertical: { style: BorderStyle.NONE }
+    },
+    rows: [new TableRow({
+      cantSplit: true,
+      children: [new TableCell({
+        width: { size: W, type: WidthType.DXA },
+        shading: { type: ShadingType.CLEAR, fill: "F2F2F2" },
+        margins: { top: 140, bottom: 140, left: 180, right: 180 },
+        children: [
+          para([
+            "Les exercices de ce thème se trouvent tous dans ",
+            { t: "be.ephec.java." + theme.toLowerCase(), code: true },
+            ", chacun dans un sous-package."
+          ]),
+          para([
+            { t: "Chaque exercice est autonome. ", b: true },
+            "Son package contient tout ce dont il a besoin et n'importe jamais une classe d'un autre exercice. ",
+            "Quand un exercice reprend une classe d'un exercice précédent, vous partez d'une copie : ",
+            "vous pouvez donc en rater un sans être bloqué pour la suite."
+          ]),
+          para([
+            { t: "Comment lancer les tests, comment lire un test vert, pourquoi laisser votre code compilable : ", b: true },
+            "tout cela est commun à tous les thèmes et se trouve dans un document à part, ",
+            { t: "Memento_Exercices.docx", code: true },
+            ". Lisez-le une fois en début d'année."
+          ]),
+          para([{ t: "Comment se lit un exercice", b: true }], { before: 120, after: 60 }),
+          para(["Chaque exercice suit la même structure. Toutes les sections ne figurent pas dans tous les exercices."]),
+          tableauSections(theme),
+          para([
+            "D'autres titres apparaissent ponctuellement : un piège à connaître, une remarque, un rappel. ",
+            "Ce sont des encarts propres à l'exercice, à lire avant de commencer."
+          ], { before: 120, after: 0 })
+        ]
+      })]
+    })]
+  });
+}
+
 function modeEmploi(c, theme, lignes) {
   c.push(h1("Comment travailler ces exercices"));
+  c.push(encadreIntroduction(theme));
+  c.push(new Paragraph({ spacing: { after: 120 }, children: [] }));
   c.push(runs([
-    "Les exercices de ce thème vivent sous ",
-    { t: "be.ephec.java." + theme.toLowerCase(), code: true },
-    ", un sous-package par exercice."
-  ]));
-  // Le dernier argument demande des liens vers les exercices.
-  c.push(tableau(["Exercice", "Package", "Sujet"], lignes, undefined, [1], true));
-  c.push(runs([
-    { t: "Chaque exercice est autonome. ", b: true },
-    "Son package contient tout ce dont il a besoin et n'importe jamais une classe d'un autre exercice."
-  ]));
-  c.push(runs([
-    { t: "Comment lancer les tests, comment lire un test vert, pourquoi laisser votre code compilable : ", b: true },
-    "tout cela est commun aux quinze thèmes, et vit dans un document à part — ",
-    { t: "Memento_Exercices.docx", code: true },
-    ". Lisez-le une fois en début d'année."
-  ]));
-  c.push(runs([
-    "Ce fascicule-ci ne parle que de son thème. Les codes du tableau ci-dessus sont ",
+    "Les exercices du thème. Leurs codes sont ",
     { t: "cliquables", b: true },
     " : ils mènent directement à l'exercice."
-  ]));
+  ], { keepNext: true }));
+  // Le dernier argument demande des liens vers les exercices.
+  c.push(tableau(["Exercice", "Package", "Sujet"], lignes, undefined, [1], true));
 }
 
 function doc(children, titre) {
@@ -284,6 +427,6 @@ function doc(children, titre) {
 
 module.exports = {
   p, runs, bullet, bulletRuns, code, h1, h2, cell, tableau, typo,
-  encadre, verif, saut, couverture, modeEmploi, doc,
+  encadre, verif, saut, couverture, modeEmploi, doc, logo, TITRES,
   Packer, MONO, ACCENT, GREY, W, AlignmentType, Paragraph, TextRun, PageBreak
 };

@@ -73,6 +73,7 @@ const W = 9360;
 
 function p(text, o = {}) {
   return new Paragraph({
+    keepNext: /^Package\s*:/.test(String(text)),
     spacing: { after: o.after === undefined ? 120 : o.after },
     alignment: o.align,
     children: [new TextRun({ text: typo(text), bold: o.bold, italics: o.italic, size: o.size || 22, color: o.color })]
@@ -191,52 +192,10 @@ function encadre(lignes, couleur) {
 const verif = (l) => encadre(l);
 const saut = () => new Paragraph({ children: [new PageBreak()] });
 
-function couverture(c, theme, titre, sous) {
-  c.push(new Paragraph({
-    spacing: { before: 1200, after: 120 }, alignment: AlignmentType.CENTER,
-    children: [new TextRun({ text: typo("Programmation orientée objet — Java"), size: 26, color: GREY })]
-  }));
-  c.push(new Paragraph({
-    spacing: { after: 100 }, alignment: AlignmentType.CENTER,
-    children: [new TextRun({ text: typo("Thème " + theme), bold: true, size: 52, color: ACCENT })]
-  }));
-  c.push(new Paragraph({
-    spacing: { after: 200 }, alignment: AlignmentType.CENTER,
-    children: [new TextRun({ text: typo(titre), bold: true, size: 32, color: ACCENT })]
-  }));
-  c.push(new Paragraph({
-    spacing: { after: 800 }, alignment: AlignmentType.CENTER,
-    children: [new TextRun({ text: typo(sous), size: 26, color: GREY })]
-  }));
-  c.push(p("EPHEC — Bachelier en informatique, niveau 2", { align: AlignmentType.CENTER, color: GREY }));
-  c.push(p("Année académique 2026-2027", { align: AlignmentType.CENTER, color: GREY }));
-  c.push(saut());
-}
-
-function modeEmploi(c, theme, lignes) {
-  c.push(h1("Comment travailler ces exercices"));
-  c.push(runs([
-    "Les exercices de ce thème vivent sous ",
-    { t: "be.ephec.java." + theme.toLowerCase(), code: true },
-    ", un sous-package par exercice."
-  ]));
-  c.push(tableau(["Exercice", "Package", "Sujet"], lignes));
-  c.push(runs([
-    { t: "Chaque exercice est autonome. ", b: true },
-    "Son package contient tout ce dont il a besoin et n'importe jamais une classe d'un autre exercice."
-  ]));
-  c.push(runs([
-  { t: "Comment lancer les tests, comment lire un test vert, pourquoi laisser votre code compilable : ", b: true },
-  "tout cela est commun aux quinze thèmes, et vit dans un document à part — ",
-  { t: "Memento_Exercices.docx", code: true },
-  ". Lisez-le une fois en début d'année."
-]));
-  c.push(runs([
-  "Ce fascicule-ci ne parle que de son thème. Les codes du tableau ci-dessus sont ",
-  { t: "cliquables", b: true },
-  " : ils mènent directement à l'exercice."
-]));
-}
+// Page de garde et introduction : celles de la boite commune, pour que
+// le logo, l'encadre gris et la structure des exercices soient les memes
+// dans tous les fascicules (16/10/2026).
+const { couverture, modeEmploi } = require(__dirname + "/boite.js");
 
 function doc(children, titre) {
   return new Document({
@@ -328,7 +287,7 @@ tab.push(runs([
   " : il annonce ce qu'il fait, demande n à l'utilisateur, et affiche la matrice. Il ne devrait lui rester qu'une seule instruction d'affichage."
 ]));
 tab.push(p("Une ligne d'annonce suffit — « Ce programme génère une matrice carrée contenant les chiffres de 1 à n². » Sans elle, l'utilisateur voit surgir une question sans savoir ce qu'on attend de lui."));
-tab.push(h2("Vérification"));
+tab.push(h2("Comment vérifier votre code"));
 tab.push(verif([
   { t: "be.ephec.java.tab.e01.MatriceTest", code: true },
   { t: "Vérifie les matrices 1×1, 3×3 et 4×4, le cas d'une taille nulle, et le format exact rendu par enTexte." }
@@ -387,7 +346,7 @@ tab.push(runs([
   "."
 ]));
 tab.push(p("Une ligne d'annonce suffit — « Ce programme calcule un triangle de Pascal dont vous spécifiez la taille. » Sans elle, l'utilisateur voit surgir une question sans savoir ce qu'on attend de lui."));
-tab.push(h2("Vérification"));
+tab.push(h2("Comment vérifier votre code"));
 tab.push(verif([
   { t: "be.ephec.java.tab.e02.PascalTest", code: true },
   { t: "Vérifie le triangle à cinq lignes, la longueur de chaque ligne, la règle de construction sur l'ensemble du triangle, et le cas de zéro ligne." }
@@ -434,7 +393,7 @@ tab.push(runs([
   { t: "JUN", code: true },
   "."
 ]));
-tab.push(h2("Vérification"));
+tab.push(h2("Comment vérifier votre code"));
 tab.push(verif([
   { t: "be.ephec.java.tab.e03.GameTest", code: true },
   { t: "Vérifie les deux méthodes, y compris les cas d'égalité — qui doivent rendre le premier joueur. Lancez ensuite le Programme : il joue une vraie partie." }
@@ -495,7 +454,7 @@ tab.push(runs([
   { t: "false", code: true },
   " si le tableau est plein."
 ]));
-tab.push(h2("Vérification"));
+tab.push(h2("Comment vérifier votre code"));
 tab.push(verif([
   { t: "be.ephec.java.tab.e04.VenteTest", code: true },
   { t: "Vérifie la voiture, le calcul du prix réel avec et sans réduction, le format exact d'enTexte, l'accumulation des ventes et du chiffre d'affaires, et le refus de la onzième vente." }
@@ -604,7 +563,7 @@ enu.push(runs([
   { t: "Programme", code: true },
   " : créez un feu, tentez de le faire changer alors qu'il est inactif, activez-le, faites-le changer plusieurs fois, puis désactivez-le."
 ]));
-enu.push(h2("Vérification"));
+enu.push(h2("Comment vérifier votre code"));
 enu.push(verif([
   { t: "be.ephec.java.enu.e01.FeuDeSignalisationTest", code: true },
   { t: "Vérifie l'ordre des trois constantes, l'état d'un feu neuf, l'immobilité d'un feu inactif, le cycle complet des couleurs et le format d'enTexte." }
@@ -664,7 +623,7 @@ enu.push(encadre([
   ["Si vos conversions rendent des valeurs fausses, regardez le type des opérations. 9 / 5 vaut 1 en Java, parce que ce sont deux entiers et que la division entière tronque. Il suffit qu'un seul des opérandes soit un double pour que le calcul devienne décimal."],
   ["Le message d'échec du test vous le rappellera, mais autant le savoir avant."]
 ]));
-enu.push(h2("Vérification"));
+enu.push(h2("Comment vérifier votre code"));
 enu.push(verif([
   { t: "be.ephec.java.enu.e02.TemperatureTest", code: true },
   { t: "Vérifie les deux conversions du cours, les repères classiques — 0 °C, l'ébullition, et −40 qui est la seule température identique dans les deux unités — et le comportement de setValue." }
@@ -758,7 +717,7 @@ enu.push(runs([
   " eux."
 ]));
 enu.push(p("Le gain n'est pas la longueur du code, c'est qu'il n'y a plus de condition à lire — donc plus d'endroit où se tromper."));
-enu.push(h2("Vérification"));
+enu.push(h2("Comment vérifier votre code"));
 enu.push(verif([
   { t: "be.ephec.java.enu.e03.DeckTest", code: true },
   { t: "Vérifie la taille des deux énumérations, les libellés, le texte des cartes, la présence de 52 cartes toutes différentes, et que le mélange ne perd ni ne duplique aucune carte tout en changeant réellement l'ordre." }
@@ -828,7 +787,7 @@ enu.push(runs([
   { t: "tableau", b: true },
   " d'étudiants et affichez chacun d'eux suivi de « reussi » ou « echec »."
 ]));
-enu.push(h2("Vérification"));
+enu.push(h2("Comment vérifier votre code"));
 enu.push(verif([
   { t: "be.ephec.java.enu.e04.StudentTest", code: true },
   { t: "Les trois premiers tests vérifient le travail du COMPILATEUR : les deux composants et leur ordre, les accesseurs sans préfixe get, le toString et le equals générés. Vous n'avez rien écrit de tout cela." },

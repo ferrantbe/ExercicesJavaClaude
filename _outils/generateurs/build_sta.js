@@ -107,7 +107,7 @@ sta.push(encadre([
   [{ t: "L'erreur à commettre exprès", b: true }],
   ["Écrivez return this.numero; dans nombreEmises(). Lisez le refus du compilateur : il explique tout le thème en une phrase."]
 ]));
-sta.push(h2("Vérification"));
+sta.push(h2("Comment vérifier votre code"));
 sta.push(verif([
   ["nombreEmises() avant toute création", "0"],
   ["numéro de la première réservation", "1"],
@@ -191,7 +191,7 @@ sta.push(encadre([
   ["plus() rend une NOUVELLE durée : ni celle sur laquelle on l'appelle, ni celle qu'on lui passe ne changent."],
   ["C'est l'immuabilité rencontrée en TMP.2 avec LocalDate, appliquée cette fois à une classe que vous écrivez. Le champ étant final, vous n'avez de toute façon pas le choix."]
 ]));
-sta.push(h2("Vérification"));
+sta.push(h2("Comment vérifier votre code"));
 sta.push(verif([
   ["deHeures(2).enMinutes()", "120"],
   ["deHeures(3).plus(deMinutes(35))", "3h35"],

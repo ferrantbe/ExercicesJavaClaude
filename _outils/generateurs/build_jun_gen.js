@@ -76,7 +76,7 @@ jun.push(runs([
   " : ne rendez pas 0, n'attrapez rien."
 ]));
 jun.push(p("Ce second point mérite qu'on s'y arrête. Rendre 0 ferait passer une erreur pour un résultat, et le programme continuerait avec une valeur fausse. C'est exactement ce que CC-ERR.1 du mémento Clean Code proscrit."));
-jun.push(h2("Vérification"));
+jun.push(h2("Comment vérifier votre code"));
 jun.push(verif([
   { t: "be.ephec.java.jun.e01.CalculatriceTest", code: true },
   { t: "Cinq tests, un par opération plus celui de la division par zéro. Ils sont votre énoncé autant que votre vérification." }
@@ -138,7 +138,7 @@ jun.push(encadre([
   ["C'est le raisonnement qu'une classe de test met en œuvre, écrit à la main pour qu'on puisse le vérifier automatiquement. Chaque clause vérifiée correspond à ce que serait une méthode @Test."],
   ["Ne lisez pas le code des implémentations pour trouver leurs défauts. Repérer un bug en lisant ne prouve rien ; un test qui échoue, si — et c'est ce qui continuera de fonctionner quand le code changera dans six mois."]
 ]));
-jun.push(h2("Vérification"));
+jun.push(h2("Comment vérifier votre code"));
 jun.push(verif([
   { t: "be.ephec.java.jun.e02.VerificateurTest", code: true },
   { t: "Confronte votre vérificateur à la bonne implémentation et aux trois défectueuses. Chaque message d'échec vous indique ce que la vérification manquante aurait dû observer." },
@@ -196,7 +196,7 @@ jun.push(runs([
   { t: "assertEquals(14.0, moyenne, 0.001)", code: true },
   ". Sans elle, deux calculs mathématiquement égaux peuvent différer au dernier chiffre."
 ]));
-jun.push(h2("Vérification"));
+jun.push(h2("Comment vérifier votre code"));
 jun.push(verif([
   { t: "be.ephec.java.jun.e03.RedactionTest", code: true },
   { t: "Contrôle que votre classe existe, qu'elle compte au moins cinq méthodes @Test, que chacune porte un @DisplayName, et que leurs noms décrivent un comportement plutôt qu'un numéro." },
@@ -303,7 +303,7 @@ gen.push(runs([
   { t: "new Paire<Integer>(12, \"seize\")", code: true },
   " et lisez ce que dit le compilateur. Cette erreur — refusée avant même que le programme ne démarre — est exactement le service que rend la généricité."
 ]));
-gen.push(h2("Vérification"));
+gen.push(h2("Comment vérifier votre code"));
 gen.push(verif([
   { t: "be.ephec.java.gen.e01.PaireTest", code: true },
   { t: "Vérifie une paire d'Integer, une paire de String, le format du toString, et le fait qu'aucun transtypage ne soit nécessaire pour additionner les deux valeurs." }
@@ -361,7 +361,7 @@ gen.push(runs([
   { t: "Couple2<Integer, Integer>", code: true },
   " est parfaitement valide."
 ]));
-gen.push(h2("Vérification"));
+gen.push(h2("Comment vérifier votre code"));
 gen.push(verif([
   { t: "be.ephec.java.gen.e02.Couple2Test", code: true },
   { t: "Vérifie deux types différents, deux types identiques, la combinaison Integer et Double, et le format du toString." }
@@ -410,7 +410,7 @@ gen.push(runs([
   { t: "Double", code: true },
   "."
 ]));
-gen.push(h2("Vérification"));
+gen.push(h2("Comment vérifier votre code"));
 gen.push(verif([
   { t: "be.ephec.java.gen.e03.TripletTest", code: true },
   { t: "Vérifie les deux classes, y compris le cas d'un TripletD dont les trois types coïncident." }
@@ -462,7 +462,7 @@ gen.push(...code([
   "noms(triplet)   ->   \"Ada, Alan, Grace\""
 ]));
 gen.push(p("On peut lire un tel triplet — tout ce qu'il contient est au moins une Personne. On ne peut rien y écrire, et c'est précisément ce qui rend la lecture sûre."));
-gen.push(h2("Vérification"));
+gen.push(h2("Comment vérifier votre code"));
 gen.push(verif([
   { t: "be.ephec.java.gen.e04.AffichageTest", code: true },
   { t: "Vérifie que la même méthode accepte un Triplet<Personne>, un Triplet<Etudiant>, et un Triplet<Personne> contenant un mélange des deux." }
@@ -543,7 +543,7 @@ gen.push(...code([
   "public static <T> T premier(List<T> liste)"
 ]));
 gen.push(p("L'appelant récupère alors un T, pas un Object, et n'a aucun transtypage à écrire. C'est là que la différence se voit."));
-gen.push(h2("Vérification"));
+gen.push(h2("Comment vérifier votre code"));
 gen.push(verif([
   { t: "be.ephec.java.gen.e05.UtilGeneriqueTest", code: true },
   { t: "Vérifie sur une chaîne — y compris vide et d'un caractère —, sur un entier positif et négatif, sur un décimal, et sur un objet quelconque muni d'un toString." }
@@ -603,7 +603,7 @@ gen.push(runs([
   { t: "CC-MET.7", code: true },
   " du mémento Clean Code."
 ]));
-gen.push(h2("Vérification"));
+gen.push(h2("Comment vérifier votre code"));
 gen.push(verif([
   { t: "be.ephec.java.gen.e06.CoupleNommeTest", code: true },
   { t: "Vérifie l'héritage, les accesseurs hérités, la description redéfinie, celle de la classe mère restée intacte, et surtout le polymorphisme : vue comme un Couple, l'instance rend quand même sa propre description." }

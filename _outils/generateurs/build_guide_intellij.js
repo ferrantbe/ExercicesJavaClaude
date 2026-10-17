@@ -268,8 +268,10 @@ const saut = () => new Paragraph({ children: [new PageBreak()] });
 const c = [];
 
 // ===================== COUVERTURE =====================
+// Logo de l'EPHEC en haut a gauche (16/10/2026), comme a l'examen.
+c.push(require(__dirname + "/boite.js").logo());
 c.push(new Paragraph({
-  spacing: { before: 1200, after: 120 }, alignment: AlignmentType.CENTER,
+  spacing: { before: 700, after: 120 }, alignment: AlignmentType.CENTER,
   children: [new TextRun({ text: typo("Programmation orientée objet — Java"), size: 26, color: GREY })]
 }));
 c.push(new Paragraph({

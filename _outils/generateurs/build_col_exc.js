@@ -74,7 +74,7 @@ col.push(runs([
   { t: "Programme", code: true },
   " : il demande n, tire n entiers au hasard entre 0 et 1000, et affiche les deux résultats."
 ]));
-col.push(h2("Vérification"));
+col.push(h2("Comment vérifier votre code"));
 col.push(verif([
   { t: "be.ephec.java.col.e01.TriTest", code: true },
   { t: "Vérifie le tri, le fait que la liste reçue ne soit pas modifiée, le cas de la liste vide, et que le TreeSet soit à la fois trié et débarrassé des doublons." }
@@ -117,7 +117,7 @@ col.push(encadre([
   ["Répondez d'abord avec la HashMap, en triant les clés au moment de les rendre. Puis remplacez la HashMap par une TreeMap et regardez ce que devient nomsDansLOrdre : une seule ligne change dans toute la classe, et le test passe toujours."],
   ["Lequel des deux préférez-vous, et pourquoi ? La réponse dépend de la fréquence à laquelle on demande cet ordre."]
 ]));
-col.push(h2("Vérification"));
+col.push(h2("Comment vérifier votre code"));
 col.push(verif([
   { t: "be.ephec.java.col.e02.AnnuaireTest", code: true },
   { t: "Vérifie la recherche, le cas d'un nom absent, le remplacement d'une fiche de même nom, l'ordre alphabétique et le cas de l'annuaire vide." }
@@ -167,7 +167,7 @@ col.push(runs([
   { t: "scanner.nextLine()", code: true },
   "."
 ]));
-col.push(h2("Vérification"));
+col.push(h2("Comment vérifier votre code"));
 col.push(verif([
   { t: "be.ephec.java.col.e03.NomsTest", code: true },
   { t: "Vérifie la lecture, le cas d'une source vide, le tri sans modification de la liste reçue, et le contenu de la source fournie." },
@@ -222,7 +222,7 @@ col.push(runs([
   " et comparez."
 ]));
 col.push(p("Retenez ce que vous observez : une HashMap ne garantit aucun ordre. Celui que vous voyez dépend du code de hachage des clés, il paraît souvent aléatoire, et surtout il n'est pas stable d'une version de Java à l'autre. Un programme qui s'appuierait dessus fonctionnerait aujourd'hui et pas demain."));
-col.push(h2("Vérification"));
+col.push(h2("Comment vérifier votre code"));
 col.push(verif([
   { t: "be.ephec.java.col.e04.OccurrencesTest", code: true },
   { t: "Vérifie le décompte, le cas d'un mot absent, celui d'un texte vide, le format exact du rapport, et le texte fourni." }
@@ -277,7 +277,7 @@ col.push(encadre([
   ["Écrire une classe entière pour une seule expression est verbeux, et il existe deux écritures plus courtes que vous verrez au thème LAM : la classe anonyme, puis la lambda. Les trois font exactement la même chose."],
   ["La classe nommée a pourtant un avantage qu'on oublie : elle porte un nom, elle se réutilise, et elle se teste séparément — ce que fait justement la classe de test."]
 ]));
-col.push(h2("Vérification"));
+col.push(h2("Comment vérifier votre code"));
 col.push(verif([
   { t: "be.ephec.java.col.e05.FiltrageTest", code: true },
   { t: "Vérifie le prédicat, y compris sur zéro et sur les négatifs, le comptage qui ne supprime rien, la suppression, et le fonctionnement sur une LinkedList." }
@@ -320,7 +320,7 @@ col.push(runs([
   { t: "Collection", code: true },
   ". Et pour compter les doublons, une soustraction suffit — inutile de compter les répétitions une par une."
 ]));
-col.push(h2("Vérification"));
+col.push(h2("Comment vérifier votre code"));
 col.push(verif([
   { t: "be.ephec.java.col.e06.TirageTest", code: true },
   { t: "Vérifie l'élimination des doublons, l'appartenance, le décompte des doublons perdus, et le cas de la liste vide." }
@@ -388,7 +388,7 @@ col.push(runs([
   { t: "CC-ERR.2", code: true },
   " du mémento Clean Code."
 ]));
-col.push(h2("Vérification"));
+col.push(h2("Comment vérifier votre code"));
 col.push(verif([
   { t: "be.ephec.java.col.e07.InscriptionsTest", code: true },
   { t: "Vérifie l'inscription à plusieurs cours, l'ensemble vide pour un inconnu, l'absence d'effet d'une inscription en double, l'ordre alphabétique et le format du rapport." }
@@ -475,7 +475,7 @@ exc.push(encadre([
   ["Le test vérifie qu'après un déplacement refusé, le point n'a pas bougé du tout."],
   ["Si vous écrivez dans les champs avant de vérifier, l'objet reste à moitié déplacé chaque fois que l'exception est levée. Une méthode qui échoue doit laisser l'objet tel qu'elle l'a trouvé — calculez d'abord, vérifiez, et n'écrivez qu'après."]
 ]));
-exc.push(h2("Vérification"));
+exc.push(h2("Comment vérifier votre code"));
 exc.push(verif([
   { t: "be.ephec.java.exc.e01.PointTest", code: true },
   { t: "Vérifie que l'exception est contrôlée, le déplacement valide, le refus, l'intégrité du point après refus, le message exact, et que zéro reste accepté." }
@@ -520,7 +520,7 @@ exc.push(runs([
 exc.push(h2("La question à garder"));
 exc.push(p("Sur un compte à 100, un retrait de 100 et un retrait de 120 rendent tous deux 100. L'appelant peut-il savoir si son retrait a été complet ? Que devrait-il faire pour s'en assurer ?"));
 exc.push(p("Gardez votre réponse : c'est exactement le problème que l'exercice suivant résout."));
-exc.push(h2("Vérification"));
+exc.push(h2("Comment vérifier votre code"));
 exc.push(verif([
   { t: "be.ephec.java.exc.e02.CompteTest", code: true },
   { t: "Vérifie le compte neuf, le dépôt, le retrait possible, le retrait plafonné, et le retrait sur un compte vide." }
@@ -581,7 +581,7 @@ exc.push(encadre([
   ["Si votre réaction est la même dans les trois cas — afficher le problème — un seul catch sur la classe mère suffit, et trois blocs identiques n'apporteraient rien. Si elle devait différer — proposer une correction pour une faute de frappe, rediriger vers une banque étrangère — alors les trois classes distinctes prennent tout leur sens."],
   ["C'est la règle CC-ERR.5 : on ne définit pas une exception par cause technique, mais selon ce que l'appelant doit distinguer. Ici, la hiérarchie offre les deux."]
 ]));
-exc.push(h2("Vérification"));
+exc.push(h2("Comment vérifier votre code"));
 exc.push(verif([
   { t: "be.ephec.java.exc.e03.CompteTest", code: true },
   { t: "Vérifie la hiérarchie des exceptions, le calcul du modulo, l'acceptation d'un IBAN valide, les trois refus avec leur message exact, l'ordre des contrôles, et qu'un seul catch attrape bien les trois." }
@@ -650,7 +650,7 @@ exc.push(runs([
   { t: "Vérifiez enfin ce que la boucle change. ", b: true },
   "Avec votre première version, sans try, le programme s'arrête net à la première erreur : la boucle ne repart pas. Avec les try, elle survit et l'utilisateur peut réessayer. C'est exactement ce que l'exercice veut montrer."
 ]));
-exc.push(h2("Vérification"));
+exc.push(h2("Comment vérifier votre code"));
 exc.push(verif([
   { t: "be.ephec.java.exc.e04.TableauTest", code: true },
   { t: "Vérifie le cas normal, les deux bornes valides, la taille négative, la position hors limites dans les deux sens, et surtout qu'aucune exception ne sort de la méthode." }
@@ -700,7 +700,7 @@ exc.push(runs([
   { t: "Vous ne pouvez pas modifier la classe fautive : ", b: true },
   "traitez le problème là où vous avez la main."
 ]));
-exc.push(h2("Vérification"));
+exc.push(h2("Comment vérifier votre code"));
 exc.push(verif([
   { t: "be.ephec.java.exc.e05.DiagnosticTest", code: true },
   { t: "Vérifie vos cinq réponses et la correction. Les messages d'échec vous mettent sur la voie si vous vous trompez." }

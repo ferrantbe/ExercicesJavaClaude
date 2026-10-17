@@ -32,6 +32,7 @@ fichier explicite : c'est vous qui designez le document.
 | `verifier_squelettes.py` | apres avoir ecrit ou modifie un exercice |
 | `preparer_demo.py` | avant de jouer une demonstration en cours |
 | `livrer.py` | pour fabriquer les archives d'une seance |
+| `style_documents.py` | juste apres la generation, avant la pagination et `typographie.py` : Cormorant Garamond 11, code en Consolas 9 Accent 2 |
 | `typographie.py` | en DERNIER, apres toute regeneration d'un document |
 | `ajouter_pagination.py` | apres avoir (re)genere un document Word |
 | `reparer_liens.py` | apres avoir edite un memento dans Word |
@@ -506,9 +507,17 @@ Un signet plutot qu'un numero de page : le numero bougerait a la premiere
 image ajoutee.
 
 **Les trois generateurs autonomes portent leur propre copie de ce mecanisme**
-— `build_poo.js`, `build_pkg_tmp.js`, `build_tab_enu.js`. C'est la quatrieme
-fois que cette duplication coute une manipulation ; elle merite d'etre
-supprimee un jour.
+— `build_poo.js`, `build_pkg_tmp.js`, `build_tab_enu.js` — pour les signets des
+titres. La page de garde et l'introduction, elles, viennent desormais de
+`boite.js` dans les quinze fascicules (16/10/2026) : `couverture()` pose le logo
+de l'EPHEC, `modeEmploi()` l'encadre gris clair (presentation du theme et
+structure d'un exercice), puis le tableau des exercices. Les titres de section
+communs sont dans `TITRES`.
+
+Le logo (`generateurs/logo_ephec.png`) est repris de la page de garde de
+l'examen. Les demonstrations et les documents generaux le recoivent aussi, par
+`logo()` ; leurs fichiers ayant parfois ete retouches dans Word, il y a ete
+pose dans les `.docx` existants plutot qu'en les regenerant.
 
 ## Le tableau de bord se compte tout seul
 

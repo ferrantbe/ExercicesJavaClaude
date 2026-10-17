@@ -74,6 +74,7 @@ const W_TOTAL = 9360; // largeur utile A4 marges 1"
 
 function p(text, opts = {}) {
   return new Paragraph({
+    keepNext: /^Package\s*:/.test(String(text)),
     spacing: { after: opts.after === undefined ? 120 : opts.after },
     alignment: opts.align,
     children: [new TextRun({
@@ -134,7 +135,7 @@ function code(lines) {
 function h1(text) {
   return new Paragraph({
     heading: HeadingLevel.HEADING_1,
-    spacing: { before: 360, after: 160 },
+    spacing: { before: 360, after: 160 }, keepNext: true,
     children: [(() => {
       const trouve = CODE_EXERCICE.exec(text);
       const t = new TextRun({ text: typo(text), bold: true, size: 30, color: ACCENT });
@@ -146,7 +147,7 @@ function h1(text) {
 function h2(text) {
   return new Paragraph({
     heading: HeadingLevel.HEADING_2,
-    spacing: { before: 240, after: 100 },
+    spacing: { before: 240, after: 100 }, keepNext: true,
     children: [new TextRun({ text, bold: true, size: 24, color: GREY })]
   });
 }
@@ -226,28 +227,11 @@ function verif(texte) {
 
 const children = [];
 
-// ---------- Page de garde ----------
-children.push(new Paragraph({
-  spacing: { before: 1200, after: 120 },
-  alignment: AlignmentType.CENTER,
-  children: [new TextRun({ text: typo("Programmation orientée objet — Java"), size: 26, color: GREY })]
-}));
-children.push(new Paragraph({
-  spacing: { after: 200 },
-  alignment: AlignmentType.CENTER,
-  children: [new TextRun({ text: typo("Thème POO"), bold: true, size: 56, color: ACCENT })]
-}));
-children.push(new Paragraph({
-  spacing: { after: 800 },
-  alignment: AlignmentType.CENTER,
-  children: [new TextRun({
-    text: "Classes, objets, encapsulation, saisie au clavier", size: 26, color: GREY })]
-}));
-children.push(p("EPHEC — Bachelier en informatique, niveau 2", { align: AlignmentType.CENTER, color: GREY }));
-children.push(p("Année académique 2026-2027", { align: AlignmentType.CENTER, color: GREY }));
-children.push(new Paragraph({ children: [new PageBreak()] }));
+// ---------- Page de garde et introduction ----------
+// Celles de la boite commune (16/10/2026) : logo, encadre gris, structure
+// des exercices et tableau des exercices sont les memes partout.
+const B = require(__dirname + "/boite.js");
 
-// ---------- Mode d'emploi ----------
 function runsSimple(list) {
   return new Paragraph({
     spacing: { after: 120 },
@@ -260,43 +244,15 @@ function runsSimple(list) {
         }))
   });
 }
-
-children.push(h1("Comment travailler ces exercices"));
-
-children.push(runs([
-  "Chaque thème du cours correspond à un package du projet ",
-  { t: "ExercicesJava", code: true },
-  " et à un fascicule comme celui-ci. Les exercices de ce thème vivent sous ",
-  { t: "be.ephec.java.poo", code: true },
-  ", un sous-package par exercice."
-]));
-
-children.push(specTable([
+B.couverture(children, "POO", "Classes et objets",
+  "Classes, objets, encapsulation, saisie au clavier");
+B.modeEmploi(children, "POO", [
   ["POO.1", "be.ephec.java.poo.e01", "Une première classe, sans encapsulation"],
   ["POO.2", "be.ephec.java.poo.e02", "La même classe, encapsulée"],
   ["POO.3", "be.ephec.java.poo.e03", "L'âge n'est pas une donnée à stocker"],
   ["POO.4", "be.ephec.java.poo.e04", "Saisie au clavier et passage de paramètres"],
   ["POO.5", "be.ephec.java.poo.e05", "Conversion de base, et logique testable"]
-], ["Exercice", "Package", "Sujet"]));
-
-children.push(runs([
-  { t: "Chaque exercice est autonome. ", b: true },
-  "Son package contient tout ce dont il a besoin, et n'importe jamais une classe d'un ",
-  "autre exercice. Quand un exercice reprend une classe du précédent, vous en repartez ",
-  "d'une copie : vous pouvez donc en rater un sans être bloqué pour la suite."
-]));
-
-children.push(runs([
-  { t: "Comment lancer les tests, comment lire un test vert, pourquoi laisser votre code compilable : ", b: true },
-  "tout cela est commun aux quinze thèmes, et vit dans un document à part — ",
-  { t: "Memento_Exercices.docx", code: true },
-  ". Lisez-le une fois en début d'année."
-]));
-children.push(runs([
-  "Ce fascicule-ci ne parle que de son thème. Les codes du tableau ci-dessus sont ",
-  { t: "cliquables", b: true },
-  " : ils mènent directement à l'exercice."
-]));
+]);
 
 children.push(h1("POO.1 — Une première classe"));
 children.push(p("Package : be.ephec.java.poo.e01", { italic: true, color: GREY }));
@@ -305,7 +261,7 @@ children.push(h2("Objectif"));
 children.push(p("Écrire une classe, l'instancier, appeler ses méthodes. Et constater au passage ce qu'implique un champ public."));
 
 children.push(h2("Énoncé"));
-children.push(p("Créez une classe Personne qui modélise une personne par son état civil minimal."));
+children.push(runs(["Créez une classe ", { t: "Personne", code: true }, " qui modélise une personne par son état civil minimal."]));
 children.push(runs([
   "Elle présente quatre champs, tous ",
   { t: "public", code: true },
@@ -330,7 +286,7 @@ children.push(runs([
   "prénom, son nom et son âge."
 ]));
 
-children.push(h2("Spécifications"));
+children.push(h2("Spécifications à respecter"));
 children.push(specTable([
   ["Personne", "public class", "Classe à écrire, quatre champs public"],
   ["nom", "public String", "Nom de famille"],
@@ -341,7 +297,7 @@ children.push(specTable([
   ["display", "public void display()", "Affiche la personne sur la console"]
 ]));
 
-children.push(h2("Vérification"));
+children.push(h2("Comment vérifier votre code"));
 children.push(verif([
   { t: "be.ephec.java.poo.e01.PersonneTest", code: true },
   { t: "Vérifie que les quatre champs existent et sont bien public, et que computeAge rend le bon écart d'années — y compris pour une année antérieure à la naissance, où le résultat est négatif." }
@@ -349,7 +305,7 @@ children.push(verif([
 
 children.push(h2("Questions à se poser"));
 children.push(bullet("La classe ne déclare aucun constructeur. Pourquoi new Personne() fonctionne-t-il quand même, et que valent les champs juste après ?"));
-children.push(bullet("Le champ age et la méthode computeAge donnent tous deux l'âge. Que se passe-t-il si l'un est mis à jour et pas l'autre ? Lequel des deux garderiez-vous ?"));
+children.push(bulletRuns(["Le champ ", { t: "age", code: true }, " et la méthode ", { t: "computeAge", code: true }, " donnent tous deux l'âge. Que se passe-t-il si l'un est mis à jour et pas l'autre ? Lequel des deux garderiez-vous ?"]));
 children.push(bullet("Qu'est-ce qui empêche, dans cette version, d'écrire personne.anneeDeNaissance = -3000 ?"));
 children.push(runsSimple([
   "Lisez les noms de la classe à voix haute. Y en a-t-il un que vous ne sauriez pas prononcer, ou qu'il faudrait épeler à un collègue ? Voir ",
@@ -362,7 +318,7 @@ children.push(runsSimple([
   " — et notez que les corrigés du cours enfreignent cette règle exprès, pour vous montrer ce qui ne compile pas."
 ]));
 children.push(runsSimple([
-  "Les noms de cette classe sont donnés : ",
+  "Les noms des champs de cette classe sont donnés : ",
   { t: "nom", code: true },
   ", ",
   { t: "prenom", code: true },
@@ -443,7 +399,7 @@ children.push(runs([
   ". Notez pourquoi : la réponse fait le sujet de l'exercice suivant."
 ]));
 
-children.push(h2("Spécifications"));
+children.push(h2("Spécifications à respecter"));
 children.push(specTable([
   ["nom", "private String", "+ getNom() et setNom(String)"],
   ["prenom", "private String", "+ getPrenom() et setPrenom(String)"],
@@ -453,7 +409,7 @@ children.push(specTable([
   ["display", "public void display()", "Inchangée"]
 ]));
 
-children.push(h2("Vérification"));
+children.push(h2("Comment vérifier votre code"));
 children.push(verif([
   { t: "be.ephec.java.poo.e02.PersonneTest", code: true },
   { t: "Vérifie qu'aucun champ n'est resté accessible de l'extérieur, que chaque setter est bien relu par son getter, et que computeAge s'appuie sur l'année réellement enregistrée." }
@@ -542,7 +498,7 @@ children.push(runs([
   "."
 ]));
 
-children.push(h2("Spécifications"));
+children.push(h2("Spécifications à respecter"));
 children.push(specTable([
   ["nom", "private String", "+ getNom() et setNom(String)"],
   ["prenom", "private String", "+ getPrenom() et setPrenom(String)"],
@@ -553,7 +509,7 @@ children.push(specTable([
   ["display", "public void display()", "Affiche la personne, âge compris"]
 ]));
 
-children.push(h2("Vérification"));
+children.push(h2("Comment vérifier votre code"));
 children.push(verif([
   { t: "be.ephec.java.poo.e03.PersonneTest", code: true },
   { t: "Vérifie qu'aucun champ age ne subsiste, que computeAge répond toujours correctement, et que getAge rend bien l'âge à l'année courante — sans que personne ne l'ait renseigné." },
@@ -596,7 +552,7 @@ children.push(runs([
 children.push(runs([
   "Créez ensuite une ",
   { t: "Personne", code: true },
-  " — une version complete vous est fournie dans le package de cet exercice — ",
+  " — une version complète vous est fournie dans le package de cet exercice — ",
   "renseignez-la avec les valeurs saisies, et affichez-la."
 ]));
 
@@ -618,7 +574,7 @@ children.push(...code([
 ]));
 children.push(p("Exécutez, puis expliquez par écrit ce que vous observez. Les deux paramètres sont traités de la même façon par Java ; pourtant le résultat n'est pas le même pour les deux."));
 
-children.push(h2("Vérification"));
+children.push(h2("Comment vérifier votre code"));
 children.push(verif([
   { t: "Pas de classe de test pour cet exercice.", b: true },
   { t: "Un programme qui lit au clavier et écrit à l'écran ne s'automatise pas simplement : il n'expose aucune valeur de retour sur laquelle porter une assertion. C'est exactement le problème que POO.5 va vous apprendre à éviter." },
@@ -732,7 +688,7 @@ children.push(runsSimple([
   "."
 ]));
 
-children.push(h2("Spécifications"));
+children.push(h2("Spécifications à respecter"));
 children.push(specTable([
   ["enBase10", "public static int enBase10(String, int)", "Rend la valeur en base 10 ; toute la logique tient ici"],
   ["main", "public static void main(String[])", "Dialogue avec l'utilisateur, et rien d'autre"]
@@ -747,10 +703,10 @@ children.push(...code([
   "enBase10(\"ff\",       16)   ->   255     (la casse est sans importance)",
   "enBase10(\"ABC\",      16)   ->  2748",
   "enBase10(\"777\",       8)   ->   511",
-  "enBase10(\"-FF\",      16)   ->  -255     (le signe est accepte)"
+  "enBase10(\"-FF\",      16)   ->  -255     (le signe est accepté)"
 ]));
 
-children.push(h2("Vérification"));
+children.push(h2("Comment vérifier votre code"));
 children.push(verif([
   { t: "be.ephec.java.poo.e05.BaseTest", code: true },
   { t: "Vérifie les conversions ci-dessus : bases 2, 8, 10 et 16, majuscules comme minuscules, et nombre négatif." },

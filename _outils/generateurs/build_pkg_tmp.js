@@ -73,6 +73,7 @@ const W = 9360;
 
 function p(text, o = {}) {
   return new Paragraph({
+    keepNext: /^Package\s*:/.test(String(text)),
     spacing: { after: o.after === undefined ? 120 : o.after },
     alignment: o.align,
     children: [new TextRun({ text: typo(text), bold: o.bold, italics: o.italic, size: o.size || 22, color: o.color })]
@@ -197,52 +198,10 @@ function verif(lignes) {
   });
 }
 
-function couverture(c, theme, titre, sous) {
-  c.push(new Paragraph({
-    spacing: { before: 1200, after: 120 }, alignment: AlignmentType.CENTER,
-    children: [new TextRun({ text: typo("Programmation orientée objet — Java"), size: 26, color: GREY })]
-  }));
-  c.push(new Paragraph({
-    spacing: { after: 100 }, alignment: AlignmentType.CENTER,
-    children: [new TextRun({ text: typo("Thème " + theme), bold: true, size: 52, color: ACCENT })]
-  }));
-  c.push(new Paragraph({
-    spacing: { after: 200 }, alignment: AlignmentType.CENTER,
-    children: [new TextRun({ text: typo(titre), bold: true, size: 32, color: ACCENT })]
-  }));
-  c.push(new Paragraph({
-    spacing: { after: 800 }, alignment: AlignmentType.CENTER,
-    children: [new TextRun({ text: typo(sous), size: 26, color: GREY })]
-  }));
-  c.push(p("EPHEC — Bachelier en informatique, niveau 2", { align: AlignmentType.CENTER, color: GREY }));
-  c.push(p("Année académique 2026-2027", { align: AlignmentType.CENTER, color: GREY }));
-  c.push(new Paragraph({ children: [new PageBreak()] }));
-}
-
-function modeEmploi(c, theme, lignes) {
-  c.push(h1("Comment travailler ces exercices"));
-  c.push(runs([
-    "Les exercices de ce thème vivent sous ",
-    { t: "be.ephec.java." + theme.toLowerCase(), code: true },
-    ", un sous-package par exercice."
-  ]));
-  c.push(table3(["Exercice", "Package", "Sujet"], lignes));
-  c.push(runs([
-    { t: "Chaque exercice est autonome. ", b: true },
-    "Son package contient tout ce dont il a besoin et n'importe jamais une classe d'un autre exercice."
-  ]));
-  c.push(runs([
-  { t: "Comment lancer les tests, comment lire un test vert, pourquoi laisser votre code compilable : ", b: true },
-  "tout cela est commun aux quinze thèmes, et vit dans un document à part — ",
-  { t: "Memento_Exercices.docx", code: true },
-  ". Lisez-le une fois en début d'année."
-]));
-  c.push(runs([
-  "Ce fascicule-ci ne parle que de son thème. Les codes du tableau ci-dessus sont ",
-  { t: "cliquables", b: true },
-  " : ils mènent directement à l'exercice."
-]));
-}
+// Page de garde et introduction : celles de la boite commune, pour que
+// le logo, l'encadre gris et la structure des exercices soient les memes
+// dans tous les fascicules (16/10/2026).
+const { couverture, modeEmploi } = require(__dirname + "/boite.js");
 
 function doc(children, titre) {
   return new Document({
@@ -329,7 +288,7 @@ pkg.push(runs([
   { t: "membresAccessibles()", code: true },
   " pour qu'elle rende la liste des membres réellement atteignables, séparés par une virgule et un espace, dans l'ordre de déclaration."
 ]));
-pkg.push(h2("Vérification"));
+pkg.push(h2("Comment vérifier votre code"));
 pkg.push(verif([
   { t: "be.ephec.java.pkg.e01.InspecteurTest", code: true },
   { t: "Compare votre réponse à la liste attendue. Le test ne vous dira pas laquelle est fausse : c'est l'expérimentation qui doit vous donner la réponse, pas le test." }
@@ -369,13 +328,13 @@ pkg.push(runs([
   { t: "public", code: true },
   " ferait compiler l'exercice en dix secondes, et c'est précisément ce qu'il faut éviter. Trouvez l'autre solution."
 ]));
-pkg.push(h2("Spécifications"));
+pkg.push(h2("Spécifications à respecter"));
 pkg.push(table3(["Élément", "Signature", "Rôle"], [
   ["numero", "String numero", "Visibilité par défaut — ne pas modifier"],
   ["(à ajouter)", "public String getNumero()", "Rend le numéro, en lecture seule"],
   ["numeroDu", "public String numeroDu(Coffre)", "Utilise l'accesseur depuis l'autre package"]
 ]));
-pkg.push(h2("Vérification"));
+pkg.push(h2("Comment vérifier votre code"));
 pkg.push(verif([
   { t: "be.ephec.java.pkg.e02.controle.ControleExterneTest", code: true },
   { t: "Vérifie que le numéro se lit depuis l'autre package, et que le champ n'est pas devenu public au passage. Les deux tests doivent passer ensemble : rendre le champ public ferait échouer le second." }
@@ -429,7 +388,7 @@ pkg.push(bulletRuns([
   { t: "Programme", code: true },
   " utilise."
 ]));
-pkg.push(h2("Vérification"));
+pkg.push(h2("Comment vérifier votre code"));
 pkg.push(verif([
   { t: "be.ephec.java.pkg.e03.DeckTest", code: true },
   { t: "Vérifie qu'aucun champ n'est resté public, que seules les trois opérations utilisées le sont encore, et que le paquet fonctionne toujours." }
@@ -464,7 +423,7 @@ pkg.push(runs([
   { t: "import", code: true },
   " nécessaires dans toutes les classes concernées."
 ]));
-pkg.push(h2("Vérification"));
+pkg.push(h2("Comment vérifier votre code"));
 pkg.push(verif([
   { t: "be.ephec.java.pkg.e04.DecoupageTest", code: true },
   { t: "Vérifie que chaque classe se trouve à sa nouvelle place, et qu'aucune ne subsiste à l'ancienne. Ce dernier test vous protège du copier-coller : deux copies d'une même classe est le pire des résultats." }
@@ -559,7 +518,7 @@ pkg.push(bulletRuns([
   { t: "decrire()", code: true },
   ", le numéro de série vous est inaccessible. Une méthode publique de la classe mère vous en donne une forme utilisable — trouvez-la."
 ]));
-pkg.push(h2("Vérification"));
+pkg.push(h2("Comment vérifier votre code"));
 pkg.push(verif([
   ["lisser(60) sur un capteur neuf", "30.00"],
   ["puis lisser(70)", "50.00"],
@@ -630,7 +589,7 @@ tmp.push(runs([
   { t: "LocalDate.of(annee, mois, jour)", code: true },
   ", et affiche les quatre écarts jusqu'à aujourd'hui."
 ]));
-tmp.push(h2("Spécifications"));
+tmp.push(h2("Spécifications à respecter"));
 tmp.push(table3(["Élément", "Signature", "Rôle"], [
   ["ecartEnJours", "public static long ecartEnJours(LocalDate, LocalDate)", "Nombre de jours entiers"],
   ["ecartEnSemaines", "public static long ecartEnSemaines(LocalDate, LocalDate)", "Nombre de semaines entières"],
@@ -653,7 +612,7 @@ tmp.push(...code([
   "  mois     ->    440",
   "  annees   ->     36"
 ]));
-tmp.push(h2("Vérification"));
+tmp.push(h2("Comment vérifier votre code"));
 tmp.push(verif([
   { t: "be.ephec.java.tmp.e01.UtilitaireDatesTest", code: true },
   { t: "Vérifie les quatre valeurs ci-dessus, l'écart nul, et un écart mesuré à rebours — qui doit être négatif." }
@@ -705,7 +664,7 @@ tmp.push(table3(["Élément", "Signature", "Rôle"], [
   ["dansUneSemaine", "public static LocalDate dansUneSemaine(LocalDate)", "La date sept jours plus tard"],
   ["reporterDe", "public static LocalDate reporterDe(LocalDate, int)", "Report d'un nombre de jours ; un nombre négatif recule"]
 ], [2400, 4400, 2560]));
-tmp.push(h2("Vérification"));
+tmp.push(h2("Comment vérifier votre code"));
 tmp.push(verif([
   { t: "be.ephec.java.tmp.e02.AgendaTest", code: true },
   { t: "Vérifie les reports, y compris ceux qui franchissent un mois ou une année, et surtout que la date reçue en paramètre ressort intacte des deux méthodes." }
@@ -795,7 +754,7 @@ tmp.push(...code([
   "",
   "formater(1157479200)                             ->  \"1 157 479 200\""
 ]));
-tmp.push(h2("Vérification"));
+tmp.push(h2("Comment vérifier votre code"));
 tmp.push(verif([
   { t: "be.ephec.java.tmp.e03.CompteurTest", code: true },
   { t: "Vérifie l'heure, la journée, une vie entière, la convention de minuit et le formatage." },
@@ -856,7 +815,7 @@ tmp.push(...code([
   "31/01/2027 + 1 mois + 1 mois  ->  28/03/2027   <-- pas le meme resultat"
 ]));
 tmp.push(p("Le 31 février n'existe pas. Java rabote donc au dernier jour disponible du mois d'arrivée. Mais une fois raboté, le 31 est perdu : la seconde addition repart du 28 et non du 31."));
-tmp.push(h2("Vérification"));
+tmp.push(h2("Comment vérifier votre code"));
 tmp.push(verif([
   { t: "be.ephec.java.tmp.e04.EcheancierTest", code: true },
   { t: "Vérifie les quatre cas ci-dessus, en année ordinaire et bissextile, et le fait qu'une date dont le jour existe dans tous les mois ne pose aucun problème." }
@@ -907,7 +866,7 @@ tmp.push(...code([
   "duree(19/01 18:00, 19/01 21:35)    ->  215 minutes, soit 3 heures",
   "dureeLisible(meme intervalle)      ->  \"3h35\""
 ]));
-tmp.push(h2("Vérification"));
+tmp.push(h2("Comment vérifier votre code"));
 tmp.push(verif([
   { t: "be.ephec.java.tmp.e05.StatistiquesTest", code: true },
   { t: "Vérifie la décomposition de l'âge, les deux lectures de la durée, et le format « 3h35 »." }
@@ -954,7 +913,7 @@ tmp.push(runs([
   { t: "yyyy", code: true },
   " — sans quoi il refuse de fonctionner, pour une raison que la Javadoc explique."
 ]));
-tmp.push(h2("Vérification"));
+tmp.push(h2("Comment vérifier votre code"));
 tmp.push(verif([
   { t: "be.ephec.java.tmp.e06.FormatBelgeTest", code: true },
   { t: "Vérifie le formatage dans les deux sens, le refus d'un texte mal formé, le rabotage silencieux du 31 février par le mode ordinaire, et son refus par le mode strict." }

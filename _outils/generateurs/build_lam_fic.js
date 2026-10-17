@@ -87,7 +87,7 @@ lam.push(runs([
   { t: "ITF.1", code: true },
   " : la même idée demandait quatre fichiers, elle tient ici en quatre lignes."
 ]));
-lam.push(h2("Vérification"));
+lam.push(h2("Comment vérifier votre code"));
 lam.push(verif([
   { t: "be.ephec.java.lam.e01.CalculsTest", code: true },
   { t: "Vérifie la délégation, le contenu et l'ordre du tableau, les résultats combinés, et le fait qu'une lambda écrite dans le test — un cube, absent du tableau — fonctionne tout autant." }
@@ -147,7 +147,7 @@ lam.push(runs([
   { t: "LAM.3", code: true },
   " s'en sert, et votre interface disparaît."
 ]));
-lam.push(h2("Vérification"));
+lam.push(h2("Comment vérifier votre code"));
 lam.push(verif([
   { t: "be.ephec.java.lam.e02.AffichageTest", code: true },
   { t: "Vérifie quatre filtres différents — dont un qui ne retient rien et un qui retient tout — et le cas du tableau vide." },
@@ -228,7 +228,7 @@ lam.push(encadre([
   ["La lambda est anonyme et s'écrit sur place : parfaite pour un critère utilisé une fois. La référence donne un nom au critère, ce qui le rend réutilisable et testable séparément — la classe de test vérifie d'ailleurs les trois critères isolément avant de vérifier le rapport."],
   ["Le nom est aussi une explication. Comparez « e -> e % 2 == 0 » et « estPair » dans une expression un peu longue. Voir CC-NOM.1."]
 ]));
-lam.push(h2("Vérification"));
+lam.push(h2("Comment vérifier votre code"));
 lam.push(verif([
   { t: "be.ephec.java.lam.e03.AffichageTest", code: true },
   { t: "Vérifie les trois critères isolément — y compris zéro, qui n'est ni positif ni négatif mais bien pair —, l'équivalence entre lambda et référence de méthode, et le format du rapport." }
@@ -323,7 +323,7 @@ fic.push(encadre([
   ["Un test vérifie qu'on ne peut pas vider l'étudiant à travers la liste qu'il rend. Si vous rendez la liste elle-même, n'importe qui peut appeler clear() dessus et contourner desinscrire — l'encapsulation ne sert alors plus à rien."],
   ["Cherchez Collections.unmodifiableList dans la Javadoc. Voir CC-OBJ.2 du mémento Clean Code."]
 ]));
-fic.push(h2("Vérification"));
+fic.push(h2("Comment vérifier votre code"));
 fic.push(verif([
   { t: "be.ephec.java.fic.e01.EtudiantTest", code: true },
   { t: "Vérifie les trois classes, les formats de toString, l'inscription et la désinscription — y compris les cas sans effet — et la protection de la liste rendue." }
@@ -381,7 +381,7 @@ fic.push(runs([
   { t: "FIC.3", code: true },
   " prend l'autre parti."
 ]));
-fic.push(h2("Vérification"));
+fic.push(h2("Comment vérifier votre code"));
 fic.push(verif([
   { t: "be.ephec.java.fic.e02.EnregistrementTest", code: true },
   { t: "Vérifie la création du fichier, l'aller-retour complet, la conservation des cours et de leurs enseignants, et le cas de la liste vide." },
@@ -436,7 +436,7 @@ fic.push(encadre([
   ["Le .dat conserve tout, mais ne se lit que par un programme Java, et seulement tant que les classes n'ont pas changé. Le .txt ne conserve que ce qu'on a décidé d'écrire, mais s'ouvre dans n'importe quel éditeur, se traite par un tableur ou par un autre langage, et survit à toutes les évolutions de vos classes."],
   ["Savez-vous lire etudiants.txt ? Et etudiants.dat ? La réponse à ces deux questions est tout l'enjeu du choix d'un format."]
 ]));
-fic.push(h2("Vérification"));
+fic.push(h2("Comment vérifier votre code"));
 fic.push(verif([
   { t: "be.ephec.java.fic.e03.EcritListeEtudiantsTest", code: true },
   { t: "Vérifie le format d'écriture au caractère près, le cas de la liste vide, la reconstruction des étudiants — y compris celui sans cours — et le fait que le chargé de cours ait bel et bien été perdu." }

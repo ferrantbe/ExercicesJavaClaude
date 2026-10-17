@@ -95,7 +95,7 @@ abs.push(encadre([
   ["En Java, le reste de la division garde le signe du dividende : -90 % 360 vaut -90 et non 270. Un modulo seul ne suffit donc pas à ramener une valeur dans un intervalle positif."],
   ["Le test vérifie ce cas. Cherchez comment corriger le résultat en une expression."]
 ]));
-abs.push(h2("Vérification"));
+abs.push(h2("Comment vérifier votre code"));
 abs.push(verif([
   { t: "be.ephec.java.abs.e01.ShapeTest", code: true },
   { t: "Vérifie que Shape est bien abstraite, le nom de chaque forme, la conservation du centre, la normalisation de la rotation y compris pour les valeurs négatives, et le polymorphisme dans un tableau de Shape." }
@@ -147,7 +147,7 @@ abs.push(runs([
   { t: "CC-CLS.4", code: true },
   " du mémento Clean Code."
 ]));
-abs.push(h2("Vérification"));
+abs.push(h2("Comment vérifier votre code"));
 abs.push(verif([
   { t: "be.ephec.java.abs.e02.AnimalTest", code: true },
   { t: "Vérifie que la classe est abstraite, le cri de chaque animal, et que les éléments d'un tableau d'Animal rendent bien le cri de leur type réel." }
@@ -193,7 +193,7 @@ abs.push(encadre([
   ["Votre classe devrait faire une vingtaine de lignes, dont trois méthodes de deux lignes chacune. Si elle est plus longue, vous avez recopié quelque chose qui existait déjà dans la classe mère."],
   ["Et le Programme ne doit contenir ni instanceof, ni condition sur la banque : il traite un tableau de VisualiseurDeDonneesBancaires sans savoir ce qu'il contient."]
 ]));
-abs.push(h2("Vérification"));
+abs.push(h2("Comment vérifier votre code"));
 abs.push(verif([
   { t: "be.ephec.java.abs.e03.VisualiseurTest", code: true },
   { t: "Vérifie d'abord le visualiseur fourni, qui sert de référence, puis le vôtre : le nombre de mouvements, l'ordre des colonnes, le total calculé par la classe mère, la forme du rapport, et le traitement des deux banques dans un même tableau." }
@@ -271,7 +271,7 @@ abs.push(runs([
   { t: "instanceof", code: true },
   " dans cette boucle, c'est que la hiérarchie est mal découpée. Reprenez-la."
 ]));
-abs.push(h2("Vérification"));
+abs.push(h2("Comment vérifier votre code"));
 abs.push(verif([
   ["Abonnement(Ada, 125)", "125.00"],
   ["Installation(Alan, 200, 45.50)", "245.50"],
@@ -360,7 +360,7 @@ abs.push(bulletRuns([
   "."
 ]));
 
-abs.push(h2("Vérification"));
+abs.push(h2("Comment vérifier votre code"));
 abs.push(verif([
   ["lettre de 20 g", "1.10"],
   ["lettre de 50 g", "1.10  (la borne est incluse)"],
@@ -462,7 +462,7 @@ itf.push(runs([
   ". La méthode ne sait pas quel calcul elle déclenche, et n'a pas besoin de le savoir."
 ]));
 itf.push(p("La conséquence est spectaculaire : elle fonctionnera avec des calculateurs qui n'existaient pas quand elle a été écrite. Le test le démontre en lui passant une soustraction fabriquée sur place."));
-itf.push(h2("Vérification"));
+itf.push(h2("Comment vérifier votre code"));
 itf.push(verif([
   { t: "be.ephec.java.itf.e01.CalculateurTest", code: true },
   { t: "Vérifie que les deux classes implémentent l'interface, que chacune calcule correctement, que effectueCalcul délègue, et qu'elle accepte un calculateur qu'elle n'a jamais vu." }
@@ -527,7 +527,7 @@ itf.push(encadre([
   ["En rendant le compte-rendu, elle laisse l'appelant décider quoi en faire — l'afficher, l'enregistrer, l'envoyer par courriel. C'est la règle CC-MET.7 du mémento Clean Code."],
   ["Précisez Locale.US dans votre formatage du montant, sinon une machine configurée en français écrirait « 42,50 » avec une virgule, et le test échouerait sur un seul caractère."]
 ]));
-itf.push(h2("Vérification"));
+itf.push(h2("Comment vérifier votre code"));
 itf.push(verif([
   { t: "be.ephec.java.itf.e02.PaiementTest", code: true },
   { t: "Vérifie le texte exact rendu par chaque moyen de paiement, le format du montant à deux décimales, et que le client se contente de transmettre." }
@@ -568,7 +568,7 @@ itf.push(runs([
   { t: "Ces deux méthodes doivent-elles rester abstraites dans Shape, ou celle-ci peut-elle les définir une fois pour toutes ?", b: true }
 ]));
 itf.push(p("Répondez avant de coder, puis vérifiez : si votre réponse était la bonne, les trois sous-classes n'auront pas une ligne à changer."));
-itf.push(h2("Vérification"));
+itf.push(h2("Comment vérifier votre code"));
 itf.push(verif([
   { t: "be.ephec.java.itf.e03.ShapeTest", code: true },
   { t: "Vérifie que Shape implémente bien les deux interfaces, le déplacement du centre, l'accumulation des translations, la normalisation de la rotation, et que les trois formes se comportent identiquement." },
@@ -630,7 +630,7 @@ itf.push(runs([
   { t: "Magasin", code: true },
   " : rien n'y nomme un Client ou un Employé."
 ]));
-itf.push(h2("Vérification"));
+itf.push(h2("Comment vérifier votre code"));
 itf.push(verif([
   { t: "be.ephec.java.itf.e04.MagasinTest", code: true },
   { t: "Vérifie que Prospect implémente l'interface, son message avant et après une annonce, la diffusion aux trois acteurs en un seul appel, et le remplacement du message à la réception suivante." }
