@@ -16,7 +16,7 @@ public abstract class Shape {
     }
 
     /**
-     * Rend le nom de la forme, en minuscules et au singulier :
+     * Retourne le nom de la forme, en minuscules et au singulier :
      * "cercle", "carre", "triangle".
      *
      * C'est la SEULE chose qui distingue les trois formes. Elle est donc

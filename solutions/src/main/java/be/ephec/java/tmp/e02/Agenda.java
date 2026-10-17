@@ -11,7 +11,7 @@ import java.time.LocalDate;
  *
  * plusWeeks ne modifie pas rendezVous. Elle ne le PEUT pas : un LocalDate est
  * immuable, sa valeur est fixee a la construction et ne changera jamais. La
- * methode fabrique donc une NOUVELLE date et la rend — et comme personne ne
+ * methode fabrique donc une NOUVELLE date et la retourne — et comme personne ne
  * recupere ce resultat, il est jete aussitot.
  *
  * C'est la meme mecanique que String :

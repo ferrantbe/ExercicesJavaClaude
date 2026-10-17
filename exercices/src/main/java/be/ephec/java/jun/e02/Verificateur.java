@@ -9,7 +9,7 @@ package be.ephec.java.jun.e02;
 public class Verificateur {
 
     /**
-     * Rend true si la tirelire respecte son contrat, false sinon.
+     * Retourne true si la tirelire respecte son contrat, false sinon.
      *
      * Pour le savoir, il faut la faire travailler et observer :
      *   - une tirelire neuve est vide ;

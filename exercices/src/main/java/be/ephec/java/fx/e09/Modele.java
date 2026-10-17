@@ -8,7 +8,7 @@ package be.ephec.java.fx.e09;
  *
  * Regardez ce qu'il ignore. Il ne sait pas qu'il existe une fenetre, ni
  * des boutons, ni un affichage. Il recoit deux nombres et un operateur,
- * il rend un resultat.
+ * il retourne un resultat.
  *
  * C'est ce qui le rend TESTABLE : vous pourriez ecrire une classe de test
  * JUnit pour cette classe-ci, alors que c'est impossible pour la vue.
@@ -28,7 +28,7 @@ public class Modele {
      *   un operateur inconnu.
      *
      * L'enonce precise ce que la calculatrice doit afficher dans ces
-     * deux cas. Ne rendez pas 0 en silence.
+     * deux cas. Ne retournez pas 0 en silence.
      */
     public long calculer(long premier, long second, String operateur) {
         throw new UnsupportedOperationException("calculer n'est pas encore implementee");

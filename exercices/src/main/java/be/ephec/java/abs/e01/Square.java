@@ -10,7 +10,7 @@ public class Square extends Shape {
     /**
      * TODO : cette methode est heritee de Shape, ou elle est abstraite.
      *        Une sous-classe concrete DOIT la definir — sans quoi la classe
-     *        ne compile pas. Elle doit rendre "carre".
+     *        ne compile pas. Elle doit retourner "carre".
      */
     @Override
     public String nom() {

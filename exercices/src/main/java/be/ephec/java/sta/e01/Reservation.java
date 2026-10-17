@@ -70,12 +70,12 @@ public class Reservation {
         throw new UnsupportedOperationException("nombreEmises n'est pas encore implementee");
     }
 
-    /** Rend true s'il reste de la place : moins de PLACES_MAX emises. */
+    /** Retourne true s'il reste de la place : moins de PLACES_MAX emises. */
     public static boolean resteDeLaPlace() {
         throw new UnsupportedOperationException("resteDeLaPlace n'est pas encore implementee");
     }
 
-    /** Rend "Reservation n3 : Ada Lovelace". */
+    /** Retourne "Reservation n3 : Ada Lovelace". */
     @Override
     public String toString() {
         throw new UnsupportedOperationException("toString n'est pas encore implementee");

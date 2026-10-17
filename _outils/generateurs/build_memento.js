@@ -298,7 +298,7 @@ c.push(p("", { after: 200 }));
 
 c.push(indexTable("Traiter les erreurs", [
   ["CC-ERR.1", "Une erreur se signale par une exception, pas par une valeur de retour"],
-  ["CC-ERR.2", "Ne rendez pas null"],
+  ["CC-ERR.2", "Ne retournez pas null"],
   ["CC-ERR.3", "Ne passez pas null en paramètre"],
   ["CC-ERR.4", "Le message d'exception dit ce qui a échoué et avec quelle valeur"],
   ["CC-ERR.5", "Définissez vos exceptions selon ce que l'appelant doit distinguer"],
@@ -713,7 +713,7 @@ c.push(...bon([
   'double d = distanceEnMiles(pointA, pointB);'
 ]));
 c.push(runs([
-  "Deux méthodes au lieu d'une, chacune avec un nom qui dit ce qu'elle rend. C'est ",
+  "Deux méthodes au lieu d'une, chacune avec un nom qui dit ce qu'elle retourne. C'est ",
   { t: "CC-MET.3", code: true },
   " vu depuis la signature : un drapeau booléen est presque toujours le symptôme d'une méthode qui n'a pas été coupée en deux."
 ]));
@@ -749,7 +749,7 @@ c.push(...mauvais([
 c.push(runs([
   "Si l'auteur de ",
   { t: "getProductById", code: true },
-  " décide de trier la liste pour accélérer sa recherche, tous les indices rendus auparavant par ",
+  " décide de trier la liste pour accélérer sa recherche, tous les indices retournés auparavant par ",
   { t: "getProductIndexInList", code: true },
   " deviennent faux. Le nom de la méthode ne laissait rien deviner de ce tri. Une méthode dont le nom commence par ",
   { t: "get", code: true },
@@ -804,7 +804,7 @@ c.push(runs([
 
 // --- CC-MET.8
 c.push(h2("CC-MET.8 — Une méthode agit ou répond, jamais les deux"));
-c.push(p("Une méthode modifie l'état de l'objet — c'est une commande, et elle ne rend rien — ou bien elle répond à une question sans rien modifier — c'est une requête, et elle rend une valeur. Mélanger les deux produit des appels dont on ne sait pas lire l'intention."));
+c.push(p("Une méthode modifie l'état de l'objet — c'est une commande, et elle ne retourne rien — ou bien elle répond à une question sans rien modifier — c'est une requête, et elle retourne une valeur. Mélanger les deux produit des appels dont on ne sait pas lire l'intention."));
 c.push(...mauvais([
   'public boolean setAttribut(String cle, String valeur) { ... }',
   '',
@@ -826,7 +826,7 @@ c.push(runs([
   { t: "CC-ERR.1", code: true },
   " : ",
   { t: "estDecouvert()", code: true },
-  " est une requête, elle rend légitimement un booléen ; ",
+  " est une requête, elle retourne légitimement un booléen ; ",
   { t: "retirer()", code: true },
   " est une commande, donc son échec se signale par une exception et non par une valeur de retour."
 ]));
@@ -1029,14 +1029,14 @@ c.push(runs([
   { t: "erreur", i: true },
   " ? ",
   { t: "estDecouvert()", code: true },
-  " rend légitimement un booléen, parce que les deux réponses sont normales. ",
+  " retourne légitimement un booléen, parce que les deux réponses sont normales. ",
   { t: "retirer()", code: true },
   " ne le devrait pas, parce que l'échec est anormal."
 ]));
 
 // --- CC-ERR.2
-c.push(h2("CC-ERR.2 — Ne rendez pas null"));
-c.push(p("Rendre null revient à demander à chaque appelant d'écrire une vérification, pour toujours. Un seul oubli et le programme s'arrête sur une NullPointerException, à un endroit qui n'a rien à voir avec la cause."));
+c.push(h2("CC-ERR.2 — Ne retournez pas null"));
+c.push(p("Retourner null revient à demander à chaque appelant d'écrire une vérification, pour toujours. Un seul oubli et le programme s'arrête sur une NullPointerException, à un endroit qui n'a rien à voir avec la cause."));
 c.push(...mauvais([
   "public Joueur chercherJoueur(String pseudo) {",
   "    for (Joueur joueur : joueurs) {",
@@ -1058,7 +1058,7 @@ c.push(...bon([
   "}"
 ]));
 c.push(runs([
-  "La règle vaut aussi pour les collections, et là c'est encore plus simple : rendez une collection vide, jamais ",
+  "La règle vaut aussi pour les collections, et là c'est encore plus simple : retournez une collection vide, jamais ",
   { t: "null", code: true },
   ". L'appelant peut alors faire son ",
   { t: "for", code: true },
@@ -1223,7 +1223,7 @@ c.push(...bon([
   '@Test',
   'void unRetraitTropGrandEstRefuseEtLaisseLeSoldeIntact() { ... }'
 ]));
-c.push(p("Plusieurs assertions dans un même test restent acceptables tant qu'elles décrivent un seul comportement — vérifier le résultat rendu et l'état de l'objet après la même action, par exemple. La règle porte sur le nombre de comportements, pas sur le nombre de lignes assertXxx."));
+c.push(p("Plusieurs assertions dans un même test restent acceptables tant qu'elles décrivent un seul comportement — vérifier le résultat retourné et l'état de l'objet après la même action, par exemple. La règle porte sur le nombre de comportements, pas sur le nombre de lignes assertXxx."));
 c.push(encadre([
   { t: "Un test sans assertion ne teste rien", b: true },
   { t: "Une méthode annotée @Test qui se contente d'appeler du code passe au vert quoi qu'il arrive : le seul cas où elle échoue est celui d'une exception inattendue. Elle donne donc une impression de couverture sans vérifier aucun comportement." },

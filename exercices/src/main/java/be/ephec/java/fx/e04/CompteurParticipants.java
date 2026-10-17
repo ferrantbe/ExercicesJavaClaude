@@ -23,7 +23,7 @@ import javafx.stage.Stage;
  *
  *     racine.addEventHandler(KeyEvent.KEY_TYPED, evenement -> ...);
  *
- * KEY_TYPED rend le CARACTERE frappe, par getCharacter(). C'est une
+ * KEY_TYPED retourne le CARACTERE frappe, par getCharacter(). C'est une
  * String, pas un char.
  */
 public class CompteurParticipants extends Application {

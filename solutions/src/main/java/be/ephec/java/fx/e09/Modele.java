@@ -32,7 +32,7 @@ public class Modele {
      * comportement particulier : la calculatrice affiche « Erreur » et se
      * remet a zero.
      *
-     * On leve donc plutot que de rendre 0 : rendre 0 ferait passer une
+     * On leve donc plutot que de retourner 0 : retourner 0 ferait passer une
      * erreur pour un resultat, et le controleur continuerait a calculer
      * avec une valeur fausse. Voir CC-ERR.1.
      */

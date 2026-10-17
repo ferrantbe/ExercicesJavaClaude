@@ -321,7 +321,7 @@ void uneSalleNeuveEstEntierementLibre() {
 
 **Note**
 
-Une méthode de test ne reçoit rien et ne rend rien. Pas de `main` : JUnit
+Une méthode de test ne reçoit rien et ne retourne rien. Pas de `main` : JUnit
 cherche toutes les méthodes annotées `@Test` et les lance une à une. Vous
 retrouvez les trois temps décrits dans le fascicule, séparés par des lignes
 vides.
@@ -511,7 +511,7 @@ notation `IllegalArgumentException.class` désigne la classe elle-même.
 
 Nommez le type le plus précis. Une sous-classe convient aussi, si bien
 qu'`assertThrows(Exception.class, ...)` accepterait n'importe quelle exception,
-y compris celle d'un bug. `assertThrows` rend l'exception attrapée : on peut
+y compris celle d'un bug. `assertThrows` retourne l'exception attrapée : on peut
 en vérifier le message.
 
 Le code complet, à lancer : demos, test `demo.jun.slides.SalleTest`.
@@ -608,7 +608,7 @@ Le code complet, à lancer : demos, test `demo.jun.slides.SalleTest`.
 
 `JUN.2` met la section en pratique sans JUnit. Vous n'y écrivez pas de
 `@Test` : chaque clause du contrat devient une vérification dans une méthode
-ordinaire, qui rend `true` ou `false`, avec ce que vous savez depuis le module
+ordinaire, qui retourne `true` ou `false`, avec ce que vous savez depuis le module
 EXC.
 
 L'intérêt est que la qualité de votre vérification devient mesurable. Chaque

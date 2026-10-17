@@ -612,7 +612,7 @@ vôtre. La différence est la mesure du travail accompli.
 
 - Un package regroupe des classes qui changent pour les mêmes raisons
 - Un découpage courant compte trois couches : le modèle, les services, l'application
-- Le modèle porte les données du domaine, et ne connaît personne
+- Le modèle contient les données du domaine, et ne connaît personne
 
 ```java
 be.ephec.biblio.modele          Livre, Auteur

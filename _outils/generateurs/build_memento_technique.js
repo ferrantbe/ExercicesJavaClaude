@@ -645,7 +645,7 @@ c.push(runs([
   { t: "tas", b: true },
   ", et y construit l'objet."
 ]));
-c.push(p("La différence essentielle est de durée de vie. Le contenu de la pile disparaît dès que la méthode se termine ; un objet du tas survit tant que quelque chose le désigne. C'est ce qui permet à une méthode de créer un objet et de le rendre à son appelant — l'objet reste, seul le bloc de pile a disparu."));
+c.push(p("La différence essentielle est de durée de vie. Le contenu de la pile disparaît dès que la méthode se termine ; un objet du tas survit tant que quelque chose le désigne. C'est ce qui permet à une méthode de créer un objet et de le retourner à son appelant — l'objet reste, seul le bloc de pile a disparu."));
 c.push(...code([
   "public Partie inscrire(String... pseudos) {",
   "    Partie partie = new Partie();   // l'objet va dans le TAS",
@@ -812,7 +812,7 @@ c.push(...code([
   "        pom.xml",
   "        src/"
 ]));
-c.push(p("Le parent porte ce qui est commun : la version de Java, les versions des bibliothèques. Les modules n'ont plus qu'à déclarer ce qui leur est propre. Changer la version de Java se fait donc à un seul endroit."));
+c.push(p("Le parent contient ce qui est commun : la version de Java, les versions des bibliothèques. Les modules n'ont plus qu'à déclarer ce qui leur est propre. Changer la version de Java se fait donc à un seul endroit."));
 c.push(p("Les deux modules sont indépendants l'un de l'autre : le module des solutions ne dépend pas de celui des exercices, ce qui garantit qu'aucune classe de l'un ne peut être importée par l'autre par accident."));
 
 c.push(h2("TEC-MVN.4 — Le cycle de vie"));

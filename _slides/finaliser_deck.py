@@ -344,14 +344,14 @@ def poser_captures(prs, dossier):
         image(s, b, 1.3, 2.85, 3.85, 5.3)
         image(s, c, 6.9, 2.85, 3.85, 5.3)
         ecrire_notes(s, [
-            "La bulle d'une méthode donne sa signature, ce qu'elle rend et les "
+            "La bulle d'une méthode donne sa signature, ce qu'elle retourne et les "
             "exceptions qu'elle peut lever.",
-            "`nextInt()` lit le jeton suivant et le rend sous forme d'entier. Elle lève "
+            "`nextInt()` lit le jeton suivant et le retourne sous forme d'entier. Elle lève "
             "une `InputMismatchException` si ce jeton n'est pas un entier : c'est ce qui "
             "arrive quand l'utilisateur tape des lettres là où le programme attend un "
             "nombre. La bulle signale aussi la variante `nextInt(radix)`, qui interprète "
             "le nombre dans la base indiquée.",
-            "`nextLine()` rend le reste de la ligne courante, sans le passage à la ligne "
+            "`nextLine()` retourne le reste de la ligne courante, sans le passage à la ligne "
             "final, et se place au début de la ligne suivante. C'est ce comportement qui "
             "explique le piège de la slide suivante.",
         ])

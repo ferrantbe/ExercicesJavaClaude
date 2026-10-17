@@ -47,7 +47,7 @@ class PersonneTest {
     }
 
     @Test
-    @DisplayName("computeAge rend l'ecart entre l'annee donnee et l'annee de naissance")
+    @DisplayName("computeAge retourne l'ecart entre l'annee donnee et l'annee de naissance")
     void computeAgeRendLEcartDAnnees() throws Exception {
         Personne personne = new Personne();
         champ("anneeDeNaissance").setInt(personne, 1990);
@@ -57,7 +57,7 @@ class PersonneTest {
     }
 
     @Test
-    @DisplayName("computeAge rend un nombre negatif avant la naissance")
+    @DisplayName("computeAge retourne un nombre negatif avant la naissance")
     void computeAgeRendUnNombreNegatifAvantLaNaissance() throws Exception {
         Personne personne = new Personne();
         champ("anneeDeNaissance").setInt(personne, 1990);

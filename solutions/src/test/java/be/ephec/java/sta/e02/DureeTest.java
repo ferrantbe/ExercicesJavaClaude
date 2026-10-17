@@ -30,7 +30,7 @@ class DureeTest {
     }
 
     @Test
-    @DisplayName("L'addition rend une nouvelle duree et ne touche a rien")
+    @DisplayName("L'addition retourne une nouvelle duree et ne touche a rien")
     void addition() {
         Duree trois = Duree.deHeures(3);
         Duree cinq = Duree.deMinutes(5);

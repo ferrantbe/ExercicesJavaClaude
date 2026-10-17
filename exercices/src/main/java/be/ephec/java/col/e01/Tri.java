@@ -12,7 +12,7 @@ import java.util.Set;
 public class Tri {
 
     /**
-     * Rend une NOUVELLE liste contenant les memes nombres, tries par ordre
+     * Retourne une NOUVELLE liste contenant les memes nombres, tries par ordre
      * croissant. La liste recue n'est pas modifiee.
      *
      * Indice : la classe Collections et sa methode statique sort.
@@ -22,7 +22,7 @@ public class Tri {
     }
 
     /**
-     * Rend un Set contenant les memes nombres, mais constamment trie.
+     * Retourne un Set contenant les memes nombres, mais constamment trie.
      *
      * Indice : TreeSet. Notez ce qui arrive aux doublons.
      */

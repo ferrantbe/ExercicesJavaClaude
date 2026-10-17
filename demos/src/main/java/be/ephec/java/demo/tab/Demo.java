@@ -67,7 +67,7 @@ public class Demo {
         System.out.println("Irregulier : " + Arrays.deepToString(irregulier));
     }
 
-    /** Elle ne rend rien, et pourtant elle change le tableau de l'appelant. */
+    /** Elle ne retourne rien, et pourtant elle change le tableau de l'appelant. */
     private static void remettreAZero(int[] tableau) {
         for (int i = 0; i < tableau.length; i++) {
             tableau[i] = 0;

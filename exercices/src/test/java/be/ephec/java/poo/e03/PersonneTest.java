@@ -24,7 +24,7 @@ class PersonneTest {
     }
 
     @Test
-    @DisplayName("computeAge rend l'ecart entre l'annee donnee et l'annee de naissance")
+    @DisplayName("computeAge retourne l'ecart entre l'annee donnee et l'annee de naissance")
     void computeAgeRendLEcartDAnnees() {
         Personne personne = new Personne();
         personne.setAnneeDeNaissance(1990);

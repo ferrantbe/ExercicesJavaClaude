@@ -38,7 +38,7 @@ public class Affichage {
     }
 
     /**
-     * Rend le rapport complet, dans ce format exact — trois lignes, sans
+     * Retourne le rapport complet, dans ce format exact — trois lignes, sans
      * retour a la ligne final :
      *
      *     Les positifs: 1 4 5 2

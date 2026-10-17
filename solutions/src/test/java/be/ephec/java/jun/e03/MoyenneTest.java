@@ -21,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.*;
  *   ce qui doit echouer     liste vide, liste nulle, note hors bornes
  *   la seconde methode      reussite(), et sa borne a 10
  *
- * UNE MOYENNE N'EST PAS UN ENTIER. calculer() rend un double, et deux
+ * UNE MOYENNE N'EST PAS UN ENTIER. calculer() retourne un double, et deux
  * doubles ne se comparent pas avec assertEquals a deux arguments : le
  * calcul flottant produit des ecarts infimes. On donne donc une
  * tolerance — le troisieme argument. Voir CC-TST.1.

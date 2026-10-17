@@ -103,7 +103,7 @@ fin(col, "COL",
     "le type de la variable est une promesse faite au reste du programme. La changer, c'est changer cette promesse, et le compilateur vérifie que tout le monde suit."]],
   [["CC-OBJ.2", "un objet expose des comportements, pas ses données"],
    ["CC-CLS.4", "confier une règle à la structure plutôt qu'à la vigilance"]],
-  "L'état d'arrivée utilise un TreeSet et rend une vue non modifiable.");
+  "L'état d'arrivée utilise un TreeSet et retourne une vue non modifiable.");
 
 // =====================================================================
 

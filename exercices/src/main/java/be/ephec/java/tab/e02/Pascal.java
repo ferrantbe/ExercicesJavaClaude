@@ -15,12 +15,12 @@ package be.ephec.java.tab.e02;
 public class Pascal {
 
     /**
-     * Rend le triangle jusqu'a la ligne n comprise.
+     * Retourne le triangle jusqu'a la ligne n comprise.
      *
-     * Le tableau rendu a n lignes. La ligne d'indice i contient i+1 nombres :
+     * Le tableau retourne a n lignes. La ligne d'indice i contient i+1 nombres :
      * c'est un tableau NON rectangulaire, chaque ligne ayant sa propre taille.
      *
-     * @param n le nombre de lignes ; 0 rend un tableau vide
+     * @param n le nombre de lignes ; 0 retourne un tableau vide
      */
     public static int[][] triangle(int n) {
         throw new UnsupportedOperationException("triangle n'est pas encore implementee");

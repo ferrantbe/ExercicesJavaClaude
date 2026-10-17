@@ -3,7 +3,7 @@ package be.ephec.java.enu.e03;
 /**
  * ENU.3 — CORRIGE.
  *
- * Une enum est une classe : elle peut porter des champs, un constructeur et
+ * Une enum est une classe : elle peut contenir des champs, un constructeur et
  * des methodes. Chaque constante enumeree passe ses arguments au constructeur.
  *
  * Trois details de syntaxe a retenir :

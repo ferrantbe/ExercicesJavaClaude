@@ -31,7 +31,7 @@ public class EcritListeEtudiants {
     }
 
     /**
-     * Relit le fichier et rend les lignes telles quelles.
+     * Relit le fichier et retourne les lignes telles quelles.
      *
      * Contrairement au fichier .dat de FIC.2, celui-ci se lit — par un
      * programme comme par un humain.

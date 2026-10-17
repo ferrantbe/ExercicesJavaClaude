@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Noms {
 
     /**
-     * Lit tous les noms du Scanner, un par ligne, et les rend dans une liste
+     * Lit tous les noms du Scanner, un par ligne, et les retourne dans une liste
      * dans l'ordre de lecture.
      *
      * Indice : scanner.hasNextLine() et scanner.nextLine().
@@ -16,7 +16,7 @@ public class Noms {
         throw new UnsupportedOperationException("lire n'est pas encore implementee");
     }
 
-    /** Rend une NOUVELLE liste contenant les memes noms, par ordre alphabetique. */
+    /** Retourne une NOUVELLE liste contenant les memes noms, par ordre alphabetique. */
     public static List<String> triee(List<String> noms) {
         throw new UnsupportedOperationException("triee n'est pas encore implementee");
     }

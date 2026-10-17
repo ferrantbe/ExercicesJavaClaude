@@ -26,7 +26,7 @@ public class Game {
     }
 
     /**
-     * Notez le sens de la comparaison : b.getPoints() > a.getPoints() rend b,
+     * Notez le sens de la comparaison : b.getPoints() > a.getPoints() retourne b,
      * et l'egalite tombe donc du cote de a — ce que l'enonce demande.
      */
     public static Player meilleur(Player a, Player b) {

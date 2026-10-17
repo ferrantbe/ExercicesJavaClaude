@@ -19,13 +19,13 @@ package be.ephec.java.lam.e01;
  */
 public class Calculs {
 
-    /** Applique le calculateur au nombre et rend le resultat. */
+    /** Applique le calculateur au nombre et retourne le resultat. */
     public static int traite(int n, Calculateur calculateur) {
         throw new UnsupportedOperationException("traite n'est pas encore implementee");
     }
 
     /**
-     * Rend un TABLEAU de calculateurs, dans cet ordre exact, defini a l'aide
+     * Retourne un TABLEAU de calculateurs, dans cet ordre exact, defini a l'aide
      * d'expressions lambda :
      *
      *   0. le carre
@@ -41,7 +41,7 @@ public class Calculs {
     }
 
     /**
-     * Applique tous les calculateurs au nombre et rend les resultats separes
+     * Applique tous les calculateurs au nombre et retourne les resultats separes
      * par une espace : pour 3, "9 6 -3 3".
      */
     public static String tousLesCalculs(int n) {

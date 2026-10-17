@@ -188,7 +188,7 @@ valeur plutôt qu'à un composant.
 **Slide**
 
 - Un champ ordinaire a un accesseur et un mutateur
-- Une propriété JavaFX y ajoute un troisième accès, qui rend l'objet lui-même
+- Une propriété JavaFX y ajoute un troisième accès, qui retourne l'objet lui-même
 - Il existe une classe par type : `IntegerProperty`, `DoubleProperty`, `StringProperty`, `BooleanProperty`
 
 ```java
@@ -209,7 +209,7 @@ mutateur `set` qui portent son nom. C'est ce que vous écrivez depuis le
 module POO.
 
 JavaFX garde cette convention et y ajoute un accès : une méthode dont le
-nom finit par `Property`, et qui rend non pas la valeur, mais l'objet qui
+nom finit par `Property`, et qui retourne non pas la valeur, mais l'objet qui
 la contient. C'est sur cet objet qu'on peut s'abonner, ou qu'on peut lier
 une autre valeur.
 
@@ -599,7 +599,7 @@ pas à pas par le deck FX3.
 
 Le XML est un format de texte fait de balises. Un élément s'ouvre et se
 ferme, `<VBox>` puis `</VBox>`, ou se ferme aussitôt, `<Label/>`, quand il
-n'a pas de contenu. Il porte des attributs, des paires nom et valeur entre
+n'a pas de contenu. Il contient des attributs, des paires nom et valeur entre
 guillemets.
 
 Le FXML donne un sens précis à chaque morceau. Ce fichier crée une `VBox`,
@@ -621,7 +621,7 @@ Le code complet, à lancer : demos, classe `demo.fx.slides.fx2.LanceurApplicatio
 **Slide**
 
 - Le fichier se range dans `src/main/resources`, dans le même package que la classe
-- Un `FXMLLoader` le lit et rend la racine qu'il décrit
+- Un `FXMLLoader` le lit et retourne la racine qu'il décrit
 - Le reste ne change pas : une scène, une fenêtre
 
 ```java
@@ -641,7 +641,7 @@ Un fichier FXML n'est pas du code : Maven le range dans les ressources,
 qui sont copiées à côté des classes compilées. La méthode `getResource`
 le retrouve à partir de la classe, dans le même package.
 
-Le `FXMLLoader` lit le fichier, crée tous les objets qu'il décrit, et rend
+Le `FXMLLoader` lit le fichier, crée tous les objets qu'il décrit, et retourne
 la racine. Il peut échouer, si le fichier est absent ou mal écrit : la
 méthode `load` déclare une `IOException`, contrôlée, que `start` laisse
 passer par son `throws`. Vous retrouverez ces exceptions au module FIC.

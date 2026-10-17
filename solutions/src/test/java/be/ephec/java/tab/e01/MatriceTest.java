@@ -33,7 +33,7 @@ class MatriceTest {
     }
 
     @Test
-    @DisplayName("Une taille nulle rend un tableau vide")
+    @DisplayName("Une taille nulle retourne un tableau vide")
     void tailleNulle() {
         assertEquals(0, Matrice.carree(0).length);
     }

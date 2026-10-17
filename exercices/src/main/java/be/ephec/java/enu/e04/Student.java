@@ -18,7 +18,7 @@ package be.ephec.java.enu.e04;
 public record Student(String nom, int cote) {
 
     /**
-     * TODO : rend true si l'etudiant a reussi, c'est-a-dire si sa cote
+     * TODO : retourne true si l'etudiant a reussi, c'est-a-dire si sa cote
      *        atteint 10.
      *
      *        Un record peut recevoir des methodes, comme n'importe quelle

@@ -9,10 +9,10 @@ public class GestionDeCompte {
         compte.ajoute(100);
         System.out.println("Solde apres depot : " + compte.getSolde());
 
-        System.out.println("Retrait de 30  -> rend " + compte.retire(30)
+        System.out.println("Retrait de 30  -> retourne " + compte.retire(30)
                 + ", solde " + compte.getSolde());
 
-        System.out.println("Retrait de 120 -> rend " + compte.retire(120)
+        System.out.println("Retrait de 120 -> retourne " + compte.retire(120)
                 + ", solde " + compte.getSolde());
 
         // Les deux appels ont « reussi » du point de vue du programme, et

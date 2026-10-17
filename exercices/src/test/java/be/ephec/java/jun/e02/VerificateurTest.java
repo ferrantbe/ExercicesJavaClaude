@@ -61,7 +61,7 @@ class VerificateurTest {
 
         assertTrue(demasquees == 3 && Verificateur.estCorrecte(new TirelireCorrecte()),
                 "Les trois defectueuses doivent etre refusees ET la bonne acceptee. "
-                        + "Un verificateur qui rend toujours la meme reponse ne verifie rien — "
+                        + "Un verificateur qui retourne toujours la meme reponse ne verifie rien — "
                         + "c'est exactement ce que fait une classe de test sans assertion.");
     }
 }

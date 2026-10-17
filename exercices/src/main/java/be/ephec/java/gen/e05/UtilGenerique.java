@@ -14,7 +14,7 @@ package be.ephec.java.gen.e05;
 public class UtilGenerique {
 
     /**
-     * Rend le toString de l'objet, a l'envers — d'ou le nom incongru.
+     * Retourne le toString de l'objet, a l'envers — d'ou le nom incongru.
      *
      *     otGnirts("Java")   ->  "avaJ"
      *     otGnirts(1234)     ->  "4321"

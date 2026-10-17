@@ -11,7 +11,7 @@ import javafx.stage.Stage;
  * FX.6 — CORRIGE.
  *
  * La propriete cherchee est textProperty(). On la reconnait a deux
- * signes : son nom finit par Property, et elle rend un OBJET — ici une
+ * signes : son nom finit par Property, et elle retourne un OBJET — ici une
  * StringProperty — et non la valeur elle-meme.
  *
  * La difference avec tout ce qui precede :

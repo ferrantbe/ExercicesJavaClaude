@@ -31,7 +31,7 @@ public class Statistiques {
     public static String dureeLisible(LocalDateTime debut, LocalDateTime fin) {
         Duration duree = dureeDePartie(debut, fin);
 
-        // toHours rend le nombre total d'heures ; toMinutesPart rend seulement
+        // toHours retourne le nombre total d'heures ; toMinutesPart retourne seulement
         // les minutes restantes. Ecrire duree.toMinutes() ici donnerait 215.
         return duree.toHours() + "h" + String.format("%02d", duree.toMinutesPart());
     }

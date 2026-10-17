@@ -19,7 +19,7 @@ public abstract class Shape implements Translatable, Rotatable {
         this.centre = centre;
     }
 
-    /** Rend "cercle", "carre" ou "triangle". */
+    /** Retourne "cercle", "carre" ou "triangle". */
     public abstract String nom();
 
     public Point getCentre() {

@@ -35,7 +35,7 @@ class DeckTest {
     }
 
     @Test
-    @DisplayName("Chaque constante porte son libelle francais")
+    @DisplayName("Chaque constante connait son libelle francais")
     void libelles() {
         assertEquals("Pique", couleur("PIQUE").getLibelle());
         assertEquals("Coeur", couleur("COEUR").getLibelle());

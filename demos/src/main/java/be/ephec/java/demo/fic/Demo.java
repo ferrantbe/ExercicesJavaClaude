@@ -85,7 +85,7 @@ public class Demo {
 
     /**
      * Le transtypage est inevitable : writeObject a ecrit un Object, et le
-     * fichier ne porte pas le type. C'est le prix de la souplesse, et la
+     * fichier ne contient pas le type. C'est le prix de la souplesse, et la
      * raison pour laquelle GEN.1 parlait d'effacement de type.
      */
     @SuppressWarnings("unchecked")

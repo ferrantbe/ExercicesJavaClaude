@@ -9,7 +9,7 @@ import be.ephec.java.pkg.e05.base.Capteur;
  * n'herite de rien : elle se contente d'utiliser des capteurs.
  *
  * Elle est la pour repondre a la question que PKG.2 laissait ouverte :
- * protected suffit-il a rendre un champ accessible depuis un autre
+ * protected suffit-il a retourner un champ accessible depuis un autre
  * package ? Essayez d'ecrire capteur.derniereMesure ici, et comparez avec
  * ce qui se passe dans CapteurMoyenne.
  *
@@ -18,7 +18,7 @@ import be.ephec.java.pkg.e05.base.Capteur;
 public class Tableau {
 
     /**
-     * Rend la somme des mesures de tous les capteurs.
+     * Retourne la somme des mesures de tous les capteurs.
      *
      * Vous n'avez pas le droit d'atteindre derniereMesure ici. Une
      * methode publique fait l'affaire.
@@ -27,7 +27,7 @@ public class Tableau {
         throw new UnsupportedOperationException("sommeDesMesures n'est pas encore implementee");
     }
 
-    /** Rend le nom du capteur qui affiche la plus grande mesure. */
+    /** Retourne le nom du capteur qui affiche la plus grande mesure. */
     public static String plusEleve(Capteur... capteurs) {
         throw new UnsupportedOperationException("plusEleve n'est pas encore implementee");
     }

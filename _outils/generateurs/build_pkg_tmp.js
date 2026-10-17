@@ -310,7 +310,7 @@ pkg.push(runs([
 pkg.push(h2("Spécifications à respecter"));
 pkg.push(table3(["Élément", "Signature", "Rôle"], [
   ["numero", "String numero", "Visibilité par défaut — ne pas modifier"],
-  ["(à ajouter)", "public String getNumero()", "Rend le numéro, en lecture seule"],
+  ["(à ajouter)", "public String getNumero()", "Retourne le numéro, en lecture seule"],
   ["numeroDu", "public String numeroDu(Coffre)", "Utilise l'accesseur depuis l'autre package"]
 ]));
 pkg.push(h2("Comment vérifier votre code"));
@@ -319,8 +319,8 @@ pkg.push(verif([
   { t: "Vérifie que le numéro se lit depuis l'autre package, et que le champ n'est pas devenu public au passage. Les deux tests doivent passer ensemble : rendre le champ public ferait échouer le second." }
 ]));
 pkg.push(h2("Le point important"));
-pkg.push(p("Un champ public donne deux droits à la fois — lire et écrire — à tout le monde et pour toujours. Un getter public ne donne que la lecture, et laisse la classe maîtresse de ce qu'elle rend : elle peut demain calculer la valeur, la formater, ou refuser de la donner."));
-pkg.push(p("C'est la réponse à la question que beaucoup se posent en POO.2 : à quoi bon écrire un getter qui se contente de rendre le champ ? À cela. Le getter et le champ public ne sont pas équivalents, même quand leur code se ressemble."));
+pkg.push(p("Un champ public donne deux droits à la fois — lire et écrire — à tout le monde et pour toujours. Un getter public ne donne que la lecture, et laisse la classe maîtresse de ce qu'elle retourne : elle peut demain calculer la valeur, la formater, ou refuser de la donner."));
+pkg.push(p("C'est la réponse à la question que beaucoup se posent en POO.2 : à quoi bon écrire un getter qui se contente de retourner le champ ? À cela. Le getter et le champ public ne sont pas équivalents, même quand leur code se ressemble."));
 pkg.push(runs([
   "C'est aussi la règle ",
   { t: "CC-OBJ.2", code: true },
@@ -559,7 +559,7 @@ tmp.push(h2("Énoncé"));
 tmp.push(runs([
   "Complétez la classe ",
   { t: "UtilitaireDates", code: true },
-  ", qui expose quatre méthodes statiques mesurant le même écart dans quatre unités. Aucune ne lit au clavier ni n'affiche : elles reçoivent deux dates et rendent un nombre."
+  ", qui expose quatre méthodes statiques mesurant le même écart dans quatre unités. Aucune ne lit au clavier ni n'affiche : elles reçoivent deux dates et retournent un nombre."
 ]));
 tmp.push(runs([
   "Écrivez ensuite le ",
@@ -656,12 +656,12 @@ tmp.push(runs([
   { t: "immuable", i: true },
   " : sa valeur est fixée à la construction et ne changera jamais. ",
   { t: "plusWeeks", code: true },
-  " ne modifie donc pas l'objet — elle en fabrique un nouveau et le rend. Sans affectation, ce nouvel objet est jeté aussitôt."
+  " ne modifie donc pas l'objet — elle en fabrique un nouveau et le retourne. Sans affectation, ce nouvel objet est jeté aussitôt."
 ]));
 tmp.push(runs([
   "Vous avez déjà rencontré cette mécanique sans forcément la nommer : ",
   { t: "texte.toUpperCase()", code: true },
-  " ne met pas la chaîne en majuscules, il en rend une autre. ",
+  " ne met pas la chaîne en majuscules, il en retourne une autre. ",
   { t: "String", code: true },
   " est immuable, exactement comme ",
   { t: "LocalDate", code: true },
@@ -777,12 +777,12 @@ tmp.push(h2("Énoncé"));
 tmp.push(runs([
   "Complétez ",
   { t: "echeance(LocalDate, int)", code: true },
-  ", qui rend la date située un nombre de mois après celle reçue."
+  ", qui retourne la date située un nombre de mois après celle reçue."
 ]));
 tmp.push(runs([
   "Complétez ensuite ",
   { t: "memeResultatMoisParMois(LocalDate, int)", code: true },
-  ", qui rend ",
+  ", qui retourne ",
   { t: "true", code: true },
   " si ajouter les mois un par un donne la même chose que les ajouter d'un coup."
 ]));
@@ -833,9 +833,9 @@ tmp.push(table3(["Élément", "Signature", "Rôle"], [
 tmp.push(runs([
   { t: "Attention à la dernière. ", b: true },
   { t: "toHours()", code: true },
-  " rend le nombre total d'heures, mais ",
+  " retourne le nombre total d'heures, mais ",
   { t: "toMinutes()", code: true },
-  " rend le nombre total de minutes — 215, pas 35. Cherchez dans la Javadoc de ",
+  " retourne le nombre total de minutes — 215, pas 35. Cherchez dans la Javadoc de ",
   { t: "Duration", code: true },
   " la méthode qui donne seulement les minutes restantes."
 ]));
@@ -862,7 +862,7 @@ tmp.push(h2("Objectif"));
 tmp.push(p("Passer d'une date à du texte et inversement — et découvrir que l'analyse est bien plus tolérante que vous ne le souhaiteriez."));
 tmp.push(h2("Énoncé"));
 tmp.push(table3(["Élément", "Signature", "Rôle"], [
-  ["enTexte", "public static String enTexte(LocalDate)", "Rend « 19/01/2027 »"],
+  ["enTexte", "public static String enTexte(LocalDate)", "Retourne « 19/01/2027 »"],
   ["depuisTexte", "public static LocalDate depuisTexte(String)", "Analyse le même format"],
   ["depuisTexteStrict", "public static LocalDate depuisTexteStrict(String)", "Idem, mais refuse les dates impossibles"]
 ], [2600, 4200, 2560]));
@@ -900,7 +900,7 @@ tmp.push(verif([
 tmp.push(h2("Questions à se poser"));
 tmp.push(bullet("Vous écrivez un formulaire d'inscription. Lequel des deux modes utilisez-vous, et pourquoi ?"));
 tmp.push(bullet("Le mode ordinaire n'est pas un défaut du JDK : dans quel cas préférerait-on qu'une date soit ajustée plutôt que refusée ?"));
-tmp.push(bullet("Que rend depuisTexte(\"19-01-2027\") ? Et pourquoi ce cas-là est-il refusé alors que le 31 février passe ?"));
+tmp.push(bullet("Que retourne depuisTexte(\"19-01-2027\") ? Et pourquoi ce cas-là est-il refusé alors que le 31 février passe ?"));
 tmp.push(runs([
   "Le mode indulgent illustre ",
   { t: "CC-ERR.1", code: true },

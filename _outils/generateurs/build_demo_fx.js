@@ -89,7 +89,7 @@ fx.push(runs([
 ]));
 fx.push(aDire("un gestionnaire est un objet avec une méthode. C'est tout. Si vous avez suivi la démonstration sur les lambdas, vous venez de reconnaître exactement la même chose."));
 
-etape(fx, 3, "L'événement porte de l'information", "3 min");
+etape(fx, 3, "L'événement contient de l'information", "3 min");
 fx.push(runs([
   "Ajouter un ", { t: "KeyEvent.KEY_TYPED", code: true },
   " sur la SCÈNE, et afficher ", { t: "evenement.getCharacter()", code: true }, "."
@@ -120,7 +120,7 @@ fin(fx, "FX",
     " avec les parenthèses."],
    ["Le compilateur refuse : on lui passe le RÉSULTAT de la méthode, pas la méthode. C'est l'erreur la plus fréquente des premières heures de JavaFX."],
    [{ t: "À dire — ", b: true },
-    "on ne donne pas au bouton ce que la méthode rend, on lui donne de quoi l'appeler plus tard. C'est toute la différence entre une valeur et un comportement."]],
+    "on ne donne pas au bouton ce que la méthode retourne, on lui donne de quoi l'appeler plus tard. C'est toute la différence entre une valeur et un comportement."]],
   [["CC-MET.8", "une méthode agit ou répond, jamais les deux"],
    ["IDE.15", "les transformations proposées par Alt+Entrée"],
    ["TEC-FX.4", "pourquoi une application JavaFX refuse de démarrer, et la classe de lancement"]],

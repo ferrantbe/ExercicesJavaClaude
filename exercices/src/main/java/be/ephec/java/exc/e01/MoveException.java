@@ -16,7 +16,7 @@ package be.ephec.java.exc.e01;
  *     }
  *
  * Le constructeur ne fait que transmettre le message a la classe mere, qui
- * sait deja le retenir et le rendre par getMessage().
+ * sait deja le retenir et le retourner par getMessage().
  */
 public class MoveException extends Exception {
 

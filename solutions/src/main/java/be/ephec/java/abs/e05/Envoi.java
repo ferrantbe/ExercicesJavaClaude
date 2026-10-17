@@ -34,7 +34,7 @@ public abstract class Envoi {
     /** Ce que coute cet envoi. Chaque sorte a son tarif. */
     public abstract double cout();
 
-    /** Rend "Ada Lovelace - 120 g - 4.60 EUR". */
+    /** Retourne "Ada Lovelace - 120 g - 4.60 EUR". */
     public String etiquette() {
         return String.format(Locale.US, "%s - %d g - %.2f EUR",
                 destinataire, poidsGrammes, cout());

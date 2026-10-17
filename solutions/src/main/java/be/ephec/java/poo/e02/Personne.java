@@ -52,7 +52,7 @@ public class Personne {
      * supprimant, on ferme au moins cette porte-la.
      *
      * Mais le probleme n'est pas resolu pour autant : personne ne peut plus
-     * renseigner l'age, donc ce getter rend 0. Lancez le Programme, vous le
+     * renseigner l'age, donc ce getter retourne 0. Lancez le Programme, vous le
      * verrez. Un champ qu'on ne peut ni ecrire ni calculer ne sert a rien.
      *
      * Si vous aviez choisi une autre option, relisez votre justification a

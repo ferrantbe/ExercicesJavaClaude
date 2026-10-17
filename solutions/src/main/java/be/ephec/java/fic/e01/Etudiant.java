@@ -10,7 +10,7 @@ import java.util.List;
  *
  * Deux points meritent l'attention.
  *
- * getCours rend une vue NON MODIFIABLE de la liste. Rendre la liste elle-meme
+ * getCours rend une vue NON MODIFIABLE de la liste. Retourner la liste elle-meme
  * laisserait n'importe qui la vider sans passer par desinscrire, et
  * l'encapsulation ne servirait plus a rien. Voir CC-OBJ.2.
  *

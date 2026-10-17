@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class TableauTest {
 
     @Test
-    @DisplayName("Le cas normal rend un compte-rendu")
+    @DisplayName("Le cas normal retourne un compte-rendu")
     void casNormal() {
         assertEquals("12 place en position 2 d'un tableau de 5 cases",
                 Tableau.placerDouze(5, 2));

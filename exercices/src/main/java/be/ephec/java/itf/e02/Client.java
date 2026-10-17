@@ -8,7 +8,7 @@ package be.ephec.java.itf.e02;
  */
 public class Client {
 
-    /** Rend le compte-rendu du paiement, tel que le moyen de paiement le fournit. */
+    /** Retourne le compte-rendu du paiement, tel que le moyen de paiement le fournit. */
     public String executePaiement(Paiement moyenDePaiement, double montant) {
         throw new UnsupportedOperationException("executePaiement n'est pas encore implementee");
     }

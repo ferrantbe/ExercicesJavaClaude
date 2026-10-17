@@ -25,7 +25,7 @@ class AnimalTest {
     }
 
     @Test
-    @DisplayName("Un tableau d'Animal rend les cris de ses vrais elements")
+    @DisplayName("Un tableau d'Animal retourne les cris de ses vrais elements")
     void polymorphisme() {
         Animal[] animaux = {new Dog(), new Cat(), new Dog()};
 

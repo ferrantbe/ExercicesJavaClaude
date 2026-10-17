@@ -11,7 +11,7 @@ public class Deck {
     private final Card[] cartes = new Card[NOMBRE_DE_CARTES];
 
     /**
-     * values() rend toutes les constantes de l'enum dans l'ordre de
+     * values() retourne toutes les constantes de l'enum dans l'ordre de
      * declaration. Deux for-each imbriquees suffisent donc, et le nombre 52
      * n'apparait nulle part dans le calcul : il decoule de 4 x 13.
      */

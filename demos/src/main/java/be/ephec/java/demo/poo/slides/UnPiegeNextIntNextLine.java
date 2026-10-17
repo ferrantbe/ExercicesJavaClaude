@@ -15,7 +15,7 @@ public class UnPiegeNextIntNextLine {
         System.out.print("Annee : ");
         int annee = clavier.nextInt();       // lit 1965, laisse la fin de ligne
         System.out.print("Titre : ");
-        String titre = clavier.nextLine();   // rend "" sans attendre
+        String titre = clavier.nextLine();   // retourne "" sans attendre
         System.out.println();
         System.out.println("Annee = " + annee + ", titre = [" + titre + "]");
     }

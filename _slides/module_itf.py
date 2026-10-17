@@ -54,7 +54,7 @@ LIBELLES = [
     "Interface ou classe abstraite ?",
     "Dépendre d'un contrat",
     "Le patron Observateur",
-    "Ce qu'une interface porte aussi",
+    "Ce qu'une interface contient aussi",
 ]
 
 # Titre des intercalaires, sans numero : le finaliseur le pose.
@@ -66,7 +66,7 @@ INTERCALAIRES = {
     "3.1": ("Interface ou abstraite ?", None),
     "4.1": ("Dépendre d'un contrat", None),
     "5.1": ("Le patron Observateur", None),
-    "6.1": ("Ce qu'elle porte aussi", None),
+    "6.1": ("Ce qu'elle contient aussi", None),
 }
 
 # L'image de la slide modele sert aux six sections : Frederic les

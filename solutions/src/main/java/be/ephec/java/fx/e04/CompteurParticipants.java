@@ -63,8 +63,8 @@ public class CompteurParticipants extends Application {
     }
 
     /**
-     * KEY_TYPED rend le caractere produit par la frappe, sous forme de
-     * String. On aurait pu utiliser KEY_PRESSED et getCode(), qui rend un
+     * KEY_TYPED retourne le caractere produit par la frappe, sous forme de
+     * String. On aurait pu utiliser KEY_PRESSED et getCode(), qui retourne un
      * KeyCode : la difference compte des qu'on veut distinguer la touche
      * physique du caractere qu'elle produit.
      */

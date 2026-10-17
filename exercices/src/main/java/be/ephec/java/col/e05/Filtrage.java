@@ -7,7 +7,7 @@ public class Filtrage {
 
     /**
      * Supprime de la liste tous les nombres pairs. La liste recue est
-     * MODIFIEE : la methode ne rend rien.
+     * MODIFIEE : la methode ne retourne rien.
      *
      * Indice : la methode removeIf de l'interface Collection, a qui l'on
      * passe un Predicate.
@@ -16,7 +16,7 @@ public class Filtrage {
         throw new UnsupportedOperationException("supprimerLesPairs n'est pas encore implementee");
     }
 
-    /** Rend le nombre d'elements pairs de la liste, sans la modifier. */
+    /** Retourne le nombre d'elements pairs de la liste, sans la modifier. */
     public static int compterLesPairs(List<Integer> nombres) {
         throw new UnsupportedOperationException("compterLesPairs n'est pas encore implementee");
     }

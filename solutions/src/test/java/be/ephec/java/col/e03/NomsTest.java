@@ -34,7 +34,7 @@ class NomsTest {
 
         assertIterableEquals(Arrays.asList("Hopper", "Lovelace", "Turing"), Noms.triee(lus));
         assertIterableEquals(Arrays.asList("Turing", "Lovelace", "Hopper"), lus,
-                "triee rend une nouvelle liste");
+                "triee retourne une nouvelle liste");
     }
 
     @Test

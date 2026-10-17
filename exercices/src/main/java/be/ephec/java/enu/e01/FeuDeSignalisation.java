@@ -12,12 +12,12 @@ public class FeuDeSignalisation {
 
     // TODO : ecrivez le constructeur : un feu neuf est inactif, donc orange
 
-    /** Rend le feu inactif : il passe a l'orange et ne changera plus de couleur. */
+    /** Retourne le feu inactif : il passe a l'orange et ne changera plus de couleur. */
     public void desactive() {
         throw new UnsupportedOperationException("desactive n'est pas encore implementee");
     }
 
-    /** Rend le feu actif : il passe au rouge et peut de nouveau changer. */
+    /** Retourne le feu actif : il passe au rouge et peut de nouveau changer. */
     public void active() {
         throw new UnsupportedOperationException("active n'est pas encore implementee");
     }
@@ -39,7 +39,7 @@ public class FeuDeSignalisation {
     }
 
     /**
-     * Rend l'etat du feu sous forme de texte, dans ce format exact :
+     * Retourne l'etat du feu sous forme de texte, dans ce format exact :
      *     "ROUGE (actif)"   ou   "ORANGE (inactif)"
      */
     public String enTexte() {

@@ -350,7 +350,7 @@ contiennent leurs propres enfants. On appelle cet arbre le graphe de scène.
 
 L'image se lit de bas en haut. La fenêtre, le `Stage`, est fournie par
 JavaFX. Elle affiche une scène, la `Scene`. La scène n'accepte qu'un nœud,
-sa racine. Et cette racine porte tous les autres nœuds : ce sont eux qu'on
+sa racine. Et cette racine contient tous les autres nœuds : ce sont eux qu'on
 voit.
 
 Pour afficher plusieurs composants, on les range donc dans un conteneur, qui
@@ -365,7 +365,7 @@ devient la racine. La slide suivante construit cet empilement en code.
 **Slide**
 
 - On crée les nœuds, puis le conteneur qui les range, puis la scène autour de la racine
-- `getChildren()` rend la liste des enfants : on peut y ajouter après coup
+- `getChildren()` retourne la liste des enfants : on peut y ajouter après coup
 
 ```java
 Label etat = new Label("Eteinte");

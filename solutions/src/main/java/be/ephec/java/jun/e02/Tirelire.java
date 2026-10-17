@@ -19,6 +19,6 @@ public interface Tirelire {
      */
     void retrait(double montant) throws ContenuInsuffisant;
 
-    /** Rend le contenu courant. */
+    /** Retourne le contenu courant. */
     double getContenu();
 }

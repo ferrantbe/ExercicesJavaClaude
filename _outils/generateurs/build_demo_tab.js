@@ -97,14 +97,14 @@ etape(tab, 4, "Le piège qui compte vraiment", "6 min");
 tab.push(runs([
   "Écrire une méthode ",
   { t: "remettreAZero(int[] tableau)", code: true },
-  " qui ne rend rien, et l'appeler."
+  " qui ne retourne rien, et l'appeler."
 ]));
 tab.push(...code([
   "int[] releve = {12, 8, 21, 5, 17};",
   "remettreAZero(releve);",
   "System.out.println(Arrays.toString(releve));   // ?"
 ]));
-tab.push(p("Demander un vote à main levée avant de lancer : le tableau a-t-il changé ? La méthode ne rend rien, beaucoup diront non."));
+tab.push(p("Demander un vote à main levée avant de lancer : le tableau a-t-il changé ? La méthode ne retourne rien, beaucoup diront non."));
 tab.push(aDire("La méthode n'a pas reçu le tableau. Elle a reçu l'adresse du tableau. Elle est donc allée écrire dans le vôtre — il n'y en a jamais eu qu'un."));
 tab.push(runs([
   "Enchaîner sur la vraie copie, ",

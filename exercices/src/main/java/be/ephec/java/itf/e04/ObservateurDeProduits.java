@@ -11,6 +11,6 @@ public interface ObservateurDeProduits {
     /** Appelee par le magasin des qu'un produit arrive. */
     void nouveauProduit(String produit);
 
-    /** Rend ce que l'observateur a retenu, pour verification. */
+    /** Retourne ce que l'observateur a retenu, pour verification. */
     String dernierMessage();
 }

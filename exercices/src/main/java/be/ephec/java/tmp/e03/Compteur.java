@@ -12,14 +12,14 @@ import java.time.LocalDateTime;
 public class Compteur {
 
     /**
-     * Rend le nombre de secondes ecoulees entre deux instants.
+     * Retourne le nombre de secondes ecoulees entre deux instants.
      */
     public static long secondesEntre(LocalDateTime debut, LocalDateTime fin) {
         throw new UnsupportedOperationException("secondesEntre n'est pas encore implementee");
     }
 
     /**
-     * Rend le nombre de secondes vecues par une personne, de sa naissance
+     * Retourne le nombre de secondes vecues par une personne, de sa naissance
      * jusqu'a l'instant donne.
      *
      * On ne connait pas son heure de naissance : comptez a partir de minuit.
@@ -32,7 +32,7 @@ public class Compteur {
     }
 
     /**
-     * Rend le nombre recu avec un espace tous les trois chiffres :
+     * Retourne le nombre recu avec un espace tous les trois chiffres :
      * 1157479200 devient "1 157 479 200".
      *
      * Attention : le separateur doit etre une espace ordinaire, celle de la

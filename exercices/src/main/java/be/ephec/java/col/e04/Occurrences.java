@@ -17,7 +17,7 @@ public class Occurrences {
     }
 
     /**
-     * Rend le decompte sous forme de texte, un mot par ligne, PAR ORDRE
+     * Retourne le decompte sous forme de texte, un mot par ligne, PAR ORDRE
      * ALPHABETIQUE, au format exact :
      *
      *     chat : 3

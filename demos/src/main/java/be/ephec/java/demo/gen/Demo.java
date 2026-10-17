@@ -19,7 +19,7 @@ public class Demo {
 
         int total = 0;
         while (pile.taille() > 0) {
-            total += pile.depiler();   // aucun cast : depiler() rend un Integer
+            total += pile.depiler();   // aucun cast : depiler() retourne un Integer
         }
         System.out.println("Total : " + total);
 

@@ -14,7 +14,7 @@ import javafx.stage.Stage;
  *
  *   1. ouvrez la Javadoc de TextField — Ctrl+Q sur le type, ou F1 ;
  *   2. cherchez ses PROPRIETES. Une propriete se reconnait a son
- *      accesseur : une methode qui finit par Property et qui rend un
+ *      accesseur : une methode qui finit par Property et qui retourne un
  *      objet, non une valeur ;
  *   3. trouvez celle qui porte le texte saisi ;
  *   4. ajoutez-lui un Listener qui affiche chaque valeur successive.

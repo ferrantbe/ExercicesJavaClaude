@@ -18,7 +18,7 @@ public class Annuaire {
         throw new UnsupportedOperationException("ajouter n'est pas encore implementee");
     }
 
-    /** Rend la fiche portant ce nom, ou null si l'annuaire n'en a pas. */
+    /** Retourne la fiche portant ce nom, ou null si l'annuaire n'en a pas. */
     public Fiche chercher(String nom) {
         throw new UnsupportedOperationException("chercher n'est pas encore implementee");
     }
@@ -28,7 +28,7 @@ public class Annuaire {
     }
 
     /**
-     * Rend les noms de l'annuaire, par ordre alphabetique.
+     * Retourne les noms de l'annuaire, par ordre alphabetique.
      *
      * Avec une HashMap, l'ordre des cles n'est pas garanti : il faudra donc
      * trier. Lisez la derniere question de l'enonce avant de vous lancer.

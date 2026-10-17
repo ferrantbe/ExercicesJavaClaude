@@ -17,7 +17,7 @@ class GameTest {
     }
 
     @Test
-    @DisplayName("meilleur rend celui qui a le plus de points")
+    @DisplayName("meilleur retourne celui qui a le plus de points")
     void meilleurDesDeux() {
         Player max = joueur("Max", 3);
         Player paul = joueur("Paul", 5);
@@ -27,7 +27,7 @@ class GameTest {
     }
 
     @Test
-    @DisplayName("En cas d'egalite, meilleur rend le premier")
+    @DisplayName("En cas d'egalite, meilleur retourne le premier")
     void meilleurEnCasDEgalite() {
         Player max = joueur("Max", 4);
         Player paul = joueur("Paul", 4);
@@ -36,7 +36,7 @@ class GameTest {
     }
 
     @Test
-    @DisplayName("gagnantDuTour rend celui qui a fait le plus grand nombre")
+    @DisplayName("gagnantDuTour retourne celui qui a fait le plus grand nombre")
     void gagnantDuTour() {
         Player max = joueur("Max", 0);
         Player paul = joueur("Paul", 0);
@@ -46,7 +46,7 @@ class GameTest {
     }
 
     @Test
-    @DisplayName("En cas d'egalite, gagnantDuTour rend le premier")
+    @DisplayName("En cas d'egalite, gagnantDuTour retourne le premier")
     void gagnantDuTourEnCasDEgalite() {
         Player max = joueur("Max", 0);
         Player paul = joueur("Paul", 0);

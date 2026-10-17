@@ -526,7 +526,7 @@ public abstract class Notification {
 
 **Note**
 
-Une classe abstraite porte des champs, et ces champs doivent être initialisés. C'est le
+Une classe abstraite contient des champs, et ces champs doivent être initialisés. C'est le
 travail d'un constructeur, exactement comme ailleurs — la seule différence est que
 personne ne l'appelle par `new`, mais toujours par `super` depuis une sous-classe.
 
@@ -1072,7 +1072,7 @@ en ajoute un second, et c'est la forme que prend la quatrième question de l'exa
 **Slide**
 
 - Rien n'interdit deux niveaux d'abstraction
-- Chaque étage porte ce qui est commun en dessous
+- Chaque étage contient ce qui est commun en dessous
 - Seules les feuilles de l'arbre sont concrètes
 
 ```
@@ -1095,9 +1095,9 @@ Une société facture au forfait ou à l'heure, et chaque façon connaît deux v
 Deux niveaux de regroupement apparaissent donc naturellement : ce qui est vrai de toute
 prestation, et ce qui n'est vrai que des prestations horaires.
 
-La hiérarchie suit ce découpage. `Prestation` porte le client, parce que toute
-prestation en a un. `Horaire` porte le taux et le nombre d'heures, parce que les
-prestations au forfait n'en ont pas. `Urgence` porte la majoration, parce qu'elle est
+La hiérarchie suit ce découpage. `Prestation` connaît le client, parce que toute
+prestation en a un. `Horaire` connaît le taux et le nombre d'heures, parce que les
+prestations au forfait n'en ont pas. `Urgence` connaît la majoration, parce qu'elle est
 seule à en avoir une.
 
 Quatre classes sont concrètes, trois ne le sont pas. Une classe est abstraite tant
@@ -1248,6 +1248,6 @@ La dernière question de l'exercice mérite qu'on s'y arrête : comparez le temp
 sur `ABS.5` et sur `ABS.4`, et demandez-vous où est passée la différence — à écrire, ou
 à décider.
 
-Côté fil rouge, `G.10` introduit la classe abstraite `Jeu`, qui porte la partie en cours
+Côté fil rouge, `G.10` introduit la classe abstraite `Jeu`, qui connaît la partie en cours
 et déclare une méthode `jouer` que chaque jeu définira. C'est le socle sur lequel les
 jeux concrets viendront se poser.

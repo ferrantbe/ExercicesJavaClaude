@@ -34,7 +34,7 @@ class PaiementTest {
     }
 
     @Test
-    @DisplayName("Le client rend ce que le moyen de paiement a produit")
+    @DisplayName("Le client retourne ce que le moyen de paiement a produit")
     void clientDelegue() {
         Client client = new Client();
 

@@ -22,7 +22,7 @@ public class Enseignant {
         throw new UnsupportedOperationException("getPrenom n'est pas encore implementee");
     }
 
-    /** Rend "Turing Alan" : le prenom, puis le nom. */
+    /** Retourne "Turing Alan" : le prenom, puis le nom. */
     @Override
     public String toString() {
         throw new UnsupportedOperationException("toString n'est pas encore implementee");

@@ -20,7 +20,7 @@ class EtudiantTest {
     }
 
     @Test
-    @DisplayName("Un cours porte son charge de cours entre parentheses")
+    @DisplayName("Un cours connait son charge de cours entre parentheses")
     void cours() {
         Cours java = new Cours("Java", turing());
 
@@ -93,7 +93,7 @@ class EtudiantTest {
     }
 
     @Test
-    @DisplayName("La liste rendue ne permet pas de vider l'etudiant")
+    @DisplayName("La liste retournee ne permet pas de vider l'etudiant")
     void listeProtegee() {
         Etudiant ada = new Etudiant("Lovelace", "Ada");
         ada.inscrire(new Cours("Java", turing()));
@@ -105,7 +105,7 @@ class EtudiantTest {
         }
 
         assertEquals(1, ada.nombreDeCours(),
-                "Rendre la liste elle-meme laisse n'importe qui la vider. "
+                "Retourner la liste elle-meme laisse n'importe qui la vider. "
                         + "Voir CC-OBJ.2 du memento Clean Code.");
     }
 }

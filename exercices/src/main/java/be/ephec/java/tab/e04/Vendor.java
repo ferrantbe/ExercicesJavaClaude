@@ -30,12 +30,12 @@ public class Vendor {
         throw new UnsupportedOperationException("enregistrer n'est pas encore implementee");
     }
 
-    /** Rend le nombre de ventes enregistrees. */
+    /** Retourne le nombre de ventes enregistrees. */
     public int nombreDeVentes() {
         throw new UnsupportedOperationException("nombreDeVentes n'est pas encore implementee");
     }
 
-    /** Rend la somme des prix reels de toutes les ventes enregistrees. */
+    /** Retourne la somme des prix reels de toutes les ventes enregistrees. */
     public double chiffreDAffaires() {
         throw new UnsupportedOperationException("chiffreDAffaires n'est pas encore implementee");
     }

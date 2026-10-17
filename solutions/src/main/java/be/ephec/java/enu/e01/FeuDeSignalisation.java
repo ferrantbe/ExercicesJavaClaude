@@ -23,7 +23,7 @@ public class FeuDeSignalisation {
     }
 
     /**
-     * Aucune condition sur la couleur courante : values() rend le tableau des
+     * Aucune condition sur la couleur courante : values() retourne le tableau des
      * trois couleurs dans l'ordre de declaration, ordinal() donne la position
      * de la couleur actuelle, et le reste de la division par 3 ramene a zero
      * apres la derniere. Ajouter une quatrieme couleur ne changerait rien ici.
@@ -46,7 +46,7 @@ public class FeuDeSignalisation {
 
     /**
      * couleur s'affiche par son nom de constante, parce que le toString par
-     * defaut d'une enum rend exactement cela.
+     * defaut d'une enum retourne exactement cela.
      */
     public String enTexte() {
         return couleur + (actif ? " (actif)" : " (inactif)");

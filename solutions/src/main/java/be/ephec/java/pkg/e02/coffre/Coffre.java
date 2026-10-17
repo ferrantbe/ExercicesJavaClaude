@@ -10,7 +10,7 @@ package be.ephec.java.pkg.e02.coffre;
  * La difference avec un champ public est essentielle. Un champ public donne
  * a la fois le droit de lire et celui d'ecrire, a tout le monde et pour
  * toujours. Un getter ne donne que la lecture, et la classe garde la main sur
- * ce qu'elle rend.
+ * ce qu'elle retourne.
  */
 public class Coffre {
 

@@ -12,8 +12,8 @@ package be.ephec.java.jun.e01;
  *   la division entiere TRONQUE vers zero — 11 / 4 vaut 2, pas 3 ;
  *
  *   la division par zero doit LAISSER PASSER l'ArithmeticException. Le
- *   reflexe de rendre 0 ou d'attraper l'exception aurait fait echouer le
- *   test, et pour une bonne raison : rendre 0 ferait passer une erreur pour
+ *   reflexe de retourner 0 ou d'attraper l'exception aurait fait echouer le
+ *   test, et pour une bonne raison : retourner 0 ferait passer une erreur pour
  *   un resultat.
  */
 public class Calculatrice {

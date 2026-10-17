@@ -28,7 +28,7 @@ class PersonneTest {
     }
 
     @Test
-    @DisplayName("Les accesseurs rendent ce que les mutateurs ont range")
+    @DisplayName("Les accesseurs retournent ce que les mutateurs ont range")
     void lesAccesseursRendentCeQuiAEteRange() {
         Personne personne = new Personne();
         personne.setNom("Lovelace");
@@ -41,7 +41,7 @@ class PersonneTest {
     }
 
     @Test
-    @DisplayName("computeAge rend l'ecart entre l'annee donnee et l'annee de naissance")
+    @DisplayName("computeAge retourne l'ecart entre l'annee donnee et l'annee de naissance")
     void computeAgeRendLEcartDAnnees() {
         Personne personne = new Personne();
         personne.setAnneeDeNaissance(1990);

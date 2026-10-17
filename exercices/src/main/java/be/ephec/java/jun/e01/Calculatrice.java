@@ -30,7 +30,7 @@ public class Calculatrice {
 
     /**
      * La division entiere. Lisez le test pour savoir ce qui doit se passer
-     * quand le diviseur vaut zero — la reponse n'est pas « rendre 0 ».
+     * quand le diviseur vaut zero — la reponse n'est pas « retourner 0 ».
      */
     public int division(int a, int b) {
         throw new UnsupportedOperationException("division n'est pas encore implementee");

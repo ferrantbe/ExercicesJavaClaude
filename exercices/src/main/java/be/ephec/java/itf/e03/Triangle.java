@@ -1,6 +1,6 @@
 package be.ephec.java.itf.e03;
 
-/** ITF.3 — Cette classe vous est FOURNIE. Elle rend "triangle". */
+/** ITF.3 — Cette classe vous est FOURNIE. Elle retourne "triangle". */
 public class Triangle extends Shape {
 
     public Triangle(Point centre) {

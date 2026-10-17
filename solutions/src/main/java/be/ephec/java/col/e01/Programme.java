@@ -36,7 +36,7 @@ public class Programme {
 
         List<Integer> nombres = new ArrayList<>();
         for (int i = 0; i < n; i++) {
-            // nextInt(bound) rend un entier de 0 inclus a bound EXCLU.
+            // nextInt(bound) retourne un entier de 0 inclus a bound EXCLU.
             // Pour couvrir MINIMUM..MAXIMUM inclus, il faut donc autant de
             // valeurs que l'intervalle en compte, puis decaler.
             nombres.add(MINIMUM + hasard.nextInt(MAXIMUM - MINIMUM + 1));

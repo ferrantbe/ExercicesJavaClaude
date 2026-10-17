@@ -10,7 +10,7 @@ import java.util.List;
 public class Moyenne {
 
     /**
-     * Rend la moyenne arithmetique des notes.
+     * Retourne la moyenne arithmetique des notes.
      *
      * @param notes les notes, entre 0 et 20
      * @return la moyenne
@@ -31,7 +31,7 @@ public class Moyenne {
         return (double) total / notes.size();
     }
 
-    /** Rend true si la moyenne des notes atteint 10. */
+    /** Retourne true si la moyenne des notes atteint 10. */
     public static boolean reussite(List<Integer> notes) {
         return calculer(notes) >= 10;
     }

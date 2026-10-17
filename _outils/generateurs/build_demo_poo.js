@@ -112,7 +112,7 @@ poo.push(h2("Ce qu'il faut rater exprès"));
 poo.push(encadre([
   [{ t: "À l'étape 3", b: true }, " — taper ", { t: "nom = nom", code: true },
    " au lieu de ", { t: "this.nom = nom", code: true }, " dans un setter."],
-  ["Le compilateur ne dit rien, l'affectation ne fait rien, et le getter rend null. Laisser chercher trente secondes avant de montrer le this."],
+  ["Le compilateur ne dit rien, l'affectation ne fait rien, et le getter retourne null. Laisser chercher trente secondes avant de montrer le this."],
   ["C'est la première question de POO.2."]
 ], "9C2B2B"));
 

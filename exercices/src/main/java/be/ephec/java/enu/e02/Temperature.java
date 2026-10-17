@@ -24,7 +24,7 @@ public class Temperature {
         throw new UnsupportedOperationException("le constructeur n'est pas encore implemente");
     }
 
-    /** Rend la temperature exprimee dans l'unite demandee. */
+    /** Retourne la temperature exprimee dans l'unite demandee. */
     public double getValue(TemperatureUnit unite) {
         throw new UnsupportedOperationException("getValue n'est pas encore implementee");
     }

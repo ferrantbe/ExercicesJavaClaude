@@ -7,7 +7,7 @@ import java.util.TreeMap;
 /**
  * Slides « Lire un type emboite » et « Creer au premier usage » (COL,
  * section 6). computeIfAbsent cree la liste d'un auteur la premiere fois
- * seulement, puis rend celle qui existe.
+ * seulement, puis retourne celle qui existe.
  */
 public class LireUnTypeEmboite {
 

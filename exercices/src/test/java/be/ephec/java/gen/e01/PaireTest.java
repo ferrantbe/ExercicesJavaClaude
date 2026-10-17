@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class PaireTest {
 
     @Test
-    @DisplayName("Une paire d'Integer rend ses deux valeurs")
+    @DisplayName("Une paire d'Integer retourne ses deux valeurs")
     void paireDEntiers() {
         Paire<Integer> notes = new Paire<>(12, 16);
 
@@ -40,7 +40,7 @@ class PaireTest {
     void pasDeTranstypage() {
         Paire<Integer> notes = new Paire<>(12, 16);
 
-        // Aucun cast : getPremier() rend deja un Integer. C'est ce que la
+        // Aucun cast : getPremier() retourne deja un Integer. C'est ce que la
         // genericite apporte par rapport a une paire d'Object.
         int somme = notes.getPremier() + notes.getSecond();
 

@@ -78,7 +78,7 @@ exc.push(aDire("l'erreur est dans moyenne(), mais la cause est ailleurs : c'est 
 etape(exc, 3, "Trois corrections possibles", "4 min");
 exc.push(p("Les proposer et les discuter à haute voix, sans les coder toutes."));
 exc.push(tableau(["Correction", "Ce qu'elle donne"], [
-  ["rendre 0 quand le panier est vide",
+  ["retourner 0 quand le panier est vide",
    "le programme continue avec une valeur fausse — un panier vide n'a pas une moyenne de zéro, il n'a pas de moyenne"],
   ["tester avant d'appeler, dans le main",
    "marche, mais chaque appelant devra y penser, et le premier qui oubliera fera replanter le programme"],

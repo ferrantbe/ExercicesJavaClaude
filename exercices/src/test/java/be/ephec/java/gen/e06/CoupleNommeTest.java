@@ -40,7 +40,7 @@ class CoupleNommeTest {
     }
 
     @Test
-    @DisplayName("Vue comme un Couple, l'instance rend quand meme sa description a elle")
+    @DisplayName("Vue comme un Couple, l'instance retourne quand meme sa description a elle")
     void polymorphisme() {
         Couple<Integer> vueCommeCouple = new CoupleNomme<>("notes", 12, 16);
 

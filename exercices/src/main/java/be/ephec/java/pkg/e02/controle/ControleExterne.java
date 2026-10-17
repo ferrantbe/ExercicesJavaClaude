@@ -11,7 +11,7 @@ import be.ephec.java.pkg.e02.coffre.Coffre;
 public class ControleExterne {
 
     /**
-     * Rend le numero du coffre, lu depuis l'exterieur du package.
+     * Retourne le numero du coffre, lu depuis l'exterieur du package.
      */
     public String numeroDu(Coffre coffre) {
         throw new UnsupportedOperationException("numeroDu n'est pas encore implementee");

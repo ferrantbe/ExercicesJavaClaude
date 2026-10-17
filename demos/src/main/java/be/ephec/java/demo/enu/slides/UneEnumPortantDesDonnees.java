@@ -1,6 +1,6 @@
 package be.ephec.java.demo.enu.slides;
 
-/** Slide « Une enum peut porter des donnees » (ENU, section 5). */
+/** Slide « Une enum peut contenir des donnees » (ENU, section 5). */
 public class UneEnumPortantDesDonnees {
 
     public static void main(String[] args) {

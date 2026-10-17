@@ -5,7 +5,7 @@ package be.ephec.java.demo.enu;
  *
  * Le cycle sans aucune condition.
  *
- *   values()   rend les modes dans l'ordre de declaration
+ *   values()   retourne les modes dans l'ordre de declaration
  *   ordinal()  donne la position du mode courant
  *   % length   ramene a zero apres le dernier
  *

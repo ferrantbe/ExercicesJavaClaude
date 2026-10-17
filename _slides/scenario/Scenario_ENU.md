@@ -240,7 +240,7 @@ Le code complet, à exécuter : demos, classe `demo.enu.slides.DeclarerUneEnumer
 **Note**
 
 Le cœur du module, et la raison pour laquelle ENU.1 ne se réduit pas à une question de
-syntaxe. Une énumération ne remplace pas seulement des constantes : elle peut porter une
+syntaxe. Une énumération ne remplace pas seulement des constantes : elle peut contenir une
 partie de la logique, et faire disparaître des conditions.
 
 ### 3.2 · Démonstration
@@ -532,7 +532,7 @@ Jusqu'ici, l'énumération n'était qu'une liste de noms. Cette section montre q
 porter des données et des méthodes, ce qui déplace la question de la conception : où
 placer l'information ?
 
-### 5.2 · Une enum peut porter des données
+### 5.2 · Une enum peut contenir des données
 
 **Source** — deck 02, slide 49, corrigé
 
@@ -739,7 +739,7 @@ transporter une donnée, sans comportement et sans état qui change.
 
 **Slide**
 
-- Le mot-clé `record` déclare une classe faite pour porter des données
+- Le mot-clé `record` déclare une classe faite pour contenir des données
 - Les composants se déclarent entre parenthèses, comme des paramètres
 - Le corps du record reste souvent vide
 
@@ -930,14 +930,14 @@ compter les lignes. L'exercice ne prend que quelques minutes et il vaut la démo
 **Slide**
 
 - **G.6** - Les énumérations `TypeJeu` et `ResultatPartie`
-- **G.7** - La partie porte son type et son résultat
+- **G.7** - La partie connaît son type et son résultat
 - **G.8** - Le record `ResumePartie`
 - **G.9** - Choisir son jeu au lancement
 
 **Note**
 
 Le fil rouge applique les deux notions du module à GameHub. Deux énumérations d'abord :
-le type de jeu, qui porte un libellé lisible par un humain, et le résultat d'une partie,
+le type de jeu, qui connaît un libellé lisible par un humain, et le résultat d'une partie,
 qui vaut victoire du premier joueur, victoire du second ou match nul.
 
 La classe `Partie` les reçoit ensuite comme champs, et sa méthode `terminer` initialise le

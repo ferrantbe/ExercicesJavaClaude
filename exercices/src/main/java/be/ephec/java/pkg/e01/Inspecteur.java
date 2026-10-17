@@ -9,12 +9,12 @@ package be.ephec.java.pkg.e01;
 public class Inspecteur {
 
     /**
-     * Rend la liste des membres de Coffre que CETTE classe peut atteindre,
+     * Retourne la liste des membres de Coffre que CETTE classe peut atteindre,
      * separes par des virgules, dans l'ordre de declaration :
      *
      *   codeSecret, numero, proprietaire, ouvrirLeMecanisme, verifierLeNumero, decrire
      *
-     * Ne rendez que ceux qui sont reellement accessibles.
+     * Ne retournez que ceux qui sont reellement accessibles.
      */
     public String membresAccessibles() {
         throw new UnsupportedOperationException("membresAccessibles n'est pas encore implementee");

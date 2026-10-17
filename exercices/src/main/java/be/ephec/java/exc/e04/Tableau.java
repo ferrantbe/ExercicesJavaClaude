@@ -10,7 +10,7 @@ public class Tableau {
 
     /**
      * Cree un tableau de la taille demandee et y place la valeur 12 a la
-     * position demandee, puis rend un compte-rendu.
+     * position demandee, puis retourne un compte-rendu.
      *
      * Trois issues possibles, aux messages imposes :
      *
@@ -24,7 +24,7 @@ public class Tableau {
      *       "Position 7 hors du tableau de 5 cases"
      *
      * La methode ne doit JAMAIS propager d'exception : elle les traite toutes
-     * et rend un texte.
+     * et retourne un texte.
      */
     public static String placerDouze(int taille, int position) {
         throw new UnsupportedOperationException("placerDouze n'est pas encore implementee");

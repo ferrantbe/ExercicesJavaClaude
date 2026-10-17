@@ -13,7 +13,7 @@ import java.util.Set;
 public class Tirage {
 
     /**
-     * Rend un Set contenant les valeurs de la liste, sans doublon.
+     * Retourne un Set contenant les valeurs de la liste, sans doublon.
      *
      * Indice : HashSet a un constructeur qui accepte une Collection.
      */
@@ -21,12 +21,12 @@ public class Tirage {
         throw new UnsupportedOperationException("sansDoublons n'est pas encore implementee");
     }
 
-    /** Rend true si le nombre figure dans l'ensemble. */
+    /** Retourne true si le nombre figure dans l'ensemble. */
     public static boolean aEteTire(Set<Integer> tirage, int nombre) {
         throw new UnsupportedOperationException("aEteTire n'est pas encore implementee");
     }
 
-    /** Rend le nombre de doublons perdus au passage de la liste a l'ensemble. */
+    /** Retourne le nombre de doublons perdus au passage de la liste a l'ensemble. */
     public static int doublons(List<Integer> nombres) {
         throw new UnsupportedOperationException("doublons n'est pas encore implementee");
     }

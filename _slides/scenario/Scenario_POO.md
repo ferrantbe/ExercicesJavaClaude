@@ -588,7 +588,7 @@ String texte = "Lu : " + dune;    // Lu : Dune (1965)
 ```
 
 **Note**
-Toute classe Java possède une méthode `toString()`, qui rend une
+Toute classe Java possède une méthode `toString()`, qui retourne une
 représentation textuelle de l'objet. Celle qu'on reçoit par défaut n'est
 guère utile : elle affiche le nom complet de la classe suivi d'un `@` et
 d'un numéro, par exemple `Livre@1b6d3586`.
@@ -1099,7 +1099,7 @@ Les méthodes de classe servent dans trois situations. Elles répondent aux
 questions qui portent sur l'ensemble des objets plutôt que sur l'un d'eux,
 comme le nombre d'instances créées. Elles offrent des services qui n'ont
 besoin d'aucun état, comme les fonctions mathématiques de la classe `Math`.
-Enfin, elles peuvent construire des objets : `LocalDate.now()` rend une
+Enfin, elles peuvent construire des objets : `LocalDate.now()` retourne une
 date sans qu'on ait écrit `new`. Ces dernières s'appellent des fabriques.
 
 ---
@@ -1228,7 +1228,7 @@ comprendre.
 
 **Slide**
 - La documentation officielle de chaque classe du JDK
-- Pour chaque méthode : paramètres, valeur rendue, exceptions
+- Pour chaque méthode : paramètres, valeur retournée, exceptions
 - En ligne : docs.oracle.com/en/java/javase/21/docs/api/
 - Dans IntelliJ : Ctrl+Q / F1 (IDE.14)
 - Question : de quelles méthodes de `Scanner` aurons-nous besoin ?
@@ -1237,7 +1237,7 @@ comprendre.
 Pour savoir ce qu'offre une classe du JDK, on consulte sa Javadoc. Chaque
 page présente la classe, puis l'inventaire de ses constructeurs et de ses
 méthodes. Pour chaque méthode, elle indique les paramètres attendus, la
-valeur rendue et les exceptions possibles.
+valeur retournée et les exceptions possibles.
 
 Inutile d'ouvrir un navigateur : IntelliJ affiche cette documentation au
 survol d'un nom, ou avec Ctrl+Q / F1 (voir IDE.14). La version en ligne,
@@ -1279,16 +1279,16 @@ lit un mot, `nextInt()` et `nextDouble()` lisent un nombre.
 - *(capture B : bulle de `nextInt()` ; capture C : bulle de `nextLine()`)*
 
 **Note**
-La bulle d'une méthode donne sa signature, ce qu'elle rend et les exceptions
+La bulle d'une méthode donne sa signature, ce qu'elle retourne et les exceptions
 qu'elle peut lever.
 
-`nextInt()` lit le jeton suivant et le rend sous forme d'entier. Elle lève une
+`nextInt()` lit le jeton suivant et le retourne sous forme d'entier. Elle lève une
 `InputMismatchException` si ce jeton n'est pas un entier : c'est ce qui arrive
 quand l'utilisateur tape des lettres là où le programme attend un nombre. La
 bulle signale aussi la variante `nextInt(radix)`, qui interprète le nombre
 dans la base indiquée.
 
-`nextLine()` rend le reste de la ligne courante, sans le passage à la ligne
+`nextLine()` retourne le reste de la ligne courante, sans le passage à la ligne
 final, et se place au début de la ligne suivante. C'est ce comportement qui
 explique le piège de la slide suivante.
 
@@ -1300,7 +1300,7 @@ explique le piège de la slide suivante.
 
 **Slide**
 - `nextInt()` lit le nombre, mais laisse la fin de ligne
-- Le `nextLine()` suivant la ramasse et rend une chaîne vide
+- Le `nextLine()` suivant la ramasse et retourne une chaîne vide
 - La question semble sautée
 
 **Code**
@@ -1309,13 +1309,13 @@ explique le piège de la slide suivante.
 System.out.print("Annee : ");
 int annee = clavier.nextInt();       // lit 1965, laisse la fin de ligne
 System.out.print("Titre : ");
-String titre = clavier.nextLine();   // rend "" sans attendre
+String titre = clavier.nextLine();   // retourne "" sans attendre
 ```
 
 **Note**
 Quand l'utilisateur tape `1965` puis Entrée, `nextInt()` consomme les
 chiffres mais laisse le passage à la ligne dans le tampon. Le `nextLine()`
-suivant le trouve immédiatement et rend une chaîne vide : pour
+suivant le trouve immédiatement et retourne une chaîne vide : pour
 l'utilisateur, la question du titre a été sautée.
 
 On peut ordonner les questions pour éviter qu'un `nextLine()` suive un
@@ -1552,7 +1552,7 @@ Le code complet, à exécuter : demos, classe `demo.poo.slides.CeQuOffrentLesWra
 **Source** nouvelle
 
 **Slide**
-- Une méthode calcule et rend un résultat : elle ne lit ni n'affiche rien
+- Une méthode calcule et retourne un résultat : elle ne lit ni n'affiche rien
 - Le `main` dialogue avec l'utilisateur : il ne calcule rien
 - Le calcul devient testable
 - Voir CC-MET.8
@@ -1577,7 +1577,7 @@ public class Disque {
 **Note**
 Un calcul écrit directement dans le `main`, mêlé aux lectures et aux
 affichages, ne peut être vérifié qu'à la main. Placé dans une méthode qui
-reçoit ses données en paramètres et rend un résultat, il peut être appelé
+reçoit ses données en paramètres et retourne un résultat, il peut être appelé
 et vérifié automatiquement, avec autant de valeurs qu'on veut. Le `main` se
 contente alors de dialoguer.
 

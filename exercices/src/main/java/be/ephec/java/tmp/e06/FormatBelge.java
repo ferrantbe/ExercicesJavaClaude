@@ -10,12 +10,12 @@ import java.time.LocalDate;
  */
 public class FormatBelge {
 
-    /** Rend la date au format jour/mois/annee, par exemple "19/01/2027". */
+    /** Retourne la date au format jour/mois/annee, par exemple "19/01/2027". */
     public static String enTexte(LocalDate date) {
         throw new UnsupportedOperationException("enTexte n'est pas encore implementee");
     }
 
-    /** Analyse un texte au format jour/mois/annee et rend la date correspondante. */
+    /** Analyse un texte au format jour/mois/annee et retourne la date correspondante. */
     public static LocalDate depuisTexte(String texte) {
         throw new UnsupportedOperationException("depuisTexte n'est pas encore implementee");
     }

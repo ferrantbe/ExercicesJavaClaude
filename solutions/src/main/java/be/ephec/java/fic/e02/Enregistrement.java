@@ -22,7 +22,7 @@ import java.util.List;
  *    donc leurs enseignants. C'est pourquoi les trois classes doivent etre
  *    Serializable, et pas seulement celle qu'on nomme.
  *
- * 3. readObject rend un Object. Le transtypage est inevitable et le
+ * 3. readObject retourne un Object. Le transtypage est inevitable et le
  *    compilateur avertit qu'il ne peut pas le verifier : la serialisation est
  *    anterieure a la genericite, et le fichier ne contient aucune trace du
  *    type parametre.

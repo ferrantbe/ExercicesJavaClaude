@@ -26,10 +26,10 @@ class InscriptionsTest {
     }
 
     @Test
-    @DisplayName("Un etudiant inconnu rend un ensemble vide, pas null")
+    @DisplayName("Un etudiant inconnu retourne un ensemble vide, pas null")
     void etudiantInconnu() {
         assertNotNull(garnies().coursDe("Babbage"),
-                "rendre null obligerait chaque appelant a le tester — voir CC-ERR.2");
+                "retourner null obligerait chaque appelant a le tester — voir CC-ERR.2");
         assertEquals(0, garnies().coursDe("Babbage").size());
     }
 

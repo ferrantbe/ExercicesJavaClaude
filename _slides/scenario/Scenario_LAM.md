@@ -152,7 +152,7 @@ quand on clique.
 **Slide**
 
 - La méthode `removeIf` reçoit un objet, mais elle n'en attend qu'une méthode
-- Toute la classe existe pour porter une seule ligne
+- Toute la classe existe pour contenir une seule ligne
 
 ```java
 public class TitreLong implements Predicate<String> {

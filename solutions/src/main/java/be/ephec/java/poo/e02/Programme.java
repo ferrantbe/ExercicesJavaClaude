@@ -11,7 +11,7 @@ public class Programme {
         personne.setAnneeDeNaissance(1815);
 
         // Il n'existe pas de setAge : impossible de renseigner l'age.
-        // getAge() rend donc 0, la valeur par defaut d'un int.
+        // getAge() retourne donc 0, la valeur par defaut d'un int.
         System.out.println(personne.getPrenom() + " " + personne.getNom()
                 + " a " + personne.getAge() + " ans");
 

@@ -10,10 +10,10 @@ package be.ephec.java.lam.e02;
 public class Affichage {
 
     /**
-     * Rend les elements du tableau qui satisfont au filtre, separes par une
-     * espace. Pour {1, 4, -9, 5} et le filtre « positif », rend "1 4 5".
+     * Retourne les elements du tableau qui satisfont au filtre, separes par une
+     * espace. Pour {1, 4, -9, 5} et le filtre « positif », retourne "1 4 5".
      *
-     * Rend une chaine vide si aucun element ne convient.
+     * Retourne une chaine vide si aucun element ne convient.
      */
     public static String selectionner(int[] tableau, Filtrage filtre) {
         throw new UnsupportedOperationException("selectionner n'est pas encore implementee");

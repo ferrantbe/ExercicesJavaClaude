@@ -86,7 +86,7 @@ tmp.push(aDire("la documentation n'est pas une page qu'on lit, c'est un réseau 
 etape(tmp, 4, "L'autre chemin", "3 min");
 tmp.push(runs([
   "Taper ", { t: "Duration.", code: true }, " et trouver ", { t: "between", code: true },
-  ". Elle rend un objet, pas un nombre. Taper ", { t: "duree.", code: true },
+  ". Elle retourne un objet, pas un nombre. Taper ", { t: "duree.", code: true },
   " et découvrir ", { t: "toHours", code: true }, ", ", { t: "toMinutes", code: true }, "."
 ]));
 tmp.push(...code([

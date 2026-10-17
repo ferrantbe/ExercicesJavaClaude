@@ -17,7 +17,7 @@ public class Couple<T> {
         this.second = second;
     }
 
-    /** Rend "premier: 12, second: 16". */
+    /** Retourne "premier: 12, second: 16". */
     public String description() {
         return String.format("premier: %s, second: %s", premier, second);
     }

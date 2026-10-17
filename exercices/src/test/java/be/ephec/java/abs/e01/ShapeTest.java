@@ -29,7 +29,7 @@ class ShapeTest {
     }
 
     @Test
-    @DisplayName("Chaque forme rend son nom")
+    @DisplayName("Chaque forme retourne son nom")
     void nomDesFormes() {
         Point origine = new Point(0, 0);
 
@@ -86,7 +86,7 @@ class ShapeTest {
         String[] attendus = {"cercle", "carre", "triangle"};
         for (int i = 0; i < formes.length; i++) {
             assertEquals(attendus[i], formes[i].nom(),
-                    "chaque element rend le nom de son vrai type");
+                    "chaque element retourne le nom de son vrai type");
         }
     }
 }

@@ -25,7 +25,7 @@ public class Tri {
 
     public static List<Integer> triee(List<Integer> nombres) {
         // On copie AVANT de trier : l'enonce demande de ne pas toucher a la
-        // liste recue. Collections.sort trie sur place, sans rien rendre.
+        // liste recue. Collections.sort trie sur place, sans rien retourner.
         List<Integer> copie = new ArrayList<>(nombres);
         Collections.sort(copie);
         return copie;

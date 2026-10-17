@@ -11,7 +11,7 @@ import java.time.LocalDate;
 public class Agenda {
 
     /**
-     * Rend la date situee une semaine apres celle recue.
+     * Retourne la date situee une semaine apres celle recue.
      * La date recue n'est pas modifiee — elle ne PEUT pas l'etre.
      */
     public static LocalDate dansUneSemaine(LocalDate date) {
@@ -19,7 +19,7 @@ public class Agenda {
     }
 
     /**
-     * Rend la date situee un nombre de jours donne apres celle recue.
+     * Retourne la date situee un nombre de jours donne apres celle recue.
      * Un nombre negatif recule dans le temps.
      */
     public static LocalDate reporterDe(LocalDate date, int jours) {

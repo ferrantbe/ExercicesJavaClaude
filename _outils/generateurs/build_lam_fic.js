@@ -123,7 +123,7 @@ lam.push(runs([
   { t: "boolean test(int valeur)", code: true },
   " — puis la méthode ",
   { t: "Affichage.selectionner(int[], Filtrage)", code: true },
-  ", qui rend les éléments retenus séparés par une espace."
+  ", qui retourne les éléments retenus séparés par une espace."
 ]));
 lam.push(...code([
   "int[] tableau = {1, 4, -9, 5, -7, -3, 2};",
@@ -305,7 +305,7 @@ fic.push(p("Package : be.ephec.java.fic.e01", { italic: true, color: GREY }));
 fic.push(h2("Objectif"));
 fic.push(p("Construire le petit modèle qui servira aux deux exercices suivants. Aucun fichier ici."));
 fic.push(h2("Énoncé"));
-fic.push(tableau(["Classe", "Ce qu'elle porte", "Méthodes"], [
+fic.push(tableau(["Classe", "Ce qu'elle contient", "Méthodes"], [
   ["Enseignant", "nom, prénom — au constructeur", "les accesseurs, toString"],
   ["Cours", "intitulé au constructeur, chargé de cours modifiable", "accesseurs, setter, toString"],
   ["Etudiant", "nom, prénom au constructeur ; la liste de cours démarre vide", "inscrire, desinscrire, getCours, nombreDeCours, toString"]
@@ -319,14 +319,14 @@ fic.push(...code([
 ]));
 fic.push(p("Une seconde inscription au même cours ne change rien ; désinscrire un cours absent ne provoque pas d'erreur."));
 fic.push(encadre([
-  [{ t: "Ce que rend getCours", b: true }],
-  ["Un test vérifie qu'on ne peut pas vider l'étudiant à travers la liste qu'il rend. Si vous rendez la liste elle-même, n'importe qui peut appeler clear() dessus et contourner desinscrire — l'encapsulation ne sert alors plus à rien."],
+  [{ t: "Ce que retourne getCours", b: true }],
+  ["Un test vérifie qu'on ne peut pas vider l'étudiant à travers la liste qu'il retourne. Si vous retournez la liste elle-même, n'importe qui peut appeler clear() dessus et contourner desinscrire — l'encapsulation ne sert alors plus à rien."],
   ["Cherchez Collections.unmodifiableList dans la Javadoc. Voir CC-OBJ.2 du mémento Clean Code."]
 ]));
 fic.push(h2("Comment vérifier votre code"));
 fic.push(verif([
   { t: "be.ephec.java.fic.e01.EtudiantTest", code: true },
-  { t: "Vérifie les trois classes, les formats de toString, l'inscription et la désinscription — y compris les cas sans effet — et la protection de la liste rendue." }
+  { t: "Vérifie les trois classes, les formats de toString, l'inscription et la désinscription — y compris les cas sans effet — et la protection de la liste retournée." }
 ]));
 fic.push(saut());
 
@@ -372,7 +372,7 @@ fic.push(runs([
   ", et pas seulement celle qu'on nomme. Le test le vérifie."
 ]));
 fic.push(runs([
-  { t: "readObject rend un Object. ", b: true },
+  { t: "readObject retourne un Object. ", b: true },
   "Un transtypage est inévitable, et le compilateur avertit qu'il ne peut pas le vérifier. Ce n'est pas une erreur de votre part : la sérialisation est antérieure à la généricité, et le fichier ne contient aucune trace du type paramétré."
 ]));
 fic.push(runs([
@@ -423,7 +423,7 @@ fic.push(...code([
 fic.push(runs([
   { t: "Un piège à l'analyse. ", b: true },
   { t: "\"Turing;Alan;\".split(\";\")", code: true },
-  " rend un tableau de DEUX éléments, pas trois : ",
+  " retourne un tableau de DEUX éléments, pas trois : ",
   { t: "split", code: true },
   " supprime les champs vides de fin. Le second argument ",
   { t: "-1", code: true },

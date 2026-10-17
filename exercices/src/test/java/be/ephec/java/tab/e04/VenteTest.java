@@ -13,7 +13,7 @@ class VenteTest {
     }
 
     @Test
-    @DisplayName("Une voiture rend ce qu'on lui a donne")
+    @DisplayName("Une voiture retourne ce qu'on lui a donne")
     void laVoiture() {
         Car voiture = clio();
 

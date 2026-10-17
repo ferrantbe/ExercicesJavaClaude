@@ -154,7 +154,7 @@ stage.setScene(new Scene(chargeur.load()));
 **Note**
 
 C'est le mécanisme vu à la fin du deck FX2. Le chargeur lit le fichier,
-crée un objet pour chaque élément, et rend la racine : on en fait la scène.
+crée un objet pour chaque élément, et retourne la racine : on en fait la scène.
 
 En lisant la racine, il trouve l'attribut `fx:controller`. Il crée alors un
 objet de cette classe, sans que vous écriviez de `new`, et c'est lui qui
@@ -237,7 +237,7 @@ donc aligné, une fois centré.
 **Slide**
 
 - Un élément s'ouvre et se ferme : `<HBox> ... </HBox>`, ou `<Text />`
-- Il peut porter des attributs : `<Button text="7" />`
+- Il peut contenir des attributs : `<Button text="7" />`
 - Les éléments s'emboîtent : l'emboîtement est l'arbre
 
 ```java
@@ -251,7 +251,7 @@ donc aligné, une fois centré.
 
 Le FXML est du XML : des étiquettes qui encadrent des données. Un élément
 s'ouvre et se ferme ; s'il ne contient rien, il se ferme lui-même, d'une
-barre avant le chevron. Un élément peut porter des attributs, sous la forme
+barre avant le chevron. Un élément peut contenir des attributs, sous la forme
 `nom="valeur"`.
 
 Ce qui compte pour nous, c'est l'emboîtement : un élément écrit à
@@ -570,7 +570,7 @@ exception : remplacez leur corps par un `println` pour cette étape.
 **Slide**
 
 - Dix boutons, une seule méthode : c'est l'événement qui le dit
-- `getSource` rend le bouton cliqué, `getText` son texte
+- `getSource` retourne le bouton cliqué, `getText` son texte
 
 ```java
 String chiffre = ((Button) evenement.getSource()).getText();
@@ -578,7 +578,7 @@ String chiffre = ((Button) evenement.getSource()).getText();
 
 **Note**
 
-C'est la source de l'événement, vue dans le deck FX1. `getSource` rend un
+C'est la source de l'événement, vue dans le deck FX1. `getSource` retourne un
 `Object`, puisqu'un événement peut venir de n'importe quoi. Ici, on sait que
 c'est un bouton : on le convertit, puis on lit son texte.
 
@@ -643,7 +643,7 @@ l'écran, et qu'on peut tester seule.
 **Slide**
 
 - Une seule méthode : `calculer(premier, second, operateur)`
-- Elle choisit l'opération d'après l'opérateur, et rend le résultat
+- Elle choisit l'opération d'après l'opérateur, et retourne le résultat
 - Une division par zéro lève une `ArithmeticException`
 - À vous d'écrire `Modele`, puis sa classe de test
 

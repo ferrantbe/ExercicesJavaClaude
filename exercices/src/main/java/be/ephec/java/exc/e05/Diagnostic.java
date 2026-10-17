@@ -49,7 +49,7 @@ public class Diagnostic {
 
     /**
      * Corrigez maintenant le defaut, sans toucher aux classes fournies :
-     * rendez les degats par cible, ou 0 si le sort ne vise personne.
+     * retournez les degats par cible, ou 0 si le sort ne vise personne.
      *
      * Vous ne pouvez pas modifier Sort : traitez donc le probleme ici, la ou
      * vous avez la main.

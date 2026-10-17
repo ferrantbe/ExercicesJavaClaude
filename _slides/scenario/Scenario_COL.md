@@ -768,7 +768,7 @@ le savoir, dès ce module. Vous venez de le faire avec `getOrDefault`.
 Le problème qu'elles ont résolu est celui de la slide 6.3 d'ITF, à l'échelle
 du monde. Ajouter une méthode abstraite à `Map` aurait cassé toutes les
 classes qui l'implémentent, y compris celles écrites hors du JDK. Une méthode
-par défaut porte son propre code : chaque table l'a reçue d'office.
+par défaut contient son propre code : chaque table l'a reçue d'office.
 
 Deux de ces méthodes ont une particularité, qui fait le sujet de cette
 section : elles reçoivent un comportement en paramètre.

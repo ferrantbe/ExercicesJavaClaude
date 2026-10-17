@@ -773,7 +773,7 @@ Contrairement à ce que disait l'ancien cours, le compilateur ne vérifie
 rien : une classe sans l'étiquette compile, et c'est l'écriture qui
 échoue, une fois le programme lancé.
 
-Les classes du JDK qui portent des données sont presque toutes déjà
+Les classes du JDK qui contiennent des données sont presque toutes déjà
 étiquetées. C'est pourquoi une liste de chaînes ou de dates s'écrit sans
 qu'on y pense, alors qu'une classe écrite par vous doit le déclarer.
 

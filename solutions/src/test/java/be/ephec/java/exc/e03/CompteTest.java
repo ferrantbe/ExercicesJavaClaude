@@ -20,7 +20,7 @@ class CompteTest {
     }
 
     @Test
-    @DisplayName("Le controle modulo 97 rend 1 pour un IBAN valide")
+    @DisplayName("Le controle modulo 97 retourne 1 pour un IBAN valide")
     void modulo() {
         assertEquals(1, Compte.resteModulo97(VALIDE));
         assertEquals(1, Compte.resteModulo97("BE71 0961 2345 6769"));

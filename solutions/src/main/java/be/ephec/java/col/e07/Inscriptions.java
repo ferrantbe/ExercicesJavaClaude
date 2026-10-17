@@ -19,7 +19,7 @@ import java.util.TreeSet;
  *   garde tries. La structure porte la regle, plutot que de compter sur la
  *   vigilance de l'appelant.
  *
- *   coursDe rend un ensemble VIDE pour un etudiant inconnu, jamais null.
+ *   coursDe retourne un ensemble VIDE pour un etudiant inconnu, jamais null.
  *   L'appelant peut donc boucler dessus sans rien verifier. Voir CC-ERR.2 du
  *   memento Clean Code.
  */
@@ -29,7 +29,7 @@ public class Inscriptions {
 
     /**
      * computeIfAbsent remplace « si l'etudiant n'est pas encore la, lui creer
-     * un ensemble vide, puis y ajouter le cours ». Il rend l'ensemble
+     * un ensemble vide, puis y ajouter le cours ». Il retourne l'ensemble
      * existant, ou celui qu'il vient de creer.
      */
     public void inscrire(String etudiant, String cours) {

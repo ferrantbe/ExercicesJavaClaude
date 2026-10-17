@@ -37,9 +37,9 @@ public class Etudiant {
     }
 
     /**
-     * Rend la liste des cours.
+     * Retourne la liste des cours.
      *
-     * Reflechissez a ce que vous rendez : si vous rendez la liste elle-meme,
+     * Reflechissez a ce que vous retournez : si vous retournez la liste elle-meme,
      * l'appelant peut la vider. Voir CC-OBJ.2 du memento Clean Code.
      */
     public List<Cours> getCours() {
@@ -50,7 +50,7 @@ public class Etudiant {
         throw new UnsupportedOperationException("nombreDeCours n'est pas encore implementee");
     }
 
-    /** Rend "Lovelace Ada : Java, Algebre" — les cours dans l'ordre d'inscription. */
+    /** Retourne "Lovelace Ada : Java, Algebre" — les cours dans l'ordre d'inscription. */
     @Override
     public String toString() {
         throw new UnsupportedOperationException("toString n'est pas encore implementee");

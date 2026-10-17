@@ -438,7 +438,7 @@ ridicule.
 
 Les deux premières lignes sont des conséquences. Une interface ne porte pas de
 code, donc elle ne partage rien, donc rien n'empêche d'en implémenter
-plusieurs. Une classe abstraite porte du code et des champs, donc elle ne peut
+plusieurs. Une classe abstraite contient du code et des champs, donc elle ne peut
 être qu'une.
 
 La première ligne mérite une nuance depuis Java 8, et la section 6 la donnera.
@@ -526,7 +526,7 @@ est dessiné (formes) ; la version texte ci-dessous est celle que produit le mot
 **Slide**
 
 - Une application graphique se découpe souvent en trois rôles : la vue, le contrôleur et le modèle
-- La vue (`GUI`) affiche et capte les gestes de l'utilisateur ; le modèle porte les données et les règles
+- La vue (`GUI`) affiche et capte les gestes de l'utilisateur ; le modèle contient les données et les règles
 - Le contrôleur fait le lien : il reçoit l'action, met le modèle à jour, et demande à la vue d'afficher
 
 ```java
@@ -541,7 +541,7 @@ viennent d'un découpage très répandu dans les applications graphiques, le mod
 Modèle, Vue, Contrôleur.
 
 La vue est ce que l'utilisateur voit : la fenêtre, ses boutons, ses zones de texte. Elle
-capte les gestes, un clic, une saisie, mais ne décide de rien. Le modèle porte les
+capte les gestes, un clic, une saisie, mais ne décide de rien. Le modèle contient les
 données et les règles du métier, sans rien savoir de l'écran. Le contrôleur fait le lien :
 il reçoit l'action transmise par la vue, met le modèle à jour, puis demande à la vue
 d'afficher le résultat.
@@ -931,9 +931,9 @@ comment sait-il quelle version exécuter ?
 
 ---
 
-## Section 6 — Ce qu'une interface porte aussi
+## Section 6 — Ce qu'une interface contient aussi
 
-### 6.1 · Ce qu'elle porte aussi
+### 6.1 · Ce qu'elle contient aussi
 
 *(intercalaire)*
 
@@ -944,7 +944,7 @@ comment sait-il quelle version exécuter ?
 **Slide**
 
 - Un champ d'interface est implicitement `public static final`
-- Une interface peut porter des méthodes `static`, corps compris
+- Une interface peut contenir des méthodes `static`, corps compris
 - Elles s'appellent sur l'interface : `Mesurable.negligeable(colis)`
 
 ```java
@@ -968,7 +968,7 @@ est autorisé mais redondant. Une conséquence pratique : un champ sans valeur
 initiale ne compile pas, puisqu'il est `final`.
 
 La méthode `static` est un ajout de Java 8, et elle se comporte comme celle
-d'une classe : elle porte son corps, elle s'appelle sur l'interface, et aucune
+d'une classe : elle contient son corps, elle s'appelle sur l'interface, et aucune
 classe implémentante ne la redéfinit ni n'en hérite. Elle sert à ranger les
 petits utilitaires liés à l'interface là où on les cherche.
 
@@ -986,7 +986,7 @@ Le code complet, à exécuter : demos, classe `demo.itf.slides.DesConstantesEtDe
 **Slide**
 
 - Une interface implémentée par dix classes ne peut pas gagner une méthode : les dix cessent de compiler
-- Une méthode `default` porte un corps, dont toutes les classes héritent
+- Une méthode `default` contient un corps, dont toutes les classes héritent
 - Chacune peut la redéfinir, aucune n'y est obligée
 
 ```java
@@ -1015,9 +1015,9 @@ Vous n'écrirez pas de méthode par défaut cette année, et aucun exercice n'en
 demande. Vous en utiliserez pourtant sans le savoir, dès le module COL.
 
 Une remarque honnête pour finir : cette notion écorne le tableau de la
-section 3. Depuis Java 8, une interface peut porter du code. La distinction
+section 3. Depuis Java 8, une interface peut contenir du code. La distinction
 utile reste celle des intentions, « est un » contre « sait faire », et une
-interface qui se met à porter beaucoup de code est généralement une classe
+interface qui se met à contenir beaucoup de code est généralement une classe
 abstraite qui s'ignore.
 
 Le code complet, à exécuter : demos, classe `demo.itf.slides.AjouterUneMethodeSansCasser`.

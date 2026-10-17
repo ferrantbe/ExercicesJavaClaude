@@ -28,7 +28,7 @@ public class Cours {
         throw new UnsupportedOperationException("setChargeDeCours n'est pas encore implementee");
     }
 
-    /** Rend "Java (Alan Turing)" : l'intitule, puis le charge entre parentheses. */
+    /** Retourne "Java (Alan Turing)" : l'intitule, puis le charge entre parentheses. */
     @Override
     public String toString() {
         throw new UnsupportedOperationException("toString n'est pas encore implementee");

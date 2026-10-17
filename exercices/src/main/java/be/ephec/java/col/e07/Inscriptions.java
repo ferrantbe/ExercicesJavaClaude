@@ -30,18 +30,18 @@ public class Inscriptions {
         throw new UnsupportedOperationException("inscrire n'est pas encore implementee");
     }
 
-    /** Rend les cours de cet etudiant, ou un ensemble VIDE s'il est inconnu. */
+    /** Retourne les cours de cet etudiant, ou un ensemble VIDE s'il est inconnu. */
     public Set<String> coursDe(String etudiant) {
         throw new UnsupportedOperationException("coursDe n'est pas encore implementee");
     }
 
-    /** Rend les noms des etudiants inscrits, par ordre alphabetique. */
+    /** Retourne les noms des etudiants inscrits, par ordre alphabetique. */
     public List<String> etudiants() {
         throw new UnsupportedOperationException("etudiants n'est pas encore implementee");
     }
 
     /**
-     * Rend un rapport, un etudiant par ligne, par ordre alphabetique, avec
+     * Retourne un rapport, un etudiant par ligne, par ordre alphabetique, avec
      * ses cours eux aussi tries et separes par ", " :
      *
      *     Lovelace : Algebre, Java

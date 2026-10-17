@@ -6,11 +6,11 @@ package be.ephec.java.abs.e01;
  * Le partage des roles entre la classe abstraite et ses sous-classes est le
  * coeur de l'exercice.
  *
- *   Shape porte tout ce qui est COMMUN : le centre, la rotation, et la facon
+ *   Shape contient tout ce qui est COMMUN : le centre, la rotation, et la facon
  *   de s'afficher — car la phrase "Je suis un X et je m'affiche" a la meme
  *   forme pour les trois.
  *
- *   Les sous-classes ne portent que ce qui VARIE : le nom de la forme.
+ *   Les sous-classes ne contiennent que ce qui VARIE : le nom de la forme.
  *
  * Si les trois sous-classes avaient chacune leur propre affiche(), la phrase
  * serait recopiee trois fois et une correction en oublierait deux. C'est

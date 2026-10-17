@@ -293,14 +293,14 @@ children.push(specTable([
   ["prenom", "public String", "Prénom"],
   ["anneeDeNaissance", "public int", "Année de naissance, sur quatre chiffres"],
   ["age", "public int", "Âge — voir la question ci-dessous"],
-  ["computeAge", "public int computeAge(int annee)", "Rend annee moins l'année de naissance"],
+  ["computeAge", "public int computeAge(int annee)", "Retourne annee moins l'année de naissance"],
   ["display", "public void display()", "Affiche la personne sur la console"]
 ]));
 
 children.push(h2("Comment vérifier votre code"));
 children.push(verif([
   { t: "be.ephec.java.poo.e01.PersonneTest", code: true },
-  { t: "Vérifie que les quatre champs existent et sont bien public, et que computeAge rend le bon écart d'années — y compris pour une année antérieure à la naissance, où le résultat est négatif." }
+  { t: "Vérifie que les quatre champs existent et sont bien public, et que computeAge retourne le bon écart d'années — y compris pour une année antérieure à la naissance, où le résultat est négatif." }
 ]));
 
 children.push(h2("Questions à se poser"));
@@ -442,7 +442,7 @@ children.push(h2("Contexte"));
 children.push(runs([
   "Depuis POO.1, votre classe ",
   { t: "Personne", code: true },
-  " porte deux champs qui disent la même chose : ",
+  " contient deux champs qui disent la même chose : ",
   { t: "anneeDeNaissance", code: true },
   " et ",
   { t: "age", code: true },
@@ -464,12 +464,12 @@ children.push(bulletRuns([
 children.push(bulletRuns([
   "Laissez ",
   { t: "computeAge(int annee)", code: true },
-  " telle quelle : elle rend l'âge à une année donnée, et cela reste utile."
+  " telle quelle : elle retourne l'âge à une année donnée, et cela reste utile."
 ]));
 children.push(bulletRuns([
   "Ajoutez une méthode ",
   { t: "getAge()", code: true },
-  ", sans paramètre, qui rend l'âge de la personne aujourd'hui. Elle ne refait pas le ",
+  ", sans paramètre, qui retourne l'âge de la personne aujourd'hui. Elle ne refait pas le ",
   "calcul elle-même : elle appelle ",
   { t: "computeAge", code: true },
   " en lui passant l'année courante."
@@ -512,7 +512,7 @@ children.push(specTable([
 children.push(h2("Comment vérifier votre code"));
 children.push(verif([
   { t: "be.ephec.java.poo.e03.PersonneTest", code: true },
-  { t: "Vérifie qu'aucun champ age ne subsiste, que computeAge répond toujours correctement, et que getAge rend bien l'âge à l'année courante — sans que personne ne l'ait renseigné." },
+  { t: "Vérifie qu'aucun champ age ne subsiste, que computeAge répond toujours correctement, et que getAge retourne bien l'âge à l'année courante — sans que personne ne l'ait renseigné." },
   { t: "Remarquez que le test porte surtout sur computeAge, qui est déterministe. getAge dépend de la date du jour : il est testable, mais seulement de façon indirecte. C'est la raison pour laquelle les deux méthodes coexistent au lieu d'être fondues en une seule." }
 ]));
 
@@ -587,7 +587,7 @@ children.push(bulletRuns([
   { t: "nextInt()", code: true },
   ", le passage à la ligne reste dans le tampon. Un ",
   { t: "nextLine()", code: true },
-  " qui suit rend alors une chaîne vide. Ordonnez vos questions pour éviter le problème, ",
+  " qui suit retourne alors une chaîne vide. Ordonnez vos questions pour éviter le problème, ",
   "ou consommez la fin de ligne."
 ]));
 children.push(bulletRuns([
@@ -638,8 +638,8 @@ children.push(runs([
 children.push(bulletRuns([
   "Une méthode ",
   { t: "public static int enBase10(String nombre, int base)", code: true },
-  " qui rend la valeur décimale du nombre reçu. Cette méthode ne lit rien au clavier et ",
-  "n'affiche rien : elle reçoit ses données en paramètres et rend un résultat."
+  " qui retourne la valeur décimale du nombre reçu. Cette méthode ne lit rien au clavier et ",
+  "n'affiche rien : elle reçoit ses données en paramètres et retourne un résultat."
 ]));
 children.push(bulletRuns([
   "Une méthode ",
@@ -666,7 +666,7 @@ children.push(runsSimple([
   { t: "nextInt", code: true },
   " laisse la fin de ligne dans le tampon, et le ",
   { t: "nextLine", code: true },
-  " du tour suivant la ramasse et rend une chaîne vide."
+  " du tour suivant la ramasse et retourne une chaîne vide."
 ]));
 children.push(runsSimple([
   "Essayez, constatez, puis cherchez comment l'",
@@ -690,7 +690,7 @@ children.push(runsSimple([
 
 children.push(h2("Spécifications à respecter"));
 children.push(specTable([
-  ["enBase10", "public static int enBase10(String, int)", "Rend la valeur en base 10 ; toute la logique tient ici"],
+  ["enBase10", "public static int enBase10(String, int)", "Retourne la valeur en base 10 ; toute la logique tient ici"],
   ["main", "public static void main(String[])", "Dialogue avec l'utilisateur, et rien d'autre"]
 ]));
 
@@ -710,7 +710,7 @@ children.push(h2("Comment vérifier votre code"));
 children.push(verif([
   { t: "be.ephec.java.poo.e05.BaseTest", code: true },
   { t: "Vérifie les conversions ci-dessus : bases 2, 8, 10 et 16, majuscules comme minuscules, et nombre négatif." },
-  { t: "Remarquez que ce test n'est possible que parce que enBase10 rend une valeur. Si vous aviez tout écrit dans le main, il n'y aurait rien à vérifier automatiquement. Nous appliquerons cette séparation systématiquement à partir de maintenant." }
+  { t: "Remarquez que ce test n'est possible que parce que enBase10 retourne une valeur. Si vous aviez tout écrit dans le main, il n'y aurait rien à vérifier automatiquement. Nous appliquerons cette séparation systématiquement à partir de maintenant." }
 ]));
 
 children.push(h2("Questions à se poser"));

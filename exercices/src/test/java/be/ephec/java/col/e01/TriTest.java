@@ -19,7 +19,7 @@ class TriTest {
     }
 
     @Test
-    @DisplayName("La liste rendue est triee")
+    @DisplayName("La liste retournee est triee")
     void listeTriee() {
         assertIterableEquals(Arrays.asList(0, 7, 7, 42, 500, 999), Tri.triee(desordre()));
     }
@@ -32,7 +32,7 @@ class TriTest {
         Tri.triee(origine);
 
         assertIterableEquals(desordre(), origine,
-                "triee doit rendre une NOUVELLE liste, pas trier celle qu'on lui donne");
+                "triee doit retourner une NOUVELLE liste, pas trier celle qu'on lui donne");
     }
 
     @Test

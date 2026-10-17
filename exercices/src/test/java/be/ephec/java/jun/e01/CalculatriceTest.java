@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
  * JUN.1 — Cette classe de test EST l'enonce.
  *
  * Lisez-la avant d'ecrire une ligne de Calculatrice. Elle vous dit tout :
- * ce que chaque methode doit rendre, et ce qui doit se produire quand on
+ * ce que chaque methode doit retourner, et ce qui doit se produire quand on
  * divise par zero.
  *
  * Remarquez sa structure : chaque test prepare des donnees, execute UNE
@@ -38,7 +38,7 @@ class CalculatriceTest {
     }
 
     @Test
-    @DisplayName("La multiplication par zero rend zero")
+    @DisplayName("La multiplication par zero retourne zero")
     void multiplication() {
         assertEquals(12, calculatrice.multiplication(3, 4));
         assertEquals(0, calculatrice.multiplication(-5, 0));
@@ -58,6 +58,6 @@ class CalculatriceTest {
     @DisplayName("Diviser par zero leve une ArithmeticException")
     void divisionParZero() {
         assertThrows(ArithmeticException.class, () -> calculatrice.division(10, 0),
-                "Ne rendez pas 0 et n'attrapez rien : laissez l'exception passer.");
+                "Ne retournez pas 0 et n'attrapez rien : laissez l'exception passer.");
     }
 }

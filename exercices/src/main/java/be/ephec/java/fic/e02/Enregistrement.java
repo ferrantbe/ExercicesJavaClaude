@@ -31,7 +31,7 @@ public class Enregistrement {
     /**
      * Relit la liste d'etudiants depuis le fichier.
      *
-     * readObject rend un Object : un transtypage est inevitable, et le
+     * readObject retourne un Object : un transtypage est inevitable, et le
      * compilateur vous avertira qu'il ne peut pas le verifier. C'est une
      * limite de la serialisation, pas une erreur de votre part.
      */

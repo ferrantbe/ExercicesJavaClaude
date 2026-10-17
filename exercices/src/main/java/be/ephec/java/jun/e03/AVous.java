@@ -19,7 +19,7 @@ package be.ephec.java.jun.e03;
  */
 public class AVous {
 
-    /** Rend le nom pleinement qualifie de la classe que vous devez ecrire. */
+    /** Retourne le nom pleinement qualifie de la classe que vous devez ecrire. */
     public static String classeAEcrire() {
         return "be.ephec.java.jun.e03.MoyenneTest";
     }

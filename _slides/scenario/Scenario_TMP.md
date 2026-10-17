@@ -331,7 +331,7 @@ demande de choisir une unité, et de savoir dans quel sens compter.
 **Source** d02/7, dernière ligne
 
 **Slide**
-- L'unité porte la méthode, pas l'inverse
+- L'unité contient la méthode, pas l'inverse
 - On écrit `ChronoUnit.DAYS.between`, et pas `ChronoUnit.between.DAYS`…
 ```java
 import java.time.temporal.ChronoUnit;
@@ -341,7 +341,7 @@ long mois  = ChronoUnit.MONTHS.between(naissance, aujourdhui);
 ```
 
 **Note**
-La tournure surprend : c'est l'unité qui porte la méthode `between`, et les
+La tournure surprend : c'est l'unité qui contient la méthode `between`, et les
 deux dates sont ses arguments. Lisez-la de gauche à droite — « en jours,
 l'écart entre ceci et cela ». `ChronoUnit` propose `DAYS`, `WEEKS`,
 `MONTHS`, `YEARS`, et une dizaine d'autres.

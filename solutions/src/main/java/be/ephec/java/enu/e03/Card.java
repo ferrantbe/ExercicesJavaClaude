@@ -26,7 +26,7 @@ public class Card {
 
     /**
      * La carte ne sait pas comment s'ecrit une couleur en francais : elle le
-     * demande a l'enum, qui porte cette information. Chacun sa responsabilite.
+     * demande a l'enum, qui connait cette information. Chacun sa responsabilite.
      */
     @Override
     public String toString() {

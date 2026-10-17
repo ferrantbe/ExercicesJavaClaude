@@ -3,7 +3,7 @@ package be.ephec.java.travail;
 /**
  * DEPART GEN — une pile d'Object.
  *
- * Elle accepte n'importe quoi, et rend n'importe quoi. C'est a l'appelant
+ * Elle accepte n'importe quoi, et retourne n'importe quoi. C'est a l'appelant
  * de se souvenir de ce qu'il y a mis, et de transtyper en consequence.
  */
 public class Pile {

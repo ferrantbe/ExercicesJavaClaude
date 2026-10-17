@@ -42,7 +42,7 @@ public class Duree {
         throw new UnsupportedOperationException("enMinutes n'est pas encore implementee");
     }
 
-    /** Rend une NOUVELLE duree, somme des deux. Aucune des deux ne change. */
+    /** Retourne une NOUVELLE duree, somme des deux. Aucune des deux ne change. */
     public Duree plus(Duree autre) {
         throw new UnsupportedOperationException("plus n'est pas encore implementee");
     }
@@ -58,7 +58,7 @@ public class Duree {
         throw new UnsupportedOperationException("total n'est pas encore implementee");
     }
 
-    /** Rend "2h30", ou "45min" quand il y a moins d'une heure. */
+    /** Retourne "2h30", ou "45min" quand il y a moins d'une heure. */
     @Override
     public String toString() {
         throw new UnsupportedOperationException("toString n'est pas encore implementee");

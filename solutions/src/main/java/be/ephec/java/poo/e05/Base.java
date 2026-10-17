@@ -46,7 +46,7 @@ public class Base {
             //
             // Melanger nextInt et nextLine dans une boucle est un piege
             // classique : nextInt laisse la fin de ligne dans le tampon, et
-            // le nextLine du tour suivant la ramasse et rend une chaine
+            // le nextLine du tour suivant la ramasse et retourne une chaine
             // vide. Le programme semble alors sauter une question.
             //
             // Tout lire par nextLine evite le probleme au lieu de le

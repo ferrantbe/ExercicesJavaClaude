@@ -56,7 +56,7 @@ public class Compte {
     }
 
     /**
-     * Rend le reste de la division par 97, selon l'algorithme de controle
+     * Retourne le reste de la division par 97, selon l'algorithme de controle
      * des IBAN :
      *
      *   1. retirer tout ce qui n'est ni lettre ni chiffre ;

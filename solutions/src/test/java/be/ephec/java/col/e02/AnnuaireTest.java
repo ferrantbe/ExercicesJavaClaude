@@ -29,7 +29,7 @@ class AnnuaireTest {
     }
 
     @Test
-    @DisplayName("Un nom absent rend null")
+    @DisplayName("Un nom absent retourne null")
     void nomAbsent() {
         assertNull(annuaireGarni().chercher("Babbage"));
     }

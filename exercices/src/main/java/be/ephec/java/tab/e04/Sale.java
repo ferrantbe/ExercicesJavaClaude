@@ -16,7 +16,7 @@ public class Sale {
     }
 
     /**
-     * Rend le prix effectivement paye : le prix catalogue diminue du
+     * Retourne le prix effectivement paye : le prix catalogue diminue du
      * pourcentage de reduction.
      *
      * Une reduction de 0.10 sur un prix de 20000 donne 18000.
@@ -34,7 +34,7 @@ public class Sale {
     }
 
     /**
-     * Rend la vente sous forme de texte, dans ce format exact :
+     * Retourne la vente sous forme de texte, dans ce format exact :
      *     "Renault Clio [VF123] : 20000.0 -> 18000.0"
      * soit la marque, le modele, le numero de serie entre crochets,
      * puis le prix catalogue et le prix reel.

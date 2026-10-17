@@ -10,7 +10,7 @@ public class Programme {
         System.out.println(notes);
         System.out.println(mesures);
 
-        // Aucun transtypage : getPremier() rend deja un Integer.
+        // Aucun transtypage : getPremier() retourne deja un Integer.
         System.out.println("Somme des notes : " + (notes.getPremier() + notes.getSecond()));
 
         // La ligne suivante ne compile pas, et c'est le service rendu :

@@ -5,7 +5,7 @@ package be.ephec.java.demo.jun;
  */
 public class Romain {
 
-    /** Rend la valeur d'un chiffre romain isole. */
+    /** Retourne la valeur d'un chiffre romain isole. */
     private static int valeur(char symbole) {
         return switch (symbole) {
             case 'I' -> 1;

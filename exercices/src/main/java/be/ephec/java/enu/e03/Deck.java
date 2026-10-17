@@ -20,14 +20,14 @@ public class Deck {
      * Construit les 52 cartes, dans l'ordre : toutes les valeurs de la
      * premiere couleur, puis toutes celles de la deuxieme, et ainsi de suite.
      *
-     * Indice : Color.values() et Value.values() rendent un tableau contenant
+     * Indice : Color.values() et Value.values() retournent un tableau contenant
      * toutes les valeurs de l'enum. Deux boucles for-each imbriquees suffisent.
      */
     public Deck() {
         throw new UnsupportedOperationException("le constructeur n'est pas encore implemente");
     }
 
-    /** Rend la carte a la position demandee. */
+    /** Retourne la carte a la position demandee. */
     public Card carteA(int position) {
         throw new UnsupportedOperationException("carteA n'est pas encore implementee");
     }

@@ -73,9 +73,9 @@ jun.push(runs([
   { t: "La division entière tronque", b: true },
   " — 11 / 4 vaut 2, pas 3. Et ",
   { t: "la division par zéro doit laisser passer l'exception", b: true },
-  " : ne rendez pas 0, n'attrapez rien."
+  " : ne retournez pas 0, n'attrapez rien."
 ]));
-jun.push(p("Ce second point mérite qu'on s'y arrête. Rendre 0 ferait passer une erreur pour un résultat, et le programme continuerait avec une valeur fausse. C'est exactement ce que CC-ERR.1 du mémento Clean Code proscrit."));
+jun.push(p("Ce second point mérite qu'on s'y arrête. Retourner 0 ferait passer une erreur pour un résultat, et le programme continuerait avec une valeur fausse. C'est exactement ce que CC-ERR.1 du mémento Clean Code proscrit."));
 jun.push(h2("Comment vérifier votre code"));
 jun.push(verif([
   { t: "be.ephec.java.jun.e01.CalculatriceTest", code: true },
@@ -117,7 +117,7 @@ jun.push(h2("Énoncé"));
 jun.push(runs([
   "Complétez ",
   { t: "Verificateur.estCorrecte(Tirelire)", code: true },
-  ", qui rend ",
+  ", qui retourne ",
   { t: "true", code: true },
   " si la tirelire respecte son contrat et ",
   { t: "false", code: true },
@@ -454,7 +454,7 @@ gen.push(h2("Énoncé"));
 gen.push(runs([
   "Complétez ",
   { t: "Affichage.noms(Triplet<? extends Personne>)", code: true },
-  ", qui rend les trois noms séparés par ",
+  ", qui retourne les trois noms séparés par ",
   { t: "\", \"", code: true },
   ". Le joker se lit « un triplet de quelque chose qui est une Personne »."
 ]));
@@ -495,7 +495,7 @@ gen.push(h2("Énoncé"));
 gen.push(runs([
   "Complétez ",
   { t: "UtilGenerique.otGnirts", code: true },
-  ", qui rend le ",
+  ", qui retourne le ",
   { t: "toString", code: true },
   " de l'objet, à l'envers — d'où son nom incongru."
 ]));
@@ -576,7 +576,7 @@ gen.push(runs([
   { t: "Couple<T>", code: true },
   " vous est fournie. Écrivez ",
   { t: "CoupleNomme<T>", code: true },
-  ", qui en hérite et porte en plus un nom."
+  ", qui en hérite et connaît en plus un nom."
 ]));
 gen.push(tableau(["Élément", "Signature", "Rôle"], [
   ["constructeur", "public CoupleNomme(String nom, T premier, T second)", "Le nom, puis les deux valeurs"],
@@ -606,7 +606,7 @@ gen.push(runs([
 gen.push(h2("Comment vérifier votre code"));
 gen.push(verif([
   { t: "be.ephec.java.gen.e06.CoupleNommeTest", code: true },
-  { t: "Vérifie l'héritage, les accesseurs hérités, la description redéfinie, celle de la classe mère restée intacte, et surtout le polymorphisme : vue comme un Couple, l'instance rend quand même sa propre description." }
+  { t: "Vérifie l'héritage, les accesseurs hérités, la description redéfinie, celle de la classe mère restée intacte, et surtout le polymorphisme : vue comme un Couple, l'instance retourne quand même sa propre description." }
 ]));
 gen.push(h2("Questions à se poser"));
 gen.push(bulletRuns([

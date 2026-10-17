@@ -398,7 +398,7 @@ Le code complet, à exécuter : demos, classe `demo.gen.slides.DeclarerUnParamet
 
 **Slide**
 
-- Un argument de type peut porter lui-même des chevrons
+- Un argument de type peut contenir lui-même des chevrons
 - On le lit de l'extérieur vers l'intérieur
 - Le compilateur vérifie chaque niveau
 
@@ -419,7 +419,7 @@ COL, pour ranger des titres par auteur.
 
 La deuxième montre que rien ne distingue une classe du JDK d'une classe que
 vous écrivez : `Casier<List<Valise>>` est un casier qui contient une liste.
-Sa méthode `retirer` rend une `List<Valise>`, sans transtypage.
+Sa méthode `retirer` retourne une `List<Valise>`, sans transtypage.
 
 Dans la troisième, le diamant fonctionne même imbriqué : le compilateur
 déduit `Casier<Valise>` de la déclaration.
@@ -517,7 +517,7 @@ Valise v = (Valise) casier.retirer();
 **Note**
 
 Après effacement, `Casier` a un champ `Object` et une méthode `retirer` qui
-rend un `Object`. Le transtypage n'a donc pas disparu : c'est le compilateur
+retourne un `Object`. Le transtypage n'a donc pas disparu : c'est le compilateur
 qui l'écrit, à chaque appel.
 
 La différence avec la première version de la démonstration est ailleurs. Ce
@@ -592,7 +592,7 @@ généricité devait empêcher. Le compilateur le signale par un avertissement
 
 On l'accepte dans deux cas. Dans une classe qui contrôle seule ce qu'elle
 range, comme la classe de la démonstration. Et quand une donnée revient d'un
-monde qui ignore la généricité : au module FIC, `readObject` rend un
+monde qui ignore la généricité : au module FIC, `readObject` retourne un
 `Object`, parce que le fichier ne garde aucune trace de l'argument de type.
 
 L'annotation se pose sur la plus petite portée possible, une variable ou une
@@ -816,7 +816,7 @@ d'une méthode est fixé à chaque appel, et peut valoir autre chose à l'appel
 suivant.
 
 Personne ne l'écrit : le compilateur regarde l'argument, voit une
-`List<Valise>`, et en déduit `T`. Il sait alors que l'appel rend une
+`List<Valise>`, et en déduit `T`. Il sait alors que l'appel retourne une
 `Valise`.
 
 La dernière ligne montre la forme explicite. Vous la croiserez dans des
@@ -863,7 +863,7 @@ comme dans le JDK (`List.of` fait pareil), mais c'est un autre `T` : celui
 de la méthode, déduit à chaque appel.
 
 C'est une fabrique, au sens du module STA : une méthode statique qui
-construit et rend un objet prêt à servir.
+construit et retourne un objet prêt à servir.
 
 Le code complet, à exécuter : demos, classe `demo.gen.slides.LeCompilateurDeduitLeT`.
 
@@ -923,7 +923,7 @@ public class CasierVelo extends Casier<Velo> {
 `CasierFerme<Sac>`, et chacun hérite des méthodes de `Casier` pour ce type.
 
 `CasierVelo` ne l'est plus. Il est un `Casier<Velo>`, et rien d'autre : on
-écrit `new CasierVelo()` sans chevrons, et sa méthode `retirer` rend un
+écrit `new CasierVelo()` sans chevrons, et sa méthode `retirer` retourne un
 `Velo`.
 
 Pour le reste, l'héritage fonctionne comme au module ABS : redéfinition,
@@ -945,7 +945,7 @@ Le code complet, à exécuter : demos, classe `demo.gen.slides.DeuxFaconsDHerite
 **Slide**
 
 - Une interface aussi peut être générique : `Depot<T>`
-- Elle déclare ici `deposer(T)` et `retirer()`, qui rend un `T`
+- Elle déclare ici `deposer(T)` et `retirer()`, qui retourne un `T`
 - La classe qui l'implémente transmet le type, ou le fixe
 
 ```java

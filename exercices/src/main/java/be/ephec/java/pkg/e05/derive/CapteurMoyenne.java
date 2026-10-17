@@ -37,7 +37,7 @@ public class CapteurMoyenne extends Capteur {
     }
 
     /**
-     * Rend "Thermometre (4f2a) : 21.50", au format US.
+     * Retourne "Thermometre (4f2a) : 21.50", au format US.
      *
      * Le numero de serie est private : vous ne pouvez pas l'atteindre,
      * meme en heritant. Une methode publique de la classe mere vous le

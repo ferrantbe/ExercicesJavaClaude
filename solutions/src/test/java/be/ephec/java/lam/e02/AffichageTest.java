@@ -23,19 +23,19 @@ class AffichageTest {
     }
 
     @Test
-    @DisplayName("Un filtre qui ne retient rien rend une chaine vide")
+    @DisplayName("Un filtre qui ne retient rien retourne une chaine vide")
     void aucunResultat() {
         assertEquals("", Affichage.selectionner(TABLEAU, e -> e > 1000));
     }
 
     @Test
-    @DisplayName("Un filtre qui retient tout rend tout")
+    @DisplayName("Un filtre qui retient tout retourne tout")
     void toutRetenu() {
         assertEquals("1 4 -9 5 -7 -3 2", Affichage.selectionner(TABLEAU, e -> true));
     }
 
     @Test
-    @DisplayName("Un tableau vide rend une chaine vide")
+    @DisplayName("Un tableau vide retourne une chaine vide")
     void tableauVide() {
         assertEquals("", Affichage.selectionner(new int[0], e -> true));
     }

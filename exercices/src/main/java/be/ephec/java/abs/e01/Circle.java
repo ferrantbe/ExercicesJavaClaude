@@ -10,7 +10,7 @@ public class Circle extends Shape {
     /**
      * TODO : cette methode est heritee de Shape, ou elle est abstraite.
      *        Une sous-classe concrete DOIT la definir — sans quoi la classe
-     *        ne compile pas. Elle doit rendre "cercle".
+     *        ne compile pas. Elle doit retourner "cercle".
      */
     @Override
     public String nom() {

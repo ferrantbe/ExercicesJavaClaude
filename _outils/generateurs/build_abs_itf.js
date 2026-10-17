@@ -21,7 +21,7 @@ modeEmploi(abs, "ABS", [
 ]);
 
 abs.push(h2("Ce qu'il faut avoir en tête"));
-abs.push(p("Une classe abstraite ne s'instancie pas. Elle sert de socle : elle porte ce que toutes ses sous-classes ont en commun, et laisse abstrait ce qui les distingue."));
+abs.push(p("Une classe abstraite ne s'instancie pas. Elle sert de socle : elle contient ce que toutes ses sous-classes ont en commun, et laisse abstrait ce qui les distingue."));
 abs.push(...code([
   "public abstract class Forme {",
   "",
@@ -54,7 +54,7 @@ abs.push(h2("Énoncé"));
 abs.push(runs([
   "Complétez la classe abstraite ",
   { t: "Shape", code: true },
-  ", qui représente une forme géométrique. Elle porte la position de son centre — un ",
+  ", qui représente une forme géométrique. Elle connaît la position de son centre — un ",
   { t: "Point", code: true },
   ", fourni — et une rotation en degrés."
 ]));
@@ -151,7 +151,7 @@ abs.push(runs([
 abs.push(h2("Comment vérifier votre code"));
 abs.push(verif([
   { t: "be.ephec.java.abs.e02.AnimalTest", code: true },
-  ["Vérifie que la classe est abstraite, le cri de chaque animal, et que les éléments d'un tableau d'", { t: "Animal", code: true }, " rendent bien le cri de leur type réel."]
+  ["Vérifie que la classe est abstraite, le cri de chaque animal, et que les éléments d'un tableau d'", { t: "Animal", code: true }, " retournent bien le cri de leur type réel."]
 ]));
 abs.push(h2("Questions à se poser"));
 abs.push(bulletRuns(["Ajoutez une ", { t: "Vache", code: true }, ". Combien de lignes faut-il modifier dans le ", { t: "Programme", code: true }, " ?"]));
@@ -233,7 +233,7 @@ abs.push(...code([
   "         +- Urgence"
 ]));
 abs.push(h2("Ce que chaque classe concrète ajoute"));
-abs.push(tableau(["Classe", "Champ supplémentaire", "Ce que rend montant()"], [
+abs.push(tableau(["Classe", "Champ supplémentaire", "Ce que retourne montant()"], [
   ["Abonnement", "—", "prixForfait"],
   ["Installation", [{ t: "deplacement", code: true }, " (", { t: "double", code: true }, ")"], "prixForfait + deplacement"],
   ["Depannage", "—", "heures x tauxHoraire"],
@@ -405,7 +405,7 @@ modeEmploi(itf, "ITF", [
 ]);
 
 itf.push(h2("Interface ou classe abstraite ?"));
-itf.push(p("Les deux permettent de manipuler des objets différents à travers un type commun. La différence tient à ce qu'elles peuvent porter."));
+itf.push(p("Les deux permettent de manipuler des objets différents à travers un type commun. La différence tient à ce qu'elles peuvent contenir."));
 itf.push(tableau(["", "Classe abstraite", "Interface"], [
   ["Contient du code ?", "oui, et des champs", "des signatures seulement"],
   ["Combien par classe ?", "une seule", "autant qu'on veut"],
@@ -503,7 +503,7 @@ itf.push(runs([
   { t: "PayPal", code: true },
   " et ",
   { t: "CarteDeCredit", code: true },
-  ". Chacune rend le compte-rendu de ses étapes, séparées par un retour à la ligne, sans retour final."
+  ". Chacune retourne le compte-rendu de ses étapes, séparées par un retour à la ligne, sans retour final."
 ]));
 itf.push(...code([
   "PayPal, pour 42.50 :",
@@ -523,15 +523,15 @@ itf.push(runs([
   " qui fait exécuter un paiement par chaque moyen."
 ]));
 itf.push(encadre([
-  [{ t: "Pourquoi rendre du texte plutôt que l'afficher", b: true }],
+  [{ t: "Pourquoi retourner du texte plutôt que l'afficher", b: true }],
   ["Une classe de paiement qui écrirait elle-même sur la console deviendrait inutilisable dans une application graphique, et intestable : on ne vérifie pas ce qui est parti dans la console."],
-  ["En rendant le compte-rendu, elle laisse l'appelant décider quoi en faire — l'afficher, l'enregistrer, l'envoyer par courriel. C'est la règle CC-MET.7 du mémento Clean Code."],
+  ["En retournant le compte-rendu, elle laisse l'appelant décider quoi en faire — l'afficher, l'enregistrer, l'envoyer par courriel. C'est la règle CC-MET.7 du mémento Clean Code."],
   ["Précisez Locale.US dans votre formatage du montant, sinon une machine configurée en français écrirait « 42,50 » avec une virgule, et le test échouerait sur un seul caractère."]
 ]));
 itf.push(h2("Comment vérifier votre code"));
 itf.push(verif([
   { t: "be.ephec.java.itf.e02.PaiementTest", code: true },
-  { t: "Vérifie le texte exact rendu par chaque moyen de paiement, le format du montant à deux décimales, et que le client se contente de transmettre." }
+  { t: "Vérifie le texte exact retourné par chaque moyen de paiement, le format du montant à deux décimales, et que le client se contente de transmettre." }
 ]));
 itf.push(h2("Questions à se poser"));
 itf.push(bullet("Le virement bancaire arrive. Quelles classes faut-il écrire, et lesquelles faut-il modifier ?"));

@@ -17,7 +17,7 @@ package be.ephec.java.gen.e04;
 public class Affichage {
 
     /**
-     * Rend les noms des trois occupants, separes par ", " :
+     * Retourne les noms des trois occupants, separes par ", " :
      *     "Ada, Alan, Grace"
      *
      * La methode doit accepter un Triplet<Personne> COMME un Triplet<Etudiant>.

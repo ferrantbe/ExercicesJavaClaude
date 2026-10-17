@@ -83,7 +83,7 @@ gen.push(aDire("la même faute, refusée avant que le programme ne démarre. Voi
 etape(gen, 4, "Le transtypage disparaît", "2 min");
 gen.push(runs([
   "Supprimer le ", { t: "(Integer)", code: true }, " du ", { t: "main", code: true },
-  ". Il n'est plus nécessaire : ", { t: "depiler()", code: true }, " rend un ",
+  ". Il n'est plus nécessaire : ", { t: "depiler()", code: true }, " retourne un ",
   { t: "Integer", code: true }, "."
 ]));
 gen.push(p("Montrer qu'il reste UN transtypage, dans la classe. Il n'a pas disparu, il a été rangé au seul endroit où il soit sûr."));

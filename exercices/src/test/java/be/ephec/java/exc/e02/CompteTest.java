@@ -28,7 +28,7 @@ class CompteTest {
     }
 
     @Test
-    @DisplayName("Un retrait possible rend le montant demande")
+    @DisplayName("Un retrait possible retourne le montant demande")
     void retraitPossible() {
         Compte compte = new Compte();
         compte.ajoute(100);
@@ -38,19 +38,19 @@ class CompteTest {
     }
 
     @Test
-    @DisplayName("Un retrait trop grand rend ce qui restait")
+    @DisplayName("Un retrait trop grand retourne ce qui restait")
     void retraitPlafonne() {
         Compte compte = new Compte();
         compte.ajoute(100);
 
         assertEquals(100.0, compte.retire(120), PRECISION,
-                "sur un compte a 100, retirer 120 rend 100");
+                "sur un compte a 100, retirer 120 retourne 100");
         assertEquals(0.0, compte.getSolde(), PRECISION,
                 "et le solde tombe a zero, jamais en dessous");
     }
 
     @Test
-    @DisplayName("Retirer sur un compte vide rend zero")
+    @DisplayName("Retirer sur un compte vide retourne zero")
     void retraitSurCompteVide() {
         assertEquals(0.0, new Compte().retire(50), PRECISION);
     }

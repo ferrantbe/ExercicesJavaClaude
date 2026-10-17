@@ -8,7 +8,7 @@ package be.ephec.java.abs.e02;
  */
 public abstract class Animal {
 
-    /** Rend le cri de l'animal : "J'aboie", "Je miaule". */
+    /** Retourne le cri de l'animal : "J'aboie", "Je miaule". */
     public abstract String cri();
 
     /** Affiche le cri sur la console. */

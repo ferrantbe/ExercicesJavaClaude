@@ -99,7 +99,7 @@ abs.push(aDire("aucun instanceof, aucun test de type. Ajouter Slack demanderait 
 fin(abs, "ABS",
   [[{ t: "À l'étape 4", b: true }, " — oublier de déclarer ", { t: "Notification", code: true },
     " abstraite, et écrire ", { t: "new Notification(\"x\")", code: true }, " dans le main."],
-   ["Ça compile, et la notification n'a pas de canal : la méthode rend null, et le message affiche « Envoi d'un null »."],
+   ["Ça compile, et la notification n'a pas de canal : la méthode retourne null, et le message affiche « Envoi d'un null »."],
    [{ t: "À dire — ", b: true },
     "abstract n'est pas une décoration. C'est ce qui interdit de construire une notification qui n'est rien en particulier."]],
   [["CC-CLS.3", "la duplication entre sous-classes"],

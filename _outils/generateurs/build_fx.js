@@ -280,7 +280,7 @@ fx.push(runs([
 fx.push(encadre([
   [{ t: "La démarche compte autant que le résultat", b: true }],
   ["Ne cherchez pas la réponse ailleurs que dans l'éditeur. Ctrl+Q sur le type ouvre sa Javadoc ; la complétion vous donne la liste de ses méthodes."],
-  ["Une propriété se reconnaît à son accesseur : une méthode dont le nom finit par Property et qui rend un objet, non une valeur. C'est exactement la démarche de la démonstration TMP."]
+  ["Une propriété se reconnaît à son accesseur : une méthode dont le nom finit par Property et qui retourne un objet, non une valeur. C'est exactement la démarche de la démonstration TMP."]
 ]));
 fx.push(h2("Ce que vous devez observer"));
 fx.push(bullet("chaque caractère tapé produit une ligne sur la console ;"));
@@ -358,7 +358,7 @@ fx.push(tableau(["Composant", "Ce qu'il affiche ou fait"], [
 ], [2600, 6760], [0]));
 fx.push(encadre([
   [{ t: "Les outils, tous sur la propriété du texte", b: true }],
-  [{ t: "length()", code: true }, " et ", { t: "isEmpty()", code: true }, " rendent une longueur et une condition observables, qui se recalculent seules."],
+  [{ t: "length()", code: true }, " et ", { t: "isEmpty()", code: true }, " retournent une longueur et une condition observables, qui se recalculent seules."],
   [{ t: "asString(\"%d ...\")", code: true }, " transforme un nombre observable en texte observable ; ", { t: "greaterThan(n)", code: true }, " et ", { t: "or(...)", code: true }, " fabriquent des conditions."],
   [{ t: "Bindings.concat(...)", code: true }, " assemble des morceaux de texte, observables ou non."]
 ]));
@@ -455,7 +455,7 @@ fx.push(h2("La division par zéro"));
 fx.push(runs([
   "La calculatrice affiche ",
   { t: "Erreur", code: true },
-  " et se remet à zéro. Le modèle lève une exception plutôt que de rendre 0 : rendre 0 ferait passer une erreur pour un résultat, et le contrôleur continuerait à calculer avec une valeur fausse. Voir ",
+  " et se remet à zéro. Le modèle lève une exception plutôt que de retourner 0 : retourner 0 ferait passer une erreur pour un résultat, et le contrôleur continuerait à calculer avec une valeur fausse. Voir ",
   { t: "CC-ERR.1", code: true },
   "."
 ]));

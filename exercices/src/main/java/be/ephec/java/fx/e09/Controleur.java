@@ -39,7 +39,7 @@ public class Controleur {
      * Appelee par TOUS les boutons de chiffres. Un seul gestionnaire pour
      * dix boutons : c'est l'evenement qui dit lequel a ete presse.
      *
-     * evenement.getSource() rend le composant, qu'il faut transtyper en
+     * evenement.getSource() retourne le composant, qu'il faut transtyper en
      * Button pour lire son texte.
      *
      * La regle d'affichage : si l'ecran montre "0", le chiffre le

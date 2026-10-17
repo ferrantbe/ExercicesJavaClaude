@@ -290,12 +290,12 @@ tab.push(p("Une ligne d'annonce suffit — « Ce programme génère une matrice 
 tab.push(h2("Comment vérifier votre code"));
 tab.push(verif([
   { t: "be.ephec.java.tab.e01.MatriceTest", code: true },
-  { t: "Vérifie les matrices 1×1, 3×3 et 4×4, le cas d'une taille nulle, et le format exact rendu par enTexte." }
+  { t: "Vérifie les matrices 1×1, 3×3 et 4×4, le cas d'une taille nulle, et le format exact retourné par enTexte." }
 ]));
 tab.push(h2("Questions à se poser"));
 tab.push(bullet("Vous avez deux boucles imbriquées et un seul compteur qui avance de 1 à n². Où faut-il le déclarer, et pourquoi pas à l'intérieur de la boucle ?"));
 tab.push(bullet("Le séparateur ne doit pas apparaître avant le premier élément ni après le dernier. Est-il plus simple de le placer avant chaque élément sauf le premier, ou après chaque élément sauf le dernier ?"));
-tab.push(bullet("Que se passerait-il si enTexte affichait au lieu de rendre une chaîne ? Le test serait-il encore possible ?"));
+tab.push(bullet("Que se passerait-il si enTexte affichait au lieu de retourner une chaîne ? Le test serait-il encore possible ?"));
 tab.push(saut());
 
 // --- TAB.2
@@ -322,10 +322,10 @@ tab.push(runs([
   { t: "Pascal", code: true },
   " avec une méthode ",
   { t: "public static int[][] triangle(int n)", code: true },
-  " qui rend le triangle jusqu'à la ligne n comprise."
+  " qui retourne le triangle jusqu'à la ligne n comprise."
 ]));
 tab.push(runs([
-  { t: "Le tableau rendu n'est pas rectangulaire. ", b: true },
+  { t: "Le tableau retourné n'est pas rectangulaire. ", b: true },
   "La ligne d'indice ",
   { t: "i", code: true },
   " contient ",
@@ -371,7 +371,7 @@ tab.push(...code([
   "}"
 ]));
 tab.push(runs([
-  { t: "La différence essentielle avec le if : le ternaire rend une valeur. ", b: true },
+  { t: "La différence essentielle avec le if : le ternaire retourne une valeur. ", b: true },
   "On peut donc le placer à droite d'un ",
   { t: "return", code: true },
   " ou d'une affectation, ce qu'un ",
@@ -396,7 +396,7 @@ tab.push(runs([
 tab.push(h2("Comment vérifier votre code"));
 tab.push(verif([
   { t: "be.ephec.java.tab.e03.GameTest", code: true },
-  { t: "Vérifie les deux méthodes, y compris les cas d'égalité — qui doivent rendre le premier joueur. Lancez ensuite le Programme : il joue une vraie partie." }
+  { t: "Vérifie les deux méthodes, y compris les cas d'égalité — qui doivent retourner le premier joueur. Lancez ensuite le Programme : il joue une vraie partie." }
 ]));
 tab.push(h2("Questions à se poser"));
 tab.push(bullet("Attention au sens de la comparaison : selon la façon dont vous l'écrivez, l'égalité tombe du côté du premier ou du second joueur. Le test le vérifie."));
@@ -419,7 +419,7 @@ tab.push(...code([
   "  Person  <---[1]---  Vendor  ---[*]--->  Sale  ---[1]--->  Car"
 ]));
 tab.push(h2("Énoncé"));
-tab.push(tableau(["Classe", "Ce qu'elle porte", "Méthodes à écrire"], [
+tab.push(tableau(["Classe", "Ce qu'elle contient", "Méthodes à écrire"], [
   ["Car", "marque, modèle, numéro de série — tous final", "les trois accesseurs"],
   ["Sale", "une voiture, un prix catalogue, une réduction", "prixReel(), enTexte()"],
   ["Vendor", "une personne, un tableau de ventes", "enregistrer(), nombreDeVentes(), chiffreDAffaires()"]
@@ -448,7 +448,7 @@ tab.push(runs([
 ]));
 tab.push(runs([
   { t: "enregistrer", code: true },
-  " rend ",
+  " retourne ",
   { t: "true", code: true },
   " si la vente a pu être ajoutée, ",
   { t: "false", code: true },
@@ -511,7 +511,7 @@ enu.push(...code([
 ]));
 enu.push(runs([
   { t: "L'ordre de déclaration compte. ", b: true },
-  "C'est celui que rendent ",
+  "C'est celui que retournent ",
   { t: "ordinal()", code: true },
   " et ",
   { t: "values()", code: true },
@@ -521,7 +521,7 @@ enu.push(runs([
 ]));
 enu.push(runs([
   { t: "Une enum est une classe. ", b: true },
-  "Elle peut donc porter des champs, un constructeur et des méthodes, ce qu'",
+  "Elle peut donc contenir des champs, un constructeur et des méthodes, ce qu'",
   { t: "ENU.3", code: true },
   " met en œuvre."
 ]));
@@ -620,7 +620,7 @@ enu.push(...code([
 ]));
 enu.push(encadre([
   [{ t: "Le piège", b: true }],
-  ["Si vos conversions rendent des valeurs fausses, regardez le type des opérations. 9 / 5 vaut 1 en Java, parce que ce sont deux entiers et que la division entière tronque. Il suffit qu'un seul des opérandes soit un double pour que le calcul devienne décimal."],
+  ["Si vos conversions retournent des valeurs fausses, regardez le type des opérations. 9 / 5 vaut 1 en Java, parce que ce sont deux entiers et que la division entière tronque. Il suffit qu'un seul des opérandes soit un double pour que le calcul devienne décimal."],
   ["Le message d'échec du test vous le rappellera, mais autant le savoir avant."]
 ]));
 enu.push(h2("Comment vérifier votre code"));
@@ -632,7 +632,7 @@ enu.push(h2("Questions à se poser"));
 enu.push(bullet("Combien de valeurs votre objet stocke-t-il ? Si vous en gardez deux, une en Celsius et une en Fahrenheit, que se passe-t-il si l'une est modifiée et pas l'autre ?"));
 enu.push(bullet("Vous avez choisi une unité de référence pour le stockage. Un utilisateur de la classe peut-il savoir laquelle ? Est-ce souhaitable ?"));
 enu.push(bulletRuns([
-  "L'énumération pourrait porter elle-même les conversions, puisqu'une enum est une classe. Ce serait-il mieux ? Vous aurez les moyens de trancher après ",
+  "L'énumération pourrait contenir elle-même les conversions, puisqu'une enum est une classe. Ce serait-il mieux ? Vous aurez les moyens de trancher après ",
   { t: "ENU.3", code: true },
   "."
 ]));
@@ -649,7 +649,7 @@ enu.push(p("Package : be.ephec.java.enu.e03", { italic: true, color: GREY }));
 enu.push(h2("Objectif"));
 enu.push(p("Donner à une énumération un constructeur et des méthodes, et construire un tableau à partir de deux énumérations."));
 enu.push(h2("Une enum est une classe"));
-enu.push(p("Elle peut donc porter un champ, un constructeur et des méthodes. Chaque constante énumérée passe ses arguments à ce constructeur."));
+enu.push(p("Elle peut donc contenir un champ, un constructeur et des méthodes. Chaque constante énumérée passe ses arguments à ce constructeur."));
 enu.push(...code([
   "public enum Discount {",
   "    BASIC(0.05), FIDELITY(0.075), SPECIAL(0.10);",
@@ -668,20 +668,20 @@ enu.push(runs([
   { t: "Color", code: true },
   " et ",
   { t: "Value", code: true },
-  ", deux énumérations dont chaque constante porte son libellé français : ",
+  ", deux énumérations dont chaque constante connaît son libellé français : ",
   { t: "PIQUE", code: true },
-  " porte « Pique », ",
+  " connaît « Pique », ",
   { t: "AS", code: true },
-  " porte « As », ",
+  " connaît « As », ",
   { t: "DIX", code: true },
-  " porte « 10 ». Les valeurs se déclarent dans l'ordre du jeu, de l'as au roi."
+  " connaît « 10 ». Les valeurs se déclarent dans l'ordre du jeu, de l'as au roi."
 ]));
 enu.push(runs([
   "Écrivez ensuite ",
   { t: "Card", code: true },
   ", dont le ",
   { t: "toString", code: true },
-  " rend « As de Pique » ou « Roi de Trèfle », puis ",
+  " retourne « As de Pique » ou « Roi de Trèfle », puis ",
   { t: "Deck", code: true },
   " :"
 ]));
@@ -694,7 +694,7 @@ enu.push(bulletRuns([
 ]));
 enu.push(bulletRuns([
   { t: "carteA(int)", code: true },
-  " rend la carte à une position ;"
+  " retourne la carte à une position ;"
 ]));
 enu.push(bulletRuns([
   { t: "shuffle()", code: true },
@@ -723,7 +723,7 @@ enu.push(verif([
   { t: "Vérifie la taille des deux énumérations, les libellés, le texte des cartes, la présence de 52 cartes toutes différentes, et que le mélange ne perd ni ne duplique aucune carte tout en changeant réellement l'ordre." }
 ]));
 enu.push(h2("Questions à se poser"));
-enu.push(bullet("La carte ne sait pas comment s'écrit une couleur en français : elle le demande à l'énumération. Où aurait-il fallu mettre cette information si Color n'avait pas pu porter de champ ?"));
+enu.push(bullet("La carte ne sait pas comment s'écrit une couleur en français : elle le demande à l'énumération. Où aurait-il fallu mettre cette information si Color n'avait pas pu contenir de champ ?"));
 enu.push(bulletRuns([
   "Pourquoi ",
   { t: "nextInt(i + 1)", code: true },
@@ -776,7 +776,7 @@ enu.push(runs([
 enu.push(runs([
   "Votre part commence à ",
   { t: "passe()", code: true },
-  ", qui rend ",
+  ", qui retourne ",
   { t: "true", code: true },
   " si la cote atteint 10."
 ]));

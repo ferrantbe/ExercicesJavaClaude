@@ -95,7 +95,7 @@ sta.push(bulletRuns([
 sta.push(bulletRuns([
   "un ",
   { t: "toString()", code: true },
-  " rendant ",
+  " retournant ",
   { t: "Reservation n3 : Grace Hopper", code: true },
   "."
 ]));
@@ -173,8 +173,8 @@ sta.push(h2("Énoncé"));
 sta.push(tableau(["Méthode", "Ce qu'elle fait"], [
   ["deMinutes(int)", "fabrique une durée, exprimée en minutes"],
   ["deHeures(int)", "fabrique une durée, exprimée en heures"],
-  ["enMinutes()", "rend le nombre total de minutes"],
-  ["plus(Duree)", "rend une NOUVELLE durée, somme des deux"],
+  ["enMinutes()", "retourne le nombre total de minutes"],
+  ["plus(Duree)", "retourne une NOUVELLE durée, somme des deux"],
   ["total(Duree...)", "additionne un nombre quelconque de durées"],
   ["toString()", "« 3h35 », ou « 45min » en dessous d'une heure"]
 ], [2200, 7160], [0]));
@@ -184,11 +184,11 @@ sta.push(runs([
   { t: "Duree.total(a, b, c)", code: true },
   " ou même ",
   { t: "Duree.total()", code: true },
-  ", qui doit rendre une durée nulle."
+  ", qui doit retourner une durée nulle."
 ]));
 sta.push(encadre([
   [{ t: "Une contrainte d'écriture", b: true }],
-  ["plus() rend une NOUVELLE durée : ni celle sur laquelle on l'appelle, ni celle qu'on lui passe ne changent."],
+  ["plus() retourne une NOUVELLE durée : ni celle sur laquelle on l'appelle, ni celle qu'on lui passe ne changent."],
   ["C'est l'immuabilité rencontrée en TMP.2 avec LocalDate, appliquée cette fois à une classe que vous écrivez. Le champ étant final, vous n'avez de toute façon pas le choix."]
 ]));
 sta.push(h2("Comment vérifier votre code"));

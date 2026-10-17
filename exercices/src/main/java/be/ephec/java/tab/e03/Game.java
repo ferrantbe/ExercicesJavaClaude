@@ -26,8 +26,8 @@ public class Game {
     }
 
     /**
-     * Rend celui des deux joueurs qui a le plus de points.
-     * En cas d'egalite, rend le premier.
+     * Retourne celui des deux joueurs qui a le plus de points.
+     * En cas d'egalite, retourne le premier.
      *
      * UNE instruction, avec un operateur ternaire.
      */
@@ -36,8 +36,8 @@ public class Game {
     }
 
     /**
-     * Rend celui des deux joueurs qui a fait le plus grand nombre.
-     * En cas d'egalite, rend le premier.
+     * Retourne celui des deux joueurs qui a fait le plus grand nombre.
+     * En cas d'egalite, retourne le premier.
      *
      * UNE instruction, avec un operateur ternaire.
      */
@@ -66,7 +66,7 @@ public class Game {
         gagnantDuTour(joueur1, de1, joueur2, de2).ajouterUnPoint();
     }
 
-    /** FOURNIE : rend un nombre entre 1 et 6. */
+    /** FOURNIE : retourne un nombre entre 1 et 6. */
     private int lancerLeDe() {
         return de.nextInt(6) + 1;
     }

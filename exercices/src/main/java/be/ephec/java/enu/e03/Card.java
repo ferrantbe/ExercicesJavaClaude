@@ -19,7 +19,7 @@ public class Card {
     }
 
     /**
-     * Rend la carte en francais, dans ce format exact :
+     * Retourne la carte en francais, dans ce format exact :
      *     "As de Pique", "3 de Coeur", "Roi de Trefle"
      */
     @Override

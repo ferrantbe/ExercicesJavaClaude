@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class BaseTest {
 
     @Test
-    @DisplayName("La base 10 rend le nombre lui-meme")
+    @DisplayName("La base 10 retourne le nombre lui-meme")
     void base10() {
         assertEquals(255, Base.enBase10("255", 10));
         assertEquals(0, Base.enBase10("0", 10));

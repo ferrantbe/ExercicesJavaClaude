@@ -10,7 +10,7 @@ public class Triangle extends Shape {
     /**
      * TODO : cette methode est heritee de Shape, ou elle est abstraite.
      *        Une sous-classe concrete DOIT la definir — sans quoi la classe
-     *        ne compile pas. Elle doit rendre "triangle".
+     *        ne compile pas. Elle doit retourner "triangle".
      */
     @Override
     public String nom() {

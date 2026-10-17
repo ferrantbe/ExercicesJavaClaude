@@ -8,7 +8,7 @@ import java.util.Scanner;
  * A COMPLETER.
  *
  * Seule la methode enBase10 est testee automatiquement. C'est delibere :
- * la logique est separee du dialogue avec l'utilisateur, ce qui la rend
+ * la logique est separee du dialogue avec l'utilisateur, ce qui la retourne
  * verifiable. Le main, lui, ne fait que dialoguer.
  */
 public class Base {
@@ -16,8 +16,8 @@ public class Base {
     /**
      * Convertit en base 10 un nombre ecrit dans une autre base.
      *
-     * Exemples : enBase10("FF", 16) rend 255
-     *            enBase10("1010", 2) rend 10
+     * Exemples : enBase10("FF", 16) retourne 255
+     *            enBase10("1010", 2) retourne 10
      *
      * Indice : Integer.parseInt accepte un second parametre, la base.
      *

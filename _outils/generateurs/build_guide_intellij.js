@@ -738,7 +738,7 @@ c.push(runs([
   "."
 ]));
 c.push(...image("ide-14-javadoc.png", "La documentation de Integer.parseInt(String, int)."));
-c.push(p("Cette bulle contient tout ce qu'un énoncé peut vous demander de chercher : la signature exacte, ce que la méthode rend, et surtout la liste des cas où elle lève une exception. Sur la capture, on lit que le radix doit se situer entre MIN_RADIX et MAX_RADIX — exactement ce que demande l'exercice POO.5."));
+c.push(p("Cette bulle contient tout ce qu'un énoncé peut vous demander de chercher : la signature exacte, ce que la méthode retourne, et surtout la liste des cas où elle lève une exception. Sur la capture, on lit que le radix doit se situer entre MIN_RADIX et MAX_RADIX — exactement ce que demande l'exercice POO.5."));
 c.push(p("Les liens de la bulle sont cliquables : de proche en proche, on remonte à toute la bibliothèque standard."));
 
 c.push(h2("IDE.15 — Les avertissements et leurs corrections"));

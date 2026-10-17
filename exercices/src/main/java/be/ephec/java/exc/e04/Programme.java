@@ -16,7 +16,7 @@ public class Programme {
         //
         //        Demandez la taille UNE SEULE FOIS, puis BOUCLEZ sur la
         //        position jusqu'a QUITTER, en affichant a chaque tour le
-        //        compte-rendu rendu par placerDouze. Rappelez les positions
+        //        compte-rendu retourne par placerDouze. Rappelez les positions
         //        valides et la facon de sortir.
         //
         //        La boucle n'est pas un ornement : c'est elle qui permet

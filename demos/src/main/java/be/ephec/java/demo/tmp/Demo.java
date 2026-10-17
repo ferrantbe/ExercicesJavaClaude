@@ -11,11 +11,11 @@ import java.time.LocalTime;
  *
  *   1. taper  debut.  et lire ce que propose la completion ;
  *   2. Ctrl+Q sur until() : elle demande une unite, donc ChronoUnit ;
- *   3. Ctrl+Q sur Duration.between() : elle rend un objet, pas un nombre ;
+ *   3. Ctrl+Q sur Duration.between() : elle retourne un objet, pas un nombre ;
  *   4. taper  duree.  et decouvrir toHours, toMinutes, toMinutesPart.
  *
- * Le piege trouve en chemin : toMinutes() rend 215, le total. C'est
- * toMinutesPart() qui rend les 35 minutes restantes. La completion seule
+ * Le piege trouve en chemin : toMinutes() retourne 215, le total. C'est
+ * toMinutesPart() qui retourne les 35 minutes restantes. La completion seule
  * ne le dit pas — c'est la Javadoc qui le dit.
  */
 public class Demo {
@@ -29,7 +29,7 @@ public class Demo {
         System.out.println("En minutes : " + duree.toMinutes());
         System.out.println("En heures  : " + duree.toHours());
 
-        // Le piege : toMinutes() aurait rendu 215, pas 35.
+        // Le piege : toMinutes() aurait retourne 215, pas 35.
         System.out.printf("Lisible    : %dh%02d%n", duree.toHours(), duree.toMinutesPart());
 
         // Et la question qu'on se pose toujours trop tard : est-ce que

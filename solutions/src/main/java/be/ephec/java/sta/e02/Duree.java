@@ -41,7 +41,7 @@ public class Duree {
     }
 
     /**
-     * Rend une NOUVELLE duree : ni celle-ci ni l'autre ne changent.
+     * Retourne une NOUVELLE duree : ni celle-ci ni l'autre ne changent.
      *
      * C'est l'immuabilite rencontree en TMP.2 avec LocalDate, appliquee a
      * une classe qu'on ecrit soi-meme. Le champ est final, donc il n'y a

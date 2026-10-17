@@ -67,7 +67,7 @@ col.push(runs([
   { t: "Collections", code: true },
   " et sa méthode statique ",
   { t: "sort", code: true },
-  ". Attention, elle trie sur place et ne rend rien — d'où la copie à faire avant."
+  ". Attention, elle trie sur place et ne retourne rien — d'où la copie à faire avant."
 ]));
 col.push(runs([
   "Écrivez ensuite le ",
@@ -114,7 +114,7 @@ col.push(p("Commencez par une HashMap, comme le demande l'énoncé d'origine."))
 col.push(encadre([
   [{ t: "La question qui fait l'exercice", b: true }],
   ["Peut-on faire en sorte que les fiches apparaissent dans l'ordre des noms ?"],
-  ["Répondez d'abord avec la HashMap, en triant les clés au moment de les rendre. Puis remplacez la HashMap par une TreeMap et regardez ce que devient nomsDansLOrdre : une seule ligne change dans toute la classe, et le test passe toujours."],
+  ["Répondez d'abord avec la HashMap, en triant les clés au moment de les retourner. Puis remplacez la HashMap par une TreeMap et regardez ce que devient nomsDansLOrdre : une seule ligne change dans toute la classe, et le test passe toujours."],
   ["Lequel des deux préférez-vous, et pourquoi ? La réponse dépend de la fréquence à laquelle on demande cet ordre."]
 ]));
 col.push(h2("Comment vérifier votre code"));
@@ -124,11 +124,11 @@ col.push(verif([
 ]));
 col.push(h2("Questions à se poser"));
 col.push(bulletRuns([
-  "Ajouter deux fiches de même nom ne fait pas grandir l'annuaire. Où est-ce écrit dans votre code ? Regardez ce que rend ",
+  "Ajouter deux fiches de même nom ne fait pas grandir l'annuaire. Où est-ce écrit dans votre code ? Regardez ce que retourne ",
   { t: "put", code: true },
   " dans la Javadoc."
 ]));
-col.push(bullet("chercher rend null pour un nom inconnu. L'énoncé le demande, mais est-ce une bonne idée ? Voir CC-ERR.2 — et comparez avec ce que fait COL.7."));
+col.push(bullet("chercher retourne null pour un nom inconnu. L'énoncé le demande, mais est-ce une bonne idée ? Voir CC-ERR.2 — et comparez avec ce que fait COL.7."));
 col.push(saut());
 
 // --- COL.3
@@ -147,7 +147,7 @@ col.push(...code([
 col.push(runs([
   "La classe fournie ",
   { t: "SourceDeTexte", code: true },
-  " vous rend un ",
+  " vous retourne un ",
   { t: "Scanner", code: true },
   " déjà ouvert, pour que l'exercice porte sur les collections et non sur les chemins de fichiers — sujet du thème ",
   { t: "FIC", code: true },
@@ -378,11 +378,11 @@ col.push(runs([
 col.push(runs([
   { t: "Un ensemble vide plutôt que null. ", b: true },
   { t: "coursDe", code: true },
-  " d'un étudiant inconnu rend un ensemble vide, sur lequel l'appelant peut boucler sans rien vérifier. Comparez avec le ",
+  " d'un étudiant inconnu retourne un ensemble vide, sur lequel l'appelant peut boucler sans rien vérifier. Comparez avec le ",
   { t: "chercher", code: true },
   " de ",
   { t: "COL.2", code: true },
-  ", qui rend ",
+  ", qui retourne ",
   { t: "null", code: true },
   " — et voyez lequel des deux vous préféreriez utiliser. C'est la règle ",
   { t: "CC-ERR.2", code: true },
@@ -509,16 +509,16 @@ exc.push(runs([
 exc.push(tableau(["Élément", "Signature", "Rôle"], [
   ["getSolde", "public double getSolde()", "Le solde courant"],
   ["ajoute", "public void ajoute(double)", "Ajoute au solde"],
-  ["retire", "public double retire(double)", "Retire, et rend ce qui a réellement été retiré"]
+  ["retire", "public double retire(double)", "Retire, et retourne ce qui a réellement été retiré"]
 ], [1900, 3500, 3960]));
-exc.push(p("On ne peut pas retirer plus que le solde : sur un compte à 100, un retrait de 120 rend 100 et laisse le solde à zéro."));
+exc.push(p("On ne peut pas retirer plus que le solde : sur un compte à 100, un retrait de 120 retourne 100 et laisse le solde à zéro."));
 exc.push(runs([
   "Écrivez ensuite ",
   { t: "GestionDeCompte", code: true },
   " et faites les trois essais : un dépôt, un retrait possible, un retrait excessif."
 ]));
 exc.push(h2("La question à garder"));
-exc.push(p("Sur un compte à 100, un retrait de 100 et un retrait de 120 rendent tous deux 100. L'appelant peut-il savoir si son retrait a été complet ? Que devrait-il faire pour s'en assurer ?"));
+exc.push(p("Sur un compte à 100, un retrait de 100 et un retrait de 120 retournent tous deux 100. L'appelant peut-il savoir si son retrait a été complet ? Que devrait-il faire pour s'en assurer ?"));
 exc.push(p("Gardez votre réponse : c'est exactement le problème que l'exercice suivant résout."));
 exc.push(h2("Comment vérifier votre code"));
 exc.push(verif([
@@ -618,7 +618,7 @@ exc.push(h2("Énoncé — seconde partie"));
 exc.push(runs([
   "Complétez ",
   { t: "Tableau.placerDouze(int taille, int position)", code: true },
-  ", qui fait la même chose mais ne laisse jamais échapper d'exception. Elle rend un compte-rendu, aux formulations imposées :"
+  ", qui fait la même chose mais ne laisse jamais échapper d'exception. Elle retourne un compte-rendu, aux formulations imposées :"
 ]));
 exc.push(...code([
   "placerDouze(5, 2)    ->  \"12 place en position 2 d'un tableau de 5 cases\"",
@@ -696,7 +696,7 @@ exc.push(h2("La correction"));
 exc.push(runs([
   "Complétez enfin ",
   { t: "degatsParCibleSansPlanter", code: true },
-  ", qui rend les dégâts par cible, ou 0 si le sort ne vise personne. ",
+  ", qui retourne les dégâts par cible, ou 0 si le sort ne vise personne. ",
   { t: "Vous ne pouvez pas modifier la classe fautive : ", b: true },
   "traitez le problème là où vous avez la main."
 ]));

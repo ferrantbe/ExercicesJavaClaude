@@ -30,7 +30,7 @@ public class Paire<T> {
     }
 
     /**
-     * Rend, au format exact :
+     * Retourne, au format exact :
      *     "premiere valeur : 12 - deuxieme valeur : 16"
      */
     @Override

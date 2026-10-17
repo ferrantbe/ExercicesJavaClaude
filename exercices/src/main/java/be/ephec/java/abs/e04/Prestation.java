@@ -23,7 +23,7 @@ public abstract class Prestation implements Facturable {
     }
 
     /**
-     * Rend "Ada Lovelace : 125.00 EUR", au format US pour que le point
+     * Retourne "Ada Lovelace : 125.00 EUR", au format US pour que le point
      * decimal soit previsible.
      *
      * Elle est ecrite ICI, une seule fois, et appelle montant() — que
