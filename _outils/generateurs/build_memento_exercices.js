@@ -9,24 +9,11 @@ const ACCENT = "1F4E79";
 const c = [];
 
 // =====================================================================
-// Logo de l'EPHEC en haut a gauche (16/10/2026), comme a l'examen.
-c.push(require(__dirname + "/boite.js").logo());
-c.push(new Paragraph({
-  spacing: { before: 600, after: 120 }, alignment: AlignmentType.CENTER,
-  children: [new TextRun({ text: "Programmation orientée objet — Java", size: 26, color: GREY })]
-}));
-c.push(new Paragraph({
-  spacing: { after: 140 }, alignment: AlignmentType.CENTER,
-  children: [new TextRun({ text: "Travailler les exercices", bold: true, size: 52, color: ACCENT })]
-}));
-c.push(new Paragraph({
-  spacing: { after: 700 }, alignment: AlignmentType.CENTER,
-  children: [new TextRun({
-    text: "Ce qui vaut pour les quinze thèmes", size: 26, color: GREY })]
-}));
-c.push(p("EPHEC — Bachelier en informatique, niveau 2", { align: AlignmentType.CENTER, color: GREY }));
-c.push(p("Année académique 2026-2027", { align: AlignmentType.CENTER, color: GREY }));
-c.push(saut());
+// Page de garde commune (modele ABS, 17/10/2026).
+require(__dirname + "/boite.js").pageDeGarde(c, {
+  titre: "Travailler les exercices",
+  accroche: "Ce qui vaut pour les quinze thèmes"
+});
 
 // =====================================================================
 c.push(h1("À quoi sert ce document"));

@@ -221,23 +221,11 @@ function encadre(lignes) {
 const c = [];
 
 // ---------------- couverture ----------------
-// Logo de l'EPHEC en haut a gauche (16/10/2026), comme a l'examen.
-c.push(require(__dirname + "/boite.js").logo());
-c.push(new Paragraph({
-  spacing: { before: 700, after: 120 }, alignment: AlignmentType.CENTER,
-  children: [new TextRun({ text: typo("Programmation orientée objet — Java"), size: 26, color: GREY })]
-}));
-c.push(new Paragraph({
-  spacing: { after: 200 }, alignment: AlignmentType.CENTER,
-  children: [new TextRun({ text: typo("Mémento Clean Code"), bold: true, size: 52, color: ACCENT })]
-}));
-c.push(new Paragraph({
-  spacing: { after: 800 }, alignment: AlignmentType.CENTER,
-  children: [new TextRun({ text: typo("34 règles pour écrire du code qu'on peut relire"), size: 26, color: GREY })]
-}));
-c.push(p("EPHEC — Bachelier en informatique, niveau 2", { align: AlignmentType.CENTER, color: GREY }));
-c.push(p("Année académique 2026-2027", { align: AlignmentType.CENTER, color: GREY }));
-c.push(new Paragraph({ children: [new PageBreak()] }));
+// Page de garde commune (modele ABS, 17/10/2026).
+require(__dirname + "/boite.js").pageDeGarde(c, {
+  titre: "Mémento Clean Code",
+  accroche: "34 règles pour écrire du code qu'on peut relire"
+});
 
 // ---------------- mode d'emploi ----------------
 c.push(h1("À quoi sert ce mémento"));

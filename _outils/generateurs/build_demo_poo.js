@@ -13,27 +13,23 @@ function aDire(texte) {
 }
 
 function couverture(c, module, titre, duree, quand) {
-  // Logo de l'EPHEC en haut a gauche (16/10/2026), comme a l'examen.
-  c.push(require(__dirname + "/boite.js").logo());
-  c.push(new Paragraph({
-    spacing: { before: 500, after: 100 }, alignment: AlignmentType.CENTER,
-    children: [new TextRun({ text: "Démonstration du cours", size: 24, color: GREY })]
-  }));
-  c.push(new Paragraph({
-    spacing: { after: 100 }, alignment: AlignmentType.CENTER,
-    children: [new TextRun({ text: module, bold: true, size: 52, color: ACCENT })]
-  }));
-  c.push(new Paragraph({
-    spacing: { after: 300 }, alignment: AlignmentType.CENTER,
-    children: [new TextRun({ text: titre, bold: true, size: 30, color: ACCENT })]
-  }));
-  c.push(tableau(["Durée", "Quand la jouer", "Code final"], [
-    [duree, quand, `demos/…/demo/${module.toLowerCase()}/`]
-  ], [2000, 4400, 2960], []));
-  c.push(p(""));
-  c.push(p("Document destiné au professeur — ne pas distribuer",
-           { align: AlignmentType.CENTER, italic: true, color: GREY }));
-  c.push(saut());
+  // Page de garde commune (modele ABS, 17/10/2026), avec le tableau des
+  // demonstrations sous le titre.
+  const B = require(__dirname + "/boite.js");
+  B.pageDeGarde(c, {
+    surtitre: "Démonstration du cours",
+    titre: module,
+    sousTitre: titre,
+    entre: [
+      new Paragraph({ spacing: { before: 400 }, children: [] }),
+      tableau(["Durée", "Quand la jouer", "Code final"], [
+        [duree, quand, `demos/…/demo/${module.toLowerCase()}/`]
+      ], [2000, 4400, 2960], []),
+      B.ligneGarde("Document destiné au professeur — ne pas distribuer", 28,
+                   { italique: true, avant: 300 })
+    ],
+    espaceBas: 4000
+  });
 }
 
 function etape(c, numero, titre, duree) {

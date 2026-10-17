@@ -3,7 +3,7 @@ const {
   Document, Packer, Paragraph, TextRun, HeadingLevel, AlignmentType,
   Table, TableRow, TableCell, WidthType, ShadingType, BorderStyle,
   PageBreak, LevelFormat, convertInchesToTwip,
-  Bookmark, InternalHyperlink, ImageRun
+  Bookmark, InternalHyperlink, ImageRun, TabStopType, Tab
 } = require("docx");
 
 const MONO = "Consolas";
@@ -164,7 +164,13 @@ function cell(text, o = {}) {
     children: [new Paragraph({
       spacing: { after: 0 },
       // Une cellule monospace porte du code : on ne la touche pas.
-      children: [new TextRun({ text: o.mono ? text : typo(text), bold: o.bold, size: o.mono ? 18 : 20, font: o.mono ? MONO : undefined })]
+      // Une cellule peut aussi recevoir des fragments, comme runs() :
+      // ["deplacement", " (", "double", ")"] avec du code au milieu.
+      children: Array.isArray(text)
+        ? text.map(x => typeof x === "string"
+            ? new TextRun({ text: typo(x), bold: o.bold, size: 20 })
+            : new TextRun({ text: x.t, bold: o.bold || x.b, size: x.code ? 18 : 20, font: x.code ? MONO : undefined }))
+        : [new TextRun({ text: o.mono ? text : typo(text), bold: o.bold, size: o.mono ? 18 : 20, font: o.mono ? MONO : undefined })]
     })]
   });
 }
@@ -212,12 +218,36 @@ function encadre(lignes, couleur) {
         width: { size: W, type: WidthType.DXA },
         shading: { type: ShadingType.CLEAR, fill: "F7F9FC" },
         margins: { top: 120, bottom: 120, left: 160, right: 160 },
-        children: lignes.map((t, i) => new Paragraph({
-          spacing: { after: i === lignes.length - 1 ? 0 : 80 },
-          children: morceaux(Array.isArray(t) ? t : [t])
-        }))
+        children: lignes.map((t, i) => estPaire(t)
+          ? lignePaire(t, i === lignes.length - 1)
+          : new Paragraph({
+              spacing: { after: i === lignes.length - 1 ? 0 : 80 },
+              children: morceaux(Array.isArray(t) ? t : [t])
+            }))
       })]
     })]
+  });
+}
+
+/**
+ * Une ligne de verification « ce qu'on fait / ce qu'on obtient », donnee
+ * comme deux chaines : ["deHeures(2).enMinutes()", "120"].
+ *
+ * Avant le 17/10/2026, les deux moities etaient collees sans separation
+ * (« Abonnement(Ada, 125)125.00 ») et build_pkg_tmp.js les perdait tout a
+ * fait. Elles sont maintenant separees par une tabulation, en Consolas
+ * toutes les deux : c'est ce qu'on lit sur la console (choix de Frederic
+ * dans ABS).
+ */
+const estPaire = (t) => Array.isArray(t) && t.length === 2 && t.every(x => typeof x === "string");
+function lignePaire(t, derniere) {
+  return new Paragraph({
+    spacing: { after: derniere ? 0 : 40 },
+    tabStops: [{ type: TabStopType.LEFT, position: 4300 }],
+    children: [
+      new TextRun({ text: t[0], font: MONO, size: 18 }),
+      new TextRun({ children: [new Tab(), t[1]], font: MONO, size: 18 })
+    ]
   });
 }
 
@@ -262,27 +292,59 @@ function logo() {
   });
 }
 
-function couverture(c, theme, titre, sous) {
-  c.push(logo());
+/**
+ * La page de garde commune a tous les documents, sur le modele qu'a fixe
+ * Frederic sur ABS le 17/10/2026 :
+ *   - en haut, le logo a gauche et « Annee academique 2026-2027 » a droite ;
+ *   - au tiers de la page, le bloc de titre centre ;
+ *   - en bas, la ligne de l'EPHEC ;
+ *   - le tout en Calibri noir, plus grand que le texte courant.
+ *
+ * Les espaces avant (en vingtiemes de point) remplacent les paragraphes
+ * vides du modele, qui en donnent l'equivalent. `entre` recoit ce que
+ * certains documents placent sous le titre (le tableau des demos) ;
+ * `espaceBas` se reduit d'autant pour que le pied ne change pas de page.
+ */
+const POLICE_GARDE = "Calibri";
+const ANNEE = "2026-2027";
+function ligneGarde(texte, taille, o = {}) {
+  return new Paragraph({
+    alignment: o.align === undefined ? AlignmentType.CENTER : o.align,
+    spacing: { before: o.avant || 0, after: o.apres === undefined ? 120 : o.apres },
+    children: [new TextRun({
+      text: typo(texte), font: POLICE_GARDE, size: taille, bold: o.gras,
+      italics: o.italique, color: "000000"
+    })]
+  });
+}
+
+function pageDeGarde(c, { surtitre = "Programmation orientée objet — Java", titre,
+                          sousTitre, accroche, entre = [], espaceBas }) {
+  // Sans sous-titre, le pied descend d'autant pour rester en bas de page.
+  if (espaceBas === undefined) espaceBas = sousTitre ? 5450 : 6150;
+  const run = (t, gras) => new TextRun({ text: t, font: POLICE_GARDE, size: 36, bold: gras, color: "000000" });
   c.push(new Paragraph({
-    spacing: { before: 700, after: 120 }, alignment: AlignmentType.CENTER,
-    children: [new TextRun({ text: typo("Programmation orientée objet — Java"), size: 26, color: GREY })]
+    tabStops: [{ type: TabStopType.RIGHT, position: 9026 }],
+    children: [
+      new ImageRun({
+        type: "png", data: LOGO, transformation: { width: 159, height: 76 },
+        altText: { name: "logo", title: "EPHEC", description: "Logo de l'EPHEC" }
+      }),
+      new TextRun({ children: [new Tab()], font: POLICE_GARDE, size: 36 }),
+      run("Année académique "), run(ANNEE, true)
+    ]
   }));
-  c.push(new Paragraph({
-    spacing: { after: 100 }, alignment: AlignmentType.CENTER,
-    children: [new TextRun({ text: typo("Thème " + theme), bold: true, size: 52, color: ACCENT })]
-  }));
-  c.push(new Paragraph({
-    spacing: { after: 200 }, alignment: AlignmentType.CENTER,
-    children: [new TextRun({ text: typo(titre), bold: true, size: 32, color: ACCENT })]
-  }));
-  c.push(new Paragraph({
-    spacing: { after: 800 }, alignment: AlignmentType.CENTER,
-    children: [new TextRun({ text: typo(sous), size: 26, color: GREY })]
-  }));
-  c.push(p("EPHEC — Bachelier en informatique, niveau 2", { align: AlignmentType.CENTER, color: GREY }));
-  c.push(p("Année académique 2026-2027", { align: AlignmentType.CENTER, color: GREY }));
+  c.push(ligneGarde(surtitre, 36, { avant: 3900 }));
+  c.push(ligneGarde(titre, 72, { gras: true, apres: 100 }));
+  if (sousTitre) c.push(ligneGarde(sousTitre, 40, { gras: true, apres: 200 }));
+  if (accroche) c.push(ligneGarde(accroche, 36, { apres: 800 }));
+  entre.forEach(e => c.push(e));
+  c.push(ligneGarde("EPHEC — Bachelier en informatique, niveau 2", 36, { avant: espaceBas }));
   c.push(saut());
+}
+
+function couverture(c, theme, titre, sous) {
+  pageDeGarde(c, { titre: "Module " + theme, sousTitre: titre, accroche: sous });
 }
 
 /**
@@ -427,6 +489,6 @@ function doc(children, titre) {
 
 module.exports = {
   p, runs, bullet, bulletRuns, code, h1, h2, cell, tableau, typo,
-  encadre, verif, saut, couverture, modeEmploi, doc, logo, TITRES,
+  encadre, verif, saut, couverture, pageDeGarde, ligneGarde, modeEmploi, doc, logo, TITRES,
   Packer, MONO, ACCENT, GREY, W, AlignmentType, Paragraph, TextRun, PageBreak
 };

@@ -173,30 +173,9 @@ function table3(entetes, lignes, largeurs) {
   return new Table({ columnWidths: w, width: { size: W, type: WidthType.DXA }, rows: [header, ...body] });
 }
 
-function verif(lignes) {
-  return new Table({
-    columnWidths: [W], width: { size: W, type: WidthType.DXA },
-    borders: {
-      top: { style: BorderStyle.SINGLE, size: 2, color: "A6A6A6" },
-      bottom: { style: BorderStyle.SINGLE, size: 2, color: "A6A6A6" },
-      left: { style: BorderStyle.SINGLE, size: 12, color: ACCENT },
-      right: { style: BorderStyle.SINGLE, size: 2, color: "A6A6A6" },
-      insideHorizontal: { style: BorderStyle.NONE }, insideVertical: { style: BorderStyle.NONE }
-    },
-    rows: [new TableRow({
-      cantSplit: true,
-      children: [new TableCell({
-        width: { size: W, type: WidthType.DXA },
-        shading: { type: ShadingType.CLEAR, fill: "F7F9FC" },
-        margins: { top: 120, bottom: 120, left: 160, right: 160 },
-        children: lignes.map((t, i) => new Paragraph({
-          spacing: { after: i === lignes.length - 1 ? 0 : 80 },
-          children: [new TextRun({ text: t.t, size: 21, bold: t.b, font: t.code ? MONO : undefined })]
-        }))
-      })]
-    })]
-  });
-}
+// Celui de la boite commune : il sait afficher les paires « appel /
+// resultat », que la copie locale perdait (17/10/2026).
+const verif = require(__dirname + "/boite.js").verif;
 
 // Page de garde et introduction : celles de la boite commune, pour que
 // le logo, l'encadre gris et la structure des exercices soient les memes

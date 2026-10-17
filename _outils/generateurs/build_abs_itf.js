@@ -79,7 +79,8 @@ abs.push(runs([
   "Écrivez enfin le ",
   { t: "Programme", code: true },
   " : un ",
-  { t: "tableau de Shape", b: true },
+  { t: "tableau de ", b: true },
+  { t: "Shape", b: true, code: true },
   " contenant les trois formes, parcouru pour les afficher puis les effacer."
 ]));
 abs.push(h2("Sur la rotation"));
@@ -98,7 +99,7 @@ abs.push(encadre([
 abs.push(h2("Comment vérifier votre code"));
 abs.push(verif([
   { t: "be.ephec.java.abs.e01.ShapeTest", code: true },
-  { t: "Vérifie que Shape est bien abstraite, le nom de chaque forme, la conservation du centre, la normalisation de la rotation y compris pour les valeurs négatives, et le polymorphisme dans un tableau de Shape." }
+  ["Vérifie que ", { t: "Shape", code: true }, " est bien abstraite, le nom de chaque forme, la conservation du centre, la normalisation de la rotation y compris pour les valeurs négatives, et le polymorphisme dans un tableau de ", { t: "Shape", code: true }, "."]
 ]));
 abs.push(h2("Questions à se poser"));
 abs.push(bulletRuns([
@@ -106,9 +107,9 @@ abs.push(bulletRuns([
   { t: "new Shape(new Point(0, 0))", code: true },
   ". Que dit le compilateur, et pourquoi ?"
 ]));
-abs.push(bullet("Le constructeur de Shape est déclaré protected et non public. Qu'est-ce que cela change, sachant qu'on ne peut de toute façon pas instancier la classe ?"));
-abs.push(bullet("Vos trois sous-classes font-elles plus d'une méthode ? Si oui, qu'est-ce qui aurait dû monter dans Shape ?"));
-abs.push(bullet("Le tableau est déclaré Shape[] et ne contient aucun Shape. Comment est-ce possible ?"));
+abs.push(bulletRuns(["Le constructeur de ", { t: "Shape", code: true }, " est déclaré ", { t: "protected", code: true }, " et non ", { t: "public", code: true }, ". Qu'est-ce que cela change, sachant qu'on ne peut de toute façon pas instancier la classe ?"]));
+abs.push(bulletRuns(["Vos trois sous-classes font-elles plus d'une méthode ? Si oui, qu'est-ce qui aurait dû monter dans ", { t: "Shape", code: true }, " ?"]));
+abs.push(bulletRuns(["Le tableau est déclaré ", { t: "Shape[]", code: true }, " et ne contient aucun ", { t: "Shape", code: true }, ". Comment est-ce possible ?"]));
 abs.push(saut());
 
 // --- ABS.2
@@ -150,10 +151,10 @@ abs.push(runs([
 abs.push(h2("Comment vérifier votre code"));
 abs.push(verif([
   { t: "be.ephec.java.abs.e02.AnimalTest", code: true },
-  { t: "Vérifie que la classe est abstraite, le cri de chaque animal, et que les éléments d'un tableau d'Animal rendent bien le cri de leur type réel." }
+  ["Vérifie que la classe est abstraite, le cri de chaque animal, et que les éléments d'un tableau d'", { t: "Animal", code: true }, " rendent bien le cri de leur type réel."]
 ]));
 abs.push(h2("Questions à se poser"));
-abs.push(bullet("Ajoutez une Vache. Combien de lignes faut-il modifier dans le Programme ?"));
+abs.push(bulletRuns(["Ajoutez une ", { t: "Vache", code: true }, ". Combien de lignes faut-il modifier dans le ", { t: "Programme", code: true }, " ?"]));
 abs.push(bullet("Refaites l'exercice en supprimant la classe abstraite, avec deux classes indépendantes. Qu'est-ce qui devient impossible ?"));
 abs.push(saut());
 
@@ -200,7 +201,7 @@ abs.push(verif([
 ]));
 abs.push(h2("Questions à se poser"));
 abs.push(bullet("Une troisième banque arrive, avec encore un autre ordre de colonnes. Combien de classes faut-il écrire, et combien faut-il en modifier ?"));
-abs.push(bullet("La méthode qui convertit une ligne est déclarée protected. Pourquoi pas public, puisque c'est une méthode qu'une autre classe doit définir ?"));
+abs.push(bulletRuns(["La méthode qui convertit une ligne est déclarée ", { t: "protected", code: true }, ". Pourquoi pas ", { t: "public", code: true }, ", puisque c'est une méthode qu'une autre classe doit définir ?"]));
 abs.push(bullet("Le rapport et le total sont écrits une seule fois, dans la classe mère. Qu'est-ce qui se serait passé le jour d'une correction du calcul si chaque visualiseur avait eu le sien ?"));
 
 abs.push(saut());
@@ -234,10 +235,10 @@ abs.push(...code([
 abs.push(h2("Ce que chaque classe concrète ajoute"));
 abs.push(tableau(["Classe", "Champ supplémentaire", "Ce que rend montant()"], [
   ["Abonnement", "—", "prixForfait"],
-  ["Installation", "deplacement (double)", "prixForfait + deplacement"],
+  ["Installation", [{ t: "deplacement", code: true }, " (", { t: "double", code: true }, ")"], "prixForfait + deplacement"],
   ["Depannage", "—", "heures x tauxHoraire"],
-  ["Urgence", "majoration (double)", "heures x tauxHoraire x (1 + majoration)"]
-], [1900, 3200, 4260], [0]));
+  ["Urgence", [{ t: "majoration", code: true }, " (", { t: "double", code: true }, ")"], "heures x tauxHoraire x (1 + majoration)"]
+], [1900, 3200, 4260], [0, 2]));
 abs.push(runs([
   "La majoration est une ",
   { t: "fraction", i: true },
@@ -282,7 +283,7 @@ abs.push(verif([
 ]));
 abs.push(h2("Questions à se poser"));
 abs.push(bulletRuns([
-  "Prestation implémente Facturable sans écrire ",
+  { t: "Prestation", code: true }, " implémente ", { t: "Facturable", code: true }, " sans écrire ",
   { t: "montant()", code: true },
   ". Est-ce légal, et pourquoi le compilateur l'accepte-t-il ?"
 ]));

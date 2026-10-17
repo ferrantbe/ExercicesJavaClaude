@@ -6,23 +6,11 @@ const { p, runs, code, h1, h2, tableau, encadre, saut, doc, Packer,
 const c = [];
 
 // ---------- couverture ----------
-// Logo de l'EPHEC en haut a gauche (16/10/2026), comme a l'examen.
-c.push(require(__dirname + "/boite.js").logo());
-c.push(new Paragraph({
-  spacing: { before: 700, after: 120 }, alignment: AlignmentType.CENTER,
-  children: [new TextRun({ text: "Programmation orientée objet — Java", size: 26, color: GREY })]
-}));
-c.push(new Paragraph({
-  spacing: { after: 200 }, alignment: AlignmentType.CENTER,
-  children: [new TextRun({ text: "Les codes du cours", bold: true, size: 46, color: "1F4E79" })]
-}));
-c.push(new Paragraph({
-  spacing: { after: 800 }, alignment: AlignmentType.CENTER,
-  children: [new TextRun({ text: "À quoi correspond chaque abréviation", size: 26, color: GREY })]
-}));
-c.push(p("EPHEC — Bachelier en informatique, niveau 2", { align: AlignmentType.CENTER, color: GREY }));
-c.push(p("Année académique 2026-2027", { align: AlignmentType.CENTER, color: GREY }));
-c.push(saut());
+// Page de garde commune (modele ABS, 17/10/2026).
+require(__dirname + "/boite.js").pageDeGarde(c, {
+  titre: "Les codes du cours",
+  accroche: "À quoi correspond chaque abréviation"
+});
 
 // ---------- intro ----------
 c.push(h1("Une table, pour tout le cours"));
