@@ -287,7 +287,7 @@ fic.push(runs([
 fic.push(...code([
   "try (PrintWriter sortie = new PrintWriter(new FileWriter(fichier))) {",
   "    sortie.println(\"...\");",
-  "}   // ferme automatiquement, meme en cas d'exception"
+  "}   // ferme automatiquement le fichier, même en cas d'exception"
 ]));
 fic.push(runs([
   { t: "Les exceptions d'entrée-sortie sont contrôlées. ", b: true },
@@ -308,7 +308,7 @@ fic.push(h2("Énoncé"));
 fic.push(tableau(["Classe", "Ce qu'elle contient", "Méthodes"], [
   ["Enseignant", "nom, prénom — au constructeur", "les accesseurs, toString"],
   ["Cours", "intitulé au constructeur, chargé de cours modifiable", "accesseurs, setter, toString"],
-  ["Etudiant", "nom, prénom au constructeur ; la liste de cours démarre vide", "inscrire, desinscrire, getCours, nombreDeCours, toString"]
+  ["Etudiant", "nom, prénom au constructeur ; la liste de cours démarre vide", [{ t: "inscrire", code: true }, ", ", { t: "desinscrire", code: true }, ", ", { t: "getCours", code: true }, ", ", { t: "nombreDeCours", code: true }, ", ", { t: "toString", code: true }]]
 ], [1600, 4000, 3760], [0]));
 fic.push(p("Les formats de toString sont imposés :"));
 fic.push(...code([
@@ -320,8 +320,8 @@ fic.push(...code([
 fic.push(p("Une seconde inscription au même cours ne change rien ; désinscrire un cours absent ne provoque pas d'erreur."));
 fic.push(encadre([
   [{ t: "Ce que retourne getCours", b: true }],
-  ["Un test vérifie qu'on ne peut pas vider l'étudiant à travers la liste qu'il retourne. Si vous retournez la liste elle-même, n'importe qui peut appeler clear() dessus et contourner desinscrire — l'encapsulation ne sert alors plus à rien."],
-  ["Cherchez Collections.unmodifiableList dans la Javadoc. Voir CC-OBJ.2 du mémento Clean Code."]
+  ["Un test vérifie qu'on ne peut pas vider l'étudiant à travers la liste qu'il retourne. Si vous retournez la liste elle-même, n'importe qui peut appeler clear() dessus et contourner ", { t: "desinscrire", code: true }, " — l'encapsulation ne sert alors plus à rien."],
+  ["Cherchez ", { t: "Collections.unmodifiableList", code: true }, " dans la Javadoc. Voir CC-OBJ.2 du mémento Clean Code."]
 ]));
 fic.push(h2("Comment vérifier votre code"));
 fic.push(verif([
@@ -339,7 +339,7 @@ fic.push(h2("Contexte"));
 fic.push(runs([
   "Les trois classes de ",
   { t: "FIC.1", code: true },
-  " vous sont fournies ici, complètes, avec une seule différence : elles implémentent ",
+  " vous sont fournies ici, complètes, et elles implémentent ",
   { t: "Serializable", code: true },
   "."
 ]));
@@ -376,7 +376,9 @@ fic.push(runs([
   "Un transtypage est inévitable, et le compilateur avertit qu'il ne peut pas le vérifier. Ce n'est pas une erreur de votre part : la sérialisation est antérieure à la généricité, et le fichier ne contient aucune trace du type paramétré."
 ]));
 fic.push(runs([
-  { t: "Ouvrez etudiants.dat dans un éditeur de texte. ", b: true },
+  { t: "Ouvrez ", b: true },
+  { t: "etudiants.dat", b: true, code: true },
+  { t: " dans un éditeur de texte (sans l'enregistrer). ", b: true },
   "Vous y verrez quelques noms de classes noyés dans des octets illisibles. Le format est fait pour la JVM, pas pour vous. Gardez l'image : ",
   { t: "FIC.3", code: true },
   " prend l'autre parti."
@@ -385,7 +387,7 @@ fic.push(h2("Comment vérifier votre code"));
 fic.push(verif([
   { t: "be.ephec.java.fic.e02.EnregistrementTest", code: true },
   { t: "Vérifie la création du fichier, l'aller-retour complet, la conservation des cours et de leurs enseignants, et le cas de la liste vide." },
-  { t: "Le test écrit dans un dossier temporaire fourni par JUnit — l'annotation @TempDir — créé avant le test et supprimé après. Vos tests ne laisseront jamais de fichiers dans le projet." }
+  ["Le test écrit dans un dossier temporaire fourni par ", { t: "JUnit", code: true }, " — l'annotation ", { t: "@TempDir", code: true }, " — créé avant le test et supprimé après. Vos tests ne laisseront jamais de fichiers dans le projet."]
 ]));
 fic.push(h2("Questions à se poser"));
 fic.push(bulletRuns([
@@ -396,7 +398,7 @@ fic.push(bulletRuns([
   "."
 ]));
 fic.push(bullet("Renommez un champ d'Etudiant, puis relisez un fichier écrit avant le changement. Que se passe-t-il ? Cherchez ce qu'est un serialVersionUID."));
-fic.push(bullet("Un mot de passe stocké dans un champ part-il dans le fichier ? Cherchez le mot-clé transient."));
+fic.push(bulletRuns(["Un mot de passe stocké dans un champ part-il dans le fichier ? Cherchez le mot-clé ", { t: "transient", code: true }, "."]));
 fic.push(bulletRuns([
   "Le message d'erreur que vous affichez en cas d'échec dit-il quel fichier a échoué ? Voir ",
   { t: "CC-ERR.4", code: true },
@@ -430,10 +432,10 @@ fic.push(runs([
   " le lui interdit. Le test contient un étudiant sans cours, précisément pour ça."
 ]));
 fic.push(h2("La comparaison"));
-fic.push(p("Les cours reconstruits n'ont plus de chargé de cours : le format texte ne l'a pas écrit. Créez donc un enseignant « Inconnu Inconnu » pour chacun — et mesurez ce que cela signifie."));
+fic.push(runs(["Les cours reconstruits n'ont plus de chargé de cours : le format texte ne l'a pas écrit. Créez donc un enseignant ", { t: "\"Inconnu Inconnu\"", code: true }, " pour chacun — et mesurez ce que cela signifie."]));
 fic.push(encadre([
   [{ t: "La question de fond", b: true }],
-  ["Le .dat conserve tout, mais ne se lit que par un programme Java, et seulement tant que les classes n'ont pas changé. Le .txt ne conserve que ce qu'on a décidé d'écrire, mais s'ouvre dans n'importe quel éditeur, se traite par un tableur ou par un autre langage, et survit à toutes les évolutions de vos classes."],
+  ["Le fichier ", { t: ".dat", code: true }, " conserve tout, mais ne se lit que par un programme Java, et seulement tant que les classes n'ont pas changé. Le fichier ", { t: ".txt", code: true }, " ne conserve que ce qu'on a décidé d'écrire, mais s'ouvre dans n'importe quel éditeur, se traite par un tableur ou par un autre langage, et survit à toutes les évolutions de vos classes."],
   ["Savez-vous lire etudiants.txt ? Et etudiants.dat ? La réponse à ces deux questions est tout l'enjeu du choix d'un format."]
 ]));
 fic.push(h2("Comment vérifier votre code"));
@@ -442,8 +444,8 @@ fic.push(verif([
   { t: "Vérifie le format d'écriture au caractère près, le cas de la liste vide, la reconstruction des étudiants — y compris celui sans cours — et le fait que le chargé de cours ait bel et bien été perdu." }
 ]));
 fic.push(h2("Questions à se poser"));
-fic.push(bullet("Que se passe-t-il si le nom d'un étudiant contient un point-virgule ? Comment les formats réels — CSV, par exemple — traitent-ils ce problème ?"));
-fic.push(bullet("Pour conserver le chargé de cours dans le fichier texte, que faudrait-il ajouter au format ? À partir de quel moment vaudrait-il mieux utiliser un format existant comme JSON ?"));
+fic.push(bulletRuns(["Que se passe-t-il si le nom d'un étudiant contient un point-virgule ? Comment les formats réels — ", { t: "CSV", code: true }, ", par exemple — traitent-ils ce problème ?"]));
+fic.push(bulletRuns(["Pour conserver le chargé de cours dans le fichier texte, que faudrait-il ajouter au format ? À partir de quel moment vaudrait-il mieux utiliser un format existant comme ", { t: "JSON", code: true }, " ?"]));
 fic.push(bulletRuns([
   "Le fichier écrit dépend du dossier depuis lequel on lance le programme. Où atterrit ",
   { t: "new File(\"etudiants.txt\")", code: true },

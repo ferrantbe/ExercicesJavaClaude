@@ -73,7 +73,8 @@ ORDRE = ["rStyle", "rFonts", "b", "bCs", "i", "iCs", "caps", "smallCaps", "strik
 
 # Les references au memento Clean Code (CC-OBJ.2, CC-NOM, CC-XXX.n) ont
 # partout la meme forme : Consolas, couleur Accent 2, sans soulignement, y
-# compris quand elles sont des liens ou dans un titre (demande du 17/10/2026).
+# compris dans un titre (demande du 17/10/2026). Quand elles sont des liens,
+# elles prennent l'apparence d'un lien : voir run_lien.
 REF = re.compile(r"CC-[A-Z]{3}(?:\.(?:\d+|n))?")
 
 ENFANT = re.compile(r"<((?:w|w14|w15):[A-Za-z]+)\b[^>]*?(?:/>|>.*?</\1>)", re.S)
@@ -245,6 +246,10 @@ def mots_java(texte):
                 cat = cats[g[0]]
                 if cat == "litteral":
                     cat = None
+                # « try-avec-ressources » : le nom francais d'une construction,
+                # pas du code (choix de Frederic dans FIC, 17/10/2026).
+                if re.match(r"-[^\W\d_]", texte[b:b + 2]):
+                    cat = None
             if cat:
                 yield a, b, texte[a:b], cat
 
@@ -276,7 +281,7 @@ def traiter_run(run, titre, rapport):
     if not mt:
         return run
     texte = html.unescape(mt.group(1))
-    trouves = list(mots_java(texte))
+    trouves = sorted(mots_java(texte))   # les references sont trouvees avant le reste
     if not trouves:
         return run
     if titre:
@@ -313,6 +318,22 @@ def traiter_run(run, titre, rapport):
                    for t, rpr in morceaux if t)
 
 
+# Un code cliquable (POO.1 dans le tableau des exercices, CC-NOM.1 ou
+# TEC-PLA.1 dans le sommaire d'un memento, IDE.17 dans le guide) garde
+# l'apparence d'un lien : Consolas 9, bleu lien de Word, souligne
+# (demande du 17/10/2026). Le texte ordinaire d'un lien n'est pas touche.
+COULEUR_LIEN = '<w:color w:val="0563C1"/>'
+
+def run_lien(run):
+    m = re.match(r"(<w:r(?: [^>]*)?>)\s*<w:rPr>(.*?)</w:rPr>(.*)</w:r>", run, re.S)
+    if not m or not est_consolas(m.group(2)):
+        return run
+    garde = [e for e in enfants(m.group(2)) if e[0] not in ("w:rFonts", "w:color", "w:u", "w:sz", "w:szCs")]
+    garde += [("w:rFonts", RFONTS_CODE), ("w:color", COULEUR_LIEN), ("w:u", '<w:u w:val="single"/>'),
+              ("w:sz", f'<w:sz w:val="{TAILLE_CODE}"/>'), ("w:szCs", f'<w:szCs w:val="{TAILLE_CODE}"/>')]
+    return m.group(1) + recomposer(garde) + m.group(3) + "</w:r>"
+
+
 def traiter_para(para, rapport):
     if "<w:txbxContent" in para:
         return para
@@ -322,10 +343,7 @@ def traiter_para(para, rapport):
 
     def remplacer(m):
         if any(a <= m.start() < b for a, b in liens):
-            t = html.unescape("".join(re.findall(r"<w:t(?: [^>]*)?>(.*?)</w:t>", m.group(0), re.S)))
-            if REF.fullmatch(t.strip()):
-                return traiter_run(m.group(0), titre, rapport)
-            return m.group(0)
+            return run_lien(m.group(0))
         return traiter_run(m.group(0), titre, rapport)
     return RUN.sub(remplacer, para)
 

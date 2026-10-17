@@ -595,7 +595,7 @@ enu.push(bulletRuns([
   "Comparez avec trois constantes int valant 0, 1 et 2. Qu'est-ce qu'une énumération empêche d'écrire qu'un int autoriserait ? Voir ",
   { t: "CC-NOM.7", code: true },
   " et ",
-  { t: "CC-NOM.4", code: true },
+  { t: "CC-NOM.1", code: true },
   "."
 ]));
 enu.push(bulletRuns([
