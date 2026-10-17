@@ -88,8 +88,8 @@ jour chez un utilisateur. Le même défaut existe avec un `String` : rien ne dis
 « VERT » de « vert », de « verd » ou d'un espace de trop.
 
 L'énumération déplace cette vérification : ce qui était une convention à respecter devient
-une règle que le compilateur applique. Voir CC-NOM.4 sur les nombres magiques et CC-NOM.7
-sur les noms qui portent leur sens.
+une règle que le compilateur applique. Voir CC-NOM.7 sur les nombres magiques et CC-NOM.1
+sur les noms qui communiquent l'intention.
 
 Le code complet, à exécuter : demos, classe `demo.enu.slides.TroisCouleursPasUneDePlus`.
 

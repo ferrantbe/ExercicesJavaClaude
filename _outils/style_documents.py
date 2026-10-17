@@ -71,6 +71,11 @@ ORDRE = ["rStyle", "rFonts", "b", "bCs", "i", "iCs", "caps", "smallCaps", "strik
          "highlight", "u", "effect", "bdr", "shd", "fitText", "vertAlign", "rtl", "cs",
          "em", "lang", "eastAsianLayout", "specVanish", "oMath"]
 
+# Les references au memento Clean Code (CC-OBJ.2, CC-NOM, CC-XXX.n) ont
+# partout la meme forme : Consolas, couleur Accent 2, sans soulignement, y
+# compris quand elles sont des liens ou dans un titre (demande du 17/10/2026).
+REF = re.compile(r"CC-[A-Z]{3}(?:\.(?:\d+|n))?")
+
 ENFANT = re.compile(r"<((?:w|w14|w15):[A-Za-z]+)\b[^>]*?(?:/>|>.*?</\1>)", re.S)
 RUN = re.compile(r"<w:r(?: [^>]*)?>.*?</w:r>", re.S)
 PARA = re.compile(r"<w:p(?: [^>]*)?>.*?</w:p>", re.S)
@@ -94,6 +99,17 @@ def rpr_code(rpr_int):
     garde += [("w:rFonts", RFONTS_CODE), ("w:color", COULEUR_CODE),
               ("w:sz", f'<w:sz w:val="{TAILLE_CODE}"/>'),
               ("w:szCs", f'<w:szCs w:val="{TAILLE_CODE}"/>')]
+    return recomposer(garde)
+
+
+def rpr_ref(rpr_int, titre):
+    """Les proprietes d'une reference CC : celles du code, sans soulignement.
+    Dans un titre, la taille du titre est gardee."""
+    exclus = ("w:rFonts", "w:color", "w:u", "w:rStyle") + (() if titre else ("w:sz", "w:szCs"))
+    garde = [e for e in enfants(rpr_int) if e[0] not in exclus]
+    garde += [("w:rFonts", RFONTS_CODE), ("w:color", COULEUR_CODE), ("w:u", '<w:u w:val="none"/>')]
+    if not titre:
+        garde += [("w:sz", f'<w:sz w:val="{TAILLE_CODE}"/>'), ("w:szCs", f'<w:szCs w:val="{TAILLE_CODE}"/>')]
     return recomposer(garde)
 
 
@@ -165,9 +181,14 @@ def mots_java(texte):
     /...) seulement si ses deux voisins sont deja du code ou des nombres,
     pour ne pas prendre « sous-package » ou « 2/3 » pour une soustraction.
     """
+    refs = [(m.start(), m.end()) for m in REF.finditer(texte)]
+    for a, b in refs:
+        yield a, b, texte[a:b], "auto"
     terme_re = re.compile(TERME)
     op_re = re.compile(rf"\s*({OP_FORT}|{OP_CALCUL})\s*")
     for m in EXPRESSION.finditer(texte):
+        if any(a < m.end() and m.start() < b for a, b in refs):
+            continue                       # deja pris comme reference
         # Relire l'expression terme par terme : un decoupage sur les
         # operateurs couperait le signe de « = -3000 ».
         pos, fin = m.start(), m.end()
@@ -237,6 +258,9 @@ def traiter_run(run, titre, rapport):
     if "<w:rPrChange" in rpr_int:
         return run
 
+    texte_run = html.unescape("".join(re.findall(r"<w:t(?: [^>]*)?>(.*?)</w:t>", reste, re.S)))
+    if est_consolas(rpr_int) and REF.fullmatch(texte_run.strip()):
+        return ouverture + rpr_ref(rpr_int, titre) + reste + "</w:r>"
     if est_consolas(rpr_int):
         if couleur(rpr_int) in COULEURS_LIENS:
             return run
@@ -256,9 +280,20 @@ def traiter_run(run, titre, rapport):
     if not trouves:
         return run
     if titre:
-        for *_, mot, _ in trouves:
-            rapport["titres"][mot] += 1
-        return run
+        refs = [(a, b) for a, b, _, _ in trouves if REF.fullmatch(texte[a:b])]
+        for a, b, mot, _ in trouves:
+            if (a, b) not in refs:
+                rapport["titres"][mot] += 1
+        if not refs:
+            return run
+        rpr_normal = f"<w:rPr>{rpr_int}</w:rPr>" if mr else ""
+        morceaux, pos = [], 0
+        for a, b in refs:
+            morceaux += [(texte[pos:a], rpr_normal), (texte[a:b], rpr_ref(rpr_int, True))]
+            pos = b
+        morceaux.append((texte[pos:], rpr_normal))
+        return "".join(f'{ouverture}{rpr}<w:t xml:space="preserve">{html.escape(t, quote=False)}</w:t></w:r>'
+                       for t, rpr in morceaux if t)
 
     rpr_normal = f"<w:rPr>{rpr_int}</w:rPr>" if mr else ""
     rpr_c = rpr_code(rpr_int)
@@ -287,6 +322,9 @@ def traiter_para(para, rapport):
 
     def remplacer(m):
         if any(a <= m.start() < b for a, b in liens):
+            t = html.unescape("".join(re.findall(r"<w:t(?: [^>]*)?>(.*?)</w:t>", m.group(0), re.S)))
+            if REF.fullmatch(t.strip()):
+                return traiter_run(m.group(0), titre, rapport)
             return m.group(0)
         return traiter_run(m.group(0), titre, rapport)
     return RUN.sub(remplacer, para)
