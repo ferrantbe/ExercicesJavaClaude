@@ -1,0 +1,46 @@
+# ---------------------------------------------------------------
+#  Ce que Git ne doit pas suivre.
+#
+#  Deux categories : ce qui se refabrique, et ce qui est binaire
+#  et volumineux. Tout le reste est du texte, et le texte est
+#  precisement ce que Git sait faire.
+# ---------------------------------------------------------------
+
+# --- les sorties, toutes regenerables
+target/
+livraisons/
+_dossiers/
+__pycache__/
+*.pyc
+*.class
+
+# --- les restes de Word et des systemes
+~$*
+.~lock.*
+*.docx.avant
+.DS_Store
+Thumbs.db
+
+# --- les reglages locaux d'IntelliJ
+#     Ils contiennent des chemins propres a une machine.
+.idea/
+*.iml
+
+# --- NE PAS ignorer : les documents produits
+#     Un .docx est binaire, mais c'est un livrable. On le suit.
+#     Les decks sources, eux, sont lourds et ne changent jamais :
+#     voir la remarque ci-dessous.
+
+# --- les decks SOURCES sont suivis, depuis le 10/10
+#
+#     d01 a d12 et gabarit_deck.pptx vivent dans _slides/sources/.
+#     Environ 70 Mo, qui ne changeront plus : on les porte une fois,
+#     et plus aucune conversation n'a besoin de piece jointe.
+#
+#     Les decks PRODUITS, eux, restent dehors : ils se refabriquent
+#     a partir des sources, du scenario et du module_xxx.py.
+_slides/*_slides.pptx
+_slides/*_deck.pptx
+# ... sauf le gabarit commun, qui vit a la racine de _slides (22/10/2026)
+!_slides/gabarit_deck.pptx
+!_slides/sources/gabarit_deck.pptx

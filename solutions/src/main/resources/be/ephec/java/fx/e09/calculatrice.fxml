@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  FX.9 - La VUE de la calculatrice, telle que la construit le deck FX3,
+  « La calculatrice, pas a pas ».
+
+  fx:controller   la classe qui recevra les evenements
+  fx:id           le nom sous lequel un composant est injecte
+  onAction        la methode du controleur appelee au clic
+  fx:define       un objet reutilisable : ici, la police (facultatif)
+-->
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+
+<VBox prefWidth="300" prefHeight="300" spacing="10" alignment="CENTER"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="be.ephec.java.fx.e09.Controleur">
+
+    <fx:define>
+        <Font fx:id="POLICE" size="18"/>
+    </fx:define>
+
+    <StackPane alignment="CENTER">
+        <Rectangle width="230" height="50" fill="TRANSPARENT" stroke="GRAY"/>
+        <Text fx:id="affichage" text="0" font="$POLICE"/>
+    </StackPane>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="7" prefWidth="50" prefHeight="50" font="$POLICE" onAction="#chiffrePresse"/>
+        <Button text="8" prefWidth="50" prefHeight="50" font="$POLICE" onAction="#chiffrePresse"/>
+        <Button text="9" prefWidth="50" prefHeight="50" font="$POLICE" onAction="#chiffrePresse"/>
+        <Button text="/" prefWidth="50" prefHeight="50" font="$POLICE" onAction="#operateurPresse"/>
+    </HBox>
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="4" prefWidth="50" prefHeight="50" font="$POLICE" onAction="#chiffrePresse"/>
+        <Button text="5" prefWidth="50" prefHeight="50" font="$POLICE" onAction="#chiffrePresse"/>
+        <Button text="6" prefWidth="50" prefHeight="50" font="$POLICE" onAction="#chiffrePresse"/>
+        <Button text="x" prefWidth="50" prefHeight="50" font="$POLICE" onAction="#operateurPresse"/>
+    </HBox>
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="1" prefWidth="50" prefHeight="50" font="$POLICE" onAction="#chiffrePresse"/>
+        <Button text="2" prefWidth="50" prefHeight="50" font="$POLICE" onAction="#chiffrePresse"/>
+        <Button text="3" prefWidth="50" prefHeight="50" font="$POLICE" onAction="#chiffrePresse"/>
+        <Button text="-" prefWidth="50" prefHeight="50" font="$POLICE" onAction="#operateurPresse"/>
+    </HBox>
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="0" prefWidth="50" prefHeight="50" font="$POLICE" onAction="#chiffrePresse"/>
+        <Button text="C" prefWidth="50" prefHeight="50" font="$POLICE" onAction="#effacer"/>
+        <Button text="=" prefWidth="50" prefHeight="50" font="$POLICE" onAction="#operateurPresse"/>
+        <Button text="+" prefWidth="50" prefHeight="50" font="$POLICE" onAction="#operateurPresse"/>
+    </HBox>
+</VBox>

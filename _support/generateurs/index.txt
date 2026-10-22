@@ -1,0 +1,257 @@
+# Index du support de cours — premiere liste (20/10/2026), a corriger.
+#
+# Une ligne par entree :      Entree | forme cherchee ; autre forme
+#   - « Entree > sous-entree » cree une sous-entree, rangee sous l'entree ;
+#   - une forme entre accents graves (`static`) n'est cherchee que dans du
+#     code (Consolas) ; sans accents graves, dans le texte courant, sans
+#     tenir compte des majuscules ;
+#   - sans « | », c'est l'entree elle-meme qui est cherchee.
+# Une entree est marquee dans les titres ou elle apparait, la ou elle est
+# definie (en italique), et a sa premiere occurrence dans chaque section
+# (POO §4, TMP §7...) : elle renvoie a quelques pages, pas a toutes.
+# Une ligne qui commence par # est un commentaire.
+
+# ---------------------------------------------------------------- notions
+abstraction
+accesseur | accesseur ; accesseurs ; getter ; setter
+autoboxing | autoboxing ; unboxing
+boucle > for-each | for-each
+boucle > indexée | boucle indexée
+boucle > imbriquée | boucles imbriquées ; boucles for-each imbriquées
+bytecode
+champ > de classe | champ de classe ; champ statique ; champs statiques
+champ > d'objet | champ d'objet ; champs d'objet
+champ > final | champ `final` ; champ final ; champ immuable
+classe > anonyme | classe anonyme
+classe > exécutable | classe exécutable ; devient exécutable
+compilation | compilation ; `javac`
+compteur d'instances
+constante | constante ; constantes
+constructeur
+constructeur > compact | constructeur compact
+constructeur > par défaut | constructeur par défaut
+constructeur > privé | constructeur privé ; constructeur `private`
+débordement (int) | déborde ; débordement
+encapsulation | encapsulation ; encapsuler
+énumération | énumération ; énumérations
+énumération > ordre de déclaration | ordre de déclaration
+espace insécable | insécable ; espace fine
+fabrique | fabrique ; fabriques
+Fisher-Yates (mélange) | Fisher-Yates
+GameHub (fil rouge) | GameHub
+héritage
+immuabilité | immuable ; immuabilité
+Javadoc
+JVM | JVM ; machine virtuelle
+locale | locale
+mode strict (dates) | mode strict
+mot-clé | mot-clé
+package
+paramètre > passage par valeur | par valeur
+polymorphisme
+primitif (type) | type primitif ; types primitifs ; primitifs
+ramasse-miettes
+record | `record` ; record ; records
+référence | référence ; références
+séparer calcul et dialogue | le calcul et le dialogue ; le calcul du dialogue ; séparation entre le calcul
+ternaire (opérateur) | ternaire
+tableau | tableau ; tableaux
+tableau > de tableaux | tableau de tableaux ; tableaux de tableaux
+tableau > taille fixe | taille fixe
+test (vérifier son code) | classe de test ; classes de test ; tests fournis
+wrapper | wrapper ; wrappers ; classe enveloppe
+
+# ---------------------------------------------------- mots-clés du langage
+break | `break`
+default | `default`
+enum | `enum`
+final | `final`
+null | `null`
+static | `static`
+switch | `switch`
+switch > forme classique | forme classique
+switch > forme à flèches | forme à flèches
+switch > expression | qui retourne une valeur ; peut produire une valeur
+this | `this`
+throw | `throw`
+yield | `yield`
+== (comparaison) | `==`
+
+# ---------------------------------------------------- méthodes communes
+compareTo | `compareTo`
+equals | `equals`
+hashCode | `hashCode`
+main | `main`
+name | `name()`
+ordinal | `ordinal()` ; `ordinal`
+toString | `toString` ; `toString()`
+valueOf | `valueOf`
+values | `values()`
+
+# --------------------------------------------------- classes du JDK
+Arrays.copyOf | `Arrays.copyOf`
+Arrays.toString | `Arrays.toString`
+Character.isWhitespace | `Character.isWhitespace` ; `isWhitespace`
+ChronoUnit | `ChronoUnit`
+DateTimeFormatter | `DateTimeFormatter`
+DayOfWeek | `DayOfWeek`
+Duration | `Duration`
+Integer.parseInt | `Integer.parseInt`
+LocalDate | `LocalDate`
+LocalDateTime | `LocalDateTime`
+LocalTime | `LocalTime`
+Math | `Math` ; `Math.sqrt`
+Period | `Period`
+Random | `Random` ; `java.util.Random`
+Scanner | `Scanner`
+Scanner > nextInt | `nextInt` ; `nextInt()`
+Scanner > nextLine | `nextLine` ; `nextLine()`
+String.format | `String.format`
+StringJoiner | `StringJoiner`
+System.out.print | `print`
+System.out.printf | `printf`
+System.out.println | `println` ; `System.out.println`
+
+# ------------------------------------------------------- exceptions
+ArrayIndexOutOfBoundsException | `ArrayIndexOutOfBoundsException`
+DateTimeParseException | `DateTimeParseException`
+IllegalArgumentException | `IllegalArgumentException`
+NullPointerException | `NullPointerException`
+UnsupportedOperationException | `UnsupportedOperationException`
+
+# ------------------------------------------------- ajouts du 22/10/2026
+# Les modules ABS a FIC : heritage, interfaces, visibilite, collections,
+# exceptions, tests, genericite, lambdas, JavaFX et fichiers.
+
+# heritage et interfaces
+classe abstraite | classe abstraite ; classes abstraites
+méthode abstraite | méthode abstraite ; méthodes abstraites
+redéfinition | redéfinir ; redéfinition ; `@Override`
+interface | interface ; interfaces
+interface > fonctionnelle | interface fonctionnelle ; interfaces fonctionnelles
+interface > de marquage | interface de marquage ; marqueur
+méthode default | méthode default ; méthodes default ; méthode par défaut ; méthodes par défaut
+patron Observateur | Observateur
+MVC | MVC
+découplage | découplage
+type cible | type cible
+abstract | `abstract`
+extends | `extends`
+implements | `implements`
+instanceof | `instanceof`
+super | `super` ; `super(...)`
+
+# visibilite et packages
+modificateur d'accès | modificateur d'accès ; modificateurs d'accès
+visibilité de package | visibilité de package
+surface publique | surface publique
+protected | `protected`
+import | `import`
+
+# collections
+collection | collection ; collections
+List | `List` ; `List<E>` ; `List<String>`
+ArrayList | `ArrayList`
+LinkedList | `LinkedList`
+Set | `Set` ; `Set<E>` ; `Set<String>`
+HashSet | `HashSet`
+TreeSet | `TreeSet`
+Map | `Map` ; `Map<K, V>`
+HashMap | `HashMap`
+TreeMap | `TreeMap`
+Deque | `Deque` ; `Deque<E>`
+ArrayDeque | `ArrayDeque`
+Collections | `Collections`
+Iterator | `Iterator` ; itérateur
+Iterable | `Iterable`
+Comparable | `Comparable` ; ordre naturel
+Comparator | `Comparator`
+Predicate | `Predicate`
+Function | `Function`
+Consumer | `Consumer`
+Supplier | `Supplier`
+removeIf | `removeIf`
+getOrDefault | `getOrDefault`
+computeIfAbsent | `computeIfAbsent`
+ConcurrentModificationException | `ConcurrentModificationException`
+
+# exceptions
+exception | exception ; exceptions
+exception > contrôlée | exception contrôlée ; exceptions contrôlées
+exception > non contrôlée | non contrôlée ; non contrôlées
+pile des appels | pile des appels ; trace
+try | `try`
+catch | `catch`
+finally | `finally`
+throws | `throws`
+try avec ressources | avec ressources
+RuntimeException | `RuntimeException`
+IllegalStateException | `IllegalStateException`
+NumberFormatException | `NumberFormatException`
+
+# tests
+test unitaire | test unitaire ; tests unitaires ; `JUnit`
+assertion | assertion ; assertions
+assertEquals | `assertEquals`
+assertThrows | `assertThrows`
+@Test | `@Test`
+@BeforeEach | `@BeforeEach`
+@DisplayName | `@DisplayName`
+@ParameterizedTest | `@ParameterizedTest`
+F.I.R.S.T. | F.I.R.S.T.
+doublure | doublure
+familles de cas | familles de cas ; frontières
+
+# genericite et lambdas
+type générique | générique ; génériques ; généricité
+paramètre de type | paramètre de type ; paramètres de type
+effacement de type | effacement de type ; effacement
+joker | joker ; jokers ; `? extends` ; `? super`
+lambda | lambda ; lambdas ; expression lambda
+référence de méthode | référence de méthode ; références de méthode
+stream | stream
+
+# JavaFX
+JavaFX | `JavaFX`
+Application | `Application`
+Stage | `Stage`
+Scene | `Scene`
+graphe de scène | graphe de scène
+nœud | nœud ; nœuds
+conteneur | conteneur ; conteneurs ; `HBox` ; `VBox` ; `BorderPane` ; `StackPane`
+contrôle (JavaFX) | contrôle ; contrôles ; `Label` ; `TextField` ; `Button` ; `CheckBox` ; `Slider`
+événement | événement ; événements
+gestionnaire d'événement | gestionnaire ; gestionnaires ; `EventHandler`
+setOnAction | `setOnAction`
+addEventHandler | `addEventHandler` ; `removeEventHandler`
+filtre d'événement | filtre ; filtres ; `addEventFilter`
+propagation (capture, bouillonnement) | capture ; bouillonnement
+consume | `consume`
+ActionEvent | `ActionEvent`
+KeyEvent | `KeyEvent`
+MouseEvent | `MouseEvent`
+propriété (JavaFX) | propriété ; propriétés ; `IntegerProperty` ; `StringProperty`
+listener | `addListener` ; `ChangeListener` ; listener
+binding | binding ; `bind` ; `bindBidirectional`
+FXML | FXML ; `FXMLLoader` ; `@FXML`
+Scene Builder | Scene Builder
+
+# fichiers
+flux | flux
+flux > d'octets | flux d'octets ; `InputStream` ; `OutputStream`
+flux > de caractères | flux de caractères ; `Reader` ; `Writer`
+File | `File`
+PrintWriter | `PrintWriter`
+FileWriter | `FileWriter`
+FileReader | `FileReader`
+BufferedReader | `BufferedReader`
+FileOutputStream | `FileOutputStream`
+FileInputStream | `FileInputStream`
+ObjectOutputStream | `ObjectOutputStream` ; `writeObject`
+ObjectInputStream | `ObjectInputStream` ; `readObject`
+sérialisation | sérialisation ; `Serializable`
+IOException | `IOException`
+FileNotFoundException | `FileNotFoundException`
+EOFException | `EOFException`
+split | `split`
+format de fichier | format

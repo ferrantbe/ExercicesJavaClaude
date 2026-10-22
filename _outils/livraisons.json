@@ -1,0 +1,180 @@
+{
+  "_commentaire": "Repartition revue le 16/10/2026, alignee sur la numerotation des decks de _slides/remanies/. PKG vient apres ABS et ITF : PKG.5 porte sur protected, qui n'a aucun sens sans heritage. FIC passe apres JavaFX, comme le numero de son deck (15) : decide le 16/10/2026. Le theme fx part entier en seance 12 (livrer.py livre par theme) ; la seance 13 joue les decks FX2 et FX3, dont la calculatrice guidee de FX.9, sans nouveau theme. Le theme rec sera ajoute quand les exercices recapitulatifs existeront.",
+  "depot_public": "../ExercicesJava",
+  "_depot_public": "Clone local du depot PUBLIC (github.com/ferrantbe/ExercicesJava), relatif a la racine de ce projet. Utilise par livrer.py --depot sans chemin.",
+  "sans_tests": [
+    "fx"
+  ],
+  "1": {
+    "nom": "Seance01_INI_POO",
+    "themes": [
+      "poo",
+      "sta"
+    ]
+  },
+  "2": {
+    "nom": "Seance02_TMP",
+    "themes": [
+      "tmp"
+    ]
+  },
+  "3": {
+    "nom": "Seance03_TAB_ENU",
+    "themes": [
+      "tab",
+      "enu"
+    ]
+  },
+  "4": {
+    "nom": "Seance04_ABS",
+    "themes": [
+      "abs"
+    ]
+  },
+  "5": {
+    "nom": "Seance05_ITF",
+    "themes": [
+      "itf"
+    ]
+  },
+  "6": {
+    "nom": "Seance06_PKG",
+    "themes": [
+      "pkg"
+    ]
+  },
+  "7": {
+    "nom": "Seance07_COL",
+    "themes": [
+      "col"
+    ]
+  },
+  "8": {
+    "nom": "Seance08_EXC",
+    "themes": [
+      "exc"
+    ]
+  },
+  "9": {
+    "nom": "Seance09_JUN",
+    "themes": [
+      "jun"
+    ]
+  },
+  "10": {
+    "nom": "Seance10_GEN",
+    "themes": [
+      "gen"
+    ]
+  },
+  "11": {
+    "nom": "Seance11_LAM",
+    "themes": [
+      "lam"
+    ]
+  },
+  "12": {
+    "nom": "Seance12_FX1",
+    "themes": [
+      "fx"
+    ]
+  },
+  "13": {
+    "nom": "Seance13_FX2_FX3",
+    "themes": []
+  },
+  "14": {
+    "nom": "Seance14_FIC",
+    "themes": [
+      "fic"
+    ]
+  },
+  "_modules": "Livraison par module (22/10/2026) : python3 _outils/livrer.py POO produit Module02_POO_debut.zip (enonces, code des slides, fascicule) et Module02_POO_fin.zip (solutions et demos completes). Le numero est celui du deck. INI n'a pas d'exercices ; STA est couvert par le deck POO.",
+  "modules": {
+    "POO": {
+      "nom": "Module02_POO",
+      "themes": [
+        "poo",
+        "sta"
+      ]
+    },
+    "TMP": {
+      "nom": "Module03_TMP",
+      "themes": [
+        "tmp"
+      ]
+    },
+    "TAB": {
+      "nom": "Module04_TAB",
+      "themes": [
+        "tab"
+      ]
+    },
+    "ENU": {
+      "nom": "Module05_ENU",
+      "themes": [
+        "enu"
+      ]
+    },
+    "ABS": {
+      "nom": "Module06_ABS",
+      "themes": [
+        "abs"
+      ]
+    },
+    "ITF": {
+      "nom": "Module07_ITF",
+      "themes": [
+        "itf"
+      ]
+    },
+    "PKG": {
+      "nom": "Module08_PKG",
+      "themes": [
+        "pkg"
+      ]
+    },
+    "COL": {
+      "nom": "Module09_COL",
+      "themes": [
+        "col"
+      ]
+    },
+    "EXC": {
+      "nom": "Module10_EXC",
+      "themes": [
+        "exc"
+      ]
+    },
+    "JUN": {
+      "nom": "Module11_JUN",
+      "themes": [
+        "jun"
+      ]
+    },
+    "GEN": {
+      "nom": "Module12_GEN",
+      "themes": [
+        "gen"
+      ]
+    },
+    "LAM": {
+      "nom": "Module13_LAM",
+      "themes": [
+        "lam"
+      ]
+    },
+    "FX": {
+      "nom": "Module14_FX",
+      "themes": [
+        "fx"
+      ]
+    },
+    "FIC": {
+      "nom": "Module15_FIC",
+      "themes": [
+        "fic"
+      ]
+    }
+  }
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  FX.9 - La VUE de la calculatrice. C'est a vous de l'ecrire.
+
+  Suivez la section 2 du deck FX3, « La calculatrice, pas a pas » :
+  1. les cinq enfants de la VBox : un StackPane, puis quatre HBox ;
+  2. les attributs de la VBox : prefWidth, prefHeight, spacing, alignment ;
+  3. le cadre de l'ecran, un Rectangle, et les imports en tete du fichier ;
+  4. le Text affichage, relie au champ @FXML du controleur par fx:id ;
+  5. les quatre lignes de touches, puis leurs onAction (section 3 du deck).
+
+  La racine ci-dessous est fournie : elle nomme le controleur, et le
+  fichier se charge deja. Lancez Lanceur : une fenetre vide s'ouvre.
+-->
+
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="be.ephec.java.fx.e09.Controleur">
+
+</VBox>

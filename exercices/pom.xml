@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Module "exercices" : c'est ICI que l'etudiant travaille.
+         Tout ce qui se trouve sous ce dossier est de sa main.
+         Aucune dependance vers "solutions" : c'est volontaire et c'est ce qui
+         empeche IntelliJ de proposer un import vers une classe de la solution. -->
+
+    <parent>
+        <groupId>be.ephec.java</groupId>
+        <artifactId>exercices-java-parent</artifactId>
+        <version>2026.2027</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>exercices</artifactId>
+    <name>Exercices Java IN2 — enonces</name>
+
+    <!-- Classe lancee par "mvn javafx:run" depuis ce module : le premier
+         exercice FX. Le pom parent designe une demo, qui n'existe pas ici. -->
+    <properties>
+        <javafx.mainClass>be.ephec.java.fx.e01.CompteurParticipants</javafx.mainClass>
+    </properties>
+</project>

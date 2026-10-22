@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Module "_travail" : le bac a sable du professeur.
+
+         C'est ici qu'on tape en direct pendant le cours, et nulle part
+         ailleurs. Son contenu est jetable : preparer_demo.py l'ecrase a
+         chaque fois.
+
+         Le souligne du dossier dit l'essentiel : ce module ne part jamais
+         chez les etudiants. livrer.py ne connait que exercices/, solutions/
+         et demos/.
+
+         Pourquoi un module a part, et non un sous-package de demos/ :
+          - du code a moitie tape pendant le cours ne doit pas empecher
+            demos/ de compiler, puisque demos/ est la reference publiee ;
+          - rien de ce qui est ici ne peut partir par accident. -->
+
+    <parent>
+        <groupId>be.ephec.java</groupId>
+        <artifactId>exercices-java-parent</artifactId>
+        <version>2026.2027</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>travail</artifactId>
+    <name>Exercices Java IN2 — bac a sable du cours</name>
+</project>

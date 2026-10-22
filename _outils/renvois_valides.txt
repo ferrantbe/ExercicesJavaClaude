@@ -1,0 +1,28 @@
+# Renvois dont la reformulation a ete relue et acceptee.
+# Un renvoi glose la regle pour son contexte : il ne la recopie pas.
+# Format :  CODE  fichier-generateur
+
+
+# --- Regles volontairement non citees -------------------------------
+# Huit regles du memento technique n'ont aucun renvoi, et c'est un choix.
+# Ce sont des entrees de culture generale : les forcer dans un exercice
+# produirait un renvoi artificiel, qui apprendrait a ne plus les suivre.
+#
+#   TEC-GIT.1  TEC-GIT.2     Git n'est pas au programme
+#   TEC-PLA.2  TEC-PLA.3     les editions et le support long terme
+#   TEC-PLA.4                inventorier sa machine
+#   TEC-CMP.2  TEC-CMP.3     portabilite et classpath
+#   TEC-EXE.4                le ramasse-miettes
+#
+# Elles restent dans le memento : on les lit, on ne les cite pas.
+CC-CLS.3 build_demo_abs.js
+CC-CLS.4 build_demo_abs.js
+CC-CLS.4 build_demo_col.js
+CC-CLS.4 build_demo_enu.js
+CC-CLS.4 build_demo_itf.js
+CC-NOM.1 build_demo_gen.js
+CC-NOM.1 build_demo_lam.js
+CC-NOM.1 build_demo_poo.js
+TEC-EXE.1 build_demo_exc.js
+TEC-EXE.2 build_demo_sta.js
+TEC-EXE.2 build_demo_tab.js

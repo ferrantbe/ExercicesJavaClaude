@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Module "solutions" : rempli au fur et a mesure de l'annee, apres
+         chaque seance. Les noms de packages y sont IDENTIQUES a ceux du
+         module "exercices" (be.ephec.java.poo.e01, etc.), ce qui n'est
+         possible que parce que les deux modules sont compiles separement. -->
+
+    <parent>
+        <groupId>be.ephec.java</groupId>
+        <artifactId>exercices-java-parent</artifactId>
+        <version>2026.2027</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>solutions</artifactId>
+    <name>Exercices Java IN2 — solutions</name>
+
+    <!-- Classe lancee par "mvn javafx:run" depuis ce module : le premier
+         exercice FX. Le pom parent designe une demo, qui n'existe pas ici. -->
+    <properties>
+        <javafx.mainClass>be.ephec.java.fx.e01.CompteurParticipants</javafx.mainClass>
+    </properties>
+</project>
