@@ -144,7 +144,7 @@ La forme la plus courante a un seul paramètre et une seule expression. Les autr
 Un corps en bloc est permis, mais s'il s'allonge, c'est le signe qu'il mérite un nom. LAM §3 dit comment le lui donner.
 
 > **Exercices** - `LAM.1` Un tableau de comportements, puis `LAM.2` Écrire son interface fonctionnelle
-> `LAM.1` range quatre lambdas dans un tableau, et les applique sans savoir ce qu'elles font. Comparez avec `ITF.1` : la même idée y demandait un fichier par calcul. Faites l'expérience de la deuxième question, en ajoutant une méthode à l'interface : regardez sur quelle ligne le compilateur proteste. `LAM.2` passe de l'autre côté : vous écrivez la méthode qui reçoit le critère, et l'interface qui le décrit, avec `@FunctionalInterface`. Le test lui passe des lambdas qu'elle n'a jamais vues, et elle s'en sort sans les connaître. Essayez vraiment la question sur la variable locale : le compilateur a un avis. Pour déplier une lambda, voir `IDE.16` ; pour nommer ce qui n'a pas de nom, `CC-MET.1`.
+> `LAM.1` range quatre lambdas dans un tableau, et les applique sans savoir ce qu'elles font. Comparez avec `ITF.1` : la même idée y demandait un fichier par calcul. Faites l'expérience de la deuxième question, en ajoutant une méthode à l'interface : regardez sur quelle ligne le compilateur proteste. `LAM.2` passe de l'autre côté : vous écrivez la méthode qui reçoit le critère, et l'interface qui le décrit, avec `@FunctionalInterface`. Le test lui passe des lambdas qu'elle n'a jamais vues, et elle s'en sort sans les connaître. Essayez vraiment la question sur la variable locale : le compilateur a un avis. Pour déplier une lambda, voir `IDE.15` ; pour nommer ce qui n'a pas de nom, `CC-MET.1`.
 
 ## 3. Réutiliser ce qui existe
 

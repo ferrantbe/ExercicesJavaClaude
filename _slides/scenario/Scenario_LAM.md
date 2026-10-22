@@ -426,7 +426,7 @@ Le code complet, à exécuter : demos, classe `demo.lam.slides.LesFormesDUneLamb
 
 - **LAM.1** - Un tableau de comportements
 - **LAM.2** - Écrire son interface fonctionnelle
-- Déplier une lambda : IDE.16 ; nommer ce qui n'a pas de nom : CC-MET.1
+- Déplier une lambda : IDE.15 ; nommer ce qui n'a pas de nom : CC-MET.1
 
 **Note**
 

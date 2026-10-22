@@ -194,7 +194,7 @@ Ces trois classes font la même chose, et le compilateur n'en sait rien. Il n'ex
 
 ### Le geste, pas le code
 
-Repérer une duplication est une chose ; la supprimer sans rien casser en est une autre. IntelliJ le fait pour vous (voir `IDE.21`) :
+Repérer une duplication est une chose ; la supprimer sans rien casser en est une autre. IntelliJ le fait pour vous, avec deux outils de refactorisation :
 
 - **Extract Superclass** (clic droit sur la classe, puis Refactor, Extract, Superclass) crée la classe mère et y déplace ce que vous désignez ;
 - **Pull Members Up** fait remonter une méthode d'une classe existante vers sa mère.
