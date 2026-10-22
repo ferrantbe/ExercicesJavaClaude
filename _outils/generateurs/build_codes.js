@@ -76,7 +76,7 @@ c.push(saut());
 c.push(h1("Les trois documents de référence"));
 c.push(p("Ils ne dépendent d'aucune séance et servent toute l'année. Les fascicules d'exercices y renvoient par un code, sans reproduire le contenu."));
 c.push(tableau(["Document", "Codes", "Ce qu'on y trouve"], [
-  ["Mémento Clean Code", "CC-*", "36 règles d'écriture, de nommage et de conception"],
+  ["Mémento Clean Code", "CC-*", "37 règles d'écriture, de nommage et de conception"],
   ["Mémento technique", "TEC-*", "La plateforme, les interfaces graphiques, la compilation, l'exécution, Maven"],
   ["Guide IntelliJ", "IDE.* et ERR.*", "Installer, ouvrir, écrire, exécuter, et une annexe d'erreurs"]
 ], [2600, 2200, 4560], [1]));

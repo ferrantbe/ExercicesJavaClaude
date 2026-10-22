@@ -173,7 +173,7 @@ Le **guide IntelliJ** couvre ce qu'il faut savoir d'IntelliJ pour ce cours, capt
 
 Le **mémento technique** explique ce qu'IntelliJ fait à votre place : ce que sont la JVM, le JRE et le JDK, comment un fichier `.java` devient un programme, comment Maven récupère les bibliothèques, comment se lance une application JavaFX. Vous pouvez écrire vos premiers programmes sans le lire, mais il répond à la plupart des « pourquoi ça marche ? ».
 
-Le **mémento Clean Code** rassemble 36 règles simples, en sept sections (noms, méthodes, commentaires, objets, erreurs, tests, classes), pour écrire du code qu'un autre développeur, ou vous-même dans six mois, comprendra sans effort. Un programme qui fonctionne n'est pas forcément un programme lisible. Ces règles s'inspirent du livre *Clean Code* de Robert C. Martin. Elles ne font pas l'objet d'un module : elles arrivent par petites touches, au fil des exercices, quand elles deviennent utiles. Elles s'appliquent aussi à l'examen : un code qui fonctionne mais ne les respecte pas peut y perdre des points.
+Le **mémento Clean Code** rassemble 37 règles simples, en sept sections (noms, méthodes, commentaires, objets, erreurs, tests, classes), pour écrire du code qu'un autre développeur, ou vous-même dans six mois, comprendra sans effort. Un programme qui fonctionne n'est pas forcément un programme lisible. Ces règles s'inspirent du livre *Clean Code* de Robert C. Martin. Elles ne font pas l'objet d'un module : elles arrivent par petites touches, au fil des exercices, quand elles deviennent utiles. Elles s'appliquent aussi à l'examen : un code qui fonctionne mais ne les respecte pas peut y perdre des points.
 
 ### Comment lire un renvoi
 

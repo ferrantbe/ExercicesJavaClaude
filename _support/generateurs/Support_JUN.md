@@ -111,7 +111,7 @@ Une ligne vide les sépare, et c'est la forme à donner à vos propres tests, à
 
 L'ordre des arguments compte : `assertEquals` reçoit l'attendu d'abord, l'obtenu ensuite. En cas d'échec, JUnit affiche `expected: <100> but was: <0>`. Si vous les inversez, le message perdra tout son sens.
 
-Enfin, la ligne qui fait le test est la dernière. Sans elle, la méthode appelle du code, ne vérifie rien, et passe au vert : sans assertion, un test ne peut qu'être vert (`CC-TST.2`).
+Enfin, la ligne qui fait le test est la dernière. Sans elle, la méthode appelle du code, ne vérifie rien, et passe au vert : sans assertion, un test ne peut qu'être vert (`CC-TST.4`).
 
 ### Les assertions dont vous aurez besoin
 

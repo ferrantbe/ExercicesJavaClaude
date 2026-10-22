@@ -472,13 +472,13 @@ que j'ai interprétés d'après leur préfixe⟧
 **Source** nouvelle
 
 **Slide**
-- 36 règles, en 7 sections
+- 37 règles, en 7 sections
 - Noms, méthodes, commentaires, objets, erreurs, tests, classes
 - D'après *Clean Code*, de Robert C. Martin
 
 **Note**
 Un programme qui fonctionne n'est pas forcément un programme lisible. Le
-mémento rassemble 36 règles simples pour écrire du code qu'un autre
+mémento rassemble 37 règles simples pour écrire du code qu'un autre
 développeur, ou vous-même dans six mois, comprendra sans effort. Elles
 s'inspirent du livre de Robert C. Martin ; la section « Pour aller plus
 loin » propose aussi une vidéo en français de Julien Lucas.

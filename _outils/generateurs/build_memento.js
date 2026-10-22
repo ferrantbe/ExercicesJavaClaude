@@ -225,7 +225,7 @@ const c = [];
 // Page de garde commune (modele ABS, 17/10/2026).
 require(__dirname + "/boite.js").pageDeGarde(c, {
   titre: "Mémento Clean Code",
-  accroche: "36 règles pour écrire du code qu'on peut relire"
+  accroche: "37 règles pour écrire du code qu'on peut relire"
 });
 
 // ---------------- mode d'emploi ----------------
@@ -312,7 +312,8 @@ c.push(p("", { after: 200 }));
 c.push(indexTable("Écrire des tests", [
   ["CC-TST.1", "Le code de test se soigne comme le code de production"],
   ["CC-TST.2", "Un test vérifie une seule chose"],
-  ["CC-TST.3", "Un test est rapide, indépendant, répétable et auto-vérifiant"]
+  ["CC-TST.3", "Un test est rapide, indépendant, répétable et auto-vérifiant"],
+  ["CC-TST.4", "Un test se termine par une assertion"]
 ]));
 c.push(p("", { after: 200 }));
 
@@ -1361,6 +1362,36 @@ c.push(runs([
   " existe à côté de ",
   { t: "getAge()", code: true },
   " en POO.3 : le noyau déterministe est testable, la commodité qui dépend du jour ne l'est qu'indirectement."
+]));
+
+// --- CC-TST.4 (ajoutee le 22/10/2026)
+c.push(h2("CC-TST.4 — Un test se termine par une assertion"));
+c.push(p("Sans assertion, un test appelle du code et ne vérifie rien : il passe au vert quoi qu'il arrive, sauf si une exception l'interrompt. Il donne l'illusion d'une vérification, ce qui est pire que pas de test du tout. C'est aussi le défaut le plus fréquent dans les copies d'examen."));
+c.push(...mauvais([
+  '@Test',
+  'void reserverDeuxPlaces() throws SalleCompleteException {',
+  '    Salle salle = new Salle(100);',
+  '',
+  '    salle.reserver(2);',
+  '',
+  '    System.out.println(salle.placesLibres());   // affiche, ne verifie rien',
+  '}'
+]));
+c.push(...bon([
+  '@Test',
+  'void reserverDeuxPlaces() throws SalleCompleteException {',
+  '    Salle salle = new Salle(100);',
+  '',
+  '    salle.reserver(2);',
+  '',
+  '    assertEquals(98, salle.placesLibres(),',
+  '            "Deux places reservees sur 100 doivent en laisser 98");',
+  '}'
+]));
+c.push(runs([
+  "Un test qui vérifie qu'une exception est levée a lui aussi son assertion : ",
+  { t: "assertThrows", code: true },
+  ". Pour vous assurer qu'un test peut échouer, faites-le échouer une fois : changez l'attendu, et regardez-le passer au rouge. Un test qu'on n'a jamais vu rouge ne prouve rien."
 ]));
 
 c.push(new Paragraph({ children: [new PageBreak()] }));

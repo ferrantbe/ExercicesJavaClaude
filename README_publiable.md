@@ -17,7 +17,7 @@ compter une à deux minutes selon la connexion.
 
 Tout `exercices/src/main/java` se compile d'un bloc. Un fichier laissé à moitié
 écrit empêche donc de lancer **tous** les autres exercices, y compris ceux des
-séances précédentes.
+modules précédents.
 
 Le remède le plus rapide : sélectionnez les lignes en chantier et commentez-les
 avec `Ctrl+/` (`⌘/` sous macOS). Tout recompile, et vous reprendrez plus tard.
@@ -51,7 +51,7 @@ Les outils retrouvent le projet en remontant jusqu'au `pom.xml`, et Maven ne
 s'intéresse qu'à ce fichier. Vous pouvez donc renommer le dossier racine sans
 rien casser — utile si vous gardez plusieurs copies du projet côte à côte.
 
-Une seule précaution : les archives de séance contiennent toujours un dossier
+Une seule précaution : les archives des modules contiennent toujours un dossier
 `ExercicesJava/`. Voir plus bas, dans « Recevoir les exercices ».
 
 ## Le fil rouge GameHub
@@ -68,21 +68,23 @@ ExercicesJava/
 ├── exercices/       VOTRE code. C'est ici que vous travaillez.
 │   ├── src/main/java/be/ephec/java/<theme>/e<nn>/
 │   └── src/test/java/be/ephec/java/<theme>/e<nn>/
-├── solutions/       les corrigés, publiés sur Moodle après chaque séance
+├── solutions/       les corrigés, publiés sur Moodle à la fin de chaque module
 │   └── src/main/java/be/ephec/java/<theme>/e<nn>/
-└── demos/           les exemples construits au cours, publiés en même temps
-    └── src/main/java/be/ephec/java/demo/<theme>/
+├── demos/           les exemples construits au cours, publiés en même temps
+│   └── src/main/java/be/ephec/java/demo/<theme>/
+└── demos_depart/    le point de départ de chaque démonstration, hors Maven
 ```
 
-`demos/` contient les exemples que le professeur écrit en direct pendant la
-séance. Vous les recevez **après** : l'intérêt d'une démonstration est dans sa
-construction, pas dans son état final. Le code y est commenté comme un
+`demos/` contient les exemples que le professeur écrit en direct pendant le
+cours. Vous recevez leur point de départ au début du module, dans
+`demos_depart/`, et leur état final **à la fin** : l'intérêt d'une
+démonstration est dans sa construction, pas dans son état final. Le code y est commenté comme un
 corrigé, et signale ce qu'il faut regarder en le relisant.
 
 `documents/` contient le mémento Exercices, le mémento Clean Code, le mémento
 technique, le guide IntelliJ, et un récapitulatif des codes employés dans tout
 le cours. Ils ne
-dépendent d'aucune séance : les énoncés y renvoient au fil de l'année par des
+dépendent d'aucun module : les énoncés y renvoient au fil de l'année par des
 codes comme `CC-NOM.1`, `TEC-EXE.2` ou `IDE.17`.
 
 | Fichier | Ce qu'on y trouve |
@@ -118,15 +120,23 @@ conflit, et le corrigé passe exactement les mêmes tests que votre code.
 comportement, pas la lisibilité, le nommage ou la pertinence de la conception —
 qui comptent aussi à l'examen.
 
-## Recevoir les exercices d'une nouvelle séance
+## Recevoir les exercices d'un nouveau module
 
-Deux voies, au choix : l'archive de la séance sur Moodle, ou Git. **Pour les
+Le cours avance module par module ; une séance du soir, de 18:00 à 21:35,
+peut en couvrir un ou plusieurs. Chaque module donne lieu à deux archives sur
+Moodle : `ModuleNN_XXX_debut.zip` au début du module (les énoncés, leurs
+tests, le fascicule, et le point de départ des démonstrations), et
+`ModuleNN_XXX_fin.zip` à la fin (les corrigés et les démonstrations
+complètes). Le projet lui-même, `Module00_ExercicesJava.zip`, est donné une
+seule fois, au début de l'année.
+
+Deux voies, au choix : les archives sur Moodle, ou Git. **Pour les
 exercices, ne mélangez pas les deux dans un même projet** : un pull refuserait
 d'écraser les fichiers déjà extraits d'une archive.
 
 ### Par l'archive (la voie normale)
 
-Chaque séance donne lieu à une archive. **Elle contient elle-même un dossier
+Chaque archive **contient elle-même un dossier
 `ExercicesJava`, et doit donc être extraite dans le dossier PARENT du vôtre**,
 pas à sa racine. Les deux arborescences fusionnent alors, et les nouveaux
 packages viennent s'ajouter aux anciens.
@@ -139,39 +149,39 @@ d'un niveau.
 côté du zip, et s'il trouve un dossier du même nom il en crée un second
 (`ExercicesJava 2`) au lieu de fusionner. Passez par le Terminal :
 
-    unzip -o ~/Downloads/SeanceNN_..._exercices.zip -d ~/chemin/du/parent
+    unzip -o ~/Downloads/ModuleNN_..._debut.zip -d ~/chemin/du/parent
 
 **Windows.** Clic droit sur le zip, `Extraire tout`. Attention au chemin
 proposé : Windows ajoute par défaut un sous-dossier portant le nom du zip.
 Effacez-le pour ne garder que le dossier parent. En PowerShell :
 
-    Expand-Archive -Path "$HOME\Downloads\SeanceNN_..._exercices.zip" `
+    Expand-Archive -Path "$HOME\Downloads\ModuleNN_..._debut.zip" `
                    -DestinationPath "C:\chemin\parent" -Force
 
 Si vous avez renommé votre dossier de projet, l'archive ne fusionnera pas avec
 lui : elle créera un `ExercicesJava/` à côté. Extrayez-la alors dans un dossier
 temporaire et recopiez son contenu à la main, ou renommez-la avant extraction.
 
-L'archive n'apporte que les packages de la séance : elle ne touche pas à ceux
-des séances précédentes. En revanche, extraire deux fois l'archive d'une même
-séance **écraserait** le travail déjà fait sur ces exercices-là. Si vous devez
+L'archive n'apporte que les packages du module : elle ne touche pas à ceux
+des modules précédents. En revanche, extraire deux fois l'archive de début
+d'un même module **écraserait** le travail déjà fait sur ces exercices-là. Si vous devez
 la reprendre, extrayez-la ailleurs et recopiez seulement ce dont vous avez
 besoin.
 
 ### Par Git (facultatif)
 
 Si vous savez vous servir de Git, vous pouvez cloner le projet une fois, au
-lieu d'extraire une archive à chaque séance. Dans IntelliJ : **File → New →
+lieu d'extraire une archive à chaque module. Dans IntelliJ : **File → New →
 Project from Version Control**, avec l'adresse
 `https://github.com/ferrantbe/ExercicesJava.git`.
 
-Ensuite, à chaque nouvelle séance : commitez votre travail (`Ctrl+K`, `⌘K`
-sous macOS), puis **Git → Pull**. Une séance n'ajoute que de nouveaux
+Ensuite, à chaque nouveau module : commitez votre travail (`Ctrl+K`, `⌘K`
+sous macOS), puis **Git → Pull**. Un module n'ajoute que de nouveaux
 packages, donc le pull ne touche pas à ce que vous avez écrit. Si un
 exercice déjà distribué doit être corrigé, une annonce sur Moodle le dira.
 
 Les corrigés et les démonstrations ne passent pas par Git : ils restent sur
-Moodle, et leur archive s'extrait comme celle d'une séance.
+Moodle, et l'archive de fin de module s'extrait comme celle du début.
 
 ## Lancer une application JavaFX
 
