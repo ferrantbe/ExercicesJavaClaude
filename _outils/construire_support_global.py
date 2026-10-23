@@ -28,7 +28,9 @@ from pathlib import Path
 
 RACINE = Path(__file__).resolve().parent.parent
 OUTILS = RACINE / "_outils"
-SORTIE = RACINE / "_support/Support_de_cours.docx"
+# --introduction : le module INI et les annexes seulement (23/10/2026)
+SORTIE = RACINE / ("_support/Introduction_et_annexes.docx" if "--introduction" in sys.argv
+                   else "_support/Support_de_cours.docx")
 sys.path.insert(0, str(OUTILS))
 import construire_recueil  # noqa: E402
 
@@ -99,7 +101,7 @@ def inserer_annexes(chemin):
 
 
 def main():
-    mode = ["--recto-verso"] if "--recto-verso" in sys.argv else []
+    mode = [a for a in ("--recto-verso", "--introduction") if a in sys.argv]
     subprocess.run(["node", str(OUTILS / "generateurs/build_support_global.js"), str(SORTIE), *mode], check=True)
     inserer_annexes(SORTIE)
     decaler_titres(SORTIE)

@@ -20,7 +20,10 @@ const {
 const B = require(__dirname + "/boite.js");
 const { construire } = require(__dirname + "/build_support.js");
 
-const ORDRE = ["INI", "POO", "TMP", "TAB", "ENU", "ABS", "ITF", "PKG", "COL",
+// --introduction (23/10/2026) : le seul module INI, suivi des annexes ; le
+// document d'accueil du cours, sur Moodle
+const INTRODUCTION = process.argv.includes("--introduction");
+const ORDRE = INTRODUCTION ? ["INI"] : ["INI", "POO", "TMP", "TAB", "ENU", "ABS", "ITF", "PKG", "COL",
                "EXC", "JUN", "GEN", "LAM", "FX", "FIC"];
 const sortie = process.argv[2];
 // recto seul par defaut (la Presse, 22/10/2026) : chaque module commence
@@ -61,8 +64,10 @@ const sections = [];
 const debut = [];
 B.pageDeGarde(debut, {
   surtitre: "Programmation orientée objet — Java",
-  titre: "Support de cours", sousTitre: "Tous les modules, dans l'ordre des séances",
-  accroche: "Du module INI au module FIC", mentionIA: true
+  titre: INTRODUCTION ? "Introduction et annexes" : "Support de cours",
+  sousTitre: INTRODUCTION ? "Le module d'introduction, le guide IntelliJ et les mémentos"
+                          : "Tous les modules, dans l'ordre des séances",
+  accroche: INTRODUCTION ? "À lire avant le premier module" : "Du module INI au module FIC", mentionIA: true
 });
 // le titre de la table n'a pas le style des modules : il n'y figurerait pas
 debut.push(new Paragraph({ spacing: { after: 360 },
