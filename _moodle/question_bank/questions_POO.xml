@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+<question type="category"><category><text>$course$/top/POO - Classes et objets</text></category></question>
+<question type="multichoice">
+<name><text>POO - Méthode main</text></name>
+<questiontext format="html"><text><![CDATA[<p>Pour qu'une classe Java soit exécutable, que doit-elle contenir ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>N'importe quelle classe devient exécutable dès qu'elle contient une méthode <code>main</code> de cette signature exacte.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez POO §1, « De C# à Java », dans le support du module POO.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[une méthode <code>public static void main(String[] args)</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[une méthode <code>Main()</code>, comme en C#]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[un constructeur sans paramètre]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[une méthode <code>run()</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>POO - new et référence</text></name>
+<questiontext format="html"><text><![CDATA[<p>Que fait l'instruction <code>Livre l = new Livre("Germinal");</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p><code>new</code> crée l'objet ; la variable n'en contient que la référence, l'adresse de l'objet.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez POO §6, « Primitifs et références », dans le support du module POO.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[elle crée un objet, et range dans <code>l</code> une référence vers lui]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[elle copie un livre existant]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[elle déclare une variable sans rien créer]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[elle crée la classe <code>Livre</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>POO - Champs private</text></name>
+<questiontext format="html"><text><![CDATA[<p>Pourquoi déclarer les champs d'une classe <code>private</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>C'est l'encapsulation : l'objet contrôle lui-même son état, et refuse une valeur qui n'a pas de sens.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez POO §3, « Encapsulation », dans le support du module POO.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[pour que seule la classe puisse les modifier, et garantir que l'objet reste cohérent]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[pour accélérer le programme]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[parce que Java l'impose]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[pour les cacher dans la Javadoc]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>POO - Compteur d&#x27;instances</text></name>
+<questiontext format="html"><text><![CDATA[<p>Un compteur qui doit compter tous les objets créés d'une classe doit être :</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Un champ <code>static</code> appartient à la classe : il n'existe qu'une fois, partagé par tous les objets.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez POO §4, « Membres de classe : static », dans le support du module POO.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[un champ <code>static</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[un champ d'objet]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[une variable locale du constructeur]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[un paramètre du constructeur]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>POO - Méthode static et this</text></name>
+<questiontext format="html"><text><![CDATA[<p>Une méthode <code>static</code> peut-elle utiliser directement un champ d'objet, comme <code>titre</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Une méthode statique n'a pas de <code>this</code> : elle appartient à la classe, pas à un objet.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez POO §4, « Membres de classe : static », dans le support du module POO.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[non : elle n'est appelée sur aucun objet, elle n'a donc pas de <code>titre</code> à lire]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[oui, toujours]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[oui, si le champ est <code>public</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[seulement dans le <code>main</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>POO - toString</text></name>
+<questiontext format="html"><text><![CDATA[<p>À quoi sert la redéfinition de <code>toString()</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Sans redéfinition, <code>println</code> affiche le nom de la classe suivi d'un code peu parlant.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez POO §2, « Classe et objet », dans le support du module POO.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[à choisir le texte qui représente l'objet, par exemple quand on l'affiche avec <code>println</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[à convertir un nombre en texte]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[à comparer deux objets]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[à rien : Java le fait déjà bien]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>POO - Scanner</text></name>
+<questiontext format="html"><text><![CDATA[<p>Pour lire un nombre entier tapé au clavier, on utilise :</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p><code>Console.ReadLine()</code> est la version C# ; en Java, on passe par un <code>Scanner</code>.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez POO §5, « Entrée de données au clavier », dans le support du module POO.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[un <code>Scanner</code> sur <code>System.in</code>, et sa méthode <code>nextInt()</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>System.in.readInt()</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>Console.ReadLine()</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>String.read()</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>POO - Accesseurs</text></name>
+<questiontext format="html"><text><![CDATA[<p>Faut-il écrire un accesseur et un mutateur pour chaque champ ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Un accesseur n'est pas une obligation (règle <code>CC-OBJ.2</code>) : un mutateur inutile ouvre l'objet à des modifications qu'il ne contrôle plus.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez POO §3, « Encapsulation », dans le support du module POO.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[non : on ne fournit que ce dont l'utilisateur de la classe a besoin]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[oui, c'est une règle de Java]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[oui, sinon le code ne compile pas]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[seulement pour les champs <code>static</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>POO - nextInt puis nextLine</text></name>
+<questiontext format="html"><text><![CDATA[<p>Après <code>int annee = clavier.nextInt();</code>, l'instruction <code>String titre = clavier.nextLine();</code> retourne une chaîne vide sans attendre. Pourquoi ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p><code>nextInt()</code> consomme les chiffres, mais pas la fin de ligne : le <code>nextLine()</code> suivant la lit comme une ligne vide.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez POO §5, « Entrée de données au clavier », dans le support du module POO.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>nextInt()</code> a laissé le passage à la ligne dans le tampon, et <code>nextLine()</code> le trouve aussitôt]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>nextLine()</code> ne fonctionne pas après une saisie de nombre]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[le <code>Scanner</code> doit être recréé après chaque lecture]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[l'utilisateur a appuyé deux fois sur Entrée]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>POO - Deux noms, un objet</text></name>
+<questiontext format="html"><text><![CDATA[<p><code>Livre a = new Livre("Nana"); Livre b = a; b.setTitre("Germinal");</code> Que retourne ensuite <code>a.getTitre()</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p><code>b = a</code> ne copie pas l'objet : les deux variables désignent le même livre. Le modifier par <code>b</code>, c'est le modifier pour <code>a</code> aussi.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez POO §6, « Primitifs et références », dans le support du module POO.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA["Germinal"]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA["Nana"]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>null</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[le code ne compile pas]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>POO - Champ final</text></name>
+<questiontext format="html"><text><![CDATA[<p>Que garantit un champ déclaré <code>final</code>, comme <code>private final String titre;</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p><code>final</code> confie au compilateur la règle « ne change plus » ; c'est <code>static</code> qui rendrait le champ partagé.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez POO §2, « Classe et objet », dans le support du module POO.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[il reçoit sa valeur exactement une fois, à la construction, et ne change plus]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[il est partagé par tous les objets de la classe]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[il est visible de toutes les classes]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[il ne peut pas valoir <code>null</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>POO - this dans le constructeur</text></name>
+<questiontext format="html"><text><![CDATA[<p>Dans le constructeur <code>public Livre(String titre) { this.titre = titre; }</code>, que désigne <code>this.titre</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Le paramètre porte le même nom que le champ ; <code>this.titre</code> désigne le champ de l'objet, <code>titre</code> seul le paramètre.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez POO §2, « Classe et objet », dans le support du module POO.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[le champ de l'objet en cours de construction]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[le paramètre du constructeur]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[une variable locale]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[le titre de la classe]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>POO - Donnée calculée</text></name>
+<questiontext format="html"><text><![CDATA[<p>Un livre connaît son année de parution. Faut-il aussi un champ <code>age</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Ce qu'on peut calculer n'a pas à être stocké : un champ <code>age</code> deviendrait faux au premier janvier suivant.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez POO §3, « Encapsulation », dans le support du module POO.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[non : une méthode <code>getAge()</code> le calcule à la demande, à partir de l'année]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[oui, pour éviter de recalculer]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[oui, mis à jour par un setter]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[non, l'âge d'un livre n'a pas de sens]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>POO - Constante</text></name>
+<questiontext format="html"><text><![CDATA[<p>Comment déclare-t-on une constante, comme le taux de TVA ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Une constante a besoin des deux mots : <code>static</code>, partagée par la classe, et <code>final</code>, elle ne change plus. Son nom s'écrit en majuscules.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez POO §4, « Membres de classe : static », dans le support du module POO.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>public static final double TVA = 0.21;</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>public final double TVA = 0.21;</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>public static double TVA = 0.21;</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>const double TVA = 0.21;</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>POO - Wrapper et parseInt</text></name>
+<questiontext format="html"><text><![CDATA[<p>Que retourne <code>Integer.parseInt("42")</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Les wrappers comme <code>Integer</code> offrent des méthodes utiles, dont la conversion d'un texte en nombre. Un texte qui n'est pas un nombre lèverait une exception.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez POO §7, « Les wrappers », dans le support du module POO.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[l'entier <code>42</code>, de type <code>int</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[la chaîne <code>"42"</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[un objet <code>Scanner</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[une exception, toujours]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+</quiz>
