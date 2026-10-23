@@ -431,6 +431,9 @@ On le passe à `sort`, pour trier une liste, ou au constructeur d'un `TreeSet` o
 
 La question qui tranche : l'ordre appartient-il à la classe, ou à l'usage qu'on en fait ? Les deux coexistent sans problème : une classe peut avoir son ordre naturel, et des comparateurs pour les autres besoins.
 
+> **Exercices** - `COL.8` Trois ordres pour une bibliothèque
+> L'exercice met en pratique toute la section : un record `Livre` qui reçoit son ordre naturel par `compareTo`, deux comparateurs pour les autres ordres, et trois méthodes qui trient une copie de la liste. Pour les années, `Integer.compare`, jamais une soustraction. Faites l'expérience de la première question : retirez le titre du comparateur par auteur, et comptez les livres qui restent dans le `TreeSet`. Un comparateur ne dit pas seulement dans quel ordre ranger : pour un `TreeSet`, il dit aussi ce qui est un doublon.
+
 ## 7. Des collections emboîtées
 
 ### Lire un type emboîté

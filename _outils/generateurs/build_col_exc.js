@@ -19,7 +19,8 @@ modeEmploi(col, "COL", [
   ["COL.4", "be.ephec.java.col.e04", "Compter les mots d'un texte"],
   ["COL.5", "be.ephec.java.col.e05", "Filtrer avec un prédicat"],
   ["COL.6", "be.ephec.java.col.e06", "Un ensemble sans doublons"],
-  ["COL.7", "be.ephec.java.col.e07", "Une table de collections"]
+  ["COL.7", "be.ephec.java.col.e07", "Une table de collections"],
+  ["COL.8", "be.ephec.java.col.e08", "Trois ordres pour une bibliothèque"]
 ]);
 
 col.push(h2("Trois familles, trois promesses"));
@@ -402,6 +403,70 @@ col.push(bulletRuns([
   ", avec un test explicite. Combien de lignes, et laquelle des deux versions préférez-vous relire dans six mois ?"
 ]));
 col.push(bullet("Quelle structure choisiriez-vous pour répondre à la question inverse : quels étudiants suivent le cours de Java ?"));
+col.push(saut());
+
+// --- COL.8 (ajoute le 23/10/2026 : Comparable et Comparator, COL §6)
+col.push(h1("COL.8 — Trois ordres pour une bibliothèque"));
+col.push(p("Package : be.ephec.java.col.e08", { italic: true, color: GREY }));
+col.push(h2("Objectif"));
+col.push(runs([
+  "Donner un ordre naturel à une classe avec ",
+  { t: "Comparable", code: true },
+  ", puis lui fournir d'autres ordres de l'extérieur avec ",
+  { t: "Comparator", code: true },
+  "."
+]));
+col.push(h2("Énoncé"));
+col.push(runs([
+  "Le record ",
+  { t: "Livre", code: true },
+  " a un titre, un auteur et une année de parution. Complétez les quatre classes suivantes ; le ",
+  { t: "Programme", code: true },
+  " est fourni, et affiche la même bibliothèque dans les trois ordres."
+]));
+col.push(tableau(["Élément", "Signature", "Rôle"], [
+  ["Livre", "public int compareTo(Livre autre)", "L'ordre naturel : par titre, alphabétiquement"],
+  ["ParAnnee", "public int compare(Livre premier, Livre second)", "Par année, puis par titre à égalité"],
+  ["ParAuteur", "public int compare(Livre premier, Livre second)", "Par auteur, puis par titre"],
+  ["parTitre", "public static List<Livre> parTitre(List<Livre>)", "Une nouvelle liste, dans l'ordre naturel"],
+  ["parAnnee", "public static List<Livre> parAnnee(List<Livre>)", "Une nouvelle liste, triée avec ParAnnee"],
+  ["rangesParAuteur", "public static Set<Livre> rangesParAuteur(List<Livre>)", "Un TreeSet construit avec ParAuteur"]
+], [1900, 4300, 3160]));
+col.push(runs([
+  { t: "Indices : ", b: true },
+  "une ",
+  { t: "String", code: true },
+  " sait déjà se comparer ; pour les années, ",
+  { t: "Integer.compare", code: true },
+  " plutôt qu'une soustraction (voir COL §6). La méthode ",
+  { t: "sort", code: true },
+  " d'une ",
+  { t: "List", code: true },
+  " reçoit un comparateur, et le constructeur de ",
+  { t: "TreeSet", code: true },
+  " aussi. Comme dans ",
+  { t: "COL.1", code: true },
+  ", aucune méthode de ",
+  { t: "Tris", code: true },
+  " ne modifie la liste reçue."
+]));
+col.push(h2("Comment vérifier votre code"));
+col.push(verif([
+  { t: "be.ephec.java.col.e08.TrisTest", code: true },
+  { t: "Vérifie l'ordre naturel, les trois tris, le départage à égalité, que l'ensemble garde tous les livres, et que la liste reçue n'est pas modifiée." }
+]));
+col.push(h2("Questions à se poser"));
+col.push(bulletRuns([
+  "Retirez le second critère de ",
+  { t: "ParAuteur", code: true },
+  " (le titre), et relancez le test. Combien de livres reste-t-il dans l'ensemble, et pourquoi ?"
+]));
+col.push(bullet("Pourquoi l'ordre par titre est-il l'ordre naturel, et pas l'ordre par année ? Qu'est-ce qui rend un ordre « naturel » pour une classe ?"));
+col.push(bulletRuns([
+  "Au module ",
+  { t: "LAM", code: true },
+  ", chacun des deux comparateurs tiendra en une ligne. Lesquelles de ces classes vous paraîtront alors encore utiles ?"
+]));
 
 // =====================================================================
 //  EXC

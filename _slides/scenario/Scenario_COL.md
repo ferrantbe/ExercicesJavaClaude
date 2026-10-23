@@ -1166,6 +1166,36 @@ Les deux coexistent sans problème : une classe peut avoir son ordre naturel, et
 
 ---
 
+### 6.4 · Exercices : COL.8
+
+**Source** ajoutée le 23/10/2026, avec l'exercice `COL.8`, à la demande de
+Frédéric : un exercice sur `Comparator`, qui manquait depuis la
+réorganisation de COL en sections. Slide construite sur le modèle de la
+slide d'exercices de la section 5.
+
+**Slide**
+
+- `COL.8` Trois ordres pour une bibliothèque, fascicule COL
+- Départager : `Integer.compare`, jamais une soustraction
+
+**Note**
+
+COL.8 met en pratique toute la section : un record qui reçoit son ordre
+naturel par compareTo, deux comparateurs pour les autres ordres, et trois
+méthodes qui trient une copie de la liste.
+
+Le piège à faire découvrir est dans la première question de l'énoncé : un
+TreeSet range ses éléments avec le comparateur, et considère comme doublons
+deux livres pour lesquels il retourne 0. Un comparateur par auteur seul ne
+garderait qu'un livre par auteur. Le second critère, le titre, n'est pas un
+détail.
+
+Pour les années, Integer.compare plutôt qu'une soustraction : la note de bas
+de page du support montre le débordement. Au module LAM, ces deux
+comparateurs tiendront chacun en une ligne.
+
+---
+
 ## Section 7 — Des collections emboîtées
 
 ### 7.1 · Des collections emboîtées
