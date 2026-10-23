@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+<question type="category"><category><text>$course$/top/EXC - Exceptions</text></category></question>
+<question type="multichoice">
+<name><text>EXC - Une exception est un objet</text></name>
+<questiontext format="html"><text><![CDATA[<p>Une exception, en Java, c'est :</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Elle mémorise un message et l'état de la pile des appels au moment de sa création.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez EXC §1, « Un objet qui interrompt », dans le support du module EXC.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[un objet, qu'on crée avec new et qu'on lève avec throw]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[un message affiché dans la console]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[une erreur de compilation]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[une méthode spéciale]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>EXC - Remonter la pile</text></name>
+<questiontext format="html"><text><![CDATA[<p>Une exception levée et jamais attrapée :</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Chaque méthode traversée est abandonnée à son tour.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez EXC §1, « Un objet qui interrompt », dans le support du module EXC.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[remonte la pile des appels jusqu'au main, et le programme s'arrête en affichant la trace]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[est ignorée]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[redémarre le programme]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[est attrapée automatiquement par Java]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>EXC - throw ou throws</text></name>
+<questiontext format="html"><text><![CDATA[<p>Quelle est la différence entre <code>throw</code> et <code>throws</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Les deux mots se ressemblent et ne font pas la même chose.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez EXC §2, « Lever, et déclarer », dans le support du module EXC.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>throw</code> lève l'exception, dans le corps ; <code>throws</code> la déclare, dans la signature]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[aucune]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>throws</code> lève plusieurs exceptions à la fois]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>throw</code> est réservé au main]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>EXC - Contrôlée</text></name>
+<questiontext format="html"><text><![CDATA[<p>Une méthode appelle une méthode qui déclare une exception contrôlée. Que doit-elle faire ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Le compilateur exige un choix, pour les exceptions contrôlées seulement.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez EXC §2, « Lever, et déclarer », dans le support du module EXC.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[l'attraper avec try et catch, ou la déclarer à son tour avec throws]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[rien]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[la transformer en Error]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[appeler System.exit]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>EXC - Ce que le try saute</text></name>
+<questiontext format="html"><text><![CDATA[<p>Quand une instruction lève une exception au milieu d'un <code>try</code> :</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Le programme ne revient jamais dans le try : ce qui suivait l'instruction fautive est perdu.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez EXC §3, « Attraper là où l'on peut agir », dans le support du module EXC.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[le reste du try est abandonné, et le catch qui convient s'exécute]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[le reste du try s'exécute quand même]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[le programme reprend à la ligne suivante]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[le try recommence]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>EXC - Ordre des catch</text></name>
+<questiontext format="html"><text><![CDATA[<p>Peut-on écrire un <code>catch (Exception e)</code> avant un <code>catch (IOException e)</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Un catch pour une classe fille doit venir avant celui de sa mère.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez EXC §3, « Attraper là où l'on peut agir », dans le support du module EXC.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[non : le second ne serait jamais atteint, le compilateur le refuse]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[oui, sans conséquence]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[oui, et les deux s'exécutent]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[seulement dans le main]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>EXC - catch vide</text></name>
+<questiontext format="html"><text><![CDATA[<p>Pourquoi un <code>catch</code> vide est-il dangereux ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Un catch doit traiter, informer, ou ne pas exister (règle <code>CC-ERR.6</code>).</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez EXC §3, « Attraper là où l'on peut agir », dans le support du module EXC.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[il fait taire l'erreur : le programme continue comme si tout allait bien, et l'erreur ressurgit ailleurs]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[il ne compile pas]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[il ralentit le programme]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[il relance l'exception]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>EXC - finally</text></name>
+<questiontext format="html"><text><![CDATA[<p>Quand s'exécute un bloc <code>finally</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>On s'en sert pour libérer ce qu'on a pris : un verrou, un fichier ouvert.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez EXC §3, « Attraper là où l'on peut agir », dans le support du module EXC.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[toujours, que le try se termine normalement ou par une exception]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[seulement en cas d'exception]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[seulement sans exception]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[jamais si le catch est vide]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>EXC - Non contrôlée</text></name>
+<questiontext format="html"><text><![CDATA[<p>Pourquoi <code>Integer.parseInt("douze")</code> compile-t-il sans try ni throws ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Les descendantes de RuntimeException passent inaperçues à la compilation.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez EXC §4, « Celles que le compilateur ne voit pas », dans le support du module EXC.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>NumberFormatException</code> est une exception non contrôlée]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[parce que la chaîne est correcte]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[parce que parseInt n'échoue jamais]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[parce qu'on est dans le main]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>EXC - NullPointerException</text></name>
+<questiontext format="html"><text><![CDATA[<p>Quelle écriture ne plante pas si <code>titre</code> vaut <code>null</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>On appelle la méthode sur la constante, qui n'est jamais null (règle <code>CC-ERR.7</code>).</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez EXC §4, « Celles que le compilateur ne voit pas », dans le support du module EXC.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>"Nana".equals(titre)</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>titre.equals("Nana")</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>titre.length() == 4</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>titre.toUpperCase()</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>EXC - Écrire son exception</text></name>
+<questiontext format="html"><text><![CDATA[<p>Comment écrit-on sa propre exception contrôlée ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Tout le travail est déjà fait par Exception : mémoriser le message, capturer la pile.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez EXC §2, « Lever, et déclarer », dans le support du module EXC.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[une classe qui hérite d'<code>Exception</code>, avec un constructeur qui transmet le message par <code>super(message)</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[une classe qui hérite d'<code>Error</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[une interface]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[une méthode qui retourne <code>null</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>EXC - Error</text></name>
+<questiontext format="html"><text><![CDATA[<p>Que faire d'une <code>OutOfMemoryError</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Une Error ne signale pas un problème que le programme peut traiter.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez EXC §1, « Un objet qui interrompt », dans le support du module EXC.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[ne pas l'attraper : la JVM elle-même ne peut plus continuer]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[l'attraper et recommencer]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[la déclarer partout]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[l'ignorer avec un catch vide]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>EXC - Plusieurs exceptions, un catch</text></name>
+<questiontext format="html"><text><![CDATA[<p>Que signifie <code>catch (PorteBloqueeException | CoupureException e)</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>La barre réunit des types quand leur traitement est identique.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez EXC §3, « Attraper là où l'on peut agir », dans le support du module EXC.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[un même traitement pour deux exceptions sans lien d'héritage]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[l'une ou l'autre, au hasard]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[les deux en même temps]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[une erreur de syntaxe]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>EXC - Paramètre refusé</text></name>
+<questiontext format="html"><text><![CDATA[<p>Quelle exception du JDK lever quand une méthode reçoit une valeur qui n'a pas de sens, comme un âge négatif ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>IllegalStateException signale plutôt un objet qui n'est pas dans le bon état.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez EXC §4, « Celles que le compilateur ne voit pas », dans le support du module EXC.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>IllegalArgumentException</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>NullPointerException</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>IOException</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>IllegalStateException</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>EXC - Un bon message</text></name>
+<questiontext format="html"><text><![CDATA[<p>Quel message d'exception est le plus utile ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Un message utile dit ce qui était attendu et ce qui a été reçu (règle <code>CC-ERR.4</code>).</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez EXC §2, « Lever, et déclarer », dans le support du module EXC.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>"Etage 12 au-dela du dernier, 9"</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>"Erreur"</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>"Etage invalide"</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[pas de message du tout]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+</quiz>

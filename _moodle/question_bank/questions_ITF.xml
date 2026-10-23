@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+<question type="category"><category><text>$course$/top/ITF - Interfaces</text></category></question>
+<question type="multichoice">
+<name><text>ITF - Ce qu'une interface déclare</text></name>
+<questiontext format="html"><text><![CDATA[<p>Que déclare une interface comme <code>interface Calcul { double appliquer(double x); }</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Une interface dit ce qu'on attend, sans dire qui le fera ni comment.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez ITF §1, « Ce qu'une interface déclare », dans le support du module ITF.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[une promesse : toute classe qui l'implémente fournira cette méthode]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[une classe avec un champ x]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[un objet]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[une méthode statique]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>ITF - implements</text></name>
+<questiontext format="html"><text><![CDATA[<p>Comment une classe tient-elle la promesse d'une interface ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>On <code>implements</code> une interface ; on <code>extends</code> une classe.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez ITF §1, « Ce qu'une interface déclare », dans le support du module ITF.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>class Double implements Calcul</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>class Double extends Calcul</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>class Double : Calcul</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>class Double uses Calcul</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>ITF - Plusieurs interfaces</text></name>
+<questiontext format="html"><text><![CDATA[<p>Une classe peut-elle implémenter plusieurs interfaces ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>C'est ce que l'héritage de classes ne permet pas : une classe peut tenir plusieurs promesses à la fois.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez ITF §2, « Plusieurs interfaces à la fois », dans le support du module ITF.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[oui, autant qu'il en faut]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[non, une seule]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[oui, mais seulement deux]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[seulement si elle est abstraite]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>ITF - Variable d'interface</text></name>
+<questiontext format="html"><text><![CDATA[<p>Une variable de type <code>Translatable</code> désigne un objet dont la classe implémente aussi <code>Rotatable</code>. Peut-on appeler <code>rotate</code> sur cette variable ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Le compilateur ne regarde que le type de la variable, pas ce que l'objet sait faire en plus.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez ITF §2, « Plusieurs interfaces à la fois », dans le support du module ITF.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[non : la variable ne connaît que ce que promet <code>Translatable</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[oui, toujours]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[oui, si l'objet le permet]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[seulement après un new]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>ITF - Interface ou classe abstraite</text></name>
+<questiontext format="html"><text><![CDATA[<p>Quand préférer une classe abstraite à une interface ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Une interface promet des comportements ; une classe abstraite peut en plus porter des champs et du code partagé.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez ITF §3, « Interface ou classe abstraite ? », dans le support du module ITF.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[quand les classes partagent aussi un état ou du code commun]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[jamais]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[quand on veut de l'héritage multiple]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[quand la classe n'a pas de méthode]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>ITF - Dépendre d'un contrat</text></name>
+<questiontext format="html"><text><![CDATA[<p>Pourquoi un contrôleur dépend-il d'une interface <code>Afficheur</code> plutôt que d'une fenêtre précise ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Le contrôleur ignore qui affiche : c'est ce découplage qui rend le code remplaçable et testable.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez ITF §4, « Dépendre d'un contrat », dans le support du module ITF.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[pour pouvoir changer l'affichage, ou le remplacer dans un test, sans toucher au contrôleur]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[pour aller plus vite]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[parce que Java l'impose]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[pour cacher le code]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>ITF - Observateur</text></name>
+<questiontext format="html"><text><![CDATA[<p>Dans le patron Observateur, le sujet observé connaît ses abonnés :</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Le sujet prévient ses abonnés sans savoir qui ils sont : c'est le mécanisme des boutons en JavaFX.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez ITF §5, « Le patron Observateur », dans le support du module ITF.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[seulement à travers une interface commune]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[par leur classe exacte]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[pas du tout : il ne les prévient jamais]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[par leur nom]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>ITF - Méthode default</text></name>
+<questiontext format="html"><text><![CDATA[<p>Que permet une méthode <code>default</code> dans une interface ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Les classes existantes héritent du comportement par défaut, et peuvent le redéfinir.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez ITF §6, « Ce qu'une interface contient aussi », dans le support du module ITF.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[d'ajouter une méthode avec un corps, sans casser les classes qui implémentent déjà l'interface]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[de rendre l'interface abstraite]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[de déclarer un champ modifiable]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[d'empêcher l'implémentation]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>ITF - Interface fonctionnelle</text></name>
+<questiontext format="html"><text><![CDATA[<p>Qu'est-ce qu'une interface fonctionnelle ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Les méthodes default et static ne comptent pas. C'est ce qui permettra les lambdas, au module LAM.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez ITF §6, « Ce qu'une interface contient aussi », dans le support du module ITF.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[une interface qui déclare une seule méthode abstraite]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[une interface sans méthode]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[une interface qui contient des fonctions statiques]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[une classe abstraite]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>ITF - Constantes d'interface</text></name>
+<questiontext format="html"><text><![CDATA[<p>Un champ déclaré dans une interface est automatiquement :</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Une interface ne porte pas d'état : ses champs sont des constantes.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez ITF §6, « Ce qu'une interface contient aussi », dans le support du module ITF.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>public static final</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>private</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[un champ d'objet modifiable]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>protected</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>ITF - Instancier une interface</text></name>
+<questiontext format="html"><text><![CDATA[<p><code>Calcul</code> est une interface. L'instruction <code>Calcul c = new Calcul();</code> compile-t-elle ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Une interface est une promesse ; il faut une classe pour la tenir. Cette classe peut être écrite sur place, sans nom : <code>new Calcul() { ... }</code>, avec un corps entre accolades, est une classe anonyme (module LAM).</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez ITF §1, « Ce qu'une interface déclare », dans le support du module ITF.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[non : une interface n'a pas d'objets à elle ; il faut une classe qui l'implémente]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[oui, toujours]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[oui, si elle n'a qu'une méthode]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[seulement dans un test]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>ITF - Tout implémenter</text></name>
+<questiontext format="html"><text><![CDATA[<p>Une classe implémente une interface sans écrire toutes ses méthodes abstraites. Que se passe-t-il ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Implémenter une interface, c'est s'engager à tenir toute la promesse.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez ITF §1, « Ce qu'une interface déclare », dans le support du module ITF.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[elle ne compile pas, sauf si elle est déclarée abstraite]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[les méthodes manquantes sont vides]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[les méthodes manquantes lèvent une exception]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[rien]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>ITF - Méthode static d'interface</text></name>
+<questiontext format="html"><text><![CDATA[<p>Comment appelle-t-on une méthode <code>static identite()</code> déclarée dans l'interface <code>Calcul</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Une méthode statique d'interface s'appelle sur l'interface, comme une méthode statique de classe.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez ITF §6, « Ce qu'une interface contient aussi », dans le support du module ITF.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>Calcul.identite()</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>new Calcul().identite()</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>identite()</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>this.identite()</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>ITF - Interface qui en étend une autre</text></name>
+<questiontext format="html"><text><![CDATA[<p>Une interface peut-elle hériter d'une autre interface ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p><code>interface Motorise extends Transport</code> : Motorise reprend la promesse de Transport, et en ajoute.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez ITF §2, « Plusieurs interfaces à la fois », dans le support du module ITF.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[oui, avec <code>extends</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[oui, avec <code>implements</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[non, jamais]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[seulement si elles ont les mêmes méthodes]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>ITF - Rôle de la vue</text></name>
+<questiontext format="html"><text><![CDATA[<p>Dans le découpage MVC, que fait la vue ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Le modèle décide, la vue montre, le contrôleur fait le lien entre les deux.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez ITF §4, « Dépendre d'un contrat », dans le support du module ITF.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[elle montre, et ne décide de rien]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[elle contient les règles du métier]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[elle enregistre les données]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[elle remplace le contrôleur]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+</quiz>

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+<question type="category"><category><text>$course$/top/ENU - Énumérations et records</text></category></question>
+<question type="multichoice">
+<name><text>ENU - Quand une enum</text></name>
+<questiontext format="html"><text><![CDATA[<p>Dans quel cas une énumération est-elle le bon choix ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Une énumération liste une fois pour toutes les valeurs permises : le compilateur refuse les autres.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez ENU §1, « Des valeurs qui se comptent », dans le support du module ENU.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[quand les valeurs possibles sont connues d'avance et peu nombreuses, comme les jours de la semaine]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[pour une liste qui grandit pendant l'exécution]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[pour stocker des nombres]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[pour remplacer toute classe]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>ENU - Déclarer</text></name>
+<questiontext format="html"><text><![CDATA[<p>Quelle déclaration est correcte ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Les valeurs d'une énumération sont des constantes, séparées par des virgules, en majuscules par convention.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez ENU §2, « Déclarer une énumération », dans le support du module ENU.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>enum Feu { ROUGE, ORANGE, VERT }</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>enum Feu = { ROUGE, ORANGE, VERT }</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>class Feu enum { ROUGE, ORANGE, VERT }</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>enum Feu ( "ROUGE", "ORANGE", "VERT" )</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>ENU - ordinal</text></name>
+<questiontext format="html"><text><![CDATA[<p>Que retourne <code>Feu.ORANGE.ordinal()</code> pour <code>enum Feu { ROUGE, ORANGE, VERT }</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>La position commence à 0 : c'est l'ordre de déclaration qui porte l'information.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez ENU §3, « L'ordre porte l'information », dans le support du module ENU.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[1]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[2]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>"ORANGE"</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[0]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>ENU - Comparer</text></name>
+<questiontext format="html"><text><![CDATA[<p>Comment teste-t-on qu'un feu <code>f</code> est rouge ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Chaque valeur d'une énumération est unique : <code>==</code> suffit, et c'est l'écriture habituelle.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez ENU §4, « Comparer et aiguiller : switch », dans le support du module ENU.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>f == Feu.ROUGE</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>f.equals("ROUGE")</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>f = Feu.ROUGE</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>f.name() == ROUGE</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>ENU - switch</text></name>
+<questiontext format="html"><text><![CDATA[<p>Dans un <code>switch</code> sur une énumération, comment écrit-on l'étiquette du rouge ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Dans un <code>switch</code>, les étiquettes s'écrivent sans le nom du type.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez ENU §4, « Comparer et aiguiller : switch », dans le support du module ENU.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>case ROUGE -&gt;</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>case Feu.ROUGE -&gt;</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>case "ROUGE" -&gt;</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>case 0 -&gt;</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>ENU - enum et méthodes</text></name>
+<questiontext format="html"><text><![CDATA[<p>Une énumération peut-elle avoir des champs et des méthodes ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Une énumération peut porter des données (une durée, un symbole) et des méthodes, comme une classe.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez ENU §5, « Une enum est une classe », dans le support du module ENU.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[oui : une enum est une classe, dont les valeurs sont les seuls objets]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[non, jamais]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[seulement des méthodes statiques]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[seulement si elle a une seule valeur]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>ENU - Record</text></name>
+<questiontext format="html"><text><![CDATA[<p>Que fournit <code>record Point(int x, int y) { }</code>, sans rien écrire d'autre ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Un record écrit tout cela pour vous ; ses accesseurs portent le nom du champ, sans <code>get</code>.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez ENU §7, « Les records », dans le support du module ENU.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[un constructeur, des accesseurs <code>x()</code> et <code>y()</code>, et <code>equals</code>, <code>hashCode</code> et <code>toString</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[seulement un constructeur]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[des accesseurs <code>getX()</code> et <code>getY()</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[des mutateurs pour chaque champ]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>ENU - Record immuable</text></name>
+<questiontext format="html"><text><![CDATA[<p>Peut-on modifier le <code>x</code> d'un record <code>Point</code> après sa création ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Un record modélise une valeur qui ne change pas : ni setter, ni champ modifiable.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez ENU §7, « Les records », dans le support du module ENU.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[non : ses champs sont final, il faut créer un nouveau point]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[oui, avec <code>setX</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[oui, avec <code>p.x = 3;</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[seulement dans le main]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>ENU - Valider un record</text></name>
+<questiontext format="html"><text><![CDATA[<p>Où vérifie-t-on qu'une cote est comprise entre 0 et 20 dans un record <code>Student</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Le constructeur compact contient seulement les vérifications : l'objet invalide n'est jamais créé.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez ENU §7, « Les records », dans le support du module ENU.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[dans son constructeur compact, qui lève une exception si la valeur est hors limites]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[dans un setter]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[dans <code>toString</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[on ne peut pas]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>ENU - values</text></name>
+<questiontext format="html"><text><![CDATA[<p>Que retourne <code>Feu.values()</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p><code>values()</code> permet de parcourir toutes les valeurs d'une énumération avec une boucle for-each.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez ENU §3, « L'ordre porte l'information », dans le support du module ENU.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[un tableau de toutes les valeurs, dans l'ordre de déclaration]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[le nombre de valeurs]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[la première valeur]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[une chaîne avec les noms]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>ENU - name</text></name>
+<questiontext format="html"><text><![CDATA[<p>Que retourne <code>Feu.VERT.name()</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>name() retourne le nom de la constante, exactement comme il est écrit.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez ENU §5, « Une enum est une classe », dans le support du module ENU.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>"VERT"</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[2]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>Feu.VERT</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>"vert"</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>ENU - valueOf</text></name>
+<questiontext format="html"><text><![CDATA[<p>Que retourne <code>Feu.valueOf("ROUGE")</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>valueOf transforme un nom en constante ; un nom inconnu lève une <code>IllegalArgumentException</code>.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez ENU §5, « Une enum est une classe », dans le support du module ENU.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[la constante <code>Feu.ROUGE</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[0]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[la chaîne <code>"ROUGE"</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>null</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>ENU - switch exhaustif</text></name>
+<questiontext format="html"><text><![CDATA[<p>Un <code>switch</code> qui retourne une valeur, sur une énumération, doit :</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Si une valeur est ajoutée à l'énumération, le compilateur signale les switch à compléter.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez ENU §4, « Comparer et aiguiller : switch », dans le support du module ENU.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[couvrir toutes les valeurs de l'énumération, sinon le compilateur refuse]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[avoir un break dans chaque cas]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[ne couvrir qu'une valeur]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[être dans le main]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>ENU - equals d'un record</text></name>
+<questiontext format="html"><text><![CDATA[<p>Deux records <code>new Point(1, 2)</code> et <code>new Point(1, 2)</code> sont-ils égaux selon <code>equals</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Le record écrit equals pour vous, en comparant chaque champ.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez ENU §7, « Les records », dans le support du module ENU.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[oui : un record compare les valeurs de ses champs]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[non : ce sont deux objets distincts]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[seulement si on redéfinit equals]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[le code ne compile pas]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>ENU - Constructeur d'une enum</text></name>
+<questiontext format="html"><text><![CDATA[<p>Le constructeur d'une énumération qui porte des données est :</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>On ne crée jamais d'autre valeur que celles listées dans l'enum.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez ENU §5, « Une enum est une classe », dans le support du module ENU.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[privé : seules les constantes déclarées dans l'enum l'appellent]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[public]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[appelé avec new]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[interdit]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+</quiz>

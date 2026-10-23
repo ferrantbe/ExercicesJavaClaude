@@ -374,6 +374,35 @@ forme.affiche();   // "Je suis un cercle et je m'affiche"
 
 La variable est déclarée `Shape`, et pourtant c'est la version du cercle qui s'exécute. Le compilateur vérifie seulement que `Shape` possède bien une méthode `affiche` ; le choix de la version revient à la machine virtuelle, au moment de l'appel, en regardant l'objet réel. Ce mécanisme s'appelle la *liaison dynamique*, et c'est lui qui donne tout son intérêt à la classe abstraite. C'est le polymorphisme, le quatrième des principes présentés au module `POO`.
 
+### Quelle version s'exécute, dans une chaîne d'héritage
+
+![Une méthode truc() écrite dans A, redéfinie dans C et dans D|13](../figures/abs-chaine.png)
+
+Quand une méthode est redéfinie à plusieurs étages d'une hiérarchie, Java part de la classe réelle de l'objet et remonte vers ses ancêtres, jusqu'à la première classe qui écrit la méthode. C'est cette version qui s'exécute.
+
+| Objet de la classe | `truc()` exécutée | Pourquoi |
+|---|---|---|
+| `A` | celle de `A` | `A` l'écrit |
+| `B` | celle de `A` | `B` ne l'écrit pas : on remonte à `A` |
+| `C` | celle de `C` | `C` la redéfinit |
+| `D` | celle de `D` | `D` la redéfinit |
+| `E` | celle de `A` | ni `E` ni `B` ne l'écrivent |
+| `F` | celle de `C` | `F` ne l'écrit pas, `C` oui |
+
+Le type de la variable ne change rien : avec `A x = new F();`, l'appel `x.truc()` exécute la version de `C`.
+
+```java
+public class D extends B {
+    @Override
+    public void truc() {
+        super.truc();          // la version dont dispose B : celle de A
+        System.out.println("et la suite propre a D");
+    }
+}
+```
+
+Dans `D`, `super.truc()` ne désigne pas forcément une méthode écrite dans `B`, la mère directe : il désigne la version dont `B` dispose, c'est-à-dire la plus proche en remontant. Ici, `B` n'écrit pas `truc()`, c'est donc celle de `A` qui s'exécute.
+
 ### Ni `instanceof`, ni test de type
 
 ```java

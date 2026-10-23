@@ -816,6 +816,28 @@ rien, puisqu'on n'obtiendrait jamais que le comportement générique.
 C'est le quatrième des quatre principes de la POO, annoncé au module POO et renvoyé
 ici.
 
+### 5.3b · Quelle version s'exécute ?
+
+**Source** ajoutée le 23/10/2026, à la demande de Frédéric, avec la même explication dans le support. Figure : `_support/figures/abs-chaine.png`.
+
+**Slide**
+
+- On part de la classe réelle de l'objet
+- On remonte jusqu'à la première classe qui écrit la méthode
+- `super.truc()` : la version la plus proche au-dessus
+
+**Note**
+
+Le cas où la même méthode est redéfinie à plusieurs étages. truc() est écrite dans A, redéfinie dans C et dans D.
+
+Règle : Java part de la classe réelle de l'objet, et remonte jusqu'à la première classe qui écrit la méthode. Un objet A exécute celle de A ; B, celle de A, puisqu'il ne l'écrit pas ; C, la sienne ; D, la sienne ; E, celle de A, en passant par B ; F, celle de C.
+
+Le type de la variable ne change rien : A x = new F(); puis x.truc() exécute la version de C.
+
+Dans D, super.truc() désigne la version dont B dispose : B ne l'écrit pas, c'est donc celle de A. super ne désigne pas forcément une méthode écrite dans la mère directe, mais la plus proche en remontant.
+
+---
+
 ### 5.4 · Ni `instanceof`, ni test de type
 
 **Slide**

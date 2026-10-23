@@ -2,8 +2,10 @@
 
 Les questions des tests Moodle, un fichier par module (23/10/2026).
 
-    questions_POO.py    les questions du module POO, et leur export
-    questions_POO.xml   le fichier a importer dans Moodle
+    questions_POO.py        les questions du module POO, et leur export
+    questions_modules.py    les questions des modules TMP a FIC
+    exporter.py             produit un fichier questions_XXX.xml par module
+    questions_XXX.xml       les fichiers a importer dans Moodle
 
 Chaque question renvoie, en cas d'erreur, a la section du support qui la
 traite (« Revoyez POO §6, « Primitifs et references » »).

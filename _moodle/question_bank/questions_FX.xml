@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+<question type="category"><category><text>$course$/top/FX - Interfaces graphiques avec JavaFX</text></category></question>
+<question type="multichoice">
+<name><text>FX - Lanceur</text></name>
+<questiontext format="html"><text><![CDATA[<p>Quelle classe faut-il exécuter pour lancer une application JavaFX du cours ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Lancer directement la classe Application provoque l'erreur « JavaFX runtime components are missing ».</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez FX §1, « Lancer une application JavaFX », dans le support du module FX.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[la classe dont le nom commence par <code>Lanceur</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[la classe qui hérite d'<code>Application</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[le fichier FXML]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[n'importe laquelle]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>FX - start</text></name>
+<questiontext format="html"><text><![CDATA[<p>Qui appelle la méthode <code>start(Stage fenetre)</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Votre travail se limite à remplir la fenêtre et à l'afficher.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez FX §2, « Une fenêtre et ses composants », dans le support du module FX.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[JavaFX, après avoir créé l'objet et la fenêtre, à l'appel de <code>Application.launch</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[le main, directement]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[le constructeur de la classe]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[l'utilisateur, en cliquant]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>FX - Une seule racine</text></name>
+<questiontext format="html"><text><![CDATA[<p>Combien de nœuds une <code>Scene</code> accepte-t-elle directement ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>C'est le conteneur racine qui contient tous les autres nœuds.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez FX §2, « Une fenêtre et ses composants », dans le support du module FX.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[un seul, sa racine : pour plusieurs composants, on les range dans un conteneur]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[autant qu'on veut]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[deux]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[aucun]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>FX - VBox</text></name>
+<questiontext format="html"><text><![CDATA[<p>Quel conteneur range ses enfants les uns sous les autres ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>HBox les met côte à côte, StackPane les empile, BorderPane les place en cinq zones.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez FX §2, « Une fenêtre et ses composants », dans le support du module FX.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>VBox</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>HBox</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>StackPane</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>BorderPane</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>FX - Gestionnaire</text></name>
+<questiontext format="html"><text><![CDATA[<p>Que reçoit <code>bouton.setOnAction(...)</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Le bouton appelle sa méthode handle à chaque clic.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez FX §3, « Brancher un bouton », dans le support du module FX.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[un gestionnaire : un objet qui implémente <code>EventHandler</code>, souvent écrit en lambda]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[le texte du bouton]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[une couleur]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[un autre bouton]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>FX - Retirer un gestionnaire</text></name>
+<questiontext format="html"><text><![CDATA[<p>Pourquoi <code>removeEventHandler</code> demande-t-il le même objet que celui qui a été ajouté ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>C'est une question d'examen classique : activer et désactiver un bouton.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez FX §3, « Brancher un bouton », dans le support du module FX.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[deux lambdas identiques sont deux objets différents : il faut garder le gestionnaire dans un champ]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[par convention]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[pour des raisons de vitesse]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[il accepte n'importe quel gestionnaire]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>FX - Clavier</text></name>
+<questiontext format="html"><text><![CDATA[<p>Quel type d'événement voit la flèche « haut » ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>KEY_TYPED ne concerne que les touches qui produisent un caractère.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez FX §4, « Ce que dit un événement », dans le support du module FX.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>KeyEvent.KEY_PRESSED</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>KeyEvent.KEY_TYPED</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>ActionEvent.ACTION</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>MouseEvent.MOUSE_CLICKED</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>FX - Filtre et gestionnaire</text></name>
+<questiontext format="html"><text><![CDATA[<p>Lors du voyage d'un événement, quand un filtre est-il appelé ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Un filtre posé sur un conteneur voit passer l'événement avant ses enfants ; consume() peut l'arrêter.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez FX §5, « Un événement voyage », dans le support du module FX.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[pendant la descente, de la fenêtre vers la cible, avant les gestionnaires]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[pendant la remontée]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[jamais avant la cible]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[seulement sur les boutons]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>FX - Binding</text></name>
+<questiontext format="html"><text><![CDATA[<p>Que fait <code>label.textProperty().bind(valeur.asString());</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Un binding déclare une dépendance ; une propriété liée ne s'écrit plus avec setText.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez FX §7, « Lier plutôt qu'écouter », dans le support du module FX.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[le libellé suit la valeur en permanence, sans autre ligne de code]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[il copie la valeur une seule fois]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[il crée un gestionnaire de clic]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[il affiche une erreur]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>FX - MVC</text></name>
+<questiontext format="html"><text><![CDATA[<p>Dans une application MVC, que doit ignorer le modèle ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>C'est ce qui permet de tester le modèle avec JUnit, sans ouvrir de fenêtre.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez FX §8, « Séparer l'écran du calcul », dans le support du module FX.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[tout de l'écran : les boutons, les libellés, JavaFX]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[les données]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[les règles du métier]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[les autres classes du modèle]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>FX - StackPane</text></name>
+<questiontext format="html"><text><![CDATA[<p>Dans un <code>StackPane</code>, quel enfant s'affiche au-dessus des autres ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Un StackPane empile ses enfants dans l'ordre d'ajout, centrés.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez FX §2, « Une fenêtre et ses composants », dans le support du module FX.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[le dernier ajouté]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[le premier ajouté]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[le plus grand]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[aucun : ils sont côte à côte]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>FX - Lire une saisie</text></name>
+<questiontext format="html"><text><![CDATA[<p>Comment lit-on le texte tapé dans un <code>TextField</code> nommé <code>saisie</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Les contrôles partagent getText et setText.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez FX §2, « Une fenêtre et ses composants », dans le support du module FX.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>saisie.getText()</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>saisie.read()</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>saisie.nextLine()</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>saisie.value</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>FX - getSource</text></name>
+<questiontext format="html"><text><![CDATA[<p>Un même gestionnaire est branché sur dix boutons. Comment savoir lequel a été cliqué ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>C'est ainsi que la calculatrice gère ses dix chiffres avec une seule méthode.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez FX §4, « Ce que dit un événement », dans le support du module FX.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[avec <code>evenement.getSource()</code>, transtypé en Button]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[on ne peut pas]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[avec un compteur]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[avec <code>this</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>FX - setOnAction ou addEventHandler</text></name>
+<questiontext format="html"><text><![CDATA[<p>Quelle est la différence entre <code>setOnAction</code> et <code>addEventHandler</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Deux gestionnaires ajoutés par addEventHandler s'exécutent tous les deux.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez FX §3, « Brancher un bouton », dans le support du module FX.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[setOnAction remplace le gestionnaire précédent ; addEventHandler en ajoute un de plus]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[aucune]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[addEventHandler est réservé au clavier]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[setOnAction en ajoute un de plus]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>FX - FXML onAction</text></name>
+<questiontext format="html"><text><![CDATA[<p>Dans un fichier FXML, comment brancher un bouton sur la méthode <code>basculer</code> du contrôleur ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Le dièse est indispensable : son oubli est l'erreur la plus fréquente.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez FX §9, « Décrire l'écran en FXML », dans le support du module FX.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>onAction="#basculer"</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>onAction="basculer"</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>onClick="basculer()"</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>fx:id="basculer"</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+</quiz>

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+<question type="category"><category><text>$course$/top/TAB - Tableaux, boucles et opérateur ternaire</text></category></question>
+<question type="multichoice">
+<name><text>TAB - Taille</text></name>
+<questiontext format="html"><text><![CDATA[<p>Après <code>int[] notes = new int[5];</code>, combien vaut <code>notes.length</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>La taille est fixée à la création ; <code>length</code> est un champ, sans parenthèses.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez TAB §1, « Un tableau, c'est une taille fixe », dans le support du module TAB.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[5]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[4]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[0]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[on ne peut pas le savoir]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>TAB - Valeurs initiales</text></name>
+<questiontext format="html"><text><![CDATA[<p>Que contient <code>notes[2]</code> juste après <code>int[] notes = new int[5];</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Les cases d'un tableau d'<code>int</code> valent 0 au départ ; celles d'un tableau d'objets valent <code>null</code>.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez TAB §1, « Un tableau, c'est une taille fixe », dans le support du module TAB.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[0]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>null</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[une valeur au hasard]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[le code ne compile pas]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>TAB - Dernier indice</text></name>
+<questiontext format="html"><text><![CDATA[<p>Quel est le dernier indice valide d'un tableau de taille <code>n</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Les indices vont de 0 à <code>n - 1</code> ; <code>t[n]</code> lève une <code>ArrayIndexOutOfBoundsException</code>.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez TAB §2, « Parcourir un tableau », dans le support du module TAB.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>n - 1</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>n</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>n + 1</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[1]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>TAB - for-each</text></name>
+<questiontext format="html"><text><![CDATA[<p>Quelle boucle parcourt toutes les valeurs d'un tableau sans gérer d'indice ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>La boucle for-each s'écrit avec deux-points en Java ; <code>foreach ... in</code> est la syntaxe C#.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez TAB §2, « Parcourir un tableau », dans le support du module TAB.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>for (int note : notes)</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>for (int i in notes)</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>foreach (int note in notes)</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>while (notes.hasNext())</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>TAB - for-each et modification</text></name>
+<questiontext format="html"><text><![CDATA[<p>Dans <code>for (int note : notes) { note = 0; }</code>, que deviennent les cases du tableau ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p><code>note</code> est une copie de la valeur de chaque case : la modifier ne touche pas le tableau. Il faut une boucle avec indice.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez TAB §2, « Parcourir un tableau », dans le support du module TAB.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[elles ne changent pas]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[elles valent toutes 0]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[seule la première vaut 0]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[le code ne compile pas]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>TAB - Afficher un tableau</text></name>
+<questiontext format="html"><text><![CDATA[<p>Qu'affiche <code>System.out.println(Arrays.toString(new int[]{1, 2, 3}));</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Sans <code>Arrays.toString</code>, <code>println</code> afficherait le type et un code, pas le contenu.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez TAB §2, « Parcourir un tableau », dans le support du module TAB.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>[1, 2, 3]</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>1 2 3</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[une adresse du genre [I@1b6d3586]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>{1, 2, 3}</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>TAB - Tableau irrégulier</text></name>
+<questiontext format="html"><text><![CDATA[<p>Dans un tableau à deux dimensions, les lignes ont-elles toutes la même taille ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Un tableau à deux dimensions est un tableau de tableaux : chaque ligne peut avoir sa longueur.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez TAB §3, « Des lignes de tailles différentes », dans le support du module TAB.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[pas forcément : chaque ligne est un tableau, qui a sa propre taille]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[oui, toujours]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[oui, sinon le code ne compile pas]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[seulement pour les tableaux de chaînes]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>TAB - Ternaire</text></name>
+<questiontext format="html"><text><![CDATA[<p>Que vaut <code>note &gt;= 10 ? "réussi" : "échoué"</code> quand <code>note</code> vaut 12 ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>L'opérateur ternaire choisit entre deux valeurs selon une condition : il produit une valeur, contrairement à un if.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez TAB §4, « L'opérateur ternaire », dans le support du module TAB.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>"réussi"</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>"échoué"</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>true</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[le code ne compile pas]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>TAB - Booléen retourné</text></name>
+<questiontext format="html"><text><![CDATA[<p>Quelle écriture est la plus simple pour une méthode qui dit si <code>a &gt; b</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Une comparaison est déjà un booléen : on la retourne telle quelle (règle <code>CC-MET.9</code>).</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez TAB §4, « L'opérateur ternaire », dans le support du module TAB.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>return a &gt; b;</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>if (a &gt; b) return true; else return false;</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>return a &gt; b ? true : false;</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>return (a &gt; b) == true;</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>TAB - Objets qui se connaissent</text></name>
+<questiontext format="html"><text><![CDATA[<p>Un tableau <code>Livre[] rayon = new Livre[10];</code> contient, juste après sa création :</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Créer le tableau ne crée aucun livre : chaque case attend une référence, et vaut <code>null</code> en attendant.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez TAB §5, « Des objets qui se connaissent », dans le support du module TAB.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[dix cases qui valent <code>null</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[dix livres vides]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[aucune case]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[dix livres identiques]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>TAB - Deux variables, un tableau</text></name>
+<questiontext format="html"><text><![CDATA[<p>Après <code>int[] b = a; b[0] = 9;</code>, combien vaut <code>a[0]</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p><code>b = a</code> ne copie pas le tableau : les deux variables désignent le même.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez TAB §1, « Un tableau, c'est une taille fixe », dans le support du module TAB.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[9]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[sa valeur d'avant]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[0]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[le code ne compile pas]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>TAB - length avec ou sans parenthèses</text></name>
+<questiontext format="html"><text><![CDATA[<p>Laquelle de ces écritures est correcte ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Pour un tableau, length est un champ ; pour une chaîne, c'est une méthode.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez TAB §1, « Un tableau, c'est une taille fixe », dans le support du module TAB.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>tableau.length</code> et <code>chaine.length()</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>tableau.length()</code> et <code>chaine.length</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>tableau.size()</code> et <code>chaine.size()</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>tableau.count</code> et <code>chaine.count()</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>TAB - Modifier les cases</text></name>
+<questiontext format="html"><text><![CDATA[<p>Pour mettre à zéro toutes les cases d'un tableau, quelle boucle faut-il ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>La boucle for-each ne donne qu'une copie de chaque valeur.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez TAB §2, « Parcourir un tableau », dans le support du module TAB.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[une boucle avec indice : <code>for (int i = 0; i &lt; t.length; i++) t[i] = 0;</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[une boucle for-each]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[une boucle while sans indice]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[aucune : il faut recréer le tableau]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>TAB - Accès à deux dimensions</text></name>
+<questiontext format="html"><text><![CDATA[<p>Dans <code>int[][] grille</code>, comment lit-on la case de la ligne <code>i</code>, colonne <code>j</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p><code>grille[i]</code> est la ligne i, un tableau ; <code>[j]</code> y prend la case j.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez TAB §3, « Des lignes de tailles différentes », dans le support du module TAB.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>grille[i][j]</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>grille[i, j]</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>grille(i, j)</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>grille[j][i]</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>TAB - Ternaire ou if</text></name>
+<questiontext format="html"><text><![CDATA[<p>Quand garder un <code>if</code> plutôt que l'opérateur ternaire ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Le ternaire produit une valeur ; pour enchaîner des instructions, if reste plus lisible.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez TAB §4, « L'opérateur ternaire », dans le support du module TAB.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[quand il s'agit d'exécuter des actions, et pas de choisir une valeur]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[jamais]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[quand la condition est courte]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[quand on manipule des nombres]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+</quiz>

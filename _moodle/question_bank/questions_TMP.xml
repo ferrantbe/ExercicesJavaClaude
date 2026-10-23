@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+<question type="category"><category><text>$course$/top/TMP - Dates et heures</text></category></question>
+<question type="multichoice">
+<name><text>TMP - LocalDate</text></name>
+<questiontext format="html"><text><![CDATA[<p>Quelle classe représente une date sans heure, comme le 23 octobre 2026 ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p><code>LocalDate</code> ne contient qu'une date : ni heure, ni fuseau horaire.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez TMP §1, « Les classes de java.time », dans le support du module TMP.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>LocalDate</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>Date</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>LocalDateTime</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>Instant</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>TMP - Créer une date</text></name>
+<questiontext format="html"><text><![CDATA[<p>Comment crée-t-on la date du 1er mai 1971 ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Les classes de <code>java.time</code> n'ont pas de constructeur public : on les obtient par des méthodes de fabrique, comme <code>of</code>.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez TMP §1, « Les classes de java.time », dans le support du module TMP.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>LocalDate.of(1971, 5, 1)</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>new LocalDate(1971, 5, 1)</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>LocalDate.parse(1971, 5, 1)</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>LocalDate.now(1971, 5, 1)</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>TMP - Immuabilité</text></name>
+<questiontext format="html"><text><![CDATA[<p>Que fait <code>date.plusDays(7);</code>, écrit seul sur une ligne ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Une date ne change jamais : <code>plusDays</code> retourne une nouvelle date. Il faut écrire <code>date = date.plusDays(7);</code>.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez TMP §3, « Une date ne change pas », dans le support du module TMP.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[rien d'utile : elle retourne une nouvelle date, que personne ne récupère]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[elle avance <code>date</code> de sept jours]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[elle lève une exception]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[elle ne compile pas]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>TMP - Écart en jours</text></name>
+<questiontext format="html"><text><![CDATA[<p>Comment obtenir le nombre de jours entre deux <code>LocalDate</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p><code>Period.between(...).getDays()</code> ne donne que la partie « jours » de la période, pas le total : sur deux mois d'écart, il peut valoir 0.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez TMP §2, « Mesurer un écart », dans le support du module TMP.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>ChronoUnit.DAYS.between(debut, fin)</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>fin - debut</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>fin.getDayOfYear() - debut.getDayOfYear()</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>Period.between(debut, fin).getDays()</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>TMP - Period ou Duration</text></name>
+<questiontext format="html"><text><![CDATA[<p>Pour mesurer la durée d'un film en heures et minutes, on utilise :</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p><code>Duration</code> mesure un temps exact, en secondes ; <code>Period</code> compte en années, mois et jours du calendrier.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez TMP §7, « Period ou Duration », dans le support du module TMP.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>Duration</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>Period</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>LocalTime</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>ChronoUnit.MONTHS</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>TMP - Fin de mois</text></name>
+<questiontext format="html"><text><![CDATA[<p>Que donne <code>LocalDate.of(2026, 1, 31).plusMonths(1)</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Le calendrier n'a pas de 31 février : Java prend le dernier jour valide du mois.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez TMP §6, « L'arithmétique du calendrier », dans le support du module TMP.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[le 28 février 2026]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[le 3 mars 2026]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[le 31 février 2026]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[une exception]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>TMP - printf</text></name>
+<questiontext format="html"><text><![CDATA[<p>Qu'affiche <code>System.out.printf("%s a %d ans%n", "Max", 21);</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Chaque <code>%</code> est un trou que remplit la valeur suivante, dans l'ordre ; <code>%n</code> passe à la ligne.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez TMP §4, « Un détour par l'affichage », dans le support du module TMP.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>Max a 21 ans</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>%s a %d ans</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>Max a %d ans</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[rien : il faut println]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>TMP - Date ou instant</text></name>
+<questiontext format="html"><text><![CDATA[<p>Pour enregistrer le moment exact d'une connexion, quel que soit le fuseau horaire, on utilise :</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Un <code>Instant</code> désigne un point précis sur la ligne du temps ; une <code>LocalDateTime</code> ne dit pas dans quel fuseau elle est.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez TMP §5, « Date ou instant ? », dans le support du module TMP.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>Instant</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>LocalDateTime</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>LocalDate</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>Period</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>TMP - Lire une date</text></name>
+<questiontext format="html"><text><![CDATA[<p>Comment transformer le texte <code>"23/10/2026"</code> en <code>LocalDate</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Sans formateur, <code>parse</code> n'accepte que le format ISO, <code>2026-10-23</code>.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez TMP §8, « Une date et son texte », dans le support du module TMP.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[avec <code>LocalDate.parse</code> et un <code>DateTimeFormatter</code> au motif <code>"dd/MM/yyyy"</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[avec <code>Integer.parseInt</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[avec <code>LocalDate.of("23/10/2026")</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[c'est impossible]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>TMP - Comparer deux dates</text></name>
+<questiontext format="html"><text><![CDATA[<p>Comment savoir si une date <code>a</code> vient avant une date <code>b</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Les opérateurs <code>&lt;</code> et <code>&gt;</code> ne s'appliquent pas aux objets ; <code>isBefore</code> et <code>isAfter</code> répondent à la question.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez TMP §1, « Les classes de java.time », dans le support du module TMP.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>a.isBefore(b)</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>a &lt; b</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>a.compareTo(b) == true</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>a.before(b)</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>TMP - LocalTime</text></name>
+<questiontext format="html"><text><![CDATA[<p>Quelle classe représente une heure sans date, comme 18 h 00 ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p><code>LocalTime.of(18, 0)</code> : une heure de la journée, sans date ni fuseau.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez TMP §1, « Les classes de java.time », dans le support du module TMP.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>LocalTime</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>LocalDate</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>Duration</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>Instant</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>TMP - Jour de la semaine</text></name>
+<questiontext format="html"><text><![CDATA[<p>Comment savoir quel jour de la semaine tombe une date <code>d</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p><code>getDayOfWeek</code> retourne une valeur de l'énumération <code>DayOfWeek</code>, comme <code>MONDAY</code>.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez TMP §1, « Les classes de java.time », dans le support du module TMP.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>d.getDayOfWeek()</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>d.getDay()</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>d.getDayOfMonth()</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>DayOfWeek.of(d)</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>TMP - Calculer un âge</text></name>
+<questiontext format="html"><text><![CDATA[<p>Comment calculer l'âge en années d'une personne née à la date <code>naissance</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Soustraire les années se trompe d'un an avant l'anniversaire ; Period compte en années complètes.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez TMP §7, « Period ou Duration », dans le support du module TMP.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>Period.between(naissance, LocalDate.now()).getYears()</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>LocalDate.now().getYear() - naissance.getYear()</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>Duration.between(naissance, LocalDate.now())</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>naissance.getAge()</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>TMP - with</text></name>
+<questiontext format="html"><text><![CDATA[<p>Que retourne <code>date.withDayOfMonth(1)</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Comme toutes les méthodes de <code>java.time</code>, <code>with...</code> retourne un nouvel objet.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez TMP §3, « Une date ne change pas », dans le support du module TMP.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[une nouvelle date, le premier jour du même mois]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[rien : elle modifie <code>date</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[le premier jour de l'année]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[le jour de la semaine]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>TMP - Séparateur de milliers</text></name>
+<questiontext format="html"><text><![CDATA[<p>Qu'affiche <code>System.out.printf(Locale.US, "%,d%n", 1157479200);</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>La virgule dans <code>%,d</code> demande un séparateur de milliers, choisi selon la langue (<code>Locale</code>).</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez TMP §4, « Un détour par l'affichage », dans le support du module TMP.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>1,157,479,200</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>1 157 479 200</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>1157479200</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>1.157.479.200</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+</quiz>

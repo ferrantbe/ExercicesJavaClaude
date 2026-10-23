@@ -271,6 +271,27 @@ Tout dépend de ce que la méthode fait de la liste : la lire, ou la remplir.
 
 La question à se poser porte sur la méthode, pas sur la liste. Si la méthode lit, si la liste lui *fournit* des éléments, le joker est `extends`. Si elle ajoute, si la liste *reçoit* des éléments, le joker est `super`. Les anglophones retiennent la règle sous le nom PECS, *Producer Extends, Consumer Super*. Une méthode qui fait les deux, lire et ajouter, n'utilise pas de joker : elle prend une `List<Bagage>`.
 
+### Des exemples, et des contre-exemples
+
+![Ce que chaque joker accepte, et ce qu'il refuse|15](../figures/gen-jokers.png)
+
+```java
+List<Valise> valises = new ArrayList<>();
+List<Sac> sacs = new ArrayList<>();
+List<Bagage> bagages = new ArrayList<>();
+List<Object> objets = new ArrayList<>();
+
+poidsTotal(valises);     // accepte : chaque Valise est un Bagage
+poidsTotal(sacs);        // accepte : chaque Sac aussi
+poidsTotal(objets);      // refuse : un Object n'est pas forcement un Bagage
+
+charger(bagages, 2);     // accepte : une Valise a sa place parmi des Bagage
+charger(objets, 2);      // accepte : et parmi des Object
+charger(sacs, 2);        // refuse : une Valise n'a pas sa place parmi des Sac
+```
+
+Le raisonnement est toujours le même : se demander ce que la méthode va faire de la liste. `poidsTotal` lit des éléments et les traite comme des `Bagage` : toute liste dont les éléments sont des `Bagage` convient, quelle que soit leur sorte exacte. `charger` ajoute des `Valise` : toute liste où une `Valise` a sa place convient, c'est-à-dire une liste de `Valise` ou d'un type plus général. Le compilateur refuse exactement les cas où la méthode pourrait se tromper.
+
 ## 5. Une méthode générique
 
 ### Le compilateur déduit le `T`

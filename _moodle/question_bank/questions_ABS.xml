@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+<question type="category"><category><text>$course$/top/ABS - Héritage et classes abstraites</text></category></question>
+<question type="multichoice">
+<name><text>ABS - extends</text></name>
+<questiontext format="html"><text><![CDATA[<p>Comment déclare-t-on que <code>Chat</code> hérite d'<code>Animal</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Java écrit <code>extends</code> là où C# met deux-points.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez ABS §1, « L'héritage en Java », dans le support du module ABS.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>class Chat extends Animal</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>class Chat : Animal</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>class Chat implements Animal</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>class Chat inherits Animal</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>ABS - Héritage simple</text></name>
+<questiontext format="html"><text><![CDATA[<p>Une classe Java peut-elle hériter de deux classes ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>L'héritage de classes est simple en Java ; les interfaces, elles, peuvent être multiples.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez ABS §1, « L'héritage en Java », dans le support du module ABS.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[non, d'une seule]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[oui, sans limite]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[oui, jusqu'à deux]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[seulement si elles sont abstraites]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>ABS - super</text></name>
+<questiontext format="html"><text><![CDATA[<p>Dans le constructeur d'une classe fille, que fait <code>super(nom);</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p><code>super(...)</code> doit être la première instruction du constructeur de la fille.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez ABS §1, « L'héritage en Java », dans le support du module ABS.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[il appelle le constructeur de la mère, qui initialise sa partie de l'objet]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[il crée un second objet, de la classe mère]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[il appelle la méthode nom de la mère]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[il rend la classe abstraite]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>ABS - Classe abstraite</text></name>
+<questiontext format="html"><text><![CDATA[<p>Peut-on écrire <code>new Animal()</code> si <code>Animal</code> est abstraite ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Une classe abstraite est un modèle incomplet : seules ses filles concrètes ont des objets.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez ABS §3, « La classe abstraite », dans le support du module ABS.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[non : une classe abstraite ne s'instancie pas]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[oui, toujours]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[oui, si elle a un constructeur]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[seulement dans une classe fille]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>ABS - Méthode abstraite</text></name>
+<questiontext format="html"><text><![CDATA[<p>Une méthode abstraite :</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Elle déclare une promesse que les filles doivent tenir ; une fille qui ne la tient pas doit être abstraite à son tour.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez ABS §3, « La classe abstraite », dans le support du module ABS.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[n'a pas de corps, et chaque fille concrète doit l'écrire]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[a un corps vide, qu'on peut compléter]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[est privée]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[ne peut pas avoir de paramètre]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>ABS - Ce qui monte</text></name>
+<questiontext format="html"><text><![CDATA[<p>Trois classes ont exactement la même méthode <code>getNom()</code>. Où l'écrire ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Ce qui est commun monte dans la mère, ce qui varie reste dans les filles (règle <code>CC-CLS.3</code>).</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez ABS §4, « Ce qui monte, ce qui descend », dans le support du module ABS.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[une seule fois, dans leur classe mère]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[dans chacune, pour être sûr]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[dans une classe utilitaire statique]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[dans le main]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>ABS - Polymorphisme</text></name>
+<questiontext format="html"><text><![CDATA[<p><code>Animal a = new Chat(); a.crier();</code> Quelle méthode <code>crier</code> s'exécute ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>C'est l'objet réel qui décide, pas le type de la variable : c'est le polymorphisme.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez ABS §5, « Le polymorphisme », dans le support du module ABS.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[celle de <code>Chat</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[celle d'<code>Animal</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[les deux, l'une après l'autre]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[aucune : le code ne compile pas]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>ABS - @Override</text></name>
+<questiontext format="html"><text><![CDATA[<p>À quoi sert l'annotation <code>@Override</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Une faute de frappe dans le nom créerait une nouvelle méthode sans prévenir ; l'annotation transforme cette erreur en erreur de compilation.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez ABS §5, « Le polymorphisme », dans le support du module ABS.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[à faire vérifier par le compilateur que la méthode redéfinit bien une méthode de la mère]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[à rendre la méthode abstraite]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[à accélérer l'appel]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[à empêcher la redéfinition]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>ABS - La mère appelle la fille</text></name>
+<questiontext format="html"><text><![CDATA[<p>Une méthode de la mère appelle une méthode abstraite. Quel code s'exécute, pour un objet de la fille ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>La mère fixe le déroulement, et laisse à chaque fille le détail : la mère appelle du code écrit après elle.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez ABS §6, « La mère appelle la fille », dans le support du module ABS.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[celui que la fille a écrit]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[aucun, la méthode est abstraite]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[celui de la mère]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[une exception]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>ABS - Chaîne de tests sur le type</text></name>
+<questiontext format="html"><text><![CDATA[<p>Le polymorphisme évite surtout :</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Une suite de <code>instanceof</code> se remplace par une méthode redéfinie dans chaque fille (règle <code>CC-CLS.4</code>).</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez ABS §5, « Le polymorphisme », dans le support du module ABS.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[une chaîne de <code>if</code> qui teste le type de l'objet pour choisir quoi faire]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[d'écrire des constructeurs]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[les classes abstraites]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[les exceptions]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>ABS - Object</text></name>
+<questiontext format="html"><text><![CDATA[<p>De quelle classe toutes les classes Java héritent-elles, directement ou non ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>C'est d'Object que viennent <code>toString</code>, <code>equals</code> et <code>hashCode</code>.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez ABS §1, « L'héritage en Java », dans le support du module ABS.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>Object</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>Main</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>Class</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[d'aucune]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>ABS - Constructeur d'une classe abstraite</text></name>
+<questiontext format="html"><text><![CDATA[<p>Une classe abstraite peut-elle avoir un constructeur ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>On n'écrit jamais new sur elle, mais son constructeur sert à ses filles.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez ABS §3, « La classe abstraite », dans le support du module ABS.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[oui : ses filles l'appellent avec super pour initialiser la partie commune]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[non, puisqu'on ne l'instancie pas]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[seulement s'il est privé]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[seulement sans paramètre]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>ABS - Fille incomplète</text></name>
+<questiontext format="html"><text><![CDATA[<p>Une classe fille n'écrit pas toutes les méthodes abstraites de sa mère. Que doit-elle être ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Elle reste une promesse incomplète : seule une fille qui écrit tout peut avoir des objets.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez ABS §7, « Deux étages », dans le support du module ABS.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[abstraite à son tour]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[publique]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[finale]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[rien de particulier]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>ABS - Méthode propre à la fille</text></name>
+<questiontext format="html"><text><![CDATA[<p><code>Animal a = new Chat();</code> Peut-on écrire <code>a.miauler();</code>, si seul <code>Chat</code> a cette méthode ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Le compilateur ne regarde que le type de la variable.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez ABS §5, « Le polymorphisme », dans le support du module ABS.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[non : la variable est de type Animal, qui ne connaît pas miauler]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[oui, puisque l'objet est un Chat]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[oui, avec @Override]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[seulement dans la classe Chat]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>ABS - super et redéfinition</text></name>
+<questiontext format="html"><text><![CDATA[<p>Dans une méthode redéfinie, que fait <code>super.decrire()</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>La fille peut réutiliser le travail de la mère et y ajouter le sien. Si la mère directe ne redéfinit pas la méthode, super désigne la version héritée de plus haut : la plus proche en remontant la hiérarchie.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez ABS §4, « Ce qui monte, ce qui descend », dans le support du module ABS.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[il appelle la version de la mère, pour la compléter plutôt que la réécrire]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[il appelle la méthode elle-même]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[il crée un objet de la mère]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[il rend la méthode abstraite]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+</quiz>

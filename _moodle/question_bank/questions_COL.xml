@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+<question type="category"><category><text>$course$/top/COL - Collections</text></category></question>
+<question type="multichoice">
+<name><text>COL - Déclarer par l'interface</text></name>
+<questiontext format="html"><text><![CDATA[<p>Quelle déclaration est recommandée ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>On déclare avec l'interface, et on choisit la classe au moment du new : on pourra en changer sans toucher au reste.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez COL §1, « Une structure qui grandit », dans le support du module COL.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>List&lt;String&gt; titres = new ArrayList&lt;&gt;();</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>ArrayList&lt;String&gt; titres = new ArrayList&lt;&gt;();</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>List titres = new List();</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>String[] titres = new ArrayList&lt;&gt;();</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>COL - Types primitifs</text></name>
+<questiontext format="html"><text><![CDATA[<p>Pourquoi écrit-on <code>List&lt;Integer&gt;</code> et pas <code>List&lt;int&gt;</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>L'autoboxing convertit automatiquement int en Integer à l'ajout, et l'inverse à la lecture.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez COL §1, « Une structure qui grandit », dans le support du module COL.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[une collection ne contient que des objets : on utilise l'enveloppe Integer]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>int</code> est trop petit]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[c'est une convention de nommage]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>List&lt;int&gt;</code> est plus lent]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>COL - remove</text></name>
+<questiontext format="html"><text><![CDATA[<p>Sur une <code>List&lt;Integer&gt;</code>, que fait <code>remove(2)</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Avec un <code>int</code>, c'est la version par position qui est choisie ; pour retirer la valeur 2, il faut <code>remove(Integer.valueOf(2))</code>.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez COL §2, « Une liste, des positions », dans le support du module COL.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[il retire l'élément en position 2]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[il retire le nombre 2]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[il retire les deux premiers éléments]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[il ne compile pas]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>COL - Set</text></name>
+<questiontext format="html"><text><![CDATA[<p>Que fait un <code>Set</code> quand on lui ajoute un élément déjà présent ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Un ensemble ne contient jamais deux fois le même élément.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez COL §3, « Un ensemble, sans doublons », dans le support du module COL.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[il le refuse, et <code>add</code> retourne false]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[il l'ajoute une seconde fois]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[il lève une exception]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[il remplace l'ancien]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>COL - equals et hashCode</text></name>
+<questiontext format="html"><text><![CDATA[<p>Pour qu'un <code>HashSet</code> reconnaisse deux objets égaux, leur classe doit définir :</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Un record les écrit pour vous ; une classe ordinaire doit les redéfinir ensemble.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez COL §3, « Un ensemble, sans doublons », dans le support du module COL.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>equals</code> et <code>hashCode</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[seulement <code>toString</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[seulement <code>compareTo</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[rien de particulier]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>COL - Map get</text></name>
+<questiontext format="html"><text><![CDATA[<p>Que retourne <code>get</code> sur une <code>Map</code> quand la clé est absente ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p><code>getOrDefault(cle, valeur)</code> permet de choisir la valeur à retourner à la place.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez COL §4, « Une table, des clés », dans le support du module COL.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>null</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[une exception]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[0]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[une chaîne vide]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>COL - Retirer pendant un parcours</text></name>
+<questiontext format="html"><text><![CDATA[<p>Retirer un élément d'une liste dans une boucle for-each sur cette même liste :</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>On utilise <code>removeIf</code>, ou un <code>Iterator</code> et sa méthode <code>remove</code>.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez COL §5, « Passer un comportement », dans le support du module COL.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[lève une <code>ConcurrentModificationException</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[fonctionne toujours]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[retire tous les éléments]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[ne compile pas]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>COL - Comparable ou Comparator</text></name>
+<questiontext format="html"><text><![CDATA[<p>Pour trier des livres tantôt par titre, tantôt par année, on écrit :</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p><code>Comparable</code> définit l'ordre de la classe ; un <code>Comparator</code> fournit un ordre de l'extérieur, parmi d'autres.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez COL §6, « Comparer et trier », dans le support du module COL.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[un ordre naturel avec <code>Comparable</code>, et un <code>Comparator</code> pour l'autre ordre]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[deux méthodes <code>compareTo</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[deux <code>TreeSet</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[on ne peut avoir qu'un seul ordre]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>COL - TreeSet et comparateur</text></name>
+<questiontext format="html"><text><![CDATA[<p>Un <code>TreeSet</code> trié par auteur seulement reçoit deux livres du même auteur. Que se passe-t-il ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Pour un TreeSet, le comparateur dit aussi ce qui est un doublon : il retourne 0, donc le second livre est refusé.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez COL §6, « Comparer et trier », dans le support du module COL.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[il n'en garde qu'un : pour lui, ce sont des doublons]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[il garde les deux]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[il lève une exception]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[il les trie par titre]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>COL - Deque</text></name>
+<questiontext format="html"><text><![CDATA[<p>Quelle structure permet de prendre et de remettre des éléments aux deux bouts ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Avec <code>ArrayDeque</code> : <code>addFirst</code>, <code>addLast</code>, <code>pollFirst</code>, <code>pollLast</code>.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez COL §8, « Une file, deux bouts », dans le support du module COL.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>Deque</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>Set</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>Map</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>TreeSet</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>COL - ArrayList ou LinkedList</text></name>
+<questiontext format="html"><text><![CDATA[<p>Pour lire souvent un élément par sa position avec <code>get(i)</code>, quelle liste choisir ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>ArrayList accède directement à une position ; LinkedList doit parcourir ses maillons.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez COL §2, « Une liste, des positions », dans le support du module COL.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>ArrayList</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>LinkedList</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[les deux sont aussi rapides]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>TreeSet</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>COL - Collection ou Collections</text></name>
+<questiontext format="html"><text><![CDATA[<p>Quelle est la différence entre <code>Collection</code> et <code>Collections</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Un seul s fait toute la différence.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez COL §2, « Une liste, des positions », dans le support du module COL.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>Collection</code> est une interface ; <code>Collections</code> est une classe d'outils statiques, comme sort ou shuffle]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[aucune]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>Collections</code> est une liste]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>Collection</code> est une classe abstraite]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>COL - Ordre d'un HashSet</text></name>
+<questiontext format="html"><text><![CDATA[<p>Dans quel ordre un <code>HashSet</code> rend-il ses éléments ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Pour l'ordre d'ajout, il existe aussi <code>LinkedHashSet</code>.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez COL §3, « Un ensemble, sans doublons », dans le support du module COL.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[dans un ordre qui n'est pas garanti ; pour un ordre trié, on prend un <code>TreeSet</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[dans l'ordre d'ajout]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[dans l'ordre alphabétique]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[à l'envers]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>COL - Parcourir une table</text></name>
+<questiontext format="html"><text><![CDATA[<p>Comment parcourir à la fois les clés et les valeurs d'une <code>Map</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>keySet donne les clés, values les valeurs, entrySet les couples.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez COL §4, « Une table, des clés », dans le support du module COL.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[avec <code>entrySet()</code>, et <code>getKey()</code> et <code>getValue()</code> sur chaque entrée]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[avec <code>keySet()</code> seulement]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[avec une boucle sur <code>size()</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[c'est impossible]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>COL - computeIfAbsent</text></name>
+<questiontext format="html"><text><![CDATA[<p>Que fait <code>parAuteur.computeIfAbsent(auteur, a -&gt; new ArrayList&lt;&gt;())</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>C'est l'outil des collections emboîtées : plus besoin de tester si la clé existe.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez COL §7, « Des collections emboîtées », dans le support du module COL.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[elle retourne la liste de cet auteur, et la crée d'abord si elle n'existe pas encore]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[elle remplace la liste existante]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[elle retire l'auteur]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[elle compte les auteurs]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+</quiz>

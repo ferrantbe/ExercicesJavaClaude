@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+<question type="category"><category><text>$course$/top/PKG - Packages et visibilité</text></category></question>
+<question type="multichoice">
+<name><text>PKG - Package et dossier</text></name>
+<questiontext format="html"><text><![CDATA[<p>La classe <code>be.ephec.java.modele.Livre</code> se trouve dans quel dossier ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Chaque segment du nom de package correspond à un dossier.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez PKG §1, « Un package, un dossier », dans le support du module PKG.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>be/ephec/java/modele/</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>modele/</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[n'importe où]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>be.ephec.java.modele/</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>PKG - import</text></name>
+<questiontext format="html"><text><![CDATA[<p>Faut-il importer une classe du même package ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Les classes d'un même package se voient sans <code>import</code>, comme celles de <code>java.lang</code>.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez PKG §1, « Un package, un dossier », dans le support du module PKG.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[non]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[oui, toujours]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[seulement si elle est publique]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[seulement pour les classes statiques]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>PKG - Sans mot-clé</text></name>
+<questiontext format="html"><text><![CDATA[<p>Un membre déclaré sans modificateur d'accès est visible :</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>C'est la visibilité de package, le niveau sans mot-clé.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez PKG §2, « Le niveau sans mot-clé », dans le support du module PKG.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[des classes du même package seulement]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[de tout le programme]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[de sa classe seulement]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[des classes filles seulement]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>PKG - private</text></name>
+<questiontext format="html"><text><![CDATA[<p>Qui peut lire un champ <code>private</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>C'est le niveau le plus fermé, et celui par lequel commencer.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez PKG §2, « Le niveau sans mot-clé », dans le support du module PKG.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[la classe qui le déclare, et elle seule]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[les classes du même package]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[les classes filles]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[tout le monde]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>PKG - Ordre des niveaux</text></name>
+<questiontext format="html"><text><![CDATA[<p>Dans quel ordre choisir la visibilité d'un membre ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>On n'ouvre que ce qui doit l'être : ce qui est fermé peut changer sans casser les autres classes.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez PKG §4, « La surface publique », dans le support du module PKG.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>private</code> d'abord ; le package si une voisine en a besoin ; <code>protected</code> si une fille d'un autre package en a besoin ; <code>public</code> pour ce que les autres appellent]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>public</code> d'abord, on restreindra plus tard]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[toujours le niveau sans mot-clé]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>protected</code> partout]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>PKG - Champ public</text></name>
+<questiontext format="html"><text><![CDATA[<p>Pourquoi préférer un accesseur à un champ <code>public</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Un champ public fige la représentation interne : tout le programme en dépend.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez PKG §3, « Champ public ou accesseur », dans le support du module PKG.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[la classe garde le contrôle : elle peut vérifier, calculer ou changer sa représentation sans toucher aux appelants]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[un champ public ne compile pas]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[c'est plus rapide]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[pour les tests seulement]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>PKG - Surface publique</text></name>
+<questiontext format="html"><text><![CDATA[<p>La surface publique d'une classe, c'est :</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Plus elle est petite, plus la classe est facile à comprendre et à faire évoluer.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez PKG §4, « La surface publique », dans le support du module PKG.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[l'ensemble de ce que les autres classes peuvent utiliser]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[le nombre de lignes de la classe]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[ses champs privés]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[son nom de package]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>PKG - Découper</text></name>
+<questiontext format="html"><text><![CDATA[<p>Une application est découpée en trois packages : <code>modele</code>, <code>services</code> et <code>application</code>. Que peuvent importer les classes de <code>modele</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Le modèle est la couche du métier : il ne dépend de rien d'autre, ce qui permet de le tester et de le réutiliser.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez PKG §5, « Découper en packages », dans le support du module PKG.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[rien des deux autres packages : ni <code>services</code>, ni <code>application</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[tout, y compris <code>application</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[seulement <code>application</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[rien du tout, même pas les classes du JDK]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>PKG - protected</text></name>
+<questiontext format="html"><text><![CDATA[<p>Un membre <code>protected</code> est visible :</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p><code>protected</code> est un peu plus ouvert que la visibilité de package, pas moins.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez PKG §6, « Le quatrième niveau : protected », dans le support du module PKG.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[du package, et des classes filles même dans un autre package]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[des classes filles seulement]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[de tout le programme]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[de sa classe seulement]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>PKG - Classe publique</text></name>
+<questiontext format="html"><text><![CDATA[<p>Une classe utilisée depuis un autre package doit être :</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Sans public, une classe n'existe que pour son propre package.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez PKG §2, « Le niveau sans mot-clé », dans le support du module PKG.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>public</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>private</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>protected</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[sans modificateur]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>PKG - Déclaration de package</text></name>
+<questiontext format="html"><text><![CDATA[<p>Où se trouve la ligne <code>package be.ephec.java.modele;</code> dans un fichier ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>La déclaration de package est la première instruction du fichier.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez PKG §1, « Un package, un dossier », dans le support du module PKG.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[tout en haut, avant les imports]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[après les imports]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[dans la classe]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[dans le pom.xml]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>PKG - Import avec étoile</text></name>
+<questiontext format="html"><text><![CDATA[<p><code>import java.util.*;</code> importe-t-il aussi les classes de <code>java.util.function</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Pour Java, un « sous-package » est un package à part entière.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez PKG §1, « Un package, un dossier », dans le support du module PKG.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[non : l'étoile ne prend que les classes du package, pas des sous-packages]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[oui, tout ce qui commence par java.util]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[oui, mais seulement les interfaces]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[ça ne compile pas]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>PKG - Nom de package</text></name>
+<questiontext format="html"><text><![CDATA[<p>Quelle convention suit un nom de package comme <code>be.ephec.java.modele</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>L'organisation, puis le projet, puis le module : deux organisations ne peuvent pas entrer en collision.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez PKG §1, « Un package, un dossier », dans le support du module PKG.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[un nom de domaine inversé, en minuscules, du général au précis]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[le nom de l'auteur]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[des majuscules, comme une classe]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[le nom du fichier principal]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>PKG - private et objets</text></name>
+<questiontext format="html"><text><![CDATA[<p>Une méthode de <code>Livre</code> peut-elle lire le champ <code>private</code> d'un autre objet <code>Livre</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>C'est ce qui permet à equals de comparer les champs de deux objets de la même classe.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez PKG §2, « Le niveau sans mot-clé », dans le support du module PKG.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[oui : private protège la classe, pas chaque objet]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[non, jamais]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[seulement avec un getter]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[seulement dans le constructeur]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>PKG - Déplacer une classe</text></name>
+<questiontext format="html"><text><![CDATA[<p>Comment déplacer proprement une classe dans un autre package avec IntelliJ ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Déplacer le fichier à la main laisserait des imports et une déclaration de package faux.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez PKG §5, « Découper en packages », dans le support du module PKG.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[Refactor, Move : IntelliJ met à jour la ligne package et tous les imports]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[couper et coller le fichier dans l'explorateur]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[renommer le fichier]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[on ne peut pas]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+</quiz>

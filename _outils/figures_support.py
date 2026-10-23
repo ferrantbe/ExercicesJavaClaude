@@ -370,6 +370,38 @@ def col_formes():
         col_forme(nom)
 
 
+def abs_chaine():
+    f = Figure(1500, 560)
+    a = boite_classe(f, 560, 20, "A", None, ["truc()"], 380)
+    b = boite_classe(f, 180, 210, "B", None, [""], 340)
+    c = boite_classe(f, 980, 210, "C", None, ["truc()"], 340)
+    d = boite_classe(f, 20, 400, "D", None, ["truc()"], 300)
+    e = boite_classe(f, 360, 400, "E", None, [""], 300)
+    g = boite_classe(f, 980, 400, "F", None, [""], 340)
+    for fille, mere in ((b, a), (c, a), (d, b), (e, b), (g, c)):
+        herite(f, fille, mere)
+    f.texte(1360, 120, "truc() écrite", TEXTE_IT, GRIS, centre=True)
+    f.texte(1360, 155, "dans A, C et D", TEXTE_IT, GRIS, centre=True)
+    f.enregistrer("abs-chaine.png")
+
+
+def gen_jokers():
+    f = Figure(1600, 470)
+    colonnes = [("List<? extends Bagage>", "on y lit des Bagage", [("List<Bagage>", True), ("List<Valise>", True), ("List<Sac>", True), ("List<Object>", False)]),
+                ("List<? super Valise>", "on y ajoute des Valise", [("List<Valise>", True), ("List<Bagage>", True), ("List<Object>", True), ("List<Sac>", False)])]
+    for k, (titre, role, listes) in enumerate(colonnes):
+        x0 = 40 + k * 800
+        f.d.rounded_rectangle([x0, 20, x0 + 720, 100], radius=14, outline=NOIR, width=3, fill=GRIS_CLAIR)
+        f.texte(x0 + 360, 34, titre, MONO_GRAS, centre=True)
+        f.texte(x0 + 360, 112, role, TEXTE_IT, GRIS, centre=True)
+        for j, (liste, ok) in enumerate(listes):
+            y = 170 + j * 70
+            f.d.rounded_rectangle([x0 + 60, y, x0 + 660, y + 54], radius=10, outline=NOIR if ok else GRIS, width=3 if ok else 2, fill=FOND)
+            f.texte(x0 + 90, y + 10, liste, MONO_GRAS if ok else MONO)
+            f.texte(x0 + 630, y + 8, "accepté" if ok else "refusé", TEXTE_IT, NOIR if ok else GRIS, droite=True) if False else f.texte(x0 + 470, y + 10, "acceptée" if ok else "refusée", TEXTE_IT, NOIR if ok else GRIS)
+    f.enregistrer("gen-jokers.png")
+
+
 def fic_racines():
     f = Figure(2000, 560)
     groupes = [("octets", 30, [("InputStream", ["FileInputStream", "BufferedInputStream", "ObjectInputStream"]),
@@ -572,7 +604,7 @@ def itf_transports():
 
 
 if __name__ == "__main__":
-    for fn in (fic_racines, fic_emboitement, fx_graphe, fx_propagation, gen_bagages, exc_hierarchie, exc_pile, col_formes, col_interfaces, abs_notifications, abs_prestations, abs_visualiseur, itf_mvc, itf_transports):
+    for fn in (abs_chaine, gen_jokers, fic_racines, fic_emboitement, fx_graphe, fx_propagation, gen_bagages, exc_hierarchie, exc_pile, col_formes, col_interfaces, abs_notifications, abs_prestations, abs_visualiseur, itf_mvc, itf_transports):
         fn()
     for fn in (tab_tableau_de_tableaux, tab_classes_vente, enu_modele_jeu):
         fn()

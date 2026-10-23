@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+<question type="category"><category><text>$course$/top/LAM - Lambdas et références de méthodes</text></category></question>
+<question type="multichoice">
+<name><text>LAM - Classe anonyme</text></name>
+<questiontext format="html"><text><![CDATA[<p>Qu'est-ce qu'une classe anonyme ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Elle sert quand un comportement n'est utile qu'une fois.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez LAM §1, « Une classe qui perd son nom », dans le support du module LAM.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[une classe sans nom, déclarée et instanciée au même endroit]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[une classe privée]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[une classe abstraite]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[une interface]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>LAM - Lambda</text></name>
+<questiontext format="html"><text><![CDATA[<p>Que remplace la lambda <code>titre -&gt; titre.length() &gt; 20</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Il ne reste que ce que le compilateur ne peut pas deviner : le paramètre et ce qu'on en fait.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez LAM §2, « Ce que le compilateur sait déjà », dans le support du module LAM.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[une classe qui implémente la seule méthode d'une interface fonctionnelle]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[une boucle]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[une variable]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[une exception]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>LAM - Type cible</text></name>
+<questiontext format="html"><text><![CDATA[<p>Comment le compilateur sait-il quelle méthode une lambda implémente ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Une lambda seule ne veut rien dire : c'est sa destination qui lui donne un type.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez LAM §2, « Ce que le compilateur sait déjà », dans le support du module LAM.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[par le type cible : la variable ou le paramètre qui la reçoit, qui doit être une interface fonctionnelle]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[par le nom de la lambda]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[il ne le sait pas]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[par le nombre de lignes]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>LAM - Pas de classe abstraite</text></name>
+<questiontext format="html"><text><![CDATA[<p>Peut-on écrire une lambda là où l'on attend une classe abstraite ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Une classe abstraite peut avoir un état et un constructeur, qu'une lambda ne fournit pas.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez LAM §2, « Ce que le compilateur sait déjà », dans le support du module LAM.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[non : seule une interface fonctionnelle peut être le type cible d'une lambda]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[oui, toujours]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[oui, si elle a une méthode]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[seulement en JavaFX]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>LAM - Plusieurs instructions</text></name>
+<questiontext format="html"><text><![CDATA[<p>Une lambda contient deux instructions. Que faut-il ajouter ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Dès que le corps compte plus d'une instruction, il s'écrit comme un corps de méthode.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez LAM §2, « Ce que le compilateur sait déjà », dans le support du module LAM.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[des accolades, et un <code>return</code> si elle retourne une valeur]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[rien]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[un point-virgule final seulement]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[le nom de la méthode]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>LAM - Predicate</text></name>
+<questiontext format="html"><text><![CDATA[<p>Quelle interface de <code>java.util.function</code> représente un test qui répond oui ou non ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Sa méthode test reçoit un T et retourne un boolean ; c'est elle que reçoit removeIf.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez LAM §3, « Réutiliser ce qui existe », dans le support du module LAM.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>Predicate&lt;T&gt;</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>Function&lt;T, R&gt;</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>Consumer&lt;T&gt;</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>Supplier&lt;T&gt;</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>LAM - Supplier</text></name>
+<questiontext format="html"><text><![CDATA[<p>Quelle interface représente « quelque chose qui fournit une valeur, sans rien recevoir » ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Sa méthode get ne reçoit rien et retourne un T ; GameHub s'en sert pour fabriquer des jeux.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez LAM §3, « Réutiliser ce qui existe », dans le support du module LAM.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>Supplier&lt;T&gt;</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>Consumer&lt;T&gt;</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>Predicate&lt;T&gt;</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>Function&lt;T, R&gt;</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>LAM - forEach</text></name>
+<questiontext format="html"><text><![CDATA[<p><code>titres</code> est une <code>List&lt;String&gt;</code>. Que fait <code>titres.forEach(t -&gt; System.out.println(t));</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>forEach reçoit un Consumer et l'applique à chaque élément.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez LAM §3, « Réutiliser ce qui existe », dans le support du module LAM.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[elle affiche chaque titre, dans l'ordre]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[elle trie la liste]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[elle retire les titres]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[elle compte les titres]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>LAM - Référence de méthode</text></name>
+<questiontext format="html"><text><![CDATA[<p>Quelle écriture équivaut à <code>titre -&gt; Titres.estLong(titre)</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>La référence de méthode désigne la méthode sans l'appeler ; removeIf l'appellera sur chaque titre.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez LAM §3, « Réutiliser ce qui existe », dans le support du module LAM.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>Titres::estLong</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>Titres.estLong</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>Titres.estLong()</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>estLong::Titres</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>LAM - Nommer</text></name>
+<questiontext format="html"><text><![CDATA[<p>Une lambda devient longue et difficile à lire. Que faire ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Une méthode nommée se lit, se réutilise et se teste seule.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez LAM §3, « Réutiliser ce qui existe », dans le support du module LAM.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[en faire une méthode nommée, et la passer par référence de méthode]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[la laisser telle quelle]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[la remplacer par un catch]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[la découper en deux lambdas]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>LAM - Sans paramètre</text></name>
+<questiontext format="html"><text><![CDATA[<p>Comment s'écrit une lambda qui ne reçoit rien, pour un <code>Runnable</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>La méthode run ne reçoit rien : la lambda commence par des parenthèses vides.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez LAM §2, « Ce que le compilateur sait déjà », dans le support du module LAM.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>() -&gt; System.out.println("Bonjour")</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>-&gt; System.out.println("Bonjour")</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>void -&gt; System.out.println("Bonjour")</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>_ -&gt; System.out.println("Bonjour")</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>LAM - Deux paramètres</text></name>
+<questiontext format="html"><text><![CDATA[<p>Comment s'écrit un <code>Comparator&lt;String&gt;</code> par longueur, en lambda ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>compare reçoit deux paramètres, nommés entre parenthèses ; Integer.compare plutôt qu'une soustraction.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez LAM §2, « Ce que le compilateur sait déjà », dans le support du module LAM.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>(a, b) -&gt; Integer.compare(a.length(), b.length())</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>a, b -&gt; a.length() &lt; b.length()</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>(a, b) =&gt; a.length() - b.length()</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>a -&gt; a.length()</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>LAM - Function</text></name>
+<questiontext format="html"><text><![CDATA[<p>Que fait une <code>Function&lt;String, Integer&gt;</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Function&lt;T, R&gt; : elle reçoit un T et retourne un R.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez LAM §3, « Réutiliser ce qui existe », dans le support du module LAM.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[elle transforme une String en Integer, par sa méthode apply]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[elle teste une String]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[elle affiche une String]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[elle fournit un Integer sans rien recevoir]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>LAM - @FunctionalInterface</text></name>
+<questiontext format="html"><text><![CDATA[<p>À quoi sert l'annotation <code>@FunctionalInterface</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Elle protège toutes les lambdas qui utilisent l'interface.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez LAM §2, « Ce que le compilateur sait déjà », dans le support du module LAM.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[à faire refuser par le compilateur une seconde méthode abstraite ajoutée à l'interface]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[à rendre l'interface plus rapide]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[à créer une lambda]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[elle est obligatoire]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>LAM - Consumer</text></name>
+<questiontext format="html"><text><![CDATA[<p>Quelle interface représente une action qui reçoit une valeur et ne retourne rien ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Sa méthode accept reçoit un T ; c'est elle que reçoit forEach.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez LAM §3, « Réutiliser ce qui existe », dans le support du module LAM.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>Consumer&lt;T&gt;</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>Supplier&lt;T&gt;</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>Predicate&lt;T&gt;</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>Function&lt;T, R&gt;</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+</quiz>

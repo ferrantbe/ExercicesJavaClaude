@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+<question type="category"><category><text>$course$/top/JUN - Tests unitaires avec JUnit</text></category></question>
+<question type="multichoice">
+<name><text>JUN - @Test</text></name>
+<questiontext format="html"><text><![CDATA[<p>Que fait l'annotation <code>@Test</code> sur une méthode ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Une méthode de test ne reçoit rien et ne retourne rien ; JUnit trouve et lance toutes les méthodes annotées.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez JUN §2, « Ce qu'un test contient », dans le support du module JUN.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[elle en fait un test, que JUnit lance tout seul]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[elle la rend publique]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[elle la lance au démarrage du main]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[elle la désactive]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>JUN - Où vit un test</text></name>
+<questiontext format="html"><text><![CDATA[<p>Dans un projet Maven, où se trouve la classe de test de <code>be.ephec.java.spectacle.Salle</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Le code de test ne part pas en production : il vit dans src/test.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez JUN §2, « Ce qu'un test contient », dans le support du module JUN.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[dans <code>src/test/java</code>, sous le même package, et elle s'appelle <code>SalleTest</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[dans <code>src/main/java</code>, à côté de Salle]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[dans un projet séparé]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[n'importe où]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>JUN - Ordre de assertEquals</text></name>
+<questiontext format="html"><text><![CDATA[<p>Dans <code>assertEquals(a, b, message)</code>, quel est l'ordre attendu ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Inverser les deux valeurs rend le message d'échec trompeur.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez JUN §2, « Ce qu'un test contient », dans le support du module JUN.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[la valeur attendue, puis la valeur obtenue, puis le message]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[l'obtenue, puis l'attendue]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[l'ordre n'a pas d'importance]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[le message d'abord]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>JUN - Sans assertion</text></name>
+<questiontext format="html"><text><![CDATA[<p>Un test qui appelle une méthode, puis affiche le résultat avec <code>println</code> :</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Un test se termine par une assertion (règle <code>CC-TST.4</code>).</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez JUN §2, « Ce qu'un test contient », dans le support du module JUN.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[passe au vert quoi qu'il arrive : il ne vérifie rien]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[échoue si le résultat est faux]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[ne compile pas]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[demande une confirmation]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>JUN - Test rouge</text></name>
+<questiontext format="html"><text><![CDATA[<p>Un test passe au rouge. Qu'est-ce que cela prouve ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>On relit la documentation ou l'énoncé avant de corriger l'un ou l'autre.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez JUN §2, « Ce qu'un test contient », dans le support du module JUN.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[qu'il y a un désaccord : le code ou le test peut avoir tort, et c'est la spécification qui tranche]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[que le code est faux]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[que le test est faux]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[que JUnit est mal installé]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>JUN - assertThrows</text></name>
+<questiontext format="html"><text><![CDATA[<p>Comment vérifier que <code>salle.reserver(0)</code> lève une <code>IllegalArgumentException</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>assertThrows fait l'appel, attrape l'exception, et vérifie son type.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez JUN §3, « Vérifier tout le contrat », dans le support du module JUN.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>assertThrows(IllegalArgumentException.class, () -&gt; salle.reserver(0));</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>assertEquals(IllegalArgumentException, salle.reserver(0));</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>try { salle.reserver(0); } catch (Exception e) { }</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>assertTrue(salle.reserver(0) == null);</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>JUN - throws dans un test</text></name>
+<questiontext format="html"><text><![CDATA[<p>Une méthode de test appelle une méthode qui déclare une exception contrôlée. Que faire ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Attraper l'exception sans rien faire ferait passer le test au vert alors que l'appel a échoué.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez JUN §3, « Vérifier tout le contrat », dans le support du module JUN.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[déclarer <code>throws</code> sur la méthode de test : si l'exception survient alors qu'elle ne devrait pas, le test passe au rouge]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[l'attraper avec un catch vide]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[supprimer l'appel]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[la transformer en println]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>JUN - L'état après l'échec</text></name>
+<questiontext format="html"><text><![CDATA[<p>Une salle de 10 places en a déjà 8 réservées. Un test vérifie qu'en réserver 3 de plus lève une <code>SalleCompleteException</code>. Que reste-t-il à vérifier ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Lever la bonne exception ne suffit pas : le refus ne doit rien avoir changé.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez JUN §3, « Vérifier tout le contrat », dans le support du module JUN.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[que rien n'a été réservé : il reste toujours 2 places libres]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[rien de plus]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[que le message est en majuscules]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[que la salle est vide]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>JUN - Frontières</text></name>
+<questiontext format="html"><text><![CDATA[<p>Pour une salle de 10 places, quel cas a le plus de chances de démasquer un <code>&gt;</code> écrit à la place de <code>&gt;=</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Les défauts se logent aux frontières entre les familles de cas.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez JUN §4, « Choisir ses cas, et les justifier », dans le support du module JUN.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[réserver exactement les 10 places libres]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[réserver 3 places]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[réserver 0 place]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[créer une salle vide]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>JUN - Un test par valeur</text></name>
+<questiontext format="html"><text><![CDATA[<p>Pourquoi écrire une méthode de test par valeur, plutôt que cinq assertEquals indépendants dans une seule ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Et le nom de chaque test dit quelle valeur a cassé (règle <code>CC-TST.2</code>).</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez JUN §4, « Choisir ses cas, et les justifier », dans le support du module JUN.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[une assertion qui échoue arrête la méthode : les suivantes ne sont jamais vérifiées]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[c'est plus court]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[JUnit l'impose]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[pour éviter les annotations]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>JUN - @BeforeEach</text></name>
+<questiontext format="html"><text><![CDATA[<p>À quoi sert une méthode annotée <code>@BeforeEach</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Chaque test repart de zéro : aucun test ne compte sur un autre.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez JUN §4, « Choisir ses cas, et les justifier », dans le support du module JUN.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[à préparer une situation neuve avant chaque test]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[à lancer les tests dans l'ordre]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[à exécuter un seul test]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[à arrêter les tests]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>JUN - @DisplayName</text></name>
+<questiontext format="html"><text><![CDATA[<p>Que fait l'annotation <code>@DisplayName("Reserver toutes les places remplit la salle")</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Le nom affiché dit ce que vérifie le test : le premier indice quand il passe au rouge.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez JUN §4, « Choisir ses cas, et les justifier », dans le support du module JUN.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[elle donne au test un nom lisible, affiché dans les résultats]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[elle remplace l'assertion]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[elle désactive le test]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[elle change le nom de la classe]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>JUN - Nombres décimaux</text></name>
+<questiontext format="html"><text><![CDATA[<p>Pourquoi <code>assertEquals</code> sur deux <code>double</code> demande-t-il une tolérance ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>assertEquals(12.5, moyenne, 0.001, message) accepte un écart minuscule.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez JUN §2, « Ce qu'un test contient », dans le support du module JUN.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[un calcul en virgule flottante est rarement exact au dernier chiffre]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[pour aller plus vite]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[parce que double est un objet]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[il n'en demande pas]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>JUN - Doublure</text></name>
+<questiontext format="html"><text><![CDATA[<p>Qu'est-ce qu'une doublure, dans un test ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Elle implémente la même interface, mais enregistre ce qu'on lui demande au lieu d'afficher.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez JUN §5, « Du code qui se laisse tester », dans le support du module JUN.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[un faux objet, qui remplace une vraie dépendance (comme une fenêtre) le temps du test]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[un test écrit deux fois]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[une copie de la classe testée]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[une assertion double]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>JUN - Tester ce qui dépend de la date</text></name>
+<questiontext format="html"><text><![CDATA[<p>Comment rendre testable une méthode qui calcule un âge à partir de la date du jour ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Une version sans paramètre, plus pratique, peut appeler la première avec l'année courante.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez JUN §5, « Du code qui se laisse tester », dans le support du module JUN.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[en recevant l'année en paramètre : le test la fixe, et le résultat ne change plus]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[en appelant <code>LocalDate.now()</code> dans le test]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[en ne testant qu'une fois par an]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[c'est impossible]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+</quiz>

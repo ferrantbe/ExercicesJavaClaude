@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+<question type="category"><category><text>$course$/top/FIC - Fichiers</text></category></question>
+<question type="multichoice">
+<name><text>FIC - Flux</text></name>
+<questiontext format="html"><text><![CDATA[<p>Qu'est-ce qu'un flux, en Java ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>System.out et System.in sont deux flux que vous utilisez depuis le début.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez FIC §1, « Ce qui entre, ce qui sort », dans le support du module FIC.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[un tuyau dans lequel on écrit d'un côté, ou on lit de l'autre, dans l'ordre et dans un seul sens]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[un fichier]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[une collection]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[une exception]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>FIC - Octets ou caractères</text></name>
+<questiontext format="html"><text><![CDATA[<p>Quelle famille de flux convertit le texte selon un encodage ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Les flux d'octets transportent des octets tels quels, sans les interpréter.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez FIC §1, « Ce qui entre, ce qui sort », dans le support du module FIC.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[les flux de caractères, comme <code>Reader</code> et <code>Writer</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[les flux d'octets, comme <code>InputStream</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[aucune]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[les deux]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>FIC - Emboîter</text></name>
+<questiontext format="html"><text><![CDATA[<p>Dans <code>new PrintWriter(new FileWriter(fichier))</code>, à quel flux parle-t-on ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Chaque couche ajoute une capacité ; fermer la couche extérieure ferme les autres.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez FIC §1, « Ce qui entre, ce qui sort », dans le support du module FIC.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[au plus extérieur, le <code>PrintWriter</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[au <code>FileWriter</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[aux deux en alternance]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[au fichier directement]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>FIC - Pourquoi fermer</text></name>
+<questiontext format="html"><text><![CDATA[<p>Que risque-t-on en oubliant de fermer un flux d'écriture ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Le système garde aussi le fichier ouvert, et leur nombre est limité.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez FIC §2, « Fermer quoi qu'il arrive », dans le support du module FIC.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[que le tampon ne soit jamais vidé : le fichier peut rester vide]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[rien]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[une erreur de compilation]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[que le fichier soit supprimé]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>FIC - try avec ressources</text></name>
+<questiontext format="html"><text><![CDATA[<p>Que garantit <code>try (Writer w = new FileWriter(f)) { ... }</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>C'est la même garantie que finally, écrite par le compilateur.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez FIC §2, « Fermer quoi qu'il arrive », dans le support du module FIC.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[que le flux est fermé à la sortie du bloc, exception ou non]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[que l'écriture réussit]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[que le fichier existe]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[que l'exception est ignorée]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>FIC - IOException</text></name>
+<questiontext format="html"><text><![CDATA[<p>Pourquoi une méthode qui ouvre un fichier doit-elle traiter ou déclarer <code>IOException</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Le compilateur oblige à décider : attraper, ou laisser l'appelant décider.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez FIC §2, « Fermer quoi qu'il arrive », dans le support du module FIC.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[c'est une exception contrôlée : le fichier peut manquer, ou le disque être plein]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[parce que les fichiers sont lents]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[par convention]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[elle n'y est pas obligée]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>FIC - Relire des lignes</text></name>
+<questiontext format="html"><text><![CDATA[<p>Comment relire un fichier texte ligne par ligne ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Seul le constructeur change par rapport à la lecture au clavier.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez FIC §3, « Écrire et relire du texte », dans le support du module FIC.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[avec un <code>Scanner</code> sur le fichier, et <code>hasNextLine</code> et <code>nextLine</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[avec <code>System.in</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[avec <code>readObject</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[avec <code>Integer.parseInt</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>FIC - Le format</text></name>
+<questiontext format="html"><text><![CDATA[<p>Un fichier texte contient <code>Uccle;12</code>. Comment retrouver le nombre 12 ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>C'est le format choisi par le programmeur qui dit où s'arrête un champ.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez FIC §3, « Écrire et relire du texte », dans le support du module FIC.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>split(";")</code> pour découper la ligne, puis <code>Integer.parseInt</code> sur le second champ]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[le fichier le sait tout seul]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[avec <code>readInt</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[c'est impossible]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>FIC - Serializable</text></name>
+<questiontext format="html"><text><![CDATA[<p>Que faut-il pour écrire un objet avec <code>writeObject</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Sans l'étiquette, l'écriture échoue à l'exécution par une NotSerializableException.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez FIC §4, « Écrire l'objet tel quel », dans le support du module FIC.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[que sa classe implémente <code>Serializable</code>, comme tout ce qu'il contient]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[rien de particulier]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[un constructeur sans paramètre]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[que l'objet soit immuable]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>FIC - Relire dans l'ordre</text></name>
+<questiontext format="html"><text><![CDATA[<p>Un fichier contient un <code>int</code> puis un objet, écrits avec un <code>ObjectOutputStream</code>. Comment le relire ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Le fichier ne garde pas d'étiquettes : la lecture suit l'ordre de l'écriture.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez FIC §4, « Écrire l'objet tel quel », dans le support du module FIC.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>readInt</code> d'abord, puis <code>readObject</code> et un transtypage]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>readObject</code> d'abord]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[dans n'importe quel ordre]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[avec un Scanner]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>FIC - Ajouter à la fin</text></name>
+<questiontext format="html"><text><![CDATA[<p>Comment écrire à la suite d'un fichier existant, sans l'effacer ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Sans le second argument, l'ouverture vide le fichier.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez FIC §3, « Écrire et relire du texte », dans le support du module FIC.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>new FileWriter(fichier, true)</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>new FileWriter(fichier)</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>new FileWriter(fichier, false)</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>new FileReader(fichier)</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>FIC - File</text></name>
+<questiontext format="html"><text><![CDATA[<p>Que fait <code>new File("releves/uccle.txt")</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Un File est une adresse ; exists, length et mkdirs interrogent ou préparent le disque.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez FIC §3, « Écrire et relire du texte », dans le support du module FIC.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[il crée l'adresse du fichier, sans créer aucun fichier]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[il crée le fichier sur le disque]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[il ouvre le fichier en lecture]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[il lève une exception si le fichier n'existe pas]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>FIC - Fin d'un fichier binaire</text></name>
+<questiontext format="html"><text><![CDATA[<p>Comment <code>readObject</code> signale-t-il qu'il n'y a plus rien à lire ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Le texte prévient avant ; le binaire répond par une exception, qui signale ici une situation normale.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez FIC §4, « Écrire l'objet tel quel », dans le support du module FIC.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[en levant une <code>EOFException</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[en retournant <code>null</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[en retournant false]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[il boucle indéfiniment]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>FIC - PrintWriter silencieux</text></name>
+<questiontext format="html"><text><![CDATA[<p>Comment savoir si l'écriture d'un <code>PrintWriter</code> a échoué ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Les méthodes de PrintWriter ne lèvent pas d'exception : un disque plein passerait inaperçu.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez FIC §3, « Écrire et relire du texte », dans le support du module FIC.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[avec sa méthode <code>checkError()</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[par une IOException]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[par la valeur retournée par println]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[on ne peut pas]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>FIC - Dossier manquant</text></name>
+<questiontext format="html"><text><![CDATA[<p>Avant d'écrire <code>releves/uccle.txt</code>, comment s'assurer que le dossier existe ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Sans dossier, l'ouverture du flux lève une FileNotFoundException.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez FIC §3, « Écrire et relire du texte », dans le support du module FIC.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[avec <code>new File("releves").mkdirs()</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[en ouvrant le fichier deux fois]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[il est créé automatiquement]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[avec <code>createNewFile</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+</quiz>

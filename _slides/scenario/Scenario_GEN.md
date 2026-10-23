@@ -784,6 +784,26 @@ Le code complet, à exécuter : demos, classe `demo.gen.slides.ExtendsEtSuper`.
 
 ## Section 5 - Une méthode générique
 
+### 4.6b · Ce que chaque joker accepte
+
+**Source** ajoutée le 23/10/2026, à la demande de Frédéric, avec la même explication dans le support. Figure : `_support/figures/gen-jokers.png`.
+
+**Slide**
+
+- la figure seule
+
+**Note**
+
+Des exemples et des contre-exemples, pour les deux jokers.
+
+List<? extends Bagage> : poidsTotal lit des éléments et les traite comme des Bagage. Une List<Bagage>, une List<Valise> ou une List<Sac> conviennent ; une List<Object>, non, puisqu'un Object n'est pas forcément un Bagage.
+
+List<? super Valise> : charger ajoute des Valise. Une List<Valise>, une List<Bagage> ou une List<Object> conviennent, puisqu'une Valise y a sa place ; une List<Sac>, non.
+
+Le raisonnement est toujours le même : se demander ce que la méthode fait de la liste. Le compilateur refuse exactement les cas où elle pourrait se tromper.
+
+---
+
 ### 5.1 · Une méthode générique
 
 *(intercalaire)*

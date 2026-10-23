@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+<question type="category"><category><text>$course$/top/GEN - Types génériques</text></category></question>
+<question type="multichoice">
+<name><text>GEN - Paramètre de type</text></name>
+<questiontext format="html"><text><![CDATA[<p>Dans <code>class Casier&lt;T&gt;</code>, que représente <code>T</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p><code>Casier&lt;Valise&gt;</code> fixe T à Valise ; le compilateur vérifie ensuite chaque usage.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez GEN §1, « Un type en paramètre », dans le support du module GEN.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[un type, choisi par celui qui utilise la classe]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[une valeur]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[un tableau]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[le nom de la classe]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>GEN - L'erreur change de camp</text></name>
+<questiontext format="html"><text><![CDATA[<p>Qu'apporte surtout la généricité, par rapport à une classe qui accepte des <code>Object</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>La généricité ne rend rien possible qui ne l'était pas déjà : elle fait découvrir les erreurs plus tôt.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez GEN §1, « Un type en paramètre », dans le support du module GEN.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[elle avance l'erreur de type de l'exécution à la compilation]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[elle rend le programme plus rapide]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[elle permet les types primitifs]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[elle supprime les exceptions]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>GEN - Plusieurs paramètres</text></name>
+<questiontext format="html"><text><![CDATA[<p>Comment déclare-t-on une classe à deux paramètres de type ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Les paramètres se déclarent dans les mêmes chevrons, séparés par des virgules.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez GEN §2, « Autant de types qu'il en faut », dans le support du module GEN.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>class Ticket&lt;K, V&gt;</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>class Ticket&lt;K&gt;&lt;V&gt;</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>class Ticket&lt;K; V&gt;</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>class Ticket(K, V)</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>GEN - Effacement</text></name>
+<questiontext format="html"><text><![CDATA[<p>À l'exécution, <code>Casier&lt;Valise&gt;</code> et <code>Casier&lt;String&gt;</code> sont-ils deux classes différentes ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Le compilateur vérifie tout, puis efface les arguments de type.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez GEN §3, « Ce que le compilateur efface », dans le support du module GEN.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[non : les arguments de type sont effacés, il n'existe qu'une classe Casier]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[oui, deux classes distinctes]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[seulement si les types sont publics]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[cela dépend de la JVM]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>GEN - Ce qui est interdit</text></name>
+<questiontext format="html"><text><![CDATA[<p>Pourquoi <code>new T()</code> est-il refusé dans une classe générique ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>C'est la même raison qui interdit new T[10] et Casier&lt;int&gt;.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez GEN §3, « Ce que le compilateur efface », dans le support du module GEN.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[à l'exécution, T n'existe plus : on ne sait pas quelle classe construire]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[parce que T est abstrait]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[parce que new est interdit]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[il est accepté]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>GEN - List&lt;Valise> et List&lt;Bagage></text></name>
+<questiontext format="html"><text><![CDATA[<p><code>Valise</code> hérite de <code>Bagage</code>. Une <code>List&lt;Valise&gt;</code> peut-elle passer là où l'on attend une <code>List&lt;Bagage&gt;</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Une Valise est un Bagage, mais une List&lt;Valise&gt; n'est pas une List&lt;Bagage&gt;.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez GEN §4, « Une famille de types », dans le support du module GEN.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[non : la méthode pourrait y ajouter un Sac, qui serait un intrus]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[oui, toujours]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[oui, si la liste est vide]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[seulement en lecture]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>GEN - ? extends</text></name>
+<questiontext format="html"><text><![CDATA[<p>Une méthode reçoit une <code>List&lt;? extends Bagage&gt;</code>. Que peut-elle faire ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Avec <code>extends</code>, la liste fournit des éléments ; avec <code>super</code>, elle en reçoit.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez GEN §4, « Une famille de types », dans le support du module GEN.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[lire ses éléments comme des Bagage, mais pas en ajouter]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[ajouter des Bagage]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[rien du tout]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[seulement la vider]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>GEN - ? super</text></name>
+<questiontext format="html"><text><![CDATA[<p>Pour une méthode qui ajoute des <code>Valise</code> dans la liste reçue, quel joker choisir ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Une List&lt;Bagage&gt; ou une List&lt;Object&gt; peuvent recevoir des Valise.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez GEN §4, « Une famille de types », dans le support du module GEN.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>List&lt;? super Valise&gt;</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>List&lt;? extends Valise&gt;</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>List&lt;Object&gt;</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>List&lt;?&gt;</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>GEN - Méthode générique</text></name>
+<questiontext format="html"><text><![CDATA[<p>Où se déclare le paramètre de type d'une méthode générique ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Le compilateur déduit T à chaque appel, à partir des arguments.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez GEN §5, « Une méthode générique », dans le support du module GEN.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[entre chevrons, avant le type de retour : <code>public static &lt;T&gt; T auHasard(List&lt;T&gt; l)</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[après le nom de la méthode]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[dans les paramètres seulement]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[dans la classe uniquement]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>GEN - Hériter</text></name>
+<questiontext format="html"><text><![CDATA[<p><code>class CasierVelo extends Casier&lt;Velo&gt;</code> : que fait cette déclaration ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Une fille peut rester générique (CasierFerme&lt;T&gt;) ou fixer le type une fois pour toutes.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez GEN §6, « Hériter d'une classe générique », dans le support du module GEN.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[elle fixe le type : un CasierVelo est un Casier de vélos, sans chevrons à l'usage]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[elle garde CasierVelo générique]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[elle ne compile pas]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[elle crée deux classes]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>GEN - Diamant</text></name>
+<questiontext format="html"><text><![CDATA[<p>Dans <code>Casier&lt;Valise&gt; c = new Casier&lt;&gt;();</code>, que signifient les chevrons vides ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>C'est le diamant, vu dès le module COL.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez GEN §1, « Un type en paramètre », dans le support du module GEN.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[le compilateur déduit l'argument de type de la déclaration, ici Valise]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[un casier sans type]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[un casier d'Object]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[une erreur]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>GEN - Types primitifs</text></name>
+<questiontext format="html"><text><![CDATA[<p>Pourquoi <code>Casier&lt;int&gt;</code> est-il refusé ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>Après effacement, T devient Object, et un int n'est pas un objet.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez GEN §3, « Ce que le compilateur efface », dans le support du module GEN.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[un argument de type doit être une classe : on écrit <code>Casier&lt;Integer&gt;</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[int est trop petit]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[par convention]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[il est accepté]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>GEN - Envelopper une collection</text></name>
+<questiontext format="html"><text><![CDATA[<p>Une <code>Consigne&lt;T&gt;</code> contient une <code>List&lt;T&gt;</code> privée. Que fait sa méthode <code>deposer(T objet)</code> ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>C'est la forme de la question d'examen : une classe générique qui enveloppe une collection.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez GEN §1, « Un type en paramètre », dans le support du module GEN.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[elle délègue à la liste, en y ajoutant l'objet]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[elle copie la liste]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[elle retourne la liste]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[elle crée une nouvelle consigne]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>GEN - Interface générique</text></name>
+<questiontext format="html"><text><![CDATA[<p>L'interface générique <code>Depot&lt;T&gt;</code> déclare <code>void deposer(T objet)</code> et <code>T retirer()</code>. La classe <code>Vestiaire</code> est déclarée <code>class Vestiaire implements Depot&lt;Manteau&gt;</code>. Quel est le type du paramètre de <code>deposer</code> dans Vestiaire ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>En fixant le type, la classe remplace T par Manteau dans toutes ses méthodes.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez GEN §6, « Hériter d'une classe générique », dans le support du module GEN.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>Manteau</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>T</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>Object</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>Depot</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+<question type="multichoice">
+<name><text>GEN - Lire et ajouter</text></name>
+<questiontext format="html"><text><![CDATA[<p>Une méthode lit les éléments de la liste reçue et en ajoute. Quel paramètre choisir ?</p>]]></text></questiontext>
+<generalfeedback format="html"><text><![CDATA[<p>extends pour lire, super pour ajouter ; pour faire les deux, pas de joker.</p>]]></text></generalfeedback>
+<defaultgrade>1</defaultgrade><penalty>0</penalty><hidden>0</hidden><single>true</single><shuffleanswers>true</shuffleanswers><answernumbering>abc</answernumbering>
+<correctfeedback format="html"><text><![CDATA[<p>Exact.</p>]]></text></correctfeedback>
+<incorrectfeedback format="html"><text><![CDATA[<p>Pas tout à fait. Revoyez GEN §4, « Une famille de types », dans le support du module GEN.</p>]]></text></incorrectfeedback>
+<answer fraction="100" format="html"><text><![CDATA[<code>List&lt;Bagage&gt;</code>, sans joker]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>List&lt;? extends Bagage&gt;</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>List&lt;? super Bagage&gt;</code>]]></text><feedback format="html"><text></text></feedback></answer>
+<answer fraction="0" format="html"><text><![CDATA[<code>List&lt;?&gt;</code>]]></text><feedback format="html"><text></text></feedback></answer>
+</question>
+</quiz>
