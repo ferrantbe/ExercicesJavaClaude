@@ -18,6 +18,13 @@ livrer.py — fabrique les archives d'une seance.
                                              Module02_POO_fin.zip (solutions,
                                              demos completes)
     python3 _outils/livrer.py --modules      les archives de tous les modules
+    python3 _outils/livrer.py POO --depot    et depose le debut du module dans le
+                                             clone du depot public (les corriges :
+                                             ajouter --solutions)
+    python3 _outils/livrer.py                sans argument : choisir un module
+
+Les seances (livrer.py 3) restent possibles, mais le cours livre par module
+depuis le 22/10/2026.
     python3 _outils/livrer.py 3 --depot      et depose les enonces dans le clone
                                              local du depot PUBLIC ExercicesJava
     python3 _outils/livrer.py 3 --depot --solutions   y depose les corriges
@@ -601,7 +608,7 @@ def demos_de_depart(themes, racine):
     return entrees
 
 
-def livrer_module(code, entree, racine, sans_tests, args):
+def livrer_module(code, entree, racine, sans_tests, args, depot=None):
     """Les deux archives d'un module : au debut, les enonces, le code des
     slides et le fascicule du module ; a la fin, les solutions et les demos
     completes. Memes controles que pour une seance."""
@@ -631,11 +638,18 @@ def livrer_module(code, entree, racine, sans_tests, args):
         sortie = racine / "livraisons" / f"{entree['nom']}_debut.zip"
         ecrire_archive(entrees, sortie)
         print(f"  {sortie.relative_to(racine)}  ({len(entrees)} fichiers)")
+        if depot is not None:
+            # le depot public recoit ce que contient l'archive de debut
+            publier(entrees, depot, f"{entree['nom']} - debut du module")
     if faire_fin:
         entrees = collecter(themes, racine, solutions=True)
         sortie = racine / "livraisons" / f"{entree['nom']}_fin.zip"
         ecrire_archive(entrees, sortie)
         print(f"  {sortie.relative_to(racine)}  ({len(entrees)} fichiers)")
+        if depot is not None and args.solutions:
+            # les corriges ne vont au depot public que si on le demande
+            # explicitement, comme pour les seances
+            publier(entrees, depot, f"{entree['nom']} - fin du module")
     print()
 
 
@@ -681,8 +695,19 @@ def main():
     if args.modules or (args.seance and args.seance.upper() in modules):
         codes = list(modules) if args.modules else [args.seance.upper()]
         for code in codes:
-            livrer_module(code, modules[code], racine, sans_tests, args)
+            livrer_module(code, modules[code], racine, sans_tests, args, depot)
         return
+    if args.seance is None and modules:
+        # sans argument, on propose les modules : c'est le mode de livraison
+        # du cours depuis le 22/10/2026 (les seances restent possibles en
+        # donnant leur numero)
+        print("Modules : " + ", ".join(f"{c} ({m['nom']})" for c, m in modules.items()))
+        print("Projet de depart : 0")
+        choix = input("Module a livrer : ").strip().upper()
+        if choix in modules:
+            livrer_module(choix, modules[choix], racine, sans_tests, args, depot)
+            return
+        args.seance = choix
 
     seance = args.seance if args.seance is not None else choisir_seance(manifeste)
     if seance == "00":

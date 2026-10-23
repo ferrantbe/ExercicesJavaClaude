@@ -146,7 +146,7 @@ public abstract class Shape
 `Shape` s'engage sur les deux interfaces, et deux issues sont possibles : soit elle déclare les méthodes abstraites et laisse chaque forme les écrire, soit elle les écrit une fois pour toutes et ses filles n'ont rien à faire. Le critère est celui d'`ABS §4`, et il n'a pas changé : le code serait-il identique dans les trois sous-classes ? Si oui, il monte.
 
 > **Exercices** - `ITF.3` Des formes qui se déplacent et tournent
-> L'exercice combine une hiérarchie de classes et deux interfaces qui la traversent ; le travail d'écriture est court, la décision est tout l'exercice. Le dernier test manipule un tableau de `Translatable` : essayez d'appeler `rotate` ou `nom` sur un de ses éléments, et lisez ce que dit le compilateur. Voir `CC-CLS.3`.
+> L'exercice combine une hiérarchie de classes et deux interfaces qui la traversent ; le travail d'écriture est court, la décision est tout l'exercice. Le dernier test manipule un tableau de `Translatable` : essayez d'appeler `rotate` ou `nom` sur un de ses éléments, et lisez ce que dit le compilateur : une variable de type `Translatable` ne connaît que ce que promet l'interface, même si l'objet qu'elle désigne sait faire davantage. La dernière question de l'énoncé reste ouverte : la normalisation de l'angle, déjà écrite en `ABS.1`, réapparaît ici ; est-ce une duplication au sens de `CC-CLS.3` ?
 
 ## 3. Interface ou classe abstraite ?
 
