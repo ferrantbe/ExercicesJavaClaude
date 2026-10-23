@@ -25,6 +25,7 @@ def construire(module):
     subprocess.run(["node", str(outils / "generateurs/build_support.js"), module], check=True)
     subprocess.run([sys.executable, str(outils / "style_documents.py"), str(docx)], check=True, capture_output=True)
     subprocess.run([sys.executable, str(outils / "adoucir_captures.py"), str(docx)], check=True, capture_output=True)
+    subprocess.run([sys.executable, str(outils / "reduire_images.py"), str(docx)], check=True, capture_output=True)
     # la page de garde dans sa section AVANT de compter les pages : sans
     # elle, la ligne EPHEC pouvait deborder sur une page de trop
     subprocess.run([sys.executable, str(outils / "garde.py"), str(docx)], check=True, capture_output=True)

@@ -361,6 +361,10 @@ def main():
     subprocess.run([sys.executable, str(outils / "ajouter_pagination.py"), str(SORTIE), "Recueil", str(n - 1)], check=True, capture_output=True)
     if RECTO_VERSO:
         chapitres_a_droite(SORTIE)
+    # les renvois aux exercices (« voir COL.1 ») deviennent des liens vers
+    # leur enonce (23/10/2026)
+    r = subprocess.run([sys.executable, str(outils / "lier_renvois.py"), str(SORTIE)], check=True, capture_output=True, text=True)
+    print(r.stdout.strip())
     subprocess.run([sys.executable, str(outils / "typographie.py"), str(SORTIE)], check=True, capture_output=True)
     # Numerotation physique d'abord (la page 2 porte le numero 2), pour que
     # les numeros lus dans les pieds de page soient les numeros definitifs.

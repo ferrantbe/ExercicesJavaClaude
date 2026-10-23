@@ -105,9 +105,12 @@ def main():
     decaler_titres(SORTIE)
     lancer(OUTILS / "style_documents.py", SORTIE)
     lancer(OUTILS / "adoucir_captures.py", SORTIE)
+    lancer(OUTILS / "reduire_images.py", SORTIE)
     lancer(OUTILS / "garde.py", SORTIE)
     construire_recueil.marges_reliure(SORTIE, miroir="--recto-verso" in sys.argv)
     r = subprocess.run([sys.executable, str(OUTILS / "indexer.py"), str(SORTIE)], check=True, capture_output=True, text=True)
+    print(r.stdout.strip())
+    r = subprocess.run([sys.executable, str(OUTILS / "lier_renvois.py"), str(SORTIE)], check=True, capture_output=True, text=True)
     print(r.stdout.strip())
     lancer(OUTILS / "typographie.py", SORTIE)
     for f in RACINE.rglob("*.avant"):
