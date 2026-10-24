@@ -26,6 +26,7 @@ enonces/Recueil_des_exercices.docx (demande du 19/10/2026).
 Le recueil se reconstruit apres toute modification d'un fascicule.
 """
 import copy
+import os
 import re
 import subprocess
 import sys
@@ -327,6 +328,69 @@ def inserer_memento(maitre, composeur):
     maitre.element.body.remove(cible)
 
 
+# Le fascicule du fil rouge GameHub vit dans son propre depot, voisin de
+# celui-ci ; il est ajoute a la fin du recueil (24/10/2026). La variable
+# d'environnement GAMEHUB peut designer un autre emplacement du depot.
+GAMEHUB = Path(os.environ.get("GAMEHUB", RACINE.parent / "GameHubClaude")) / "_documents" / "GameHub_enonces.docx"
+
+
+def preparer_gamehub():
+    """Le fascicule GameHub, sans sa page de garde, sous un titre de niveau 1 ;
+    ses parties deviennent des titres de niveau 2, avec un signet chacune pour
+    la table des matieres."""
+    d = Document(str(GAMEHUB))
+    corps = d.element.body
+    enfants = list(corps)
+    fin = next(i for i, e in enumerate(enfants) if e.tag == qn("w:p") and any(
+        b.get(qn("w:type")) == "page" for b in e.findall(".//" + qn("w:br"))))
+    garde = enfants[:fin + 1]
+    textes = [texte(p) for p in garde if p.tag == qn("w:p") and texte(p).strip()]
+    titre = "GameHub — " + (textes[2] if len(textes) > 2 else "le fil rouge")
+    for e in garde:
+        corps.remove(e)
+    premier = next(e for e in corps if e.tag == qn("w:p") and style_de(e) == "Heading1")
+    tete = copy.deepcopy(premier)
+    for r in tete.findall(qn("w:r"))[1:]:
+        tete.remove(r)
+    r0 = tete.find(qn("w:r"))
+    for t in r0.findall(qn("w:t"))[1:]:
+        r0.remove(t)
+    r0.find(qn("w:t")).text = titre
+    for nom in ("w:sz", "w:szCs"):
+        e = r0.find(qn("w:rPr") + "/" + qn(nom))
+        if e is not None:
+            e.set(qn("w:val"), "40")
+    premier.addprevious(tete)
+    decalage = {"Heading3": "Heading4", "Heading2": "Heading3", "Heading1": "Heading2"}
+    entrees, n = [], 0
+    for p in list(corps.iter(qn("w:p"))):
+        if p is tete:
+            continue
+        st = p.find(qn("w:pPr") + "/" + qn("w:pStyle"))
+        if st is not None and st.get(qn("w:val")) in decalage:
+            st.set(qn("w:val"), decalage[st.get(qn("w:val"))])
+            if st.get(qn("w:val")) == "Heading2":
+                n += 1
+                nom = f"gh-{n}"
+                bm = etree.Element(qn("w:bookmarkStart")); bm.set(qn("w:id"), str(9500 + n)); bm.set(qn("w:name"), nom)
+                be = etree.Element(qn("w:bookmarkEnd")); be.set(qn("w:id"), str(9500 + n))
+                p.find(qn("w:pPr")).addnext(bm); p.append(be)
+                entrees.append((2, nom, texte(p)))
+    pPr = tete.find(qn("w:pPr"))
+    etree.SubElement(pPr, qn("w:pageBreakBefore"))
+    bm = etree.Element(qn("w:bookmarkStart")); bm.set(qn("w:id"), "9499"); bm.set(qn("w:name"), "module-GH")
+    be = etree.Element(qn("w:bookmarkEnd")); be.set(qn("w:id"), "9499")
+    pPr.addnext(bm); tete.append(be)
+    if COMPACT:
+        for p in list(corps.iter(qn("w:p"))):
+            brs = p.findall(".//" + qn("w:br"))
+            if brs and all(b.get(qn("w:type")) == "page" for b in brs) and not texte(p).strip():
+                filet(p)
+    for sp in corps.findall(qn("w:sectPr")):
+        corps.remove(sp)
+    return d, [(1, "module-GH", titre)] + entrees
+
+
 def main():
     tmp = Path(tempfile.mkdtemp())
     debut = tmp / "debut.docx"
@@ -344,6 +408,12 @@ def main():
                 if bm is not None:
                     entrees.append((2, bm.get(qn("w:name")), texte(p)))
         composeur.append(d)
+    if GAMEHUB.is_file():
+        d, ent = preparer_gamehub()
+        entrees += ent
+        composeur.append(d)
+    else:
+        print(f"Fascicule GameHub introuvable ({GAMEHUB}) : le recueil est produit sans lui.")
     composeur.save(str(SORTIE))
     outils = RACINE / "_outils"
     subprocess.run([sys.executable, str(outils / "style_documents.py"), str(SORTIE)], check=True, capture_output=True)
