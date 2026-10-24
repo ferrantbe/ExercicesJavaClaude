@@ -652,8 +652,7 @@ PKG.5**, et personne ne l'a vu. Le fil rouge, lui, etait annonce « G.1 a G.20 �
 alors qu'il compte trente increments.
 
 Le script compte les packages sur le disque, lit le nombre d'increments dans le
-projet GameHub voisin, et compare aux valeurs du document. REC est ignore : il
-porte « a definir », et c'est voulu tant que la seance 13 n'est pas arretee.
+projet GameHub voisin, et compare aux valeurs du document. 
 
 
 ---

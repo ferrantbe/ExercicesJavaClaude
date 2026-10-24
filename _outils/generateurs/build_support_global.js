@@ -24,7 +24,7 @@ const { construire } = require(__dirname + "/build_support.js");
 // document d'accueil du cours, sur Moodle
 const INTRODUCTION = process.argv.includes("--introduction");
 const ORDRE = INTRODUCTION ? ["INI"] : ["INI", "POO", "TMP", "TAB", "ENU", "ABS", "ITF", "PKG", "COL",
-               "EXC", "JUN", "GEN", "LAM", "FX", "FIC"];
+               "EXC", "JUN", "GEN", "LAM", "FX", "FIC", "REC"];
 const sortie = process.argv[2];
 // recto seul par defaut (la Presse, 22/10/2026) : chaque module commence
 // sur la page suivante ; --recto-verso : sur une page de droite
@@ -67,7 +67,7 @@ B.pageDeGarde(debut, {
   titre: INTRODUCTION ? "Introduction et annexes" : "Support de cours",
   sousTitre: INTRODUCTION ? "Le module d'introduction, le guide IntelliJ et les mémentos"
                           : "Tous les modules, dans l'ordre des séances",
-  accroche: INTRODUCTION ? "À lire avant le premier module" : "Du module INI au module FIC", mentionIA: true
+  accroche: INTRODUCTION ? "À lire avant le premier module" : "Du module INI au module REC", mentionIA: true
 });
 // le titre de la table n'a pas le style des modules : il n'y figurerait pas
 debut.push(new Paragraph({ spacing: { after: 360 },

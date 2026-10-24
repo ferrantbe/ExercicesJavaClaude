@@ -5,8 +5,8 @@ construire_support_global.py — le support de cours complet (22/10/2026).
     python3 _outils/construire_support_global.py                (recto seul)
     python3 _outils/construire_support_global.py --recto-verso
 
-Produit _support/Support_de_cours.docx, et sa version N/B a cote. Les quinze modules, dans l'ordre des seances (INI a
-FIC), a partir des memes sources que les supports par module
+Produit _support/Support_de_cours.docx, et sa version N/B a cote. Les seize modules, dans l'ordre des seances (INI a
+REC), a partir des memes sources que les supports par module
 (_support/generateurs/Support_XXX.md) :
 
 1. build_support_global.js : page de garde, table des matieres, une section
