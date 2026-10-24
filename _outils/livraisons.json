@@ -1,5 +1,5 @@
 {
-  "_commentaire": "Repartition revue le 16/10/2026, alignee sur la numerotation des decks de _slides/remanies/. PKG vient apres ABS et ITF : PKG.5 porte sur protected, qui n'a aucun sens sans heritage. FIC passe apres JavaFX, comme le numero de son deck (15) : decide le 16/10/2026. Le theme fx part entier en seance 12 (livrer.py livre par theme) ; la seance 13 joue les decks FX2 et FX3, dont la calculatrice guidee de FX.9, sans nouveau theme. Le theme rec sera ajoute quand les exercices recapitulatifs existeront.",
+  "_commentaire": "Repartition revue le 16/10/2026, alignee sur la numerotation des decks de _slides/remanies/. PKG vient apres ABS et ITF : PKG.5 porte sur protected, qui n'a aucun sens sans heritage. FIC passe apres JavaFX, comme le numero de son deck (15) : decide le 16/10/2026. Le theme fx part entier en seance 12 (livrer.py livre par theme) ; la seance 13 joue les decks FX2 et FX3, dont la calculatrice guidee de FX.9, sans nouveau theme. Le theme rec (24/10/2026) est livre en deux modules, REC1 et REC2, par la cle exercices : la premiere serie apres la seance 9 (JUN), la seconde apres la seance 12 (FX1), a faire chez soi pendant les semaines sans cours.",
   "depot_public": "../ExercicesJava",
   "_depot_public": "Clone local du depot PUBLIC (github.com/ferrantbe/ExercicesJava), relatif a la racine de ce projet. Utilise par livrer.py --depot sans chemin.",
   "sans_tests": [
@@ -174,6 +174,32 @@
       "nom": "Module15_FIC",
       "themes": [
         "fic"
+      ]
+    },
+    "REC1": {
+      "nom": "Module16_REC_serie1",
+      "themes": [
+        "rec"
+      ],
+      "exercices": [
+        "e01",
+        "e02",
+        "e03",
+        "e04",
+        "e05"
+      ]
+    },
+    "REC2": {
+      "nom": "Module16_REC_serie2",
+      "themes": [
+        "rec"
+      ],
+      "exercices": [
+        "e06",
+        "e07",
+        "e08",
+        "e09",
+        "e10"
       ]
     }
   }

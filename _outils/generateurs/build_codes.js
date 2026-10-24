@@ -45,14 +45,14 @@ c.push(tableau(["Code", "Titre", "Ce que vous y travaillez", "Exercices"], [
   ["ENU", "Énumérations et records", "enum, record, données immuables", "4"],
   ["ABS", "Classes abstraites", "Hiérarchies, méthodes abstraites, factorisation", "5"],
   ["ITF", "Interfaces", "Implémentation multiple, patron Observateur", "4"],
-  ["COL", "Collections", "List, Set, Map, parcours, filtrage", "7"],
+  ["COL", "Collections", "List, Set, Map, parcours, filtrage", "8"],
   ["EXC", "Exceptions", "Levée, capture, exceptions personnalisées, trace", "5"],
   ["JUN", "Tests unitaires JUnit", "Assertions, TDD, écriture de classes de test", "3"],
   ["GEN", "Types génériques", "Classes et méthodes paramétrées, joker", "6"],
   ["LAM", "Lambdas et références de méthodes", "Interfaces fonctionnelles, java.util.function", "3"],
   ["FX", "JavaFX", "Fenêtres, événements, propriétés et bindings, MVC", "9"],
   ["FIC", "Fichiers", "Lecture et écriture, sérialisation", "3"],
-  ["REC", "Exercices récapitulatifs", "Révision transversale avant l'examen", "à définir"]
+  ["REC", "Exercices récapitulatifs", "Deux séries de révision, dans la forme de l'examen", "10"]
 ], [1000, 3050, 4000, 1310], [0]));
 c.push(runs([
   "Le fil rouge ",

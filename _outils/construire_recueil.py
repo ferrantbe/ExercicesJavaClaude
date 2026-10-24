@@ -41,7 +41,7 @@ from lxml import etree
 RACINE = Path(__file__).resolve().parent.parent
 GEN = RACINE / "_outils/generateurs"
 ORDRE = ["POO", "STA", "TMP", "TAB", "ENU", "ABS", "ITF", "PKG", "COL", "EXC",
-         "JUN", "GEN", "LAM", "FX", "FIC"]
+         "JUN", "GEN", "LAM", "FX", "FIC", "REC"]
 SORTIE = RACINE / "enonces/Recueil_des_exercices_une_page_par_exercice.docx"
 # Variante compacte (essai du 19/10/2026) : les modules commencent toujours
 # sur une nouvelle page, mais les exercices d'un module ne sont plus separes

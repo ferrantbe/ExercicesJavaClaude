@@ -233,7 +233,10 @@ def controler(themes, racine, sans_tests=frozenset()):
         if src_so.is_dir():
             for fichier in fichiers_java(src_so):
                 texte = fichier.read_text(encoding="utf-8")
-                if "UnsupportedOperationException" in texte:
+                # « throw new UnsupportedOperationException » est le corps
+                # d'un squelette ; un catch de cette exception (REC.6, qui
+                # montre qu'une liste non modifiable la leve) ne l'est pas.
+                if "new UnsupportedOperationException" in texte:
                     erreurs.append(
                         f"[{theme}] {fichier.relative_to(racine)} leve encore "
                         "UnsupportedOperationException : solution incomplete."
@@ -608,12 +611,32 @@ def demos_de_depart(themes, racine):
     return entrees
 
 
+def filtrer_exercices(entrees, themes, exercices):
+    """Ne garde, pour les themes concernes, que les exercices demandes
+    (24/10/2026) : le theme rec est livre en deux series, REC1 (e01 a e05)
+    et REC2 (e06 a e10), a deux moments de l'annee. Un fichier hors d'un
+    package d'exercice (fascicule, ressources communes) passe toujours."""
+    if not exercices:
+        return entrees
+    garder = []
+    for source, destination in entrees:
+        parties = destination.parts
+        i = next((k for k, part in enumerate(parties) if part in themes), None)
+        if i is not None and i + 1 < len(parties) and parties[i + 1].startswith("e") \
+                and parties[i + 1] not in exercices:
+            continue
+        garder.append((source, destination))
+    return garder
+
+
 def livrer_module(code, entree, racine, sans_tests, args, depot=None):
     """Les deux archives d'un module : au debut, les enonces, le code des
     slides et le fascicule du module ; a la fin, les solutions et les demos
     completes. Memes controles que pour une seance."""
     themes = entree["themes"]
-    print(colore(f"Module {code}", VERT) + f" — themes : {', '.join(themes)}")
+    exercices = entree.get("exercices", [])
+    print(colore(f"Module {code}", VERT) + f" — themes : {', '.join(themes)}"
+          + (f" — exercices : {', '.join(exercices)}" if exercices else ""))
     for chemin in synchroniser_tests(themes, racine):
         print(f"  test recopie    {chemin}")
     erreurs, avertissements = controler(themes, racine, sans_tests)
@@ -629,7 +652,7 @@ def livrer_module(code, entree, racine, sans_tests, args, depot=None):
     faire_debut = args.enonces or not args.solutions
     faire_fin = args.solutions or not args.enonces
     if faire_debut:
-        entrees = collecter(themes, racine, solutions=False)
+        entrees = filtrer_exercices(collecter(themes, racine, solutions=False), themes, exercices)
         docs, absents = fascicules(themes, racine)
         entrees += docs
         entrees += demos_de_depart(themes, racine)
@@ -642,7 +665,7 @@ def livrer_module(code, entree, racine, sans_tests, args, depot=None):
             # le depot public recoit ce que contient l'archive de debut
             publier(entrees, depot, f"{entree['nom']} - debut du module")
     if faire_fin:
-        entrees = collecter(themes, racine, solutions=True)
+        entrees = filtrer_exercices(collecter(themes, racine, solutions=True), themes, exercices)
         sortie = racine / "livraisons" / f"{entree['nom']}_fin.zip"
         ecrire_archive(entrees, sortie)
         print(f"  {sortie.relative_to(racine)}  ({len(entrees)} fichiers)")

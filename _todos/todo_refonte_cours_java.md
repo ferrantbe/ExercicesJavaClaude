@@ -99,7 +99,15 @@ Une tranche livrée d'un bloc : fascicule Word, packages `exercices` et
 * [ ] **FX** — 8 exercices
 * [x] **FIC** — 3 exercices, 3 classes de test, fascicule de 5 pages
   * les tests ecrivent dans un dossier temporaire fourni par JUnit (`@TempDir`)
-* [ ] **REC** — 6 exercices récapitulatifs, un par question d'examen
+* [x] **REC** — 10 exercices en deux séries, fascicule de 23 pages, deck 16 (24/10/2026)
+  * série 1 (`REC.1` à `REC.5`) après JUN, série 2 (`REC.6` à `REC.10`) après FX1,
+    à faire chez soi pendant les semaines sans cours ; livrées par `livrer.py REC1`
+    et `livrer.py REC2` (clé `exercices` de `livraisons.json`)
+  * dans le recueil, avec squelettes : la décision de septembre (projets séparés,
+    tests non commentés) est reportée sur l'examen blanc ; `REC.5` et `REC.10`
+    sont sans squelette, comme `ABS.5`
+  * [ ] section REC du support de cours : à décider
+  * les points ci-dessous datent d'avant cette décision
   * **trois objectifs d'examen ne reposent que sur JUN** — B.1 et B.2 (écrire
     des classes de test) et C.2 (justifier les cas testés). Aucun autre
     exercice du recueil ne demande d'écrire un test
