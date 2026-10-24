@@ -147,6 +147,14 @@ GameHub est une plateforme de jeux rudimentaire, construite petit à petit au fi
 
 Là où un exercice isole une notion, GameHub vous oblige à la faire cohabiter avec tout ce que vous avez déjà écrit. C'est la situation que vous retrouverez à l'examen, et surtout dans tout projet réel.
 
+### Les tests de module et leurs badges
+
+Chaque module a, sur Moodle, un test : huit questions tirées au hasard parmi quinze. Après chaque réponse, vous voyez si elle est juste et, sinon, la partie du support à revoir. Le test est réussi à 6 sur 8, et vous pouvez le refaire autant de fois que vous le voulez : les questions changent d'une tentative à l'autre.
+
+Chaque test réussi vous donne un badge. Quatre badges d'étape marquent les grandes parties du cours, et un dernier, « Java, de bout en bout », la réussite des quatorze tests. Un tout premier badge, « Pied à l'étrier », vous accueille dès que vous avez téléchargé le projet de départ.
+
+Ces badges ne comptent pas dans la note. Ce sont des repères, pour voir où vous en êtes et ce qu'il vous reste à revoir : prenez-les comme un encouragement, à votre rythme.
+
 ### Ce support de cours
 
 Les slides accompagnent l'explication orale. Ce support reprend chaque notion en prose, avec le code formaté, module par module. C'est lui qu'il faut relire entre les séances.

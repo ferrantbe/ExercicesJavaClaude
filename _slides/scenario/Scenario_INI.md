@@ -354,6 +354,28 @@ pas tranché)⟧
 
 ---
 
+### 2.6b · Les tests de module et leurs badges
+
+**Source** ajoutée le 24/10/2026, à la demande de Frédéric, avec la même explication dans le support (INI §2). Images : trois badges de `_moodle/badges/` (POO, Fondations, ToutJava).
+
+**Slide**
+
+- Un test par module, sur Moodle : réussi à 6 sur 8
+- Tentatives illimitées ; les questions changent
+- Une erreur ? Le test dit quoi revoir
+- Un test réussi : un badge
+- Pas de note : un encouragement, à votre rythme
+
+**Note**
+
+Les tests de module sont sur Moodle, un par section : huit questions tirées au hasard parmi quinze, réussi à 6 sur 8, tentatives illimitées. Après chaque réponse, l'étudiant voit si elle est juste et, sinon, la section du support à revoir.
+
+Chaque test réussi donne un badge ; quatre badges d'étape et un badge final, « Java, de bout en bout », marquent le parcours. Un premier badge, « Pied à l'étrier », accueille ceux qui ont téléchargé le projet de départ.
+
+Insister sur le sens : les badges ne comptent pas dans la note. Ce sont des repères, et un encouragement à son rythme.
+
+---
+
 ### 2.7 · Le support imprimable
 
 **Source** nouvelle
